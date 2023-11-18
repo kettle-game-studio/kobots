@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://c8yfv7lq6vj61"]
+
+[ext_resource type="Script" path="res://assets/scripts/terminal/terminal.gd" id="1_dieug"]
+[ext_resource type="Shader" path="res://assets/scripts/terminal/terminal.gdshader" id="2_i0aep"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_hx2g1"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_qb21l"]
+viewport_path = NodePath("Eye/SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gbfos"]
+render_priority = 0
+shader = ExtResource("2_i0aep")
+shader_parameter/test = 1.5
+shader_parameter/camera_texture = SubResource("ViewportTexture_qb21l")
+
+[node name="Terminal" type="Node3D" node_paths=PackedStringArray("monitor")]
+script = ExtResource("1_dieug")
+monitor = NodePath("MeshInstance3D")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.178248, -0.0230174)
+size = Vector3(0.543208, 0.341282, 0.547482)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.47, 0, 0, 0, 0.39296, 0.257842, 0, -0.257842, 0.39296, 0, 0.544497, 0.0807027)
+mesh = SubResource("QuadMesh_hx2g1")
+surface_material_override/0 = SubResource("ShaderMaterial_gbfos")

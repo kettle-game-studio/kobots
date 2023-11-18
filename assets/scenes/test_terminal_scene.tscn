@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://v7kg0d4xvtgo"]
+
+[ext_resource type="Texture2D" uid="uid://dwi2n3slqlq64" path="res://icon.svg" id="1_tmyld"]
+[ext_resource type="PackedScene" uid="uid://cngonhlf7vi0f" path="res://assets/prefabs/robot.tscn" id="2_hxvsb"]
+[ext_resource type="PackedScene" uid="uid://c8yfv7lq6vj61" path="res://assets/prefabs/terminal.tscn" id="3_tdajj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gv6qq"]
+albedo_texture = ExtResource("1_tmyld")
+
+[sub_resource type="Environment" id="Environment_v8biw"]
+fog_enabled = true
+fog_light_color = Color(0.415686, 0.47451, 0.443137, 1)
+
+[node name="TestTerminalScene" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+material_override = SubResource("StandardMaterial3D_gv6qq")
+size = Vector3(6.21383, 0.168454, 7.61356)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_v8biw")
+
+[node name="Terminal" parent="." node_paths=PackedStringArray("robot") instance=ExtResource("3_tdajj")]
+transform = Transform3D(-0.688076, 0, 0.725639, 0, 1, 0, -0.725639, 0, -0.688076, -1.22686, -1.19209e-07, 2.23727)
+robot = NodePath("../Robot")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.588852, -0.165066, 0.791206, 0.0208546, 0.975494, 0.219034, -0.807972, 0.145479, -0.570979, -0.8486, 0.619583, 1.94047)
+
+[node name="Robot" parent="." instance=ExtResource("2_hxvsb")]
+transform = Transform3D(0.982581, -0.184939, 0.0182111, 0.173017, 0.874654, -0.45282, 0.0678169, 0.448083, 0.891417, 0.981214, -0.26414, 1.42732)
+
+[node name="Terminal2" parent="." node_paths=PackedStringArray("robot") instance=ExtResource("3_tdajj")]
+transform = Transform3D(-0.999984, 0, 0.00560248, 0, 1, 0, -0.00560248, 0, -0.999984, 0.821441, 0.0816374, 2.44249)
+robot = NodePath("../Robot2")
+
+[node name="Robot2" parent="." instance=ExtResource("2_hxvsb")]
+transform = Transform3D(-0.986585, -0.12328, 0.10701, -0.162822, 0.695903, -0.699435, 0.0117573, -0.707476, -0.70664, -1.429, 0.415315, -1.27755)
+
+[node name="Terminal3" parent="." node_paths=PackedStringArray("robot") instance=ExtResource("3_tdajj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.40383, 0, -2.74229)
+robot = NodePath("../Robot3")
+
+[node name="Robot3" parent="." instance=ExtResource("2_hxvsb")]
+transform = Transform3D(0.757474, 0, -0.652865, 0, 1, 0, 0.652865, 0, 0.757474, 1.93483, -0.0199592, -0.0963223)
