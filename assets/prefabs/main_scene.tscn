@@ -1,0 +1,117 @@
+[gd_scene load_steps=11 format=3 uid="uid://bb22o6htxbt80"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_gq0wv"]
+top_radius = 10.0
+bottom_radius = 10.0
+height = 10.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_803gt"]
+top_radius = 20.0
+bottom_radius = 20.0
+height = 10.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_tj5ad"]
+size = Vector3(30, 0.1, 20)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3cx4o"]
+size = Vector3(1, 3, 30)
+
+[sub_resource type="BoxMesh" id="BoxMesh_a8jwt"]
+size = Vector3(1, 3, 20)
+
+[sub_resource type="BoxMesh" id="BoxMesh_g6jjg"]
+size = Vector3(1, 3, 42)
+
+[sub_resource type="BoxMesh" id="BoxMesh_q6d2t"]
+size = Vector3(0.5, 2, 20)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jvifx"]
+size = Vector3(0.5, 2, 4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_h4j50"]
+size = Vector3(0.5, 2, 10)
+
+[sub_resource type="BoxMesh" id="BoxMesh_m8b15"]
+size = Vector3(20, 10, 30)
+
+[node name="MainScene" type="Node3D"]
+
+[node name="Walls" type="Node3D" parent="."]
+
+[node name="CenterRoom" type="CSGMesh3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.751, 0)
+mesh = SubResource("CylinderMesh_gq0wv")
+
+[node name="CenterRoom2" type="CSGMesh3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.751, 127.627)
+mesh = SubResource("CylinderMesh_803gt")
+
+[node name="FirstLevel" type="Node3D" parent="Walls"]
+
+[node name="Floor1" type="MeshInstance3D" parent="Walls/FirstLevel"]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 17.7105, -1.90735e-06, 17.6296)
+mesh = SubResource("BoxMesh_tj5ad")
+skeleton = NodePath("../..")
+
+[node name="Floor2" type="MeshInstance3D" parent="Walls/FirstLevel"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 31.2831, 0, 14.6538)
+mesh = SubResource("BoxMesh_tj5ad")
+skeleton = NodePath("../..")
+
+[node name="Floor3" type="MeshInstance3D" parent="Walls/FirstLevel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.3653, 0, 31.1509)
+mesh = SubResource("BoxMesh_tj5ad")
+skeleton = NodePath("../..")
+
+[node name="Floor4" type="MeshInstance3D" parent="Walls/FirstLevel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.1083, 0, 31.1509)
+mesh = SubResource("BoxMesh_tj5ad")
+skeleton = NodePath("../..")
+
+[node name="InnerWall1" type="CSGMesh3D" parent="Walls/FirstLevel"]
+transform = Transform3D(0.698228, 0, -0.715876, 0, 1, 0, 0.715876, 0, 0.698228, 10.6445, 1.50676, 10.5164)
+mesh = SubResource("BoxMesh_3cx4o")
+
+[node name="OuterWall2" type="CSGMesh3D" parent="Walls/FirstLevel"]
+transform = Transform3D(0.0232107, 0, -0.999731, 0, 1, 0, 0.999731, 0, 0.0232107, 31.1131, 1.50676, 0.0363263)
+mesh = SubResource("BoxMesh_a8jwt")
+
+[node name="OuterWall3" type="CSGMesh3D" parent="Walls/FirstLevel"]
+transform = Transform3D(0.999912, 0, 0.0132814, 0, 1, 0, -0.0132814, 0, 0.999912, 0.105263, 1.50676, 30.8572)
+mesh = SubResource("BoxMesh_a8jwt")
+
+[node name="OuterWall4" type="CSGMesh3D" parent="Walls/FirstLevel"]
+transform = Transform3D(0.00677176, 0, -0.999977, 0, 1, 0, 0.999977, 0, 0.00677176, 20.8482, 1.50676, 40.8813)
+mesh = SubResource("BoxMesh_g6jjg")
+
+[node name="OuterWall5" type="CSGMesh3D" parent="Walls/FirstLevel"]
+transform = Transform3D(-0.999999, 0, 0.0015011, 0, 1, 0, -0.0015011, 0, -0.999999, 41.242, 1.50676, 20.491)
+mesh = SubResource("BoxMesh_g6jjg")
+
+[node name="InnerWall" type="CSGMesh3D" parent="Walls/FirstLevel"]
+transform = Transform3D(-0.999999, 0, 0.0015011, 0, 1, 0, -0.0015011, 0, -0.999999, 31.1962, 1.05306, 10.5329)
+mesh = SubResource("BoxMesh_q6d2t")
+
+[node name="InnerWall2" type="CSGMesh3D" parent="Walls/FirstLevel"]
+transform = Transform3D(0.0215705, 0, -0.999767, 0, 1, 0, 0.999767, 0, 0.0215705, 32.8093, 1.05306, 20.2632)
+mesh = SubResource("BoxMesh_jvifx")
+
+[node name="InnerWall4" type="CSGMesh3D" parent="Walls/FirstLevel"]
+transform = Transform3D(0.0215705, 0, -0.999767, 0, 1, 0, 0.999767, 0, 0.0215705, 25.9944, 1.05306, 20.4102)
+mesh = SubResource("BoxMesh_h4j50")
+
+[node name="InnerWall3" type="CSGMesh3D" parent="Walls/FirstLevel"]
+transform = Transform3D(0.0215705, 0, -0.999767, 0, 1, 0, 0.999767, 0, 0.0215705, 38.852, 1.05306, 20.1328)
+mesh = SubResource("BoxMesh_jvifx")
+
+[node name="Backgound" type="CSGMesh3D" parent="Walls"]
+transform = Transform3D(0.42635, -0.0678019, -0.902013, 0.157055, 0.98759, 3.72529e-09, 0.890819, -0.141666, 0.431708, 39.6426, -13.4723, 55.6869)
+mesh = SubResource("BoxMesh_m8b15")
+
+[node name="Backgound2" type="CSGMesh3D" parent="Walls"]
+transform = Transform3D(-0.0756922, -0.0591536, -0.995375, 0, 0.998239, -0.0593238, 0.997131, -0.00449035, -0.0755589, 7.00271, -18.9486, 68.8676)
+mesh = SubResource("BoxMesh_m8b15")
+
+[node name="Backgound3" type="CSGMesh3D" parent="Walls"]
+transform = Transform3D(-0.557069, -0.153495, -0.816158, -0.26564, 0.964072, 0, 0.786835, 0.216804, -0.577829, 29.2917, -22.5829, 85.2775)
+mesh = SubResource("BoxMesh_m8b15")
