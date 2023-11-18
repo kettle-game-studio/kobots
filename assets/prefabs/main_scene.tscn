@@ -342,6 +342,6 @@ transform = Transform3D(-0.662698, 0, -0.748886, 0, 1, 0, 0.748886, 0, -0.662698
 robot = NodePath("../DefaultRobot")
 
 [node name="Door" parent="." instance=ExtResource("7_ggu3v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.81, 1.01628, 20.1342)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.81, 0.0495741, 20.1342)
 
 [connection signal="pressed" from="Button" to="Door" method="_on_button_pressed"]
