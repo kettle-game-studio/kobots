@@ -2,7 +2,7 @@
 extends Node3D
 class_name Terminal
 
-@export var robot: TestRobot
+@export var robot: RobotController
 @export var monitor: MeshInstance3D
 
 func _update_texture():

@@ -1,7 +1,9 @@
 shader_type spatial;
+render_mode unshaded;
 
 uniform sampler2D camera_texture : repeat_disable, filter_nearest;
 uniform float test;
+
 
 void fragment() {
 	float value = 0.9 + (sin((UV.y - TIME) * 400.0) + 1.0) * 0.5 * 0.1;

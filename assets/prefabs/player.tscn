@@ -10,10 +10,16 @@
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.928614, 0)
 shape = SubResource("CapsuleShape3D_vfrs6")
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Eye" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.47635, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Eye"]
+
+[node name="RayCast3D" type="RayCast3D" parent="Eye"]
+target_position = Vector3(0, 0, -1)
 
 [node name="Controller" type="Node" parent="." node_paths=PackedStringArray("player", "camera")]
 script = ExtResource("1_ktkwb")
 player = NodePath("..")
-camera = NodePath("../Camera3D")
+camera = NodePath("../Eye")
+enabled = true

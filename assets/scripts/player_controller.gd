@@ -1,13 +1,18 @@
 extends Node
 
 @export var player: CharacterBody3D
-@export var camera: Camera3D
+@export var camera: Node3D
+@export var raycast: RayCast3D
 
 @export var camera_speed: float = 0.01
 @export var walk_speed: float = 5
 @export var push_force: float = 100
 
+@export var enabled: bool = false
+
 func _physics_process(delta: float):
+	if !enabled: return
+	
 	walk(delta)
 	for index in player.get_slide_collision_count():
 		var collision = player.get_slide_collision(index)
@@ -17,6 +22,8 @@ func _physics_process(delta: float):
 			collider.apply_central_force(-vector * push_force)
 
 func _input(event: InputEvent):
+	if !enabled: return
+	
 	if event is InputEventMouseMotion:
 		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 			rotate_camera(event.relative)
@@ -30,7 +37,7 @@ func rotate_camera(vector: Vector2):
 	camera.rotation.x = clamp(camera.rotation.x - vector.y * camera_speed, -PI/2, PI/2)
 	player.rotate_y(-vector.x * camera_speed)
 
-func walk(delta: float):
+func walk(_delta: float):
 	var aim = player.get_global_transform().basis
 	
 	var forward = Input.get_axis("Down", "Up") * -aim.z

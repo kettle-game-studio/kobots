@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://c8yfv7lq6vj61"]
+[gd_scene load_steps=6 format=3 uid="uid://cv03cxb8jcsy8"]
 
 [ext_resource type="Script" path="res://assets/scripts/terminal/terminal.gd" id="1_dieug"]
 [ext_resource type="Shader" path="res://assets/scripts/terminal/terminal.gdshader" id="2_i0aep"]

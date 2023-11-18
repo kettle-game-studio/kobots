@@ -1,6 +1,5 @@
 # @tool
 extends Node3D
-class_name TestRobot
+class_name RobotController
 
-@export var camera: Camera3D
 @export var subViewport: SubViewport

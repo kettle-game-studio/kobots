@@ -24,7 +24,7 @@ func _process(_delta: float):
 				print("UNPRESS")
 				state = State.UNPRESSED
 
-func _physics_process(delta: float):
+func _physics_process(_delta: float):
 	if is_pressed():
 		on_pressed()
 	else:
