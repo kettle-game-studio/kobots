@@ -1,28 +1,35 @@
-[gd_scene load_steps=6 format=3 uid="uid://cv03cxb8jcsy8"]
+[gd_scene load_steps=7 format=3 uid="uid://cv03cxb8jcsy8"]
 
 [ext_resource type="Script" path="res://assets/scripts/terminal/terminal.gd" id="1_dieug"]
 [ext_resource type="Shader" path="res://assets/scripts/terminal/terminal.gdshader" id="2_i0aep"]
 
-[sub_resource type="QuadMesh" id="QuadMesh_hx2g1"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_8ayh5"]
+size = Vector3(1, 1.22594, 0.389785)
+
+[sub_resource type="QuadMesh" id="QuadMesh_gvps2"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_qb21l"]
 viewport_path = NodePath("Eye/SubViewport")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_gbfos"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ntlay"]
 render_priority = 0
 shader = ExtResource("2_i0aep")
-shader_parameter/test = 1.5
 shader_parameter/camera_texture = SubResource("ViewportTexture_qb21l")
 
-[node name="Terminal" type="Node3D" node_paths=PackedStringArray("monitor")]
+[node name="StaticBody3D" type="StaticBody3D" node_paths=PackedStringArray("monitor")]
 script = ExtResource("1_dieug")
 monitor = NodePath("MeshInstance3D")
 
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.926841, 0)
+shape = SubResource("BoxShape3D_8ayh5")
+
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.178248, -0.0230174)
-size = Vector3(0.543208, 0.341282, 0.547482)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.406338, -0.0230174)
+size = Vector3(0.919599, 0.808309, 0.547482)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.47, 0, 0, 0, 0.39296, 0.257842, 0, -0.257842, 0.39296, 0, 0.544497, 0.0807027)
-mesh = SubResource("QuadMesh_hx2g1")
-surface_material_override/0 = SubResource("ShaderMaterial_gbfos")
+transform = Transform3D(0.9, 0, 0, 0, 0.880745, 0.185169, 0, -0.185169, 0.880745, 0, 1.31913, 0.040892)
+mesh = SubResource("QuadMesh_gvps2")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_ntlay")

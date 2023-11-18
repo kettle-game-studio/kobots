@@ -18,8 +18,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.47635, 0)
 [node name="RayCast3D" type="RayCast3D" parent="Eye"]
 target_position = Vector3(0, 0, -1)
 
-[node name="Controller" type="Node" parent="." node_paths=PackedStringArray("player", "camera")]
+[node name="Controller" type="Node" parent="." node_paths=PackedStringArray("player", "camera", "raycast")]
 script = ExtResource("1_ktkwb")
 player = NodePath("..")
 camera = NodePath("../Eye")
+raycast = NodePath("../Eye/RayCast3D")
 enabled = true

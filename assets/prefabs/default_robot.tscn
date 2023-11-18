@@ -21,8 +21,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.47635, 0)
 script = ExtResource("2_3a4k1")
 player = NodePath("..")
 camera = NodePath("../Eye")
+camera_speed = null
+walk_speed = null
+push_force = null
+enabled = null
 
 [node name="SubViewport" type="SubViewport" parent="."]
+disable_3d = true
+handle_input_locally = false
+size = Vector2i(1024, 1024)
 
 [node name="Camera3D" type="Camera3D" parent="SubViewport" node_paths=PackedStringArray("target")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.47635, 0)

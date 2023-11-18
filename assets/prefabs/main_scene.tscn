@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://culmugojdlhn6" path="res://assets/models/perlin.jpg" id="1_jvbh5"]
 [ext_resource type="PackedScene" uid="uid://bh30fgjh4prch" path="res://assets/prefabs/player.tscn" id="2_a1gew"]
-[ext_resource type="PackedScene" uid="uid://cbnmfkaxsw4ki" path="res://assets/prefabs/box.tscn" id="3_ovb2d"]
+[ext_resource type="PackedScene" path="res://assets/prefabs/box.tscn" id="3_ovb2d"]
 [ext_resource type="PackedScene" uid="uid://pc3k2vyryge5" path="res://assets/prefabs/button.tscn" id="4_uysud"]
 [ext_resource type="PackedScene" uid="uid://dmtm7k1fhpmkj" path="res://assets/prefabs/default_robot.tscn" id="5_p2kbk"]
 [ext_resource type="PackedScene" uid="uid://cv03cxb8jcsy8" path="res://assets/prefabs/terminal.tscn" id="6_tshl4"]
@@ -331,10 +331,10 @@ environment = SubResource("Environment_x1m7w")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.8061, 0.076628, 15.9116)
 
 [node name="Player" parent="." instance=ExtResource("2_a1gew")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.52726, 14.3445, 5.05877)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.68853, 13.3965, 3.95913)
 
 [node name="DefaultRobot" parent="." instance=ExtResource("5_p2kbk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.5347, 0.0352378, 3.99137)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.5347, 0.0352378, 4.07489)
 
 [node name="Terminal" parent="." node_paths=PackedStringArray("robot") instance=ExtResource("6_tshl4")]
 transform = Transform3D(-0.662698, 0, -0.748886, 0, 1, 0, 0.748886, 0, -0.662698, 7.09039, 13.3394, 6.09772)

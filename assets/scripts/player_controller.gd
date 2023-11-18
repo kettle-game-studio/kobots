@@ -21,6 +21,13 @@ func _physics_process(delta: float):
 			var vector = (player.get_position() - collider.get_position()).normalized()
 			collider.apply_central_force(-vector * push_force)
 
+func _get_control():
+	if not raycast.is_colliding():
+		return
+	var collider = raycast.get_collider()
+	if collider is Terminal:
+		collider.enable()
+
 func _input(event: InputEvent):
 	if !enabled: return
 	
@@ -29,7 +36,9 @@ func _input(event: InputEvent):
 			rotate_camera(event.relative)
 	elif event is InputEventMouseButton:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	
+		if event.button_index == MOUSE_BUTTON_LEFT:
+			_get_control()
+
 	if Input.is_action_just_pressed("Escape"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 

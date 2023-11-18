@@ -22,3 +22,7 @@ func _ready():
 func _process(delta):
 	if not Engine.is_editor_hint(): return
 	_update_texture()
+
+func enable() -> bool:
+	push_warning("terminal enabled!!!")
+	return robot.activate()
