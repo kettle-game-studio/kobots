@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://pc3k2vyryge5"]
+
+[ext_resource type="Script" path="res://assets/scripts/button_controller.gd" id="1_h06np"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_yvq2n"]
+size = Vector3(1.2, 0.05, 1.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_hvb5w"]
+size = Vector3(1, 0.1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tnfjw"]
+albedo_color = Color(0.8, 0.0235294, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qxltt"]
+size = Vector3(1, 0.0941337, 1)
+
+[node name="Button" type="CSGMesh3D"]
+mesh = SubResource("BoxMesh_yvq2n")
+
+[node name="Button" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0459058, 0)
+mesh = SubResource("BoxMesh_hvb5w")
+material = SubResource("StandardMaterial3D_tnfjw")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.050797, 0)
+shape = SubResource("BoxShape3D_qxltt")
+
+[node name="Node" type="Node" parent="." node_paths=PackedStringArray("button", "area")]
+script = ExtResource("1_h06np")
+button = NodePath("..")
+area = NodePath("../Area3D")

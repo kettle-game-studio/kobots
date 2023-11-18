@@ -1,7 +1,9 @@
-[gd_scene load_steps=39 format=3 uid="uid://bb22o6htxbt80"]
+[gd_scene load_steps=38 format=3 uid="uid://bb22o6htxbt80"]
 
 [ext_resource type="Texture2D" uid="uid://culmugojdlhn6" path="res://assets/models/perlin.jpg" id="1_jvbh5"]
 [ext_resource type="PackedScene" uid="uid://bh30fgjh4prch" path="res://assets/prefabs/player.tscn" id="2_a1gew"]
+[ext_resource type="PackedScene" uid="uid://cbnmfkaxsw4ki" path="res://assets/prefabs/box.tscn" id="3_ovb2d"]
+[ext_resource type="PackedScene" uid="uid://pc3k2vyryge5" path="res://assets/prefabs/button.tscn" id="4_uysud"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_gq0wv"]
 top_radius = 10.0
@@ -108,13 +110,6 @@ background_mode = 1
 background_color = Color(0.27451, 0.368627, 0.501961, 1)
 fog_enabled = true
 fog_light_color = Color(0.27451, 0.368627, 0.501961, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_x7sem"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_73rl7"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3dwla"]
-albedo_color = Color(0.721569, 0.423529, 0.0117647, 1)
 
 [node name="MainScene" type="Node3D"]
 
@@ -331,15 +326,7 @@ environment = SubResource("Environment_x1m7w")
 [node name="Player" parent="." instance=ExtResource("2_a1gew")]
 transform = Transform3D(-0.99984, 0, 0.0178886, 0, 1, 0, -0.0178886, 0, -0.99984, 36.2708, 0.384163, 4.0709)
 
-[node name="Box" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.5137, 0.542296, 10.1184)
-axis_lock_angular_x = true
-axis_lock_angular_z = true
-mass = 20.0
+[node name="Box" parent="." instance=ExtResource("3_ovb2d")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Box"]
-shape = SubResource("BoxShape3D_x7sem")
-
-[node name="CSGMesh3D" type="CSGMesh3D" parent="Box"]
-mesh = SubResource("BoxMesh_73rl7")
-material = SubResource("StandardMaterial3D_3dwla")
+[node name="Button" parent="." instance=ExtResource("4_uysud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.8061, 0.076628, 15.9116)
