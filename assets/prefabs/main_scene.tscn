@@ -351,7 +351,7 @@ transform = Transform3D(-0.662698, 0, -0.748886, 0, 1, 0, 0.748886, 0, -0.662698
 robot = NodePath("../DefaultRobot")
 
 [node name="Door" parent="." instance=ExtResource("7_ggu3v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.81, 1.01628, 20.1342)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.81, 0.0495741, 20.1342)
 
 [node name="Terminal2" parent="." node_paths=PackedStringArray("robot") instance=ExtResource("6_tshl4")]
 transform = Transform3D(0.0783721, 0, 0.996924, 0, 1, 0, -0.996924, 0, 0.0783721, 15.2246, -0.0318289, 30.7722)
