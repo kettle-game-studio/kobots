@@ -21,11 +21,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.47635, 0)
 [node name="RayCast3D" type="RayCast3D" parent="Eye"]
 target_position = Vector3(0, 0, -1)
 
-[node name="Controller" type="Node" parent="." node_paths=PackedStringArray("player", "camera", "raycast")]
+[node name="Controller" type="Node" parent="." node_paths=PackedStringArray("player", "camera", "raycast", "robot_controller")]
 script = ExtResource("2_3a4k1")
 player = NodePath("..")
 camera = NodePath("../Eye")
 raycast = NodePath("../Eye/RayCast3D")
+robot_controller = NodePath("..")
 push_force = 200.0
 
 [node name="SubViewport" type="SubViewport" parent="."]

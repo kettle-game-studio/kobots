@@ -17,7 +17,7 @@ render_priority = 0
 shader = ExtResource("2_i0aep")
 shader_parameter/camera_texture = SubResource("ViewportTexture_qb21l")
 
-[node name="StaticBody3D" type="StaticBody3D" node_paths=PackedStringArray("monitor")]
+[node name="Terminal" type="StaticBody3D" node_paths=PackedStringArray("monitor")]
 script = ExtResource("1_dieug")
 monitor = NodePath("MeshInstance3D")
 

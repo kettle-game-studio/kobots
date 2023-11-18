@@ -4,6 +4,7 @@ class_name PlayerController
 @export var player: CharacterBody3D
 @export var camera: Node3D
 @export var raycast: RayCast3D
+@export var robot_controller: RobotController
 
 @export var camera_speed: float = 0.01
 @export var walk_speed: float = 5
@@ -27,7 +28,7 @@ func _get_control():
 		return
 	var collider = raycast.get_collider()
 	if collider is Terminal:
-		if collider.enable():
+		if collider.enable(self):
 			enabled = false
 
 func _input(event: InputEvent):
@@ -43,19 +44,27 @@ func _input(event: InputEvent):
 
 	if Input.is_action_just_pressed("Escape"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	
+	if Input.is_action_just_pressed("ExitRobot"):
+		if robot_controller != null:
+			robot_controller._disactivate()
 
 func rotate_camera(vector: Vector2):
 	camera.rotation.x = clamp(camera.rotation.x - vector.y * camera_speed, -PI/2, PI/2)
 	player.rotate_y(-vector.x * camera_speed)
 
-func walk(_delta: float):
+func walk(delta: float):
 	var aim = player.get_global_transform().basis
+	
+	var y_velocity = player.velocity.y - 9.8 * delta
 	
 	var forward = Input.get_axis("Down", "Up") * -aim.z
 	var right = Input.get_axis("Left", "Right") * aim.x
 	
 	var direction: Vector3 = (forward + right).normalized()
+	# var 
 	
 	player.velocity = direction * walk_speed
+	player.velocity.y = y_velocity
 	player.move_and_slide()
 
