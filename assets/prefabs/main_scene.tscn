@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://culmugojdlhn6" path="res://assets/models/perlin.jpg" id="1_jvbh5"]
 [ext_resource type="PackedScene" uid="uid://bh30fgjh4prch" path="res://assets/prefabs/player.tscn" id="2_a1gew"]
-[ext_resource type="PackedScene" path="res://assets/prefabs/box.tscn" id="3_ovb2d"]
+[ext_resource type="PackedScene" uid="uid://cbnmfkaxsw4ki" path="res://assets/prefabs/box.tscn" id="3_ovb2d"]
 [ext_resource type="PackedScene" uid="uid://pc3k2vyryge5" path="res://assets/prefabs/button.tscn" id="4_uysud"]
 [ext_resource type="PackedScene" uid="uid://dmtm7k1fhpmkj" path="res://assets/prefabs/default_robot.tscn" id="5_p2kbk"]
 [ext_resource type="PackedScene" uid="uid://cv03cxb8jcsy8" path="res://assets/prefabs/terminal.tscn" id="6_tshl4"]

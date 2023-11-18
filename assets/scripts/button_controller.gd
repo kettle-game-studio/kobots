@@ -1,13 +1,20 @@
 extends Node
 
-enum State {UNPRESSED, PRESSING, UNPRESSING, PRESSED}
+enum State {UNPRESSED, PRESSING, UNPRESSING, PRESSED, ALWAYS_PRESSED}
 
 @export var button: CSGMesh3D
 @export var area: Area3D
 @export var press_seconds: float = 0.5
 
+@export var pressed_albedo: Color
+@export var unpressed_albedo: Color
+
 var state: State = State.UNPRESSED
 var pressiness = 0
+
+func _ready():
+	button.material = button.material.duplicate()
+	button.material.albedo_color = unpressed_albedo
 
 func _process(_delta: float):
 	match state:
@@ -16,12 +23,14 @@ func _process(_delta: float):
 			if pressiness >= 1:
 				pressiness = 1
 				print("PRESS")
+				button.material.albedo_color = pressed_albedo
 				state = State.PRESSED
 		State.UNPRESSING:
 			pressiness -= _delta * 1 / press_seconds
 			if pressiness <= 0:
 				pressiness = 0
 				print("UNPRESS")
+				button.material.albedo_color = unpressed_albedo
 				state = State.UNPRESSED
 
 func _physics_process(_delta: float):

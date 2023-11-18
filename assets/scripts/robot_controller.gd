@@ -3,21 +3,20 @@ extends Node3D
 class_name RobotController
 
 @export var subViewport: SubViewport
-
-var _activated = false
+@export var player_controller: PlayerController
 
 func _ready():
 	_disactivate()
 
 func _disactivate():
 	subViewport.disable_3d = true
-	_activated = false
+	player_controller.enabled = false
 
 func activate() -> bool:
-	if _activated:
+	if player_controller.enabled:
 		return false
 	push_warning("robot enabled!!!")
-	_activated = true
+	player_controller.enabled = true
 	subViewport.disable_3d = false
 	return true
 

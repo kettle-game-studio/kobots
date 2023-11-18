@@ -1,4 +1,5 @@
 extends Node
+class_name PlayerController
 
 @export var player: CharacterBody3D
 @export var camera: Node3D
@@ -22,11 +23,12 @@ func _physics_process(delta: float):
 			collider.apply_central_force(-vector * push_force)
 
 func _get_control():
-	if not raycast.is_colliding():
+	if !raycast.is_colliding():
 		return
 	var collider = raycast.get_collider()
 	if collider is Terminal:
-		collider.enable()
+		if collider.enable():
+			enabled = false
 
 func _input(event: InputEvent):
 	if !enabled: return

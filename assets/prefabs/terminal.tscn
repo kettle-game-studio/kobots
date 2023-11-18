@@ -7,6 +7,7 @@
 size = Vector3(1, 1.22594, 0.389785)
 
 [sub_resource type="QuadMesh" id="QuadMesh_gvps2"]
+size = Vector2(1.6, 1)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_qb21l"]
 viewport_path = NodePath("Eye/SubViewport")

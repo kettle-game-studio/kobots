@@ -28,7 +28,9 @@ material = SubResource("StandardMaterial3D_tnfjw")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.050797, 0)
 shape = SubResource("BoxShape3D_qxltt")
 
-[node name="Node" type="Node" parent="." node_paths=PackedStringArray("button", "area")]
+[node name="Controller" type="Node" parent="." node_paths=PackedStringArray("button", "area")]
 script = ExtResource("1_h06np")
-button = NodePath("..")
+button = NodePath("../Button")
 area = NodePath("../Area3D")
+pressed_albedo = Color(0.298039, 0, 0.0980392, 1)
+unpressed_albedo = Color(1, 0, 0, 1)
