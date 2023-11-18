@@ -14,8 +14,13 @@ albedo_color = Color(0.8, 0.0235294, 0, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_qxltt"]
 size = Vector3(1, 0.0941337, 1)
 
-[node name="Button" type="CSGMesh3D"]
+[node name="Button" type="CSGMesh3D" node_paths=PackedStringArray("button", "area")]
 mesh = SubResource("BoxMesh_yvq2n")
+script = ExtResource("1_h06np")
+button = NodePath("Button")
+area = NodePath("Area3D")
+pressed_albedo = Color(0.396078, 0, 0, 1)
+unpressed_albedo = Color(1, 0, 0, 1)
 
 [node name="Button" type="CSGMesh3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0459058, 0)
@@ -27,10 +32,3 @@ material = SubResource("StandardMaterial3D_tnfjw")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.050797, 0)
 shape = SubResource("BoxShape3D_qxltt")
-
-[node name="Controller" type="Node" parent="." node_paths=PackedStringArray("button", "area")]
-script = ExtResource("1_h06np")
-button = NodePath("../Button")
-area = NodePath("../Area3D")
-pressed_albedo = Color(0.298039, 0, 0.0980392, 1)
-unpressed_albedo = Color(1, 0, 0, 1)
