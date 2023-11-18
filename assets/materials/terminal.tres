@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://b68bqg0w8xtvc"]
+
+[ext_resource type="Shader" path="res://assets/scripts/terminal/terminal.gdshader" id="1_ljjy6"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_qb21l"]
+viewport_path = NodePath("Eye/SubViewport")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_ljjy6")
+shader_parameter/camera_texture = SubResource("ViewportTexture_qb21l")

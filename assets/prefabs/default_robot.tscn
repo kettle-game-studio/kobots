@@ -1,10 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://dmtm7k1fhpmkj"]
+[gd_scene load_steps=6 format=3 uid="uid://dmtm7k1fhpmkj"]
 
 [ext_resource type="Script" path="res://assets/scripts/robot_controller.gd" id="1_mbruf"]
 [ext_resource type="Script" path="res://assets/scripts/player_controller.gd" id="2_3a4k1"]
 [ext_resource type="Script" path="res://assets/scripts/teleportator.gd" id="3_hwn1f"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6g3en"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_te3dc"]
+height = 1.0
 
 [node name="DefaultRobot" type="CharacterBody3D" node_paths=PackedStringArray("subViewport", "player_controller")]
 script = ExtResource("1_mbruf")
@@ -33,8 +36,13 @@ push_force = 200.0
 disable_3d = true
 handle_input_locally = false
 size = Vector2i(1024, 640)
+render_target_clear_mode = 2
 
 [node name="Camera3D" type="Camera3D" parent="SubViewport" node_paths=PackedStringArray("target")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.47635, 0)
 script = ExtResource("3_hwn1f")
 target = NodePath("../../Eye")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.480839, 0)
+mesh = SubResource("CylinderMesh_te3dc")
