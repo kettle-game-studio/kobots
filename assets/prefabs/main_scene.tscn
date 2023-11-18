@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://bb22o6htxbt80"]
+[gd_scene load_steps=42 format=3 uid="uid://bb22o6htxbt80"]
 
 [ext_resource type="Texture2D" uid="uid://culmugojdlhn6" path="res://assets/models/perlin.jpg" id="1_jvbh5"]
 [ext_resource type="PackedScene" uid="uid://bh30fgjh4prch" path="res://assets/prefabs/player.tscn" id="2_a1gew"]
@@ -12,6 +12,10 @@
 top_radius = 10.0
 bottom_radius = 10.0
 height = 100.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_80rhe"]
+height = 100.004
+radius = 10.0227
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rhoa8"]
 albedo_texture = ExtResource("1_jvbh5")
@@ -121,6 +125,11 @@ fog_light_color = Color(0.27451, 0.368627, 0.501961, 1)
 [node name="CenterRoom" type="CSGMesh3D" parent="Geometry"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -36.6288, 0)
 mesh = SubResource("CylinderMesh_gq0wv")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Geometry/CenterRoom"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/CenterRoom/StaticBody3D"]
+shape = SubResource("CylinderShape3D_80rhe")
 
 [node name="FirstLevel" type="Node3D" parent="Geometry"]
 
@@ -343,5 +352,12 @@ robot = NodePath("../DefaultRobot")
 
 [node name="Door" parent="." instance=ExtResource("7_ggu3v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.81, 0.0495741, 20.1342)
+
+[node name="Terminal2" parent="." node_paths=PackedStringArray("robot") instance=ExtResource("6_tshl4")]
+transform = Transform3D(0.0783721, 0, 0.996924, 0, 1, 0, -0.996924, 0, 0.0783721, 15.2246, -0.0318289, 30.7722)
+robot = NodePath("../DefaultRobot2")
+
+[node name="DefaultRobot2" parent="." instance=ExtResource("5_p2kbk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 30)
 
 [connection signal="pressed" from="Button" to="Door" method="_on_button_pressed"]

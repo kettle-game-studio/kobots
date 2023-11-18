@@ -49,6 +49,8 @@ func is_pressed() -> bool:
 	for body in area.get_overlapping_bodies():
 		if body is RigidBody3D:
 			return true
+		if body is CharacterBody3D:
+			return true
 	return false
 
 func on_pressed():
