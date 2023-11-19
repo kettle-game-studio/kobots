@@ -35,3 +35,4 @@ func check_signal_status():
 			if s.has_method("freeze_as_activated"):
 				s.freeze_as_activated()
 
+
