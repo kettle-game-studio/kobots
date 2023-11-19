@@ -1,0 +1,47 @@
+[gd_scene load_steps=9 format=3 uid="uid://d27stf6dexrbe"]
+
+[ext_resource type="Material" uid="uid://dvuut3uiixvu3" path="res://assets/materials/laser_mat.tres" id="1_44sue"]
+[ext_resource type="Script" path="res://assets/scripts/laser.gd" id="1_yl67h"]
+[ext_resource type="Material" uid="uid://dairncnrblduy" path="res://assets/materials/laser_particle_mat.tres" id="3_t4j1f"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_0slpg"]
+top_radius = 0.01
+bottom_radius = 0.01
+height = 1.0
+
+[sub_resource type="Curve" id="Curve_xjkxg"]
+_data = [Vector2(0, 0.505263), 0.0, 0.0, 0, 0, Vector2(0.25463, 1), 0.0, 0.0, 0, 0, Vector2(0.976852, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_wif1l"]
+curve = SubResource("Curve_xjkxg")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bmfnq"]
+emission_shape = 1
+emission_sphere_radius = 0.02
+direction = Vector3(0, 1, 0)
+spread = 90.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 0.5
+initial_velocity_max = 1.0
+scale_curve = SubResource("CurveTexture_wif1l")
+
+[sub_resource type="QuadMesh" id="QuadMesh_jony3"]
+size = Vector2(0.02, 0.02)
+
+[node name="Laser" type="RayCast3D"]
+target_position = Vector3(0, 0, -1)
+script = ExtResource("1_yl67h")
+
+[node name="BeamMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.5)
+mesh = SubResource("CylinderMesh_0slpg")
+surface_material_override/0 = ExtResource("1_44sue")
+
+[node name="EndParticles" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 2.18557e-08, -1)
+material_override = ExtResource("3_t4j1f")
+amount = 25
+lifetime = 0.2
+process_material = SubResource("ParticleProcessMaterial_bmfnq")
+draw_pass_1 = SubResource("QuadMesh_jony3")
