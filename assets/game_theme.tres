@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://p08pj8vk2hog"]
+
+[ext_resource type="FontFile" uid="uid://bykrqdo4ny417" path="res://assets/fonts/gost.ttf" id="1_5t30t"]
+
+[resource]
+RichTextLabel/fonts/normal_font = ExtResource("1_5t30t")
