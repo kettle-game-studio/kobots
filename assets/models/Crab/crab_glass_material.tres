@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://de5noygpwpb2d"]
+
+[ext_resource type="Shader" path="res://assets/scripts/crab/crab_glass.gdshader" id="1_wj2r4"]
+[ext_resource type="Texture2D" uid="uid://cjssju6ani202" path="res://assets/models/Crab/CrabAdd.png" id="2_lrmjj"]
+[ext_resource type="Texture2D" uid="uid://cd4o1l2dmvreh" path="res://assets/models/Crab/CrabLight.png" id="4_c1bmx"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_wj2r4")
+shader_parameter/color = Color(0, 0.756863, 0.317647, 1)
+shader_parameter/enable = false
+shader_parameter/add_texture = ExtResource("2_lrmjj")
+shader_parameter/emission_texture = ExtResource("4_c1bmx")
