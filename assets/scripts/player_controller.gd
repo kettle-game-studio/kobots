@@ -10,6 +10,9 @@ class_name PlayerController
 @export var walk_speed: float = 5
 @export var push_force: float = 2
 
+@export var flight: bool = false
+@export var flight_speed: float = 5
+
 enum State { ENABLED, DISABLED }
 @export var state: State = State.DISABLED
 
@@ -21,14 +24,14 @@ var enabled: bool :
 			
 
 func _physics_process(delta: float):
-	if !enabled: return
-	
 	walk(delta)
+	
+	if !enabled: return
 	for index in player.get_slide_collision_count():
 		var collision = player.get_slide_collision(index)
 		var collider = collision.get_collider()
-		if collider is RigidBody3D:
-			var vector = (player.get_position() - collider.get_position()).normalized()
+		if collider is Box:
+			var vector = (player.get_global_position() - collider.get_global_position()).normalized()
 			collider.linear_velocity = -vector * push_force
 
 func disactivate():
@@ -66,9 +69,20 @@ func rotate_camera(vector: Vector2):
 	player.rotate_y(-vector.x * camera_speed)
 
 func walk(delta: float):
+	if !enabled:
+		if !flight:
+			var y_velocity = player.velocity.y - 9.8 * delta
+			player.velocity.y = y_velocity
+			player.move_and_slide()
+		return
+		
 	var aim = player.get_global_transform().basis
 	
-	var y_velocity = player.velocity.y - 9.8 * delta
+	var y_velocity = 0
+	if flight:
+		y_velocity = Input.get_axis("Descend", "Fly") * flight_speed
+	else:
+		y_velocity = player.velocity.y - 9.8 * delta
 	
 	var forward = Input.get_axis("Down", "Up") * -aim.z
 	var right = Input.get_axis("Left", "Right") * aim.x

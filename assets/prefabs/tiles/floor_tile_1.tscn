@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://cf24rsq3p2ei1"]
+
+[ext_resource type="Texture2D" uid="uid://culmugojdlhn6" path="res://assets/models/perlin.jpg" id="1_6kkqe"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p48tr"]
+albedo_texture = ExtResource("1_6kkqe")
+
+[sub_resource type="BoxMesh" id="BoxMesh_xmvfl"]
+size = Vector3(5, 0.1, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o1h7f"]
+size = Vector3(5, 0.1, 5)
+
+[node name="FloorTile1" type="Node3D"]
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+material_override = SubResource("StandardMaterial3D_p48tr")
+mesh = SubResource("BoxMesh_xmvfl")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_o1h7f")

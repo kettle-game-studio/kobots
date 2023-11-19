@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://djpkb7s0oa4fu"]
+
+[ext_resource type="Script" path="res://assets/scripts/robot_controller.gd" id="1_dgrjw"]
+[ext_resource type="Script" path="res://assets/scripts/player_controller.gd" id="2_qh0xa"]
+[ext_resource type="Script" path="res://assets/scripts/teleportator.gd" id="4_rs2ja"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6g3en"]
+radius = 0.383986
+height = 0.953212
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_te3dc"]
+top_radius = 0.2
+bottom_radius = 0.2
+height = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l2q21"]
+albedo_color = Color(0.4, 0.247059, 0.960784, 1)
+
+[node name="FlyingRobot" type="CharacterBody3D" node_paths=PackedStringArray("subViewport", "player_controller")]
+motion_mode = 1
+script = ExtResource("1_dgrjw")
+subViewport = NodePath("SubViewport")
+player_controller = NodePath("Controller")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.281486, 0)
+shape = SubResource("CapsuleShape3D_6g3en")
+
+[node name="Eye" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.475215, -0.181838)
+
+[node name="RayCast3D" type="RayCast3D" parent="Eye"]
+target_position = Vector3(0, 0, -1)
+collision_mask = 7
+
+[node name="Controller" type="Node" parent="." node_paths=PackedStringArray("player", "camera", "raycast", "robot_controller")]
+script = ExtResource("2_qh0xa")
+player = NodePath("..")
+camera = NodePath("../Eye")
+raycast = NodePath("../Eye/RayCast3D")
+robot_controller = NodePath("..")
+flight = true
+
+[node name="SubViewport" type="SubViewport" parent="."]
+disable_3d = true
+handle_input_locally = false
+size = Vector2i(1024, 640)
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport" node_paths=PackedStringArray("target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.475215, -0.181838)
+script = ExtResource("4_rs2ja")
+target = NodePath("../../Eye")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(1.91069e-15, -4.37114e-08, 1, -1, -4.37114e-08, 0, 4.37114e-08, -1, -4.37114e-08, -0.00551436, 0.480766, 0.130158)
+mesh = SubResource("CylinderMesh_te3dc")
+material = SubResource("StandardMaterial3D_l2q21")
