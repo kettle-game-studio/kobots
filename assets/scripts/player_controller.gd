@@ -18,10 +18,14 @@ enum State { ENABLED, DISABLED }
 
 var other: Object = null
 
+var is_rotationg = false
+var rotating_timer = 0
+
+
 var enabled: bool :
 	get:
 		return state == State.ENABLED
-			
+
 
 func _physics_process(delta: float):
 	walk(delta)
@@ -49,7 +53,7 @@ func _get_control():
 
 func _input(event: InputEvent):
 	if !enabled: return
-	
+
 	if event is InputEventMouseMotion:
 		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 			rotate_camera(event.relative)
@@ -66,7 +70,10 @@ func _input(event: InputEvent):
 		_get_control()
 
 func rotate_camera(vector: Vector2):
-	camera.rotation.x = clamp(camera.rotation.x - vector.y * camera_speed, -PI/2, PI/2)
+	self.is_rotationg = true
+	self.rotating_timer = 0.02
+	var velocity = vector.y * camera_speed
+	camera.rotation.x = clamp(camera.rotation.x - velocity, -PI/2, PI/2)
 	player.rotate_y(-vector.x * camera_speed)
 
 func walk(delta: float):
@@ -97,6 +104,13 @@ func walk(delta: float):
 	player.velocity = direction * walk_speed
 	player.velocity.y = y_velocity
 	player.move_and_slide()
+
+func _process(delta):
+	if self.rotating_timer <= 0:
+		self.rotating_timer = 0
+		self.is_rotationg = 0
+	else:
+		self.rotating_timer -= delta
 
 func disable():
 	state = State.DISABLED
