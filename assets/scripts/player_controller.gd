@@ -10,7 +10,7 @@ class_name PlayerController
 @export var walk_speed: float = 5
 @export var push_force: float = 100
 
-enum State { ENABLED, DISABLED, CONTROLLED_BY_OTHER }
+enum State { ENABLED, DISABLED }
 @export var state: State = State.DISABLED
 
 var other: Object = null
@@ -31,6 +31,10 @@ func _physics_process(delta: float):
 			var vector = (player.get_position() - collider.get_position()).normalized()
 			collider.apply_central_force(-vector * push_force)
 
+func disactivate():
+	if robot_controller != null:
+		robot_controller._disactivate()
+
 func _get_control():
 	if !raycast.is_colliding():
 		return
@@ -38,6 +42,8 @@ func _get_control():
 	if collider is Terminal:
 		if collider.enable(self):
 			disable()
+		else:
+			print("Something failed")
 
 func _input(event: InputEvent):
 	if !enabled: return
@@ -52,8 +58,7 @@ func _input(event: InputEvent):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
 	if Input.is_action_just_pressed("QuitRobot"):
-		if robot_controller != null:
-			robot_controller._disactivate()
+		disactivate()
 	
 	if Input.is_action_just_pressed("EnterRobot"):
 		_get_control()
@@ -80,6 +85,9 @@ func walk(delta: float):
 func disable():
 	state = State.DISABLED
 
-func enable():
+func enable_instantly():
+	state = State.ENABLED
+	
+func enable_next_frame():
 	await get_tree().process_frame
 	state = State.ENABLED

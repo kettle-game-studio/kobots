@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b06ku0w7nydkk"]
+
+[ext_resource type="Script" path="res://assets/scripts/power_line.gd" id="1_1gse0"]
+
+[node name="PowerLine" type="Node3D"]
+script = ExtResource("1_1gse0")
+powered_color = Color(0, 0.933333, 0.807843, 1)
+unpowered_color = Color(0, 0.376471, 0.4, 1)

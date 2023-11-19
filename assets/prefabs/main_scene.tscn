@@ -1,9 +1,10 @@
-[gd_scene load_steps=42 format=3 uid="uid://bb22o6htxbt80"]
+[gd_scene load_steps=46 format=3 uid="uid://bb22o6htxbt80"]
 
 [ext_resource type="Texture2D" uid="uid://culmugojdlhn6" path="res://assets/models/perlin.jpg" id="1_jvbh5"]
 [ext_resource type="PackedScene" uid="uid://bh30fgjh4prch" path="res://assets/prefabs/player.tscn" id="2_a1gew"]
 [ext_resource type="PackedScene" uid="uid://cbnmfkaxsw4ki" path="res://assets/prefabs/box.tscn" id="3_ovb2d"]
 [ext_resource type="PackedScene" uid="uid://pc3k2vyryge5" path="res://assets/prefabs/button.tscn" id="4_uysud"]
+[ext_resource type="PackedScene" uid="uid://b06ku0w7nydkk" path="res://assets/prefabs/power_line.tscn" id="5_68iw1"]
 [ext_resource type="PackedScene" uid="uid://dmtm7k1fhpmkj" path="res://assets/prefabs/default_robot.tscn" id="5_p2kbk"]
 [ext_resource type="PackedScene" uid="uid://cv03cxb8jcsy8" path="res://assets/prefabs/terminal.tscn" id="6_tshl4"]
 [ext_resource type="PackedScene" uid="uid://dcjw51pfs7v86" path="res://assets/prefabs/door.tscn" id="7_ggu3v"]
@@ -118,6 +119,14 @@ background_color = Color(0.27451, 0.368627, 0.501961, 1)
 fog_enabled = true
 fog_light_color = Color(0.27451, 0.368627, 0.501961, 1)
 
+[sub_resource type="QuadMesh" id="QuadMesh_43ypa"]
+size = Vector2(0.1, 7)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kbvu8"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_eyqky"]
+size = Vector2(0.1, 5)
+
 [node name="MainScene" type="Node3D"]
 
 [node name="Geometry" type="Node3D" parent="."]
@@ -146,7 +155,7 @@ mesh = SubResource("BoxMesh_tj5ad")
 skeleton = NodePath("../..")
 
 [node name="Floor3" type="MeshInstance3D" parent="Geometry/FirstLevel"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.3653, 0.15059, 31.1509)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.365, 0.1, 31.151)
 material_override = SubResource("StandardMaterial3D_hfdn3")
 mesh = SubResource("BoxMesh_tj5ad")
 skeleton = NodePath("../..")
@@ -347,10 +356,18 @@ robot = NodePath("../FirstLevelGameplay/Room1/DefaultRobot")
 [node name="Room1" type="Node3D" parent="FirstLevelGameplay"]
 
 [node name="Button" parent="FirstLevelGameplay/Room1" instance=ExtResource("4_uysud")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.8061, 0.076628, 15.9116)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.8934, 0.076628, 10.2822)
+
+[node name="PowerLine" parent="FirstLevelGameplay/Room1" instance=ExtResource("5_68iw1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.8934, 0.076628, 15.9116)
+
+[node name="Line1" type="CSGMesh3D" parent="FirstLevelGameplay/Room1/PowerLine"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -2.23517e-08, -0.418453)
+mesh = SubResource("QuadMesh_43ypa")
+material = SubResource("StandardMaterial3D_kbvu8")
 
 [node name="DefaultRobot" parent="FirstLevelGameplay/Room1" instance=ExtResource("5_p2kbk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.5347, 0.0352378, 23.6621)
+transform = Transform3D(-0.999119, 0, -0.0419628, 0, 1, 0, 0.0419628, 0, -0.999119, 35.9306, 0.0352378, 4.89633)
 
 [node name="Door" parent="FirstLevelGameplay/Room1" instance=ExtResource("7_ggu3v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.81, 0.0495741, 20.1342)
@@ -364,16 +381,51 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.7748, 0.542296, 26.1839)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.2736, 1.02063, 37.0218)
 
 [node name="Button" parent="FirstLevelGameplay/Room2" instance=ExtResource("4_uysud")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.2981, 0.197815, 26.0404)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.2981, 0.197815, 24.5897)
+
+[node name="PowerLine" parent="FirstLevelGameplay/Room2" instance=ExtResource("5_68iw1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.2981, 0.197815, 24.5897)
+
+[node name="Line" type="CSGMesh3D" parent="FirstLevelGameplay/Room2/PowerLine"]
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, -3.44987, 0.0141174, -0.0634136)
+mesh = SubResource("QuadMesh_eyqky")
+material = SubResource("StandardMaterial3D_kbvu8")
+
+[node name="Line2" type="CSGMesh3D" parent="FirstLevelGameplay/Room2/PowerLine"]
+transform = Transform3D(-1, 8.74228e-08, 3.82137e-15, 0, -4.37114e-08, 1, 8.74228e-08, 1, 4.37114e-08, -5.87906, 0.0141174, 2.44183)
+mesh = SubResource("QuadMesh_eyqky")
+material = SubResource("StandardMaterial3D_kbvu8")
 
 [node name="Button2" parent="FirstLevelGameplay/Room2" instance=ExtResource("4_uysud")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.2981, 0.197815, 31.1085)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.2981, 0.197815, 30.4291)
+
+[node name="PowerLine2" parent="FirstLevelGameplay/Room2" instance=ExtResource("5_68iw1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.2981, 0.197815, 24.5897)
+
+[node name="Line" type="CSGMesh3D" parent="FirstLevelGameplay/Room2/PowerLine2"]
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, -3.44987, 0.0141174, 5.8113)
+mesh = SubResource("QuadMesh_eyqky")
+material = SubResource("StandardMaterial3D_kbvu8")
 
 [node name="Button3" parent="FirstLevelGameplay/Room2" instance=ExtResource("4_uysud")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.2981, 0.197815, 36.4498)
 
+[node name="PowerLine3" parent="FirstLevelGameplay/Room2" instance=ExtResource("5_68iw1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.2981, 0.197815, 36.6311)
+
+[node name="Line" type="CSGMesh3D" parent="FirstLevelGameplay/Room2/PowerLine3"]
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, -3.44987, 0.0141174, -0.0634136)
+mesh = SubResource("QuadMesh_eyqky")
+material = SubResource("StandardMaterial3D_kbvu8")
+
+[node name="Line2" type="CSGMesh3D" parent="FirstLevelGameplay/Room2/PowerLine3"]
+transform = Transform3D(-1, 8.74228e-08, 3.82137e-15, 0, -4.37114e-08, 1, 8.74228e-08, 1, 4.37114e-08, -5.87906, 0.0141176, -2.55142)
+mesh = SubResource("QuadMesh_eyqky")
+material = SubResource("StandardMaterial3D_kbvu8")
+
 [node name="Door" parent="FirstLevelGameplay/Room2" instance=ExtResource("7_ggu3v")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 21.3132, 0.0495741, 30.3932)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 21.313, 0.0760306, 30.393)
+required_signals = 3
 
 [node name="Terminal2" parent="FirstLevelGameplay" node_paths=PackedStringArray("robot") instance=ExtResource("6_tshl4")]
 transform = Transform3D(0.0783721, 0, 0.996924, 0, 1, 0, -0.996924, 0, 0.0783721, 15.2246, -0.0318289, 30.7722)
@@ -382,11 +434,19 @@ robot = NodePath("../DefaultRobot2")
 [node name="DefaultRobot2" parent="FirstLevelGameplay" instance=ExtResource("5_p2kbk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 30)
 
+[connection signal="pressed" from="FirstLevelGameplay/Room1/Button" to="FirstLevelGameplay/Room1/PowerLine" method="on_powered"]
 [connection signal="pressed" from="FirstLevelGameplay/Room1/Button" to="FirstLevelGameplay/Room1/Door" method="_on_signal_activated"]
+[connection signal="unpressed" from="FirstLevelGameplay/Room1/Button" to="FirstLevelGameplay/Room1/PowerLine" method="on_unpowered"]
 [connection signal="unpressed" from="FirstLevelGameplay/Room1/Button" to="FirstLevelGameplay/Room2/Door" method="_on_signal_disactivated"]
 [connection signal="pressed" from="FirstLevelGameplay/Room2/Button" to="FirstLevelGameplay/Room2/Door" method="_on_signal_activated"]
+[connection signal="pressed" from="FirstLevelGameplay/Room2/Button" to="FirstLevelGameplay/Room2/PowerLine" method="on_powered"]
 [connection signal="unpressed" from="FirstLevelGameplay/Room2/Button" to="FirstLevelGameplay/Room2/Door" method="_on_signal_disactivated"]
+[connection signal="unpressed" from="FirstLevelGameplay/Room2/Button" to="FirstLevelGameplay/Room2/PowerLine" method="on_unpowered"]
 [connection signal="pressed" from="FirstLevelGameplay/Room2/Button2" to="FirstLevelGameplay/Room2/Door" method="_on_signal_activated"]
+[connection signal="pressed" from="FirstLevelGameplay/Room2/Button2" to="FirstLevelGameplay/Room2/PowerLine2" method="on_powered"]
 [connection signal="unpressed" from="FirstLevelGameplay/Room2/Button2" to="FirstLevelGameplay/Room2/Door" method="_on_signal_disactivated"]
+[connection signal="unpressed" from="FirstLevelGameplay/Room2/Button2" to="FirstLevelGameplay/Room2/PowerLine2" method="on_unpowered"]
 [connection signal="pressed" from="FirstLevelGameplay/Room2/Button3" to="FirstLevelGameplay/Room2/Door" method="_on_signal_activated"]
+[connection signal="pressed" from="FirstLevelGameplay/Room2/Button3" to="FirstLevelGameplay/Room2/PowerLine3" method="on_powered"]
 [connection signal="unpressed" from="FirstLevelGameplay/Room2/Button3" to="FirstLevelGameplay/Room2/Door" method="_on_signal_disactivated"]
+[connection signal="unpressed" from="FirstLevelGameplay/Room2/Button3" to="FirstLevelGameplay/Room2/PowerLine3" method="on_unpowered"]

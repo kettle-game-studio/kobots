@@ -23,14 +23,21 @@ func _process(delta: float):
 func _input(event: InputEvent):
 	if Input.is_action_just_pressed("DragBox"):
 		on_drag_box()
-	
+		
 	if state != State.DRAGGING: return
 	
+	if Input.is_action_just_pressed("Escape"):
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		
 	if event is InputEventMouseMotion:
 		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 			rotate_camera(event.relative)
 	elif event is InputEventMouseButton:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
+	if Input.is_action_just_pressed("QuitRobot"):
+		stop_dragging()
+		player_controller.disactivate()
 
 func rotate_camera(vector: Vector2):
 	camera.rotation.x = clamp(camera.rotation.x - vector.y * camera_speed, -PI/2, PI/2)
@@ -84,7 +91,7 @@ func start_dragging():
 
 func stop_dragging():
 	print("stop dragging ", dragged_box.box_name)
-	player_controller.enable()
+	player_controller.enable_instantly()
 	dragged_box.enable_collision()
 	box_collision.disabled = true
 	state = State.NOT_DRAGGING
