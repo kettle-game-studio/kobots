@@ -65,7 +65,7 @@ transform = Transform3D(-0.999455, 0, -0.0329981, 0, 1, 0, 0.0329981, 0, -0.9994
 robot = NodePath("../BigRobot")
 
 [node name="BigRobot" parent="Gameplay" instance=ExtResource("4_xifp1")]
-transform = Transform3D(0.999993, 0, 0.00380481, 0, 1, 0, -0.00380481, 0, 0.999993, 3.71851, -1.55769, 37.187)
+transform = Transform3D(0.999993, 0, 0.00380481, 0, 1, 0, -0.00380481, 0, 0.999993, 14.0221, -3.02071, 17.7305)
 
 [node name="Room1" type="Node3D" parent="Gameplay"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.8896, 0, 34.833)
@@ -90,6 +90,21 @@ robot = NodePath("../DefaultRobot2")
 
 [node name="DefaultRobot2" parent="Gameplay/Room2" instance=ExtResource("2_g4ply")]
 transform = Transform3D(0.0538348, 0, -0.99855, 0, 1, 0, 0.99855, 0, 0.0538348, 36.7271, 0.05, 21.4579)
+
+[node name="Room3" type="Node3D" parent="Gameplay"]
+
+[node name="Box" parent="Gameplay/Room3" instance=ExtResource("6_y7ee0")]
+transform = Transform3D(0.695612, 0, 0.718418, 0, 1, 0, -0.718418, 0, 0.695612, 26.1921, 0.0499997, 14.404)
+
+[node name="Button" parent="Gameplay/Room3" instance=ExtResource("3_gdhk3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.5069, 0.0500002, 2.29223)
+
+[node name="Button2" parent="Gameplay/Room3" instance=ExtResource("3_gdhk3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.6378, 0.0500002, 8.31002)
+
+[node name="Door" parent="Gameplay/Room3" instance=ExtResource("5_5ng7b")]
+transform = Transform3D(0.67907, 0, 0.734074, 0, 1, 0, -0.734074, 0, 0.67907, 19.6524, 0.0223937, 9.0499)
+required_signals = 2
 
 [node name="ControlRoom" type="Node3D" parent="Gameplay"]
 
@@ -189,7 +204,7 @@ transform = Transform3D(0.999766, 0, 0.0216404, 0, 1, 0, -0.0216404, 0, 0.999766
 transform = Transform3D(0.999766, 0, 0.0216404, 0, 1, 0, -0.0216404, 0, 0.999766, 17.7299, -3.06185, 7.74055)
 
 [node name="FloorTile52" parent="Geometry" instance=ExtResource("6_vt2sq")]
-transform = Transform3D(0.999766, 0, 0.0216404, 0, 1, 0, -0.0216404, 0, 0.999766, 12.7601, -3.06185, 7.84812)
+transform = Transform3D(0.68876, 0, 0.72499, 0, 1, 0, -0.72499, 0, 0.68876, 13.6353, -3.00603, 10.271)
 
 [node name="FloorTile13" parent="Geometry" instance=ExtResource("6_vt2sq")]
 transform = Transform3D(0.999766, 0, 0.0216404, 0, 1, 0, -0.0216404, 0, 0.999766, 17.9477, -3.06185, 17.8037)
@@ -203,11 +218,38 @@ transform = Transform3D(0.999766, 0, 0.0216404, 0, 1, 0, -0.0216404, 0, 0.999766
 [node name="FloorTile49" parent="Geometry" instance=ExtResource("6_vt2sq")]
 transform = Transform3D(0.999766, 0, 0.0216404, 0, 1, 0, -0.0216404, 0, 0.999766, 23.1469, -3.06185, 22.7017)
 
+[node name="FloorTile71" parent="Geometry" instance=ExtResource("6_vt2sq")]
+transform = Transform3D(0.999766, 0, 0.0216404, 0, 1, 0, -0.0216404, 0, 0.999766, 28.0944, -3.06185, 22.5667)
+
 [node name="FloorTile50" parent="Geometry" instance=ExtResource("6_vt2sq")]
 transform = Transform3D(0.999766, 0, 0.0216404, 0, 1, 0, -0.0216404, 0, 0.999766, 22.9287, -3.06185, 12.6179)
 
 [node name="FloorTile70" parent="Geometry" instance=ExtResource("6_vt2sq")]
 transform = Transform3D(0.999766, 0, 0.0216404, 0, 1, 0, -0.0216404, 0, 0.999766, 27.8676, -3.06185, 12.6179)
+
+[node name="FloorTile72" parent="Geometry" instance=ExtResource("6_vt2sq")]
+transform = Transform3D(0.999766, 0, 0.0216404, 0, 1, 0, -0.0216404, 0, 0.999766, 27.7203, -3.06185, 7.55765)
+
+[node name="FloorTile73" parent="Geometry" instance=ExtResource("6_vt2sq")]
+transform = Transform3D(0.999766, 0, 0.0216404, 0, 1, 0, -0.0216404, 0, 0.999766, 27.7203, -3.06185, 2.49093)
+
+[node name="FloorTile74" parent="Geometry" instance=ExtResource("6_vt2sq")]
+transform = Transform3D(0.999766, 0, 0.0216404, 0, 1, 0, -0.0216404, 0, 0.999766, 32.7506, -3.06185, 7.39516)
+
+[node name="FloorTile75" parent="Geometry" instance=ExtResource("6_vt2sq")]
+transform = Transform3D(0.999766, 0, 0.0216404, 0, 1, 0, -0.0216404, 0, 0.999766, 32.7506, -3.06185, 2.32845)
+
+[node name="FloorTile76" parent="Geometry" instance=ExtResource("6_vt2sq")]
+transform = Transform3D(0.999766, 0, 0.0216404, 0, 1, 0, -0.0216404, 0, 0.999766, 22.7276, -3.06185, 7.55607)
+
+[node name="FloorTile77" parent="Geometry" instance=ExtResource("6_vt2sq")]
+transform = Transform3D(0.999766, 0, 0.0216404, 0, 1, 0, -0.0216404, 0, 0.999766, 22.7276, -3.06185, 2.48935)
+
+[node name="FloorTile78" parent="Geometry" instance=ExtResource("6_vt2sq")]
+transform = Transform3D(0.666871, 0, 0.745174, 0, 1, 0, -0.745174, 0, 0.666871, 17.1216, -3.12613, 6.71611)
+
+[node name="FloorTile79" parent="Geometry" instance=ExtResource("6_vt2sq")]
+transform = Transform3D(0.666871, 0, 0.745174, 0, 1, 0, -0.745174, 0, 0.666871, 20.5134, -3.12613, 2.95854)
 
 [node name="FloorTile6" parent="Geometry" instance=ExtResource("6_vt2sq")]
 transform = Transform3D(0.999766, 0, 0.0216404, 0, 1, 0, -0.0216404, 0, 0.999766, 3.07923, -3.06185, 32.9974)
@@ -351,7 +393,7 @@ transform = Transform3D(0.706613, 0, 0.7076, 0, 1, 0, -0.7076, 0, 0.706613, 21.5
 transform = Transform3D(0.706613, 0, 0.7076, 0, 1, 0, -0.7076, 0, 0.706613, 17.9294, -0.0276065, 7.33237)
 
 [node name="FloorTile61" parent="Geometry" instance=ExtResource("6_vt2sq")]
-transform = Transform3D(0.706613, 0, 0.7076, 0, 1, 0, -0.7076, 0, 0.706613, 14.3579, -0.0276065, 10.9089)
+transform = Transform3D(0.706613, 0, 0.7076, 0, 1, 0, -0.7076, 0, 0.706613, 14.3579, -0.044379, 10.9089)
 
 [node name="FloorTile2" parent="Geometry" instance=ExtResource("6_vt2sq")]
 transform = Transform3D(0.707107, -0.297381, -0.641533, 0, 0.907264, -0.420561, 0.707107, 0.297381, 0.641533, 7.6489, -0.99753, 17.5482)
@@ -370,6 +412,15 @@ transform = Transform3D(0.717871, 0, 0.696176, 0, 1, 0, -0.696176, 0, 0.717871, 
 
 [node name="WallTile26" parent="Geometry" instance=ExtResource("8_exega")]
 transform = Transform3D(0.717871, 0, 0.696176, 0, 1, 0, -0.696176, 0, 0.717871, 13.2251, -1.76877, 12.9617)
+
+[node name="WallTile157" parent="Geometry" instance=ExtResource("8_exega")]
+transform = Transform3D(0.717871, 0, 0.696176, 0, 1, 0, -0.696176, 0, 0.717871, 11.8499, -3.00221, 11.5436)
+
+[node name="WallTile158" parent="Geometry" instance=ExtResource("8_exega")]
+transform = Transform3D(0.717871, 0, 0.696176, 0, 1, 0, -0.696176, 0, 0.717871, 13.2251, -3.00221, 12.9617)
+
+[node name="WallTile172" parent="Geometry" instance=ExtResource("8_exega")]
+transform = Transform3D(0.717871, 0, 0.696176, 0, 1, 0, -0.696176, 0, 0.717871, 13.7584, -3.00221, 13.3692)
 
 [node name="WallTile28" parent="Geometry" instance=ExtResource("8_exega")]
 transform = Transform3D(0.717871, 0, 0.696176, 0, 1, 0, -0.696176, 0, 0.717871, 13.9961, -0.0545633, 13.7567)
@@ -461,6 +512,33 @@ transform = Transform3D(0.717871, 0, 0.696176, 0, 1, 0, -0.696176, 0, 0.717871, 
 [node name="WallTile36" parent="Geometry" instance=ExtResource("8_exega")]
 transform = Transform3D(0.717871, 0, 0.696176, 0, 1, 0, -0.696176, 0, 0.717871, 25.1534, -0.080879, 25.2617)
 
+[node name="WallTile140" parent="Geometry" instance=ExtResource("8_exega")]
+transform = Transform3D(0.717871, 0, 0.696176, 0, 1, 0, -0.696176, 0, 0.717871, 18.5305, -3.07361, 18.3475)
+
+[node name="WallTile141" parent="Geometry" instance=ExtResource("8_exega")]
+transform = Transform3D(0.717871, 0, 0.696176, 0, 1, 0, -0.696176, 0, 0.717871, 19.8243, -3.09992, 19.6817)
+
+[node name="WallTile142" parent="Geometry" instance=ExtResource("8_exega")]
+transform = Transform3D(0.717871, 0, 0.696176, 0, 1, 0, -0.696176, 0, 0.717871, 21.2461, -3.09992, 21.1479)
+
+[node name="WallTile143" parent="Geometry" instance=ExtResource("8_exega")]
+transform = Transform3D(0.717871, 0, 0.696176, 0, 1, 0, -0.696176, 0, 0.717871, 22.6809, -3.09992, 22.6274)
+
+[node name="WallTile144" parent="Geometry" instance=ExtResource("8_exega")]
+transform = Transform3D(0.717871, 0, 0.696176, 0, 1, 0, -0.696176, 0, 0.717871, 24.0872, -3.09992, 24.0774)
+
+[node name="WallTile165" parent="Geometry" instance=ExtResource("8_exega")]
+transform = Transform3D(-0.685717, 0, 0.727868, 0, 1, 0, -0.727868, 0, -0.685717, 25.6616, -3.09992, 24.3352)
+
+[node name="WallTile166" parent="Geometry" instance=ExtResource("8_exega")]
+transform = Transform3D(-0.685717, 0, 0.727868, 0, 1, 0, -0.727868, 0, -0.685717, 27.1318, -3.09992, 22.9501)
+
+[node name="WallTile167" parent="Geometry" instance=ExtResource("8_exega")]
+transform = Transform3D(-0.685717, 0, 0.727868, 0, 1, 0, -0.727868, 0, -0.685717, 28.2108, -3.09992, 21.9476)
+
+[node name="WallTile145" parent="Geometry" instance=ExtResource("8_exega")]
+transform = Transform3D(0.717871, 0, 0.696176, 0, 1, 0, -0.696176, 0, 0.717871, 25.506, -3.09992, 25.5405)
+
 [node name="WallTile62" parent="Geometry" instance=ExtResource("8_exega")]
 transform = Transform3D(0.717871, 0, 0.696176, 0, 1, 0, -0.696176, 0, 0.717871, 26.5331, -0.080879, 26.6844)
 
@@ -521,6 +599,48 @@ transform = Transform3D(0.690201, 0, 0.723618, 0, 1, 0, -0.723618, 0, 0.690201, 
 [node name="WallTile101" parent="Geometry" instance=ExtResource("8_exega")]
 transform = Transform3D(0.690201, 0, 0.723618, 0, 1, 0, -0.723618, 0, 0.690201, 25.4329, -0.0808795, 18.1982)
 
+[node name="WallTile146" parent="Geometry" instance=ExtResource("8_exega")]
+transform = Transform3D(0.690201, 0, 0.723618, 0, 1, 0, -0.723618, 0, 0.690201, 28.2878, -3.04361, 20.9213)
+
+[node name="WallTile147" parent="Geometry" instance=ExtResource("8_exega")]
+transform = Transform3D(0.690201, 0, 0.723618, 0, 1, 0, -0.723618, 0, 0.690201, 26.8466, -3.04361, 19.5466)
+
+[node name="WallTile148" parent="Geometry" instance=ExtResource("8_exega")]
+transform = Transform3D(0.690201, 0, 0.723618, 0, 1, 0, -0.723618, 0, 0.690201, 25.4329, -3.04361, 18.1982)
+
+[node name="WallTile149" parent="Geometry" instance=ExtResource("8_exega")]
+transform = Transform3D(0.72953, 0, 0.683949, 0, 1, 0, -0.683949, 0, 0.72953, 23.935, -3.04361, 16.8034)
+
+[node name="WallTile150" parent="Geometry" instance=ExtResource("8_exega")]
+transform = Transform3D(0.72953, 0, 0.683949, 0, 1, 0, -0.683949, 0, 0.72953, 22.5728, -3.04361, 15.3503)
+
+[node name="WallTile151" parent="Geometry" instance=ExtResource("8_exega")]
+transform = Transform3D(0.72953, 0, 0.683949, 0, 1, 0, -0.683949, 0, 0.72953, 21.2365, -3.04361, 13.925)
+
+[node name="WallTile152" parent="Geometry" instance=ExtResource("8_exega")]
+transform = Transform3D(0.697915, 0, 0.71618, 0, 1, 0, -0.71618, 0, 0.697915, 20.1497, -3.04361, 12.8902)
+
+[node name="WallTile153" parent="Geometry" instance=ExtResource("8_exega")]
+transform = Transform3D(0.697915, 0, 0.71618, 0, 1, 0, -0.71618, 0, 0.697915, 18.7506, -3.04361, 11.5267)
+
+[node name="WallTile154" parent="Geometry" instance=ExtResource("8_exega")]
+transform = Transform3D(0.977331, 0, 0.211717, 0, 1, 0, -0.211717, 0, 0.977331, 27.5061, -3.04361, 13.8278)
+
+[node name="WallTile155" parent="Geometry" instance=ExtResource("8_exega")]
+transform = Transform3D(0.977331, 0, 0.211717, 0, 1, 0, -0.211717, 0, 0.977331, 27.0844, -3.04361, 11.8812)
+
+[node name="WallTile156" parent="Geometry" instance=ExtResource("8_exega")]
+transform = Transform3D(0.907748, 0, 0.419516, 0, 1, 0, -0.419516, 0, 0.907748, 26.5481, -3.04361, 10.2808)
+
+[node name="WallTile168" parent="Geometry" instance=ExtResource("8_exega")]
+transform = Transform3D(0.72953, 0, 0.683949, 0, 1, 0, -0.683949, 0, 0.72953, 25.6107, -3.12829, 8.93573)
+
+[node name="WallTile169" parent="Geometry" instance=ExtResource("8_exega")]
+transform = Transform3D(0.697915, 0, 0.71618, 0, 1, 0, -0.71618, 0, 0.697915, 24.5239, -3.12829, 7.90087)
+
+[node name="WallTile171" parent="Geometry" instance=ExtResource("8_exega")]
+transform = Transform3D(0.662214, 0, 0.749314, 0, 1, 0, -0.749314, 0, 0.662214, 23.5051, -3.12829, 7.03166)
+
 [node name="WallTile114" parent="Geometry" instance=ExtResource("8_exega")]
 transform = Transform3D(0.690201, 0, 0.723618, 0, 1, 0, -0.723618, 0, 0.690201, 31.0184, -0.0808795, 14.1302)
 
@@ -552,10 +672,19 @@ transform = Transform3D(0.709423, 0, 0.704783, 0, 1, 0, -0.704783, 0, 0.709423, 
 transform = Transform3D(-0.736333, 0, 0.676619, 0, 1, 0, -0.676619, 0, -0.736333, 17.3518, -0.080879, 11.4657)
 
 [node name="WallTile109" parent="Geometry" instance=ExtResource("8_exega")]
-transform = Transform3D(-0.736333, 0, 0.676619, 0, 1, 0, -0.676619, 0, -0.736333, 18.3909, -0.080879, 10.3349)
+transform = Transform3D(-0.710087, 0, 0.704114, 0, 1, 0, -0.704114, 0, -0.710087, 18.2716, -0.0808785, 10.5661)
 
 [node name="WallTile110" parent="Geometry" instance=ExtResource("8_exega")]
-transform = Transform3D(-0.736333, 0, 0.676619, 0, 1, 0, -0.676619, 0, -0.736333, 20.6754, -0.080879, 7.84874)
+transform = Transform3D(-0.692786, 0, 0.721144, 0, 1, 0, -0.721144, 0, -0.692786, 21.0659, -0.0808785, 7.53226)
+
+[node name="WallTile159" parent="Geometry" instance=ExtResource("8_exega")]
+transform = Transform3D(-0.686796, 0, 0.72685, 0, 1, 0, -0.72685, 0, -0.686796, 18.8374, -2.98767, 10.2032)
+
+[node name="WallTile160" parent="Geometry" instance=ExtResource("8_exega")]
+transform = Transform3D(-0.686796, 0, 0.72685, 0, 1, 0, -0.72685, 0, -0.686796, 20.3204, -2.98767, 8.83222)
+
+[node name="WallTile170" parent="Geometry" instance=ExtResource("8_exega")]
+transform = Transform3D(-0.686796, 0, 0.72685, 0, 1, 0, -0.72685, 0, -0.686796, 21.8128, -2.98767, 7.34774)
 
 [node name="WallTile119" parent="Geometry" instance=ExtResource("8_exega")]
 transform = Transform3D(-0.654081, 0, 0.756424, 0, 1, 0, -0.756424, 0, -0.654081, 22.0082, -0.080879, 6.59874)
@@ -596,17 +725,59 @@ transform = Transform3D(-0.0216929, 0, 0.999765, 0, 1, 0, -0.999765, 0, -0.02169
 [node name="WallTile125" parent="Geometry" instance=ExtResource("8_exega")]
 transform = Transform3D(-0.0216929, 0, 0.999765, 0, 1, 0, -0.999765, 0, -0.0216929, 32.8666, -3.03234, 10.2395)
 
+[node name="WallTile135" parent="Geometry" instance=ExtResource("8_exega")]
+transform = Transform3D(-0.0216929, 0, 0.999765, 0, 1, 0, -0.999765, 0, -0.0216929, 34.8874, 0.00414324, 10.1957)
+
+[node name="WallTile136" parent="Geometry" instance=ExtResource("8_exega")]
+transform = Transform3D(-0.0216929, 0, 0.999765, 0, 1, 0, -0.999765, 0, -0.0216929, 32.8666, 0.00414324, 10.2395)
+
+[node name="WallTile137" parent="Geometry" instance=ExtResource("8_exega")]
+transform = Transform3D(0.0300673, 0, 0.999548, 0, 1, 0, -0.999548, 0, 0.0300673, 38.8477, 0.00414324, 10.248)
+
+[node name="WallTile139" parent="Geometry" instance=ExtResource("8_exega")]
+transform = Transform3D(0.0300673, 0, 0.999548, 0, 1, 0, -0.999548, 0, 0.0300673, 40.775, 0.00414324, 10.248)
+
+[node name="WallTile138" parent="Geometry" instance=ExtResource("8_exega")]
+transform = Transform3D(0.0300673, 0, 0.999548, 0, 1, 0, -0.999548, 0, 0.0300673, 36.8273, 0.00414324, 10.1872)
+
 [node name="WallTile126" parent="Geometry" instance=ExtResource("8_exega")]
 transform = Transform3D(0.999617, 0, 0.0276601, 0, 1, 0, -0.0276601, 0, 0.999617, 31.9446, -3.1297, 9.29737)
+
+[node name="WallTile161" parent="Geometry" instance=ExtResource("8_exega")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 31.8854, -3.58684, 10.3527)
+
+[node name="WallTile162" parent="Geometry" instance=ExtResource("8_exega")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 29.9125, -3.58684, 10.3527)
+
+[node name="WallTile163" parent="Geometry" instance=ExtResource("8_exega")]
+transform = Transform3D(0.999965, 0, 0.00839486, 0, 1, 0, -0.00839486, 0, 0.999965, 29.028, -3.58684, 14.6125)
+
+[node name="WallTile164" parent="Geometry" instance=ExtResource("8_exega")]
+transform = Transform3D(0.999965, 0, 0.00839486, 0, 1, 0, -0.00839486, 0, 0.999965, 29.028, -3.58684, 11.2339)
 
 [node name="WallTile127" parent="Geometry" instance=ExtResource("8_exega")]
 transform = Transform3D(0.999617, 0, 0.0276601, 0, 1, 0, -0.0276601, 0, 0.999617, 31.8886, -3.1297, 7.27683)
 
 [node name="WallTile128" parent="Geometry" instance=ExtResource("8_exega")]
-transform = Transform3D(0.999617, 0, 0.0276601, 0, 1, 0, -0.0276601, 0, 0.999617, 31.7243, -3.1297, 5.30348)
+transform = Transform3D(0.999617, 0, 0.0276601, 0, 1, 0, -0.0276601, 0, 0.999617, 31.8234, -3.1297, 5.30348)
 
 [node name="WallTile129" parent="Geometry" instance=ExtResource("8_exega")]
-transform = Transform3D(0.999617, 0, 0.0276601, 0, 1, 0, -0.0276601, 0, 0.999617, 31.6684, -3.1297, 3.28295)
+transform = Transform3D(0.999617, 0, 0.0276601, 0, 1, 0, -0.0276601, 0, 0.999617, 31.7675, -3.1297, 3.28295)
+
+[node name="WallTile130" parent="Geometry" instance=ExtResource("8_exega")]
+transform = Transform3D(0.999617, 0, 0.0276601, 0, 1, 0, -0.0276601, 0, 0.999617, 31.7197, -3.1297, 1.26836)
+
+[node name="WallTile131" parent="Geometry" instance=ExtResource("8_exega")]
+transform = Transform3D(0.999617, 0, 0.0276601, 0, 1, 0, -0.0276601, 0, 0.999617, 31.9446, -0.176522, 9.29737)
+
+[node name="WallTile132" parent="Geometry" instance=ExtResource("8_exega")]
+transform = Transform3D(0.999617, 0, 0.0276601, 0, 1, 0, -0.0276601, 0, 0.999617, 31.8886, -0.176522, 7.27683)
+
+[node name="WallTile133" parent="Geometry" instance=ExtResource("8_exega")]
+transform = Transform3D(0.999617, 0, 0.0276601, 0, 1, 0, -0.0276601, 0, 0.999617, 31.8207, -0.176522, 5.33443)
+
+[node name="WallTile134" parent="Geometry" instance=ExtResource("8_exega")]
+transform = Transform3D(0.999617, 0, 0.0276601, 0, 1, 0, -0.0276601, 0, 0.999617, 31.773, -0.176522, 3.31984)
 
 [node name="WallTile122" parent="Geometry" instance=ExtResource("8_exega")]
 transform = Transform3D(-0.0216929, 0, 0.999765, 0, 1, 0, -0.999765, 0, -0.0216929, 30.8138, -3.03234, 14.8096)
@@ -750,13 +921,14 @@ transform = Transform3D(0.999736, 0, 0.0229665, 0, 1, 0, -0.0229665, 0, 0.999736
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -36.6288, 0)
 mesh = SubResource("CylinderMesh_ostqh")
 
-[node name="Box" parent="." instance=ExtResource("6_y7ee0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.0382, 0.0499997, 14.8878)
-
 [connection signal="pressed" from="Gameplay/Room1/Button" to="Gameplay/Room1/Door" method="_on_signal_activated"]
 [connection signal="unpressed" from="Gameplay/Room1/Button" to="Gameplay/Room1/Door" method="_on_signal_disactivated"]
 [connection signal="pressed" from="Gameplay/Room2/Button" to="Gameplay/Room2/Door" method="_on_signal_activated"]
 [connection signal="unpressed" from="Gameplay/Room2/Button" to="Gameplay/Room2/Door" method="_on_signal_disactivated"]
+[connection signal="pressed" from="Gameplay/Room3/Button" to="Gameplay/Room3/Door" method="_on_signal_activated"]
+[connection signal="unpressed" from="Gameplay/Room3/Button" to="Gameplay/Room3/Door" method="_on_signal_disactivated"]
+[connection signal="pressed" from="Gameplay/Room3/Button2" to="Gameplay/Room3/Door" method="_on_signal_activated"]
+[connection signal="unpressed" from="Gameplay/Room3/Button2" to="Gameplay/Room3/Door" method="_on_signal_disactivated"]
 [connection signal="pressed" from="Gameplay/ControlRoom/Button" to="Gameplay/ControlRoom/Door" method="_on_signal_activated"]
 [connection signal="pressed" from="Gameplay/ControlRoom/Button" to="Gameplay/ControlRoom/PowerLine" method="on_powered"]
 [connection signal="unpressed" from="Gameplay/ControlRoom/Button" to="Gameplay/ControlRoom/Door" method="_on_signal_disactivated"]

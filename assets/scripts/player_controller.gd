@@ -27,6 +27,7 @@ func _physics_process(delta: float):
 	walk(delta)
 	
 	if !enabled: return
+	
 	for index in player.get_slide_collision_count():
 		var collision = player.get_slide_collision(index)
 		var collider = collision.get_collider()
@@ -72,8 +73,11 @@ func walk(delta: float):
 	if !enabled:
 		if !flight:
 			var y_velocity = player.velocity.y - 9.8 * delta
-			player.velocity.y = y_velocity
-			player.move_and_slide()
+			player.velocity = y_velocity * Vector3.UP
+		else:
+			player.velocity = Vector3.ZERO
+			
+		player.move_and_slide()
 		return
 
 	var aim = player.get_global_transform().basis
