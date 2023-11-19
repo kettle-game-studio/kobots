@@ -13,6 +13,7 @@ func _ready():
 	for child in children:
 		(child as CSGMesh3D).material = material
 	material.albedo_color = unpowered_color
+	material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
 	
 func on_powered(_o: Object):
 	material.albedo_color = powered_color

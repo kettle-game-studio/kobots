@@ -1,0 +1,79 @@
+[gd_scene load_steps=8 format=3 uid="uid://bb22o6htxbt80"]
+
+[ext_resource type="PackedScene" uid="uid://bh30fgjh4prch" path="res://assets/prefabs/player.tscn" id="1_jwnee"]
+[ext_resource type="PackedScene" uid="uid://2duj7yddhaxr" path="res://assets/scenes/level_1.tscn" id="2_h57yw"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_m8b15"]
+size = Vector3(20, 10, 30)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_803gt"]
+top_radius = 20.0
+bottom_radius = 20.0
+height = 100.0
+
+[sub_resource type="Environment" id="Environment_x1m7w"]
+background_mode = 1
+background_color = Color(0.27451, 0.368627, 0.501961, 1)
+fog_enabled = true
+fog_light_color = Color(0.27451, 0.368627, 0.501961, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_gq0wv"]
+top_radius = 10.0
+bottom_radius = 10.0
+height = 100.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_80rhe"]
+height = 100.004
+radius = 10.0227
+
+[node name="MainScene" type="Node3D"]
+
+[node name="Backgound" type="Node3D" parent="."]
+
+[node name="Backgound1" type="CSGMesh3D" parent="Backgound"]
+transform = Transform3D(0.42635, -0.0678019, -0.902013, 0.157055, 0.98759, 3.72529e-09, 0.890819, -0.141666, 0.431708, 39.6426, -13.4723, 55.6869)
+mesh = SubResource("BoxMesh_m8b15")
+
+[node name="Backgound2" type="CSGMesh3D" parent="Backgound"]
+transform = Transform3D(-0.0756922, -0.0591536, -0.995375, 0, 0.998239, -0.0593238, 0.997131, -0.00449035, -0.0755589, 7.00271, -18.9486, 68.8676)
+mesh = SubResource("BoxMesh_m8b15")
+
+[node name="Backgound3" type="CSGMesh3D" parent="Backgound"]
+transform = Transform3D(-0.557069, -0.153495, -0.816158, -0.26564, 0.964072, 0, 0.786835, 0.216804, -0.577829, 29.2917, -22.5829, 85.2775)
+mesh = SubResource("BoxMesh_m8b15")
+
+[node name="Backgound4" type="CSGMesh3D" parent="Backgound"]
+transform = Transform3D(0.972995, -0.0953318, -0.210219, 0.143428, 0.96327, 0.227023, 0.180855, -0.251044, 0.95093, 76.3654, -17.7798, 6.24615)
+mesh = SubResource("BoxMesh_m8b15")
+
+[node name="Backgound5" type="CSGMesh3D" parent="Backgound"]
+transform = Transform3D(0.741008, 0.0188783, -0.671231, 0.104873, 0.984085, 0.143452, 0.663256, -0.176693, 0.727235, 66.5101, -15.1159, 40.3762)
+mesh = SubResource("BoxMesh_m8b15")
+
+[node name="Backgound6" type="CSGMesh3D" parent="Backgound"]
+transform = Transform3D(0.265309, 0.133955, -0.954813, -0.0720229, 0.990288, 0.118919, 0.96147, 0.0372182, 0.27238, 92.8695, -21.8465, 34.1177)
+mesh = SubResource("BoxMesh_m8b15")
+
+[node name="Eye2" type="CSGMesh3D" parent="Backgound"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -29.1194, 127.627)
+mesh = SubResource("CylinderMesh_803gt")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.00472981, 0.999989, 0, -0.999989, 0.00472981, 0, 0, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_x1m7w")
+
+[node name="Player" parent="." instance=ExtResource("1_jwnee")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.68853, 13.3965, 3.95913)
+
+[node name="Level1" parent="." instance=ExtResource("2_h57yw")]
+
+[node name="CenterRoom" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -36.6288, 0)
+mesh = SubResource("CylinderMesh_gq0wv")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="CenterRoom"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CenterRoom/StaticBody3D"]
+shape = SubResource("CylinderShape3D_80rhe")
