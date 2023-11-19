@@ -2,8 +2,7 @@
 
 [ext_resource type="Script" path="res://assets/scripts/box.gd" id="1_666gi"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_02x8l"]
-rough = true
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8ygcw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x7sem"]
 
@@ -16,7 +15,7 @@ albedo_color = Color(0.721569, 0.423529, 0.0117647, 1)
 axis_lock_angular_x = true
 axis_lock_angular_z = true
 mass = 20.0
-physics_material_override = SubResource("PhysicsMaterial_02x8l")
+physics_material_override = SubResource("PhysicsMaterial_8ygcw")
 script = ExtResource("1_666gi")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

@@ -8,7 +8,7 @@ class_name PlayerController
 
 @export var camera_speed: float = 0.01
 @export var walk_speed: float = 5
-@export var push_force: float = 100
+@export var push_force: float = 2
 
 enum State { ENABLED, DISABLED }
 @export var state: State = State.DISABLED
@@ -29,7 +29,7 @@ func _physics_process(delta: float):
 		var collider = collision.get_collider()
 		if collider is RigidBody3D:
 			var vector = (player.get_position() - collider.get_position()).normalized()
-			collider.apply_central_force(-vector * push_force)
+			collider.linear_velocity = -vector * push_force
 
 func disactivate():
 	if robot_controller != null:
@@ -42,8 +42,6 @@ func _get_control():
 	if collider is Terminal:
 		if collider.enable(self):
 			disable()
-		else:
-			print("Something failed")
 
 func _input(event: InputEvent):
 	if !enabled: return

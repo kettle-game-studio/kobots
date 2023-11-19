@@ -34,7 +34,6 @@ player = NodePath("..")
 camera = NodePath("../Eye")
 raycast = NodePath("../Eye/RayCast3D")
 robot_controller = NodePath("..")
-push_force = 200.0
 
 [node name="Drag" type="Node" parent="." node_paths=PackedStringArray("player", "player_controller", "ray_cast", "camera", "box_mount_point", "box_collision")]
 script = ExtResource("3_cn212")
