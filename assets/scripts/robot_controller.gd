@@ -12,9 +12,9 @@ func _ready():
 
 func _disactivate():
 	subViewport.disable_3d = true
-	player_controller.enabled = false
+	player_controller.disable()
 	if parent != null:
-		parent.enabled = true
+		parent.enable()
 	parent = null
 
 func activate(parent: PlayerController) -> bool:
@@ -22,7 +22,7 @@ func activate(parent: PlayerController) -> bool:
 		return false
 		
 	self.parent = parent
-	player_controller.enabled = true
+	player_controller.enable()
 	subViewport.disable_3d = false
 	return true
 

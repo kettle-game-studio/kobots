@@ -29,7 +29,7 @@ func _get_control():
 	var collider = raycast.get_collider()
 	if collider is Terminal:
 		if collider.enable(self):
-			enabled = false
+			disable()
 
 func _input(event: InputEvent):
 	if !enabled: return
@@ -39,15 +39,16 @@ func _input(event: InputEvent):
 			rotate_camera(event.relative)
 	elif event is InputEventMouseButton:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-		if event.button_index == MOUSE_BUTTON_LEFT:
-			_get_control()
 
 	if Input.is_action_just_pressed("Escape"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
-	if Input.is_action_just_pressed("ExitRobot"):
+	if Input.is_action_just_pressed("QuitRobot"):
 		if robot_controller != null:
 			robot_controller._disactivate()
+	
+	if Input.is_action_just_pressed("EnterRobot"):
+		_get_control()
 
 func rotate_camera(vector: Vector2):
 	camera.rotation.x = clamp(camera.rotation.x - vector.y * camera_speed, -PI/2, PI/2)
@@ -68,3 +69,9 @@ func walk(delta: float):
 	player.velocity.y = y_velocity
 	player.move_and_slide()
 
+func disable():
+	enabled = false
+
+func enable():
+	await get_tree().process_frame
+	enabled = true
