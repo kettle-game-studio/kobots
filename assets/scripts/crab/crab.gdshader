@@ -10,6 +10,13 @@ uniform float emission_k = 1.0;
 void fragment() {
 	float k = textureLod(add_texture, UV, 0.0).r;
 	ALBEDO = textureLod(base_texture, UV, 0.0).rgb * (1.0 - k) + color * k;
+	if (ALBEDO.x + ALBEDO.y + ALBEDO.z > 1.5 && k < 0.1) {
+		SPECULAR = 1.0;
+		ROUGHNESS = 0.3;
+	} else {
+		SPECULAR = 0.3;
+		ROUGHNESS = 0.4;
+	}
 	if (enable) {
 		vec3 emission = textureLod(emission_texture, UV, 0.0).rgb;
 		float emission_force = (emission.x + emission.y + emission.z) * 0.333;
