@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://da5xv5g3mndxw"]
+[gd_scene load_steps=25 format=3 uid="uid://da5xv5g3mndxw"]
 
 [ext_resource type="PackedScene" uid="uid://cv03cxb8jcsy8" path="res://assets/prefabs/terminal.tscn" id="1_m1hvl"]
 [ext_resource type="PackedScene" uid="uid://dmtm7k1fhpmkj" path="res://assets/prefabs/robot_default.tscn" id="2_g4ply"]
@@ -49,6 +49,9 @@ size = Vector2(7, 7)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yywp1"]
 transparency = 1
 albedo_texture = ExtResource("11_c3iwu")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hwx6n"]
+size = Vector3(41.5291, 1, 42.7687)
 
 [node name="Level3" type="Node3D"]
 
@@ -935,10 +938,16 @@ transform = Transform3D(0.999736, 0, 0.0229665, 0, 1, 0, -0.0229665, 0, 0.999736
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -36.6288, 0)
 mesh = SubResource("CylinderMesh_ostqh")
 
-[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+[node name="LabyrinthNote" type="CSGMesh3D" parent="."]
 transform = Transform3D(-0.0143552, -0.999768, 0.0160654, -0.00088731, 0.0160797, 0.99987, -0.999897, 0.0143391, -0.00111793, 17.007, 0.11185, 32.663)
 mesh = SubResource("QuadMesh_qtdca")
 material = SubResource("StandardMaterial3D_yywp1")
+
+[node name="Ceiling" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ceiling"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.1401, 3.45226, 21.9826)
+shape = SubResource("BoxShape3D_hwx6n")
 
 [connection signal="pressed" from="Gameplay/Room1/Button" to="Gameplay/Room1/Door" method="_on_signal_activated"]
 [connection signal="unpressed" from="Gameplay/Room1/Button" to="Gameplay/Room1/Door" method="_on_signal_disactivated"]
