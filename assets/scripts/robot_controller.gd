@@ -12,7 +12,8 @@ func _ready():
 
 func _disactivate():
 	subViewport.disable_3d = true
-	player_controller.disable()
+	if not Engine.is_editor_hint():
+		player_controller.disable()
 	if parent != null:
 		parent.enable_next_frame()
 	parent = null
