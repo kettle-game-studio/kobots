@@ -1,9 +1,8 @@
 [gd_scene load_steps=3 format=3 uid="uid://bdguoqhpmcppa"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_o1h7f"]
-size = Vector3(0.3, 3, 2)
+[ext_resource type="PackedScene" uid="uid://cjqio5ysfkfam" path="res://assets/models/Walls/Straight Wall Base.glb" id="1_5nqai"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_npk8k"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_o1h7f"]
 size = Vector3(0.3, 3, 2)
 
 [node name="WallTile1" type="Node3D"]
@@ -14,6 +13,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("BoxShape3D_o1h7f")
 
-[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
-mesh = SubResource("BoxMesh_npk8k")
+[node name="Straight Wall Base" parent="." instance=ExtResource("1_5nqai")]
+transform = Transform3D(-2.87839e-08, 0, -1, 0, 1, 0, 0.658498, 0, -4.37114e-08, 0, 0, 0)

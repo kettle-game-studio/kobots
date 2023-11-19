@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://da5xv5g3mndxw"]
+[gd_scene load_steps=25 format=3 uid="uid://da5xv5g3mndxw"]
 
 [ext_resource type="PackedScene" uid="uid://cv03cxb8jcsy8" path="res://assets/prefabs/terminal.tscn" id="1_m1hvl"]
 [ext_resource type="PackedScene" uid="uid://dmtm7k1fhpmkj" path="res://assets/prefabs/robot_default.tscn" id="2_g4ply"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cbnmfkaxsw4ki" path="res://assets/prefabs/box.tscn" id="6_y7ee0"]
 [ext_resource type="PackedScene" uid="uid://bdguoqhpmcppa" path="res://assets/prefabs/tiles/wall_tile_1.tscn" id="8_exega"]
 [ext_resource type="PackedScene" uid="uid://djpkb7s0oa4fu" path="res://assets/prefabs/robot_flying.tscn" id="9_34grp"]
+[ext_resource type="Texture2D" uid="uid://bwkuek3tum0cn" path="res://assets/writings/labyrinth.png" id="11_c3iwu"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_l1iiy"]
 size = Vector2(0.1, 1)
@@ -42,6 +43,16 @@ top_radius = 10.0
 bottom_radius = 10.0
 height = 100.0
 
+[sub_resource type="QuadMesh" id="QuadMesh_qtdca"]
+size = Vector2(7, 7)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yywp1"]
+transparency = 1
+albedo_texture = ExtResource("11_c3iwu")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hwx6n"]
+size = Vector3(41.5291, 1, 42.7687)
+
 [node name="Level3" type="Node3D"]
 
 [node name="Gameplay" type="Node3D" parent="."]
@@ -65,7 +76,7 @@ transform = Transform3D(-0.999455, 0, -0.0329981, 0, 1, 0, 0.0329981, 0, -0.9994
 robot = NodePath("../BigRobot")
 
 [node name="BigRobot" parent="Gameplay" instance=ExtResource("4_xifp1")]
-transform = Transform3D(0.999993, 0, 0.00380481, 0, 1, 0, -0.00380481, 0, 0.999993, 14.0221, -3.02071, 17.7305)
+transform = Transform3D(0.984202, -0.00012058, -0.177051, 0.000121418, 1, -6.09705e-06, 0.177051, -1.55078e-05, 0.984202, 3.38879, -3.02071, 37.1509)
 
 [node name="Room1" type="Node3D" parent="Gameplay"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.8896, 0, 34.833)
@@ -141,6 +152,18 @@ material = SubResource("StandardMaterial3D_kbvu8")
 transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, -23.9659, 13.2978, -8.07364)
 mesh = SubResource("QuadMesh_rbb1c")
 material = SubResource("StandardMaterial3D_kbvu8")
+
+[node name="Shortcuts" type="Node3D" parent="Gameplay"]
+
+[node name="Door" parent="Gameplay/Shortcuts" instance=ExtResource("5_5ng7b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.7895, 0.0500002, 10.184)
+required_signals = 2
+
+[node name="Door2" parent="Gameplay/Shortcuts" instance=ExtResource("5_5ng7b")]
+transform = Transform3D(0.742841, 0, 0.669468, 0, 1, 0, -0.669468, 0, 0.742841, 29.7608, 0.0223937, 20.7714)
+
+[node name="Button" parent="Gameplay/Shortcuts" instance=ExtResource("3_gdhk3")]
+transform = Transform3D(0.734145, 0, 0.678993, 0, 1, 0, -0.678993, 0, 0.734145, 28.7031, 0.0223937, 17.6636)
 
 [node name="Geometry" type="Node3D" parent="."]
 
@@ -483,7 +506,7 @@ transform = Transform3D(0.999104, 0, 0.0423115, 0, 1, 0, -0.0423115, 0, 0.999104
 transform = Transform3D(0.999104, 0, 0.0423115, 0, 1, 0, -0.0423115, 0, 0.999104, 11.9845, -0.080879, 35.5095)
 
 [node name="WallTile75" parent="Geometry" instance=ExtResource("8_exega")]
-transform = Transform3D(0.999104, 0, 0.0423115, 0, 1, 0, -0.0423115, 0, 0.999104, 11.9023, -0.080879, 33.5686)
+transform = Transform3D(0.999104, 0, 0.0423115, 0, 1, 0, -0.0423115, 0, 0.999104, 11.9023, -0.775452, 33.5686)
 
 [node name="WallTile76" parent="Geometry" instance=ExtResource("8_exega")]
 transform = Transform3D(0.999104, 0, 0.0423115, 0, 1, 0, -0.0423115, 0, 0.999104, 11.821, -0.080879, 31.6482)
@@ -586,9 +609,6 @@ transform = Transform3D(-0.999999, 0, 0.00118662, 0, 1, 0, -0.00118662, 0, -0.99
 
 [node name="WallTile97" parent="Geometry" instance=ExtResource("8_exega")]
 transform = Transform3D(-0.677467, 0, 0.735553, 0, 1, 0, -0.735553, 0, -0.677467, 31.2804, -0.08088, 19.4923)
-
-[node name="WallTile98" parent="Geometry" instance=ExtResource("8_exega")]
-transform = Transform3D(-0.677467, 0, 0.735553, 0, 1, 0, -0.735553, 0, -0.677467, 29.8237, -0.08088, 20.8339)
 
 [node name="WallTile99" parent="Geometry" instance=ExtResource("8_exega")]
 transform = Transform3D(0.690201, 0, 0.723618, 0, 1, 0, -0.723618, 0, 0.690201, 28.2878, -0.0808795, 20.9213)
@@ -730,9 +750,6 @@ transform = Transform3D(-0.0216929, 0, 0.999765, 0, 1, 0, -0.999765, 0, -0.02169
 
 [node name="WallTile136" parent="Geometry" instance=ExtResource("8_exega")]
 transform = Transform3D(-0.0216929, 0, 0.999765, 0, 1, 0, -0.999765, 0, -0.0216929, 32.8666, 0.00414324, 10.2395)
-
-[node name="WallTile137" parent="Geometry" instance=ExtResource("8_exega")]
-transform = Transform3D(0.0300673, 0, 0.999548, 0, 1, 0, -0.999548, 0, 0.0300673, 38.8477, 0.00414324, 10.248)
 
 [node name="WallTile139" parent="Geometry" instance=ExtResource("8_exega")]
 transform = Transform3D(0.0300673, 0, 0.999548, 0, 1, 0, -0.999548, 0, 0.0300673, 40.775, 0.00414324, 10.248)
@@ -921,15 +938,32 @@ transform = Transform3D(0.999736, 0, 0.0229665, 0, 1, 0, -0.0229665, 0, 0.999736
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -36.6288, 0)
 mesh = SubResource("CylinderMesh_ostqh")
 
+[node name="LabyrinthNote" type="CSGMesh3D" parent="."]
+transform = Transform3D(-0.0143552, -0.999768, 0.0160654, -0.00088731, 0.0160797, 0.99987, -0.999897, 0.0143391, -0.00111793, 17.007, 0.11185, 32.663)
+mesh = SubResource("QuadMesh_qtdca")
+material = SubResource("StandardMaterial3D_yywp1")
+
+[node name="Ceiling" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ceiling"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.1401, 3.45226, 21.9826)
+shape = SubResource("BoxShape3D_hwx6n")
+
 [connection signal="pressed" from="Gameplay/Room1/Button" to="Gameplay/Room1/Door" method="_on_signal_activated"]
 [connection signal="unpressed" from="Gameplay/Room1/Button" to="Gameplay/Room1/Door" method="_on_signal_disactivated"]
 [connection signal="pressed" from="Gameplay/Room2/Button" to="Gameplay/Room2/Door" method="_on_signal_activated"]
 [connection signal="unpressed" from="Gameplay/Room2/Button" to="Gameplay/Room2/Door" method="_on_signal_disactivated"]
 [connection signal="pressed" from="Gameplay/Room3/Button" to="Gameplay/Room3/Door" method="_on_signal_activated"]
+[connection signal="pressed" from="Gameplay/Room3/Button" to="Gameplay/Shortcuts/Door" method="_on_signal_activated"]
 [connection signal="unpressed" from="Gameplay/Room3/Button" to="Gameplay/Room3/Door" method="_on_signal_disactivated"]
+[connection signal="unpressed" from="Gameplay/Room3/Button" to="Gameplay/Shortcuts/Door" method="_on_signal_disactivated"]
 [connection signal="pressed" from="Gameplay/Room3/Button2" to="Gameplay/Room3/Door" method="_on_signal_activated"]
+[connection signal="pressed" from="Gameplay/Room3/Button2" to="Gameplay/Shortcuts/Door" method="_on_signal_activated"]
 [connection signal="unpressed" from="Gameplay/Room3/Button2" to="Gameplay/Room3/Door" method="_on_signal_disactivated"]
+[connection signal="unpressed" from="Gameplay/Room3/Button2" to="Gameplay/Shortcuts/Door" method="_on_signal_disactivated"]
 [connection signal="pressed" from="Gameplay/ControlRoom/Button" to="Gameplay/ControlRoom/Door" method="_on_signal_activated"]
 [connection signal="pressed" from="Gameplay/ControlRoom/Button" to="Gameplay/ControlRoom/PowerLine" method="on_powered"]
 [connection signal="unpressed" from="Gameplay/ControlRoom/Button" to="Gameplay/ControlRoom/Door" method="_on_signal_disactivated"]
 [connection signal="unpressed" from="Gameplay/ControlRoom/Button" to="Gameplay/ControlRoom/PowerLine" method="on_unpowered"]
+[connection signal="pressed" from="Gameplay/Shortcuts/Button" to="Gameplay/Shortcuts/Door2" method="_on_signal_activated"]
+[connection signal="unpressed" from="Gameplay/Shortcuts/Button" to="Gameplay/Shortcuts/Door2" method="_on_signal_disactivated"]

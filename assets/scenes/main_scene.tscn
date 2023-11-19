@@ -70,7 +70,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.68853, 13.3965, 3.95913)
 
 [node name="Level1" parent="." instance=ExtResource("2_h57yw")]
 
-[node name="Level2" parent="." instance=ExtResource("3_l3r4m")]
+[node name="Level3" parent="." instance=ExtResource("3_l3r4m")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="CenterRoom" type="CSGMesh3D" parent="."]
