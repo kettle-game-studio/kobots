@@ -3,8 +3,8 @@ class_name ButtonController
 
 enum State {UNPRESSED, PRESSING, UNPRESSING, PRESSED, ALWAYS_PRESSED}
 
-signal pressed
-signal unpressed
+signal pressed(ButtonController)
+signal unpressed(ButtonController)
 
 @export var button: CSGMesh3D
 @export var area: Area3D
@@ -26,18 +26,16 @@ func _process(_delta: float):
 			pressiness += _delta * 1 / press_seconds
 			if pressiness >= 1:
 				pressiness = 1
-				print("PRESS")
 				button.material.albedo_color = pressed_albedo
 				state = State.PRESSED
-				pressed.emit()
+				pressed.emit(self)
 		State.UNPRESSING:
 			pressiness -= _delta * 1 / press_seconds
 			if pressiness <= 0:
 				pressiness = 0
-				print("UNPRESS")
 				button.material.albedo_color = unpressed_albedo
 				state = State.UNPRESSED
-				unpressed.emit()
+				unpressed.emit(self)
 
 func _physics_process(_delta: float):
 	if is_pressed():
@@ -62,3 +60,6 @@ func on_unpressed():
 	match state:
 		State.PRESSED:
 			state = State.UNPRESSING
+
+func freeze_as_activated():
+	state = State.ALWAYS_PRESSED

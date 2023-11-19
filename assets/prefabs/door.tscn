@@ -11,6 +11,8 @@ albedo_color = Color(0.299547, 0.299547, 0.299547, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_b58hp"]
 size = Vector3(2, 2, 0.1)
 
+[sub_resource type="Animation" id="Animation_u3218"]
+
 [sub_resource type="Animation" id="Animation_pais8"]
 resource_name = "opening"
 tracks/0/type = "bezier"
@@ -46,8 +48,6 @@ tracks/2/keys = {
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 1)
 }
-
-[sub_resource type="Animation" id="Animation_u3218"]
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_h4vty"]
 _data = {
