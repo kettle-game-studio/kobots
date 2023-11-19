@@ -1,11 +1,12 @@
+@tool
 extends RayCast3D
 
 @onready var beam_mesh = $BeamMesh
-@onready var particles = $BeamMesh/EndParticles 
+@onready var particles = $EndParticles 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	beam_mesh.mesh = beam_mesh.mesh.duplicate()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -15,8 +16,9 @@ func _process(delta):
 	
 	if is_colliding():
 		cast_point = to_local(get_collision_point())
+		print("cast_point ", cast_point)
 		
-		beam_mesh.mesh.height = cast_point.y
-		beam_mesh.position.y = cast_point.y/2
+		beam_mesh.mesh.height = abs(cast_point.z)
+		beam_mesh.position.z = cast_point.z/2
 		
-		particles.position.y = cast_point.y
+		particles.position.z = cast_point.z
