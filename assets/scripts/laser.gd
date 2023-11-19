@@ -1,5 +1,7 @@
 @tool
 extends RayCast3D
+class_name RobotLaser
+
 
 @onready var beam_mesh = $BeamMesh
 @onready var particles = $EndParticles 
@@ -22,3 +24,7 @@ func _process(delta):
 		beam_mesh.position.z = cast_point.z/2
 		
 		particles.position.z = cast_point.z
+		
+		var collider = self.get_collider()
+		if collider is RobotLaser:
+			print("tut nado prokinut estcho odin laser")
