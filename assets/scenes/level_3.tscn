@@ -104,6 +104,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.6378, 0.0500002, 8.31002)
 
 [node name="Door" parent="Gameplay/Room3" instance=ExtResource("5_5ng7b")]
 transform = Transform3D(0.67907, 0, 0.734074, 0, 1, 0, -0.734074, 0, 0.67907, 19.6524, 0.0223937, 9.0499)
+required_signals = 2
 
 [node name="ControlRoom" type="Node3D" parent="Gameplay"]
 
