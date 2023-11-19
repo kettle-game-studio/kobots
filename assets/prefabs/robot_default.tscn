@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://dmtm7k1fhpmkj"]
 
-[ext_resource type="Script" path="res://assets/scripts/robot_controller.gd" id="1_mbruf"]
-[ext_resource type="Script" path="res://assets/scripts/player_controller.gd" id="2_3a4k1"]
-[ext_resource type="Script" path="res://assets/scripts/drag_controller.gd" id="3_cn212"]
-[ext_resource type="Script" path="res://assets/scripts/teleportator.gd" id="3_hwn1f"]
+[ext_resource type="Script" path="res://assets/scripts/robot_controller.gd" id="1_y52tj"]
+[ext_resource type="Script" path="res://assets/scripts/player_controller.gd" id="2_3u1ph"]
+[ext_resource type="Script" path="res://assets/scripts/drag_controller.gd" id="3_d0ex6"]
+[ext_resource type="Script" path="res://assets/scripts/teleportator.gd" id="4_s4mjk"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6g3en"]
 
@@ -13,9 +13,10 @@ height = 1.0
 [sub_resource type="BoxShape3D" id="BoxShape3D_sxjss"]
 
 [node name="DefaultRobot" type="CharacterBody3D" node_paths=PackedStringArray("subViewport", "player_controller")]
-script = ExtResource("1_mbruf")
+script = ExtResource("1_y52tj")
 subViewport = NodePath("SubViewport")
 player_controller = NodePath("Controller")
+can_push_buttons = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.928614, 0)
@@ -29,14 +30,14 @@ target_position = Vector3(0, 0, -1)
 collision_mask = 7
 
 [node name="Controller" type="Node" parent="." node_paths=PackedStringArray("player", "camera", "raycast", "robot_controller")]
-script = ExtResource("2_3a4k1")
+script = ExtResource("2_3u1ph")
 player = NodePath("..")
 camera = NodePath("../Eye")
 raycast = NodePath("../Eye/RayCast3D")
 robot_controller = NodePath("..")
 
 [node name="Drag" type="Node" parent="." node_paths=PackedStringArray("player", "player_controller", "ray_cast", "camera", "box_mount_point", "box_collision")]
-script = ExtResource("3_cn212")
+script = ExtResource("3_d0ex6")
 player = NodePath("..")
 player_controller = NodePath("../Controller")
 ray_cast = NodePath("../Eye/RayCast3D")
@@ -51,7 +52,7 @@ size = Vector2i(1024, 640)
 
 [node name="Camera3D" type="Camera3D" parent="SubViewport" node_paths=PackedStringArray("target")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.47635, 0)
-script = ExtResource("3_hwn1f")
+script = ExtResource("4_s4mjk")
 target = NodePath("../../Eye")
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="."]

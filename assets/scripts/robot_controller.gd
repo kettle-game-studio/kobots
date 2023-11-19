@@ -4,6 +4,7 @@ class_name RobotController
 
 @export var subViewport: SubViewport
 @export var player_controller: PlayerController
+@export var can_push_buttons: bool = false
 
 var parent: PlayerController
 

@@ -75,7 +75,7 @@ func walk(delta: float):
 			player.velocity.y = y_velocity
 			player.move_and_slide()
 		return
-		
+
 	var aim = player.get_global_transform().basis
 	
 	var y_velocity = 0
