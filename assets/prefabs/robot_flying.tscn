@@ -4,9 +4,9 @@
 [ext_resource type="Script" path="res://assets/scripts/player_controller.gd" id="2_qh0xa"]
 [ext_resource type="Script" path="res://assets/scripts/teleportator.gd" id="4_rs2ja"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6g3en"]
-radius = 0.383986
-height = 0.953212
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_w2lxh"]
+height = 1.0864
+radius = 0.264908
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_te3dc"]
 top_radius = 0.2
@@ -23,8 +23,8 @@ subViewport = NodePath("SubViewport")
 player_controller = NodePath("Controller")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.281486, 0)
-shape = SubResource("CapsuleShape3D_6g3en")
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.484657, -0.115527)
+shape = SubResource("CylinderShape3D_w2lxh")
 
 [node name="Eye" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.475215, -0.181838)

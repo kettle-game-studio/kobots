@@ -5,6 +5,7 @@ class_name PlayerController
 @export var camera: Node3D
 @export var raycast: RayCast3D
 @export var robot_controller: RobotController
+@export var ui: CanvasLayer
 
 @export var camera_speed: float = 0.01
 @export var walk_speed: float = 5
@@ -13,15 +14,19 @@ class_name PlayerController
 @export var flight: bool = false
 @export var flight_speed: float = 5
 
-enum State { ENABLED, DISABLED }
+enum State { ENABLED, DISABLED, CONTROLLED_BY_OTHER }
 @export var state: State = State.DISABLED
 
 var other: Object = null
 
+var is_rotationg = false
+var rotating_timer = 0
+
+
 var enabled: bool :
 	get:
 		return state == State.ENABLED
-			
+
 
 func _physics_process(delta: float):
 	walk(delta)
@@ -45,11 +50,11 @@ func _get_control():
 	var collider = raycast.get_collider()
 	if collider is Terminal:
 		if collider.enable(self):
-			disable()
+			disable(true)
 
 func _input(event: InputEvent):
 	if !enabled: return
-	
+
 	if event is InputEventMouseMotion:
 		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 			rotate_camera(event.relative)
@@ -66,7 +71,10 @@ func _input(event: InputEvent):
 		_get_control()
 
 func rotate_camera(vector: Vector2):
-	camera.rotation.x = clamp(camera.rotation.x - vector.y * camera_speed, -PI/2, PI/2)
+	self.is_rotationg = true
+	self.rotating_timer = 0.02
+	var velocity = vector.y * camera_speed
+	camera.rotation.x = clamp(camera.rotation.x - velocity, -PI/2, PI/2)
 	player.rotate_y(-vector.x * camera_speed)
 
 func walk(delta: float):
@@ -98,12 +106,26 @@ func walk(delta: float):
 	player.velocity.y = y_velocity
 	player.move_and_slide()
 
-func disable():
-	state = State.DISABLED
+func _process(delta):
+	if self.rotating_timer <= 0:
+		self.rotating_timer = 0
+		self.is_rotationg = 0
+	else:
+		self.rotating_timer -= delta
+
+func disable(controlled_by_other: bool = false):
+	if controlled_by_other:
+		state = State.CONTROLLED_BY_OTHER
+	else:
+		state = State.DISABLED
+		if ui:
+			ui.visible = true
 
 func enable_instantly():
+	if ui:
+		ui.visible = false
 	state = State.ENABLED
 	
 func enable_next_frame():
 	await get_tree().process_frame
-	state = State.ENABLED
+	enable_instantly()

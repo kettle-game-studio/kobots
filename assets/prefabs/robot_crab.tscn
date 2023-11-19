@@ -1,14 +1,47 @@
-[gd_scene load_steps=7 format=3 uid="uid://bibke4m7obh01"]
+[gd_scene load_steps=15 format=3 uid="uid://bibke4m7obh01"]
 
 [ext_resource type="Script" path="res://assets/scripts/robot_controller.gd" id="1_hjopj"]
 [ext_resource type="Script" path="res://assets/scripts/player_controller.gd" id="2_yqcsn"]
 [ext_resource type="Script" path="res://assets/scripts/teleportator.gd" id="3_x68lt"]
 [ext_resource type="PackedScene" uid="uid://r48ixce8feto" path="res://assets/models/Crab/Crab.glb" id="4_mv3x2"]
-[ext_resource type="Material" uid="uid://br0emt2guxw5j" path="res://assets/scripts/crab/new_shader_material.tres" id="5_1hntv"]
+[ext_resource type="Script" path="res://assets/scripts/crab/crab.gd" id="5_m0tm0"]
+[ext_resource type="Shader" path="res://assets/scripts/crab/crab.gdshader" id="6_bmf35"]
+[ext_resource type="Texture2D" uid="uid://cjssju6ani202" path="res://assets/models/Crab/CrabAdd.png" id="7_253mr"]
+[ext_resource type="Texture2D" uid="uid://c35hoo862hd2o" path="res://assets/models/Crab/CrabColor.png" id="8_ywxhj"]
+[ext_resource type="Texture2D" uid="uid://cd4o1l2dmvreh" path="res://assets/models/Crab/CrabLight.png" id="9_c5eh3"]
+[ext_resource type="Shader" path="res://assets/scripts/crab/crab_glass.gdshader" id="10_qhqyg"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6g3en"]
 radius = 0.383986
 height = 0.953212
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_57dau"]
+render_priority = 0
+shader = ExtResource("6_bmf35")
+shader_parameter/color = Color(0.870588, 0.00784314, 0.384314, 1)
+shader_parameter/enable = true
+shader_parameter/emission_k = 0.5
+shader_parameter/base_texture = ExtResource("8_ywxhj")
+shader_parameter/add_texture = ExtResource("7_253mr")
+shader_parameter/emission_texture = ExtResource("9_c5eh3")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rxtn1"]
+render_priority = 0
+shader = ExtResource("10_qhqyg")
+shader_parameter/color = Color(0.870588, 0.00784314, 0.384314, 1)
+shader_parameter/enable = true
+shader_parameter/add_texture = ExtResource("7_253mr")
+shader_parameter/emission_texture = ExtResource("9_c5eh3")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pj28m"]
+render_priority = 0
+shader = ExtResource("6_bmf35")
+shader_parameter/color = Color(0.870588, 0.00784314, 0.384314, 1)
+shader_parameter/enable = true
+shader_parameter/emission_k = 0.5
+shader_parameter/base_texture = ExtResource("8_ywxhj")
+shader_parameter/add_texture = ExtResource("7_253mr")
+shader_parameter/emission_texture = ExtResource("9_c5eh3")
 
 [node name="RobotCrab" type="CharacterBody3D" node_paths=PackedStringArray("subViewport", "player_controller")]
 script = ExtResource("1_hjopj")
@@ -16,7 +49,7 @@ subViewport = NodePath("SubViewport")
 player_controller = NodePath("Controller")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.281486, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.48475, 0)
 shape = SubResource("CapsuleShape3D_6g3en")
 
 [node name="Eye" type="Node3D" parent="."]
@@ -44,27 +77,35 @@ near = 0.113
 script = ExtResource("3_x68lt")
 target = NodePath("../../Eye")
 
-[node name="Crab" parent="." instance=ExtResource("4_mv3x2")]
+[node name="Crab" parent="." node_paths=PackedStringArray("meshes", "light_meshes", "animation_player", "body", "controller") instance=ExtResource("4_mv3x2")]
 transform = Transform3D(-1.46433e-08, 0, 0.335, 0, 0.335, 0, -0.335, 0, -1.46433e-08, 0, 0, 0)
+script = ExtResource("5_m0tm0")
+color = Color(0.870588, 0.00784314, 0.384314, 1)
+enable_laser = true
+meshes = [NodePath("Armature/Skeleton3D/Crab2")]
+light_meshes = [NodePath("Armature/Skeleton3D/CrabGlassHat"), NodePath("Armature/Skeleton3D/CrabLightHat")]
+animation_player = NodePath("AnimationPlayer")
+body = NodePath("..")
+controller = NodePath("../Controller")
 
 [node name="Skeleton3D" parent="Crab/Armature" index="0"]
-bones/0/position = Vector3(-0.0426457, 0.279024, -0.00706099)
-bones/2/rotation = Quaternion(-0.486916, -0.15624, -0.260179, 0.819029)
-bones/3/rotation = Quaternion(-0.760153, -0.0342593, -0.208447, 0.614446)
-bones/5/rotation = Quaternion(-0.541846, -0.0586699, -0.101111, 0.832309)
-bones/6/rotation = Quaternion(-0.735067, 0.146535, -0.298934, 0.590629)
-bones/8/rotation = Quaternion(-0.547326, 0.0360298, 0.0563839, 0.83424)
-bones/9/rotation = Quaternion(-0.702629, 0.310548, -0.380144, 0.515133)
-bones/11/rotation = Quaternion(-0.501012, 0.133729, 0.226542, 0.824489)
-bones/12/rotation = Quaternion(-0.658545, 0.439173, -0.460181, 0.402093)
-bones/14/rotation = Quaternion(0.166548, -0.453446, -0.526941, 0.699272)
-bones/15/rotation = Quaternion(-0.776248, -0.615156, 0.11553, 0.0753323)
-bones/17/rotation = Quaternion(0.465612, -0.258303, -0.296365, 0.792876)
-bones/18/rotation = Quaternion(0.785293, 0.520566, 0.079776, 0.325516)
-bones/20/rotation = Quaternion(0.493045, 0.250338, 0.246018, 0.796061)
-bones/21/rotation = Quaternion(0.601179, -0.0153989, 0.519653, 0.606883)
-bones/23/rotation = Quaternion(0.203295, 0.480813, 0.511445, 0.682579)
-bones/24/rotation = Quaternion(0.421265, -0.407451, 0.679883, 0.440771)
+bones/0/position = Vector3(-0.033238, 0.279024, -0.0186434)
+bones/2/rotation = Quaternion(-0.486219, -0.156355, -0.259792, 0.819544)
+bones/3/rotation = Quaternion(-0.76461, -0.0339272, -0.209669, 0.608489)
+bones/5/rotation = Quaternion(-0.541033, -0.0563354, -0.101468, 0.832955)
+bones/6/rotation = Quaternion(-0.738924, 0.145218, -0.300502, 0.585321)
+bones/8/rotation = Quaternion(-0.546941, 0.0402978, 0.0554, 0.834363)
+bones/9/rotation = Quaternion(-0.705293, 0.30846, -0.381585, 0.511671)
+bones/11/rotation = Quaternion(-0.501212, 0.139148, 0.225335, 0.823801)
+bones/12/rotation = Quaternion(-0.659633, 0.437849, -0.460941, 0.400881)
+bones/14/rotation = Quaternion(0.165495, -0.457923, -0.527478, 0.696192)
+bones/15/rotation = Quaternion(-0.775327, -0.616324, 0.115393, 0.0754753)
+bones/17/rotation = Quaternion(0.46545, -0.262491, -0.297429, 0.791196)
+bones/18/rotation = Quaternion(0.782564, 0.523542, 0.0794988, 0.327377)
+bones/20/rotation = Quaternion(0.493905, 0.247454, 0.245729, 0.796518)
+bones/21/rotation = Quaternion(0.598215, -0.0155282, 0.517091, 0.611976)
+bones/23/rotation = Quaternion(0.203711, 0.480031, 0.512, 0.682589)
+bones/24/rotation = Quaternion(0.41892, -0.411447, 0.676097, 0.445094)
 bones/26/position = Vector3(0.940996, 0.0940332, -1.27221)
 bones/27/position = Vector3(0.337036, 0.0940332, -1.54609)
 bones/28/position = Vector3(-0.311581, 0.0940332, -1.55142)
@@ -75,6 +116,15 @@ bones/32/position = Vector3(-0.311581, 0.0940332, 1.55142)
 bones/33/position = Vector3(-0.898251, 0.0940332, 1.30274)
 
 [node name="Crab2" parent="Crab/Armature/Skeleton3D" index="0"]
-surface_material_override/0 = ExtResource("5_1hntv")
+surface_material_override/0 = SubResource("ShaderMaterial_57dau")
+
+[node name="CrabGlassHat" parent="Crab/Armature/Skeleton3D" index="1"]
+surface_material_override/0 = SubResource("ShaderMaterial_rxtn1")
+
+[node name="CrabLightHat" parent="Crab/Armature/Skeleton3D" index="2"]
+surface_material_override/0 = SubResource("ShaderMaterial_pj28m")
+
+[node name="AnimationPlayer" parent="Crab" index="1"]
+speed_scale = 0.5
 
 [editable path="Crab"]

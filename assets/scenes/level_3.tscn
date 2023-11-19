@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://da5xv5g3mndxw"]
+[gd_scene load_steps=25 format=3 uid="uid://da5xv5g3mndxw"]
 
 [ext_resource type="PackedScene" uid="uid://cv03cxb8jcsy8" path="res://assets/prefabs/terminal.tscn" id="1_m1hvl"]
 [ext_resource type="PackedScene" path="res://assets/prefabs/robot_default.tscn" id="2_g4ply"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cbnmfkaxsw4ki" path="res://assets/prefabs/box.tscn" id="6_y7ee0"]
 [ext_resource type="PackedScene" uid="uid://bdguoqhpmcppa" path="res://assets/prefabs/tiles/wall_tile_1.tscn" id="8_exega"]
 [ext_resource type="PackedScene" uid="uid://djpkb7s0oa4fu" path="res://assets/prefabs/robot_flying.tscn" id="9_34grp"]
+[ext_resource type="Texture2D" uid="uid://bwkuek3tum0cn" path="res://assets/writings/labyrinth.png" id="11_c3iwu"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_l1iiy"]
 size = Vector2(0.1, 1)
@@ -41,6 +42,16 @@ size = Vector3(1, 3, 42)
 top_radius = 10.0
 bottom_radius = 10.0
 height = 100.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_qtdca"]
+size = Vector2(7, 7)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yywp1"]
+transparency = 1
+albedo_texture = ExtResource("11_c3iwu")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hwx6n"]
+size = Vector3(41.5291, 1, 42.7687)
 
 [node name="Level3" type="Node3D"]
 
@@ -495,7 +506,7 @@ transform = Transform3D(0.999104, 0, 0.0423115, 0, 1, 0, -0.0423115, 0, 0.999104
 transform = Transform3D(0.999104, 0, 0.0423115, 0, 1, 0, -0.0423115, 0, 0.999104, 11.9845, -0.080879, 35.5095)
 
 [node name="WallTile75" parent="Geometry" instance=ExtResource("8_exega")]
-transform = Transform3D(0.999104, 0, 0.0423115, 0, 1, 0, -0.0423115, 0, 0.999104, 11.9023, -0.080879, 33.5686)
+transform = Transform3D(0.999104, 0, 0.0423115, 0, 1, 0, -0.0423115, 0, 0.999104, 11.9023, -0.775452, 33.5686)
 
 [node name="WallTile76" parent="Geometry" instance=ExtResource("8_exega")]
 transform = Transform3D(0.999104, 0, 0.0423115, 0, 1, 0, -0.0423115, 0, 0.999104, 11.821, -0.080879, 31.6482)
@@ -926,6 +937,17 @@ transform = Transform3D(0.999736, 0, 0.0229665, 0, 1, 0, -0.0229665, 0, 0.999736
 [node name="CenterRoom" type="CSGMesh3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -36.6288, 0)
 mesh = SubResource("CylinderMesh_ostqh")
+
+[node name="LabyrinthNote" type="CSGMesh3D" parent="."]
+transform = Transform3D(-0.0143552, -0.999768, 0.0160654, -0.00088731, 0.0160797, 0.99987, -0.999897, 0.0143391, -0.00111793, 17.007, 0.11185, 32.663)
+mesh = SubResource("QuadMesh_qtdca")
+material = SubResource("StandardMaterial3D_yywp1")
+
+[node name="Ceiling" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ceiling"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.1401, 3.45226, 21.9826)
+shape = SubResource("BoxShape3D_hwx6n")
 
 [connection signal="pressed" from="Gameplay/Room1/Button" to="Gameplay/Room1/Door" method="_on_signal_activated"]
 [connection signal="unpressed" from="Gameplay/Room1/Button" to="Gameplay/Room1/Door" method="_on_signal_disactivated"]

@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dmtm7k1fhpmkj"]
+[gd_scene load_steps=10 format=3 uid="uid://dmtm7k1fhpmkj"]
 
 [ext_resource type="Script" path="res://assets/scripts/robot_controller.gd" id="1_y52tj"]
 [ext_resource type="Script" path="res://assets/scripts/player_controller.gd" id="2_3u1ph"]
 [ext_resource type="Script" path="res://assets/scripts/drag_controller.gd" id="3_d0ex6"]
 [ext_resource type="Script" path="res://assets/scripts/teleportator.gd" id="4_s4mjk"]
+[ext_resource type="Theme" uid="uid://p08pj8vk2hog" path="res://assets/game_theme.tres" id="5_54xkm"]
+[ext_resource type="Texture2D" uid="uid://d3ghq1iovcg86" path="res://assets/writings/crabot-scheme.png" id="6_5b04s"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6g3en"]
 
@@ -29,12 +31,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.47635, 0)
 target_position = Vector3(0, 0, -1)
 collision_mask = 7
 
-[node name="Controller" type="Node" parent="." node_paths=PackedStringArray("player", "camera", "raycast", "robot_controller")]
+[node name="Controller" type="Node" parent="." node_paths=PackedStringArray("player", "camera", "raycast", "robot_controller", "ui")]
 script = ExtResource("2_3u1ph")
 player = NodePath("..")
 camera = NodePath("../Eye")
 raycast = NodePath("../Eye/RayCast3D")
 robot_controller = NodePath("..")
+ui = NodePath("../SubViewport/CanvasLayer")
 
 [node name="Drag" type="Node" parent="." node_paths=PackedStringArray("player", "player_controller", "ray_cast", "camera", "box_mount_point", "box_collision")]
 script = ExtResource("3_d0ex6")
@@ -54,6 +57,40 @@ size = Vector2i(1024, 640)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.47635, 0)
 script = ExtResource("4_s4mjk")
 target = NodePath("../../Eye")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="SubViewport"]
+
+[node name="MarginContainer" type="MarginContainer" parent="SubViewport/CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 200
+theme_override_constants/margin_bottom = 100
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SubViewport/CanvasLayer/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("5_54xkm")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[font_size=40]KOBOT.Mk-02[/font_size]
+
+[font_size=100]CRABOT[/font_size]
+
+Designed to redirect powerful laser rays
+
+[font_size=40]
+[Mouse] Look around
+[WASD] Walk 
+[/font_size]"
+
+[node name="Crabot-scheme" type="Sprite2D" parent="SubViewport/CanvasLayer/MarginContainer"]
+position = Vector2(786, 297)
+scale = Vector2(0.472656, 0.472656)
+texture = ExtResource("6_5b04s")
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.480839, 0)
