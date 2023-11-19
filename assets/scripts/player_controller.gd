@@ -10,7 +10,15 @@ class_name PlayerController
 @export var walk_speed: float = 5
 @export var push_force: float = 100
 
-@export var enabled: bool = false
+enum State { ENABLED, DISABLED, CONTROLLED_BY_OTHER }
+@export var state: State = State.DISABLED
+
+var other: Object = null
+
+var enabled: bool :
+	get:
+		return state == State.ENABLED
+			
 
 func _physics_process(delta: float):
 	if !enabled: return
@@ -70,8 +78,8 @@ func walk(delta: float):
 	player.move_and_slide()
 
 func disable():
-	enabled = false
+	state = State.DISABLED
 
 func enable():
 	await get_tree().process_frame
-	enabled = true
+	state = State.ENABLED

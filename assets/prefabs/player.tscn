@@ -23,4 +23,4 @@ script = ExtResource("1_ktkwb")
 player = NodePath("..")
 camera = NodePath("../Eye")
 raycast = NodePath("../Eye/RayCast3D")
-enabled = true
+state = 0

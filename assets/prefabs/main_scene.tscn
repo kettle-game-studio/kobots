@@ -350,7 +350,7 @@ robot = NodePath("../FirstLevelGameplay/Room1/DefaultRobot")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.8061, 0.076628, 15.9116)
 
 [node name="DefaultRobot" parent="FirstLevelGameplay/Room1" instance=ExtResource("5_p2kbk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.5347, 0.0352378, 4.07489)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.5347, 0.0352378, 23.6621)
 
 [node name="Door" parent="FirstLevelGameplay/Room1" instance=ExtResource("7_ggu3v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.81, 0.0495741, 20.1342)

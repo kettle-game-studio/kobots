@@ -1,13 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://dmtm7k1fhpmkj"]
+[gd_scene load_steps=8 format=3 uid="uid://dmtm7k1fhpmkj"]
 
 [ext_resource type="Script" path="res://assets/scripts/robot_controller.gd" id="1_mbruf"]
 [ext_resource type="Script" path="res://assets/scripts/player_controller.gd" id="2_3a4k1"]
+[ext_resource type="Script" path="res://assets/scripts/drag_controller.gd" id="3_cn212"]
 [ext_resource type="Script" path="res://assets/scripts/teleportator.gd" id="3_hwn1f"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6g3en"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_te3dc"]
 height = 1.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sxjss"]
 
 [node name="DefaultRobot" type="CharacterBody3D" node_paths=PackedStringArray("subViewport", "player_controller")]
 script = ExtResource("1_mbruf")
@@ -23,6 +26,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.47635, 0)
 
 [node name="RayCast3D" type="RayCast3D" parent="Eye"]
 target_position = Vector3(0, 0, -1)
+collision_mask = 7
 
 [node name="Controller" type="Node" parent="." node_paths=PackedStringArray("player", "camera", "raycast", "robot_controller")]
 script = ExtResource("2_3a4k1")
@@ -31,6 +35,15 @@ camera = NodePath("../Eye")
 raycast = NodePath("../Eye/RayCast3D")
 robot_controller = NodePath("..")
 push_force = 200.0
+
+[node name="Drag" type="Node" parent="." node_paths=PackedStringArray("player", "player_controller", "ray_cast", "camera", "box_mount_point", "box_collision")]
+script = ExtResource("3_cn212")
+player = NodePath("..")
+player_controller = NodePath("../Controller")
+ray_cast = NodePath("../Eye/RayCast3D")
+camera = NodePath("../Eye")
+box_mount_point = NodePath("../BoxMountPoint")
+box_collision = NodePath("../DraggedBoxCollision")
 
 [node name="SubViewport" type="SubViewport" parent="."]
 disable_3d = true
@@ -46,3 +59,10 @@ target = NodePath("../../Eye")
 [node name="CSGMesh3D" type="CSGMesh3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.480839, 0)
 mesh = SubResource("CylinderMesh_te3dc")
+
+[node name="BoxMountPoint" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="DraggedBoxCollision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -1)
+shape = SubResource("BoxShape3D_sxjss")
