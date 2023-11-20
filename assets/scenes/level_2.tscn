@@ -1,13 +1,14 @@
 [gd_scene load_steps=60 format=3 uid="uid://55hndo303vxn"]
 
 [ext_resource type="Material" uid="uid://cl70hdbacc760" path="res://assets/materials/glass_mat.tres" id="1_3ywb6"]
-[ext_resource type="Texture2D" uid="uid://bkrpqts7s35mu" path="res://assets/images/Screenshot 2023-11-19 231929.png" id="2_b2v62"]
 [ext_resource type="PackedScene" uid="uid://dcjw51pfs7v86" path="res://assets/prefabs/door.tscn" id="3_4rn2m"]
 [ext_resource type="Material" uid="uid://2ybpoagjbl17" path="res://assets/materials/laser_emitter.tres" id="4_bgtga"]
 [ext_resource type="Material" uid="uid://cplpxtmysvfhy" path="res://assets/materials/laser_emitter2.tres" id="5_j0buk"]
 [ext_resource type="PackedScene" uid="uid://d27stf6dexrbe" path="res://assets/prefabs/laser.tscn" id="7_7q507"]
 [ext_resource type="PackedScene" uid="uid://bh30fgjh4prch" path="res://assets/prefabs/player.tscn" id="8_ep8hq"]
 [ext_resource type="PackedScene" uid="uid://cbnmfkaxsw4ki" path="res://assets/prefabs/box.tscn" id="8_jvxje"]
+[ext_resource type="PackedScene" uid="uid://cv03cxb8jcsy8" path="res://assets/prefabs/terminal.tscn" id="8_x5pvj"]
+[ext_resource type="PackedScene" uid="uid://bibke4m7obh01" path="res://assets/prefabs/robot_crab.tscn" id="9_p5oa4"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_n8bja"]
 top_radius = 10.0
@@ -116,7 +117,6 @@ size = Vector2(43.64, 50.81)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cvikw"]
 transparency = 1
 albedo_color = Color(1, 1, 1, 0.682353)
-albedo_texture = ExtResource("2_b2v62")
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_sydlv"]
 data = PackedVector3Array(21.82, -25.405, 0, -21.82, -25.405, 0, 21.82, 25.405, 0, -21.82, -25.405, 0, -21.82, 25.405, 0, 21.82, 25.405, 0)
@@ -148,21 +148,6 @@ radius = 50.0
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_6d2m1"]
 height = 0.3
-
-[sub_resource type="GDScript" id="GDScript_n7qbv"]
-script/source = "extends MeshInstance3D
-class_name Laser_Redirector
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-"
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_t3ig4"]
 top_radius = 0.3
@@ -378,7 +363,7 @@ mesh = SubResource("BoxMesh_uo0w1")
 shape = SubResource("ConcavePolygonShape3D_2082y")
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="Geometry"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.11906, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.493571, 0)
 mesh = SubResource("CylinderMesh_wumy8")
 
 [node name="CSGMesh3D2" type="CSGMesh3D" parent="Geometry/CSGMesh3D"]
@@ -389,7 +374,7 @@ mesh = SubResource("CylinderMesh_8br2e")
 [node name="StaticBody3D" type="StaticBody3D" parent="Geometry/CSGMesh3D"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/CSGMesh3D/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.03534, 0)
 shape = SubResource("CylinderShape3D_ylbxo")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
@@ -401,25 +386,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.2395, -0.345166, 26.6334)
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -14.1401, -1.52528, 18.1911)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PuzzleStuff"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -8.55743, 0, 24.0992)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -8.55743, -0.357052, 24.0992)
 mesh = SubResource("CylinderMesh_6d2m1")
 surface_material_override/0 = ExtResource("4_bgtga")
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="PuzzleStuff"]
-transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, -8.55743, 0, 19.947)
-mesh = SubResource("CylinderMesh_6d2m1")
-surface_material_override/0 = ExtResource("4_bgtga")
-script = SubResource("GDScript_n7qbv")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="PuzzleStuff"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.55743, 0, 23.9851)
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="PuzzleStuff/MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.1141, 4.98744e-09)
 mesh = SubResource("CylinderMesh_t3ig4")
+skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("5_j0buk")
 
-[node name="Laser" parent="PuzzleStuff/MeshInstance3D2" instance=ExtResource("7_7q507")]
+[node name="Laser" parent="PuzzleStuff/MeshInstance3D/MeshInstance3D2" instance=ExtResource("7_7q507")]
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="PuzzleStuff"]
-transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -13.6147, 9.53674e-07, 21.4185)
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -13.6147, -0.357051, 21.4185)
 mesh = SubResource("CylinderMesh_xvbn0")
 material = ExtResource("4_bgtga")
 
@@ -430,7 +410,7 @@ mesh = SubResource("CylinderMesh_3v78j")
 material = ExtResource("4_bgtga")
 
 [node name="CSGMesh3D4" type="CSGMesh3D" parent="PuzzleStuff"]
-transform = Transform3D(4.37114e-08, -1, -8.74228e-08, -1, -4.37114e-08, 0, -3.82137e-15, 8.74228e-08, -1, -1.38349, 1.19209e-06, 33.9202)
+transform = Transform3D(4.37114e-08, -1, -8.74228e-08, -1, -4.37114e-08, 0, -3.82137e-15, 8.74228e-08, -1, -1.38349, -0.357051, 33.9202)
 mesh = SubResource("CylinderMesh_4u6bn")
 material = ExtResource("4_bgtga")
 
@@ -441,7 +421,7 @@ mesh = SubResource("CylinderMesh_3v78j")
 material = ExtResource("4_bgtga")
 
 [node name="CSGMesh3D2" type="CSGMesh3D" parent="PuzzleStuff"]
-transform = Transform3D(-4.16821e-08, 0.953575, 0.301155, -1, -4.37114e-08, 0, 1.31639e-08, -0.301155, 0.953575, -47.7081, 0, 10.5109)
+transform = Transform3D(-4.16821e-08, 0.953575, 0.301155, -1, -4.37114e-08, 0, 1.31639e-08, -0.301155, 0.953575, -47.7081, -0.357052, 10.5109)
 mesh = SubResource("CylinderMesh_m311r")
 material = ExtResource("4_bgtga")
 
@@ -452,7 +432,7 @@ mesh = SubResource("CylinderMesh_3v78j")
 material = ExtResource("4_bgtga")
 
 [node name="CSGMesh3D3" type="CSGMesh3D" parent="PuzzleStuff"]
-transform = Transform3D(-3.00457e-08, 0.687366, 0.726311, -1, -4.37114e-08, 0, 3.17481e-08, -0.726311, 0.687366, -35.1047, 0, 33.9)
+transform = Transform3D(-3.00457e-08, 0.687366, 0.726311, -1, -4.37114e-08, 0, 3.17481e-08, -0.726311, 0.687366, -35.1047, -0.357052, 33.9)
 mesh = SubResource("CylinderMesh_m311r")
 material = ExtResource("4_bgtga")
 
@@ -475,9 +455,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.4412, -1.43728, 10.4357)
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -20.1507, -1.53506, 40.5392)
 
 [node name="Player" parent="." instance=ExtResource("8_ep8hq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.7611, -0.71529, 19.2293)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2328, -0.71529, 18.7231)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_qnd6d")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.61672, 0.787183, 0, -0.787183, 0.61672, 0, 0, 0)
+
+[node name="Terminal" parent="." node_paths=PackedStringArray("robot") instance=ExtResource("8_x5pvj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.3298, -1.5, 15.9192)
+robot = NodePath("../RobotCrab")
+
+[node name="RobotCrab" parent="." instance=ExtResource("9_p5oa4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.58913, -1.51064, 20.4949)
