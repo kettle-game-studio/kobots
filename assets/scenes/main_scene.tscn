@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://bb22o6htxbt80"]
+[gd_scene load_steps=11 format=3 uid="uid://bb22o6htxbt80"]
 
 [ext_resource type="PackedScene" uid="uid://bh30fgjh4prch" path="res://assets/prefabs/player.tscn" id="1_jwnee"]
 [ext_resource type="PackedScene" uid="uid://2duj7yddhaxr" path="res://assets/scenes/level_1.tscn" id="2_h57yw"]
 [ext_resource type="PackedScene" uid="uid://55hndo303vxn" path="res://assets/scenes/level_2.tscn" id="3_d48np"]
 [ext_resource type="PackedScene" uid="uid://da5xv5g3mndxw" path="res://assets/scenes/level_3.tscn" id="3_l3r4m"]
+[ext_resource type="PackedScene" uid="uid://bbu45o3pef4kc" path="res://assets/scenes/level_4.tscn" id="5_308yb"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_m8b15"]
 size = Vector3(20, 10, 30)
@@ -75,6 +76,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.68853, 13.3965, 3.95913)
 
 [node name="Level3" parent="." instance=ExtResource("3_l3r4m")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="Level4" parent="." instance=ExtResource("5_308yb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="CenterRoom" type="CSGMesh3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -36.6288, 0)
