@@ -33,7 +33,6 @@ func _process(delta):
 				robot.disable_laser()
 			if not Engine.is_editor_hint():
 				collider.enable_laser()
-			print("tut nado prokinut estcho odin laser")
 		elif robot:
 			robot.disable_laser()
 			robot = null

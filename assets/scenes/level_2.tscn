@@ -1,10 +1,9 @@
-[gd_scene load_steps=60 format=3 uid="uid://55hndo303vxn"]
+[gd_scene load_steps=53 format=3 uid="uid://55hndo303vxn"]
 
 [ext_resource type="Material" uid="uid://cl70hdbacc760" path="res://assets/materials/glass_mat.tres" id="1_3ywb6"]
 [ext_resource type="PackedScene" uid="uid://dcjw51pfs7v86" path="res://assets/prefabs/door.tscn" id="3_4rn2m"]
-[ext_resource type="Material" uid="uid://2ybpoagjbl17" path="res://assets/materials/laser_emitter.tres" id="4_bgtga"]
-[ext_resource type="Material" uid="uid://cplpxtmysvfhy" path="res://assets/materials/laser_emitter2.tres" id="5_j0buk"]
-[ext_resource type="PackedScene" uid="uid://d27stf6dexrbe" path="res://assets/prefabs/laser.tscn" id="7_7q507"]
+[ext_resource type="PackedScene" uid="uid://df8tgb1nnsno5" path="res://assets/prefabs/laser_emitter.tscn" id="4_lbpmn"]
+[ext_resource type="PackedScene" uid="uid://bmd3yd1hgsjgj" path="res://assets/prefabs/laser_absorber.tscn" id="5_p7on0"]
 [ext_resource type="PackedScene" uid="uid://bh30fgjh4prch" path="res://assets/prefabs/player.tscn" id="8_ep8hq"]
 [ext_resource type="PackedScene" uid="uid://cbnmfkaxsw4ki" path="res://assets/prefabs/box.tscn" id="8_jvxje"]
 [ext_resource type="PackedScene" uid="uid://cv03cxb8jcsy8" path="res://assets/prefabs/terminal.tscn" id="8_x5pvj"]
@@ -145,33 +144,6 @@ height = 4.0
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ylbxo"]
 radius = 50.0
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_6d2m1"]
-height = 0.3
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_t3ig4"]
-top_radius = 0.3
-bottom_radius = 0.3
-height = 0.3
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_xvbn0"]
-height = 0.3
-radial_segments = 16
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_3v78j"]
-top_radius = 0.3
-bottom_radius = 0.3
-height = 0.225
-radial_segments = 16
-rings = 1
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_4u6bn"]
-height = 0.3
-radial_segments = 16
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_m311r"]
-height = 0.3
-radial_segments = 16
 
 [sub_resource type="Environment" id="Environment_qnd6d"]
 
@@ -385,63 +357,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.2395, -0.345166, 26.6334)
 [node name="Door" parent="PuzzleStuff" instance=ExtResource("3_4rn2m")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -14.1401, -1.52528, 18.1911)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="PuzzleStuff"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -8.55743, -0.357052, 24.0992)
-mesh = SubResource("CylinderMesh_6d2m1")
-surface_material_override/0 = ExtResource("4_bgtga")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="PuzzleStuff/MeshInstance3D"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.1141, 4.98744e-09)
-mesh = SubResource("CylinderMesh_t3ig4")
-skeleton = NodePath("../..")
-surface_material_override/0 = ExtResource("5_j0buk")
-
-[node name="Laser" parent="PuzzleStuff/MeshInstance3D/MeshInstance3D2" instance=ExtResource("7_7q507")]
-
-[node name="CSGMesh3D" type="CSGMesh3D" parent="PuzzleStuff"]
-transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -13.6147, -0.357051, 21.4185)
-mesh = SubResource("CylinderMesh_xvbn0")
-material = ExtResource("4_bgtga")
-
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="PuzzleStuff/CSGMesh3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.23349e-09, 0.051096, 0)
-operation = 2
-mesh = SubResource("CylinderMesh_3v78j")
-material = ExtResource("4_bgtga")
-
-[node name="CSGMesh3D4" type="CSGMesh3D" parent="PuzzleStuff"]
-transform = Transform3D(4.37114e-08, -1, -8.74228e-08, -1, -4.37114e-08, 0, -3.82137e-15, 8.74228e-08, -1, -1.38349, -0.357051, 33.9202)
-mesh = SubResource("CylinderMesh_4u6bn")
-material = ExtResource("4_bgtga")
-
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="PuzzleStuff/CSGMesh3D4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.23349e-09, 0.051096, 0)
-operation = 2
-mesh = SubResource("CylinderMesh_3v78j")
-material = ExtResource("4_bgtga")
-
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="PuzzleStuff"]
-transform = Transform3D(-4.16821e-08, 0.953575, 0.301155, -1, -4.37114e-08, 0, 1.31639e-08, -0.301155, 0.953575, -47.7081, -0.357052, 10.5109)
-mesh = SubResource("CylinderMesh_m311r")
-material = ExtResource("4_bgtga")
-
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="PuzzleStuff/CSGMesh3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.23349e-09, 0.051096, 0)
-operation = 2
-mesh = SubResource("CylinderMesh_3v78j")
-material = ExtResource("4_bgtga")
-
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="PuzzleStuff"]
-transform = Transform3D(-3.00457e-08, 0.687366, 0.726311, -1, -4.37114e-08, 0, 3.17481e-08, -0.726311, 0.687366, -35.1047, -0.357052, 33.9)
-mesh = SubResource("CylinderMesh_m311r")
-material = ExtResource("4_bgtga")
-
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="PuzzleStuff/CSGMesh3D3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.23361e-09, 0.0510979, 0)
-operation = 2
-mesh = SubResource("CylinderMesh_3v78j")
-material = ExtResource("4_bgtga")
-
 [node name="Door2" parent="PuzzleStuff" instance=ExtResource("3_4rn2m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.9009, -1.48713, 24.9674)
 
@@ -453,6 +368,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.4412, -1.43728, 10.4357)
 
 [node name="Door4" parent="PuzzleStuff" instance=ExtResource("3_4rn2m")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -20.1507, -1.53506, 40.5392)
+
+[node name="LaserEmitter" parent="PuzzleStuff" instance=ExtResource("4_lbpmn")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -8.43256, -0.357, 24.365)
+
+[node name="LaserAbsorber" parent="PuzzleStuff" instance=ExtResource("5_p7on0")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -13.6067, -0.357, 21.5287)
 
 [node name="Player" parent="." instance=ExtResource("8_ep8hq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2328, -0.71529, 18.7231)

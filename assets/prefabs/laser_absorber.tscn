@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://bmd3yd1hgsjgj"]
+
+[ext_resource type="Material" uid="uid://2ybpoagjbl17" path="res://assets/materials/laser_emitter.tres" id="1_und2f"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_xvbn0"]
+height = 0.3
+radial_segments = 16
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_3v78j"]
+top_radius = 0.3
+bottom_radius = 0.3
+height = 0.225
+radial_segments = 16
+rings = 1
+
+[node name="LaserAbsorber" type="Node3D"]
+
+[node name="Mesh" type="CSGMesh3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, -0.357, 0)
+mesh = SubResource("CylinderMesh_xvbn0")
+material = ExtResource("1_und2f")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.23349e-09, 0.051096, 0)
+operation = 2
+mesh = SubResource("CylinderMesh_3v78j")
+material = ExtResource("1_und2f")

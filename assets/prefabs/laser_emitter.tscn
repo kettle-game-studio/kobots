@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://df8tgb1nnsno5"]
+
+[ext_resource type="Material" uid="uid://2ybpoagjbl17" path="res://assets/materials/laser_emitter.tres" id="1_2pb1x"]
+[ext_resource type="Material" uid="uid://cplpxtmysvfhy" path="res://assets/materials/laser_emitter2.tres" id="2_rh8ou"]
+[ext_resource type="PackedScene" uid="uid://d27stf6dexrbe" path="res://assets/prefabs/laser.tscn" id="3_3vy27"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_6d2m1"]
+height = 0.3
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_t3ig4"]
+top_radius = 0.3
+bottom_radius = 0.3
+height = 0.3
+
+[node name="LaserEmitter" type="Node3D"]
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.357, 0)
+mesh = SubResource("CylinderMesh_6d2m1")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("1_2pb1x")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.1141, 4.98744e-09)
+mesh = SubResource("CylinderMesh_t3ig4")
+skeleton = NodePath("../../..")
+surface_material_override/0 = ExtResource("2_rh8ou")
+
+[node name="Laser" parent="Mesh/MeshInstance3D2" instance=ExtResource("3_3vy27")]
