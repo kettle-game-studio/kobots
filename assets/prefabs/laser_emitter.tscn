@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dguc6wibu6e40"]
+[gd_scene load_steps=7 format=3 uid="uid://dguc6wibu6e40"]
 
 [ext_resource type="Material" uid="uid://2ybpoagjbl17" path="res://assets/materials/laser_emitter.tres" id="1_222wc"]
 [ext_resource type="Material" uid="uid://cplpxtmysvfhy" path="res://assets/materials/laser_emitter2.tres" id="2_23ulv"]
@@ -11,6 +11,9 @@ height = 0.3
 top_radius = 0.3
 bottom_radius = 0.3
 height = 0.3
+
+[sub_resource type="BoxMesh" id="BoxMesh_84d67"]
+size = Vector3(0.1, 0.7, 0.1)
 
 [node name="LaserEmitter" type="Node3D"]
 
@@ -27,3 +30,7 @@ skeleton = NodePath("../../..")
 surface_material_override/0 = ExtResource("2_23ulv")
 
 [node name="Laser" parent="Mesh/MeshInstance3D2" instance=ExtResource("3_nch36")]
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.353844, 0)
+mesh = SubResource("BoxMesh_84d67")
