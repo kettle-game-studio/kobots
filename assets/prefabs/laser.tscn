@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://assets/scripts/laser.gd" id="1_yl67h"]
 [ext_resource type="Material" uid="uid://dairncnrblduy" path="res://assets/materials/laser_particle_mat.tres" id="3_t4j1f"]
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_uach3"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_7f5ss"]
 top_radius = 0.01
 bottom_radius = 0.01
 height = 100.0
@@ -35,7 +35,7 @@ script = ExtResource("1_yl67h")
 
 [node name="BeamMesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -50)
-mesh = SubResource("CylinderMesh_uach3")
+mesh = SubResource("CylinderMesh_7f5ss")
 surface_material_override/0 = ExtResource("1_44sue")
 
 [node name="EndParticles" type="GPUParticles3D" parent="."]

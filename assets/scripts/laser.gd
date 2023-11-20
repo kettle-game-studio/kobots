@@ -1,4 +1,3 @@
-@tool
 extends RayCast3D
 class_name Laser
 
@@ -31,7 +30,6 @@ func _process(delta):
 			if collider != robot:
 				robot = collider
 				robot.disable_laser()
-			if not Engine.is_editor_hint():
 				collider.enable_laser()
 		elif robot:
 			robot.disable_laser()

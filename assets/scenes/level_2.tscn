@@ -2,8 +2,8 @@
 
 [ext_resource type="Material" uid="uid://cl70hdbacc760" path="res://assets/materials/glass_mat.tres" id="1_3ywb6"]
 [ext_resource type="PackedScene" uid="uid://dcjw51pfs7v86" path="res://assets/prefabs/door.tscn" id="3_4rn2m"]
-[ext_resource type="PackedScene" uid="uid://df8tgb1nnsno5" path="res://assets/prefabs/laser_emitter.tscn" id="4_lbpmn"]
-[ext_resource type="PackedScene" uid="uid://bmd3yd1hgsjgj" path="res://assets/prefabs/laser_absorber.tscn" id="5_p7on0"]
+[ext_resource type="PackedScene" uid="uid://d1161nw1kfdh0" path="res://assets/prefabs/laser_absorber.tscn" id="4_yulfa"]
+[ext_resource type="PackedScene" uid="uid://dguc6wibu6e40" path="res://assets/prefabs/laser_emitter.tscn" id="5_r40o2"]
 [ext_resource type="PackedScene" uid="uid://bh30fgjh4prch" path="res://assets/prefabs/player.tscn" id="8_ep8hq"]
 [ext_resource type="PackedScene" uid="uid://cbnmfkaxsw4ki" path="res://assets/prefabs/box.tscn" id="8_jvxje"]
 [ext_resource type="PackedScene" uid="uid://cv03cxb8jcsy8" path="res://assets/prefabs/terminal.tscn" id="8_x5pvj"]
@@ -369,11 +369,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.4412, -1.43728, 10.4357)
 [node name="Door4" parent="PuzzleStuff" instance=ExtResource("3_4rn2m")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -20.1507, -1.53506, 40.5392)
 
-[node name="LaserEmitter" parent="PuzzleStuff" instance=ExtResource("4_lbpmn")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -8.43256, -0.357, 24.365)
+[node name="LaserAbsorber" parent="PuzzleStuff" instance=ExtResource("4_yulfa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.619, -1.49736, 20.4913)
 
-[node name="LaserAbsorber" parent="PuzzleStuff" instance=ExtResource("5_p7on0")]
-transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -13.6067, -0.357, 21.5287)
+[node name="LaserEmitter" parent="PuzzleStuff" instance=ExtResource("5_r40o2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.61528, -1.51126, 24.0773)
 
 [node name="Player" parent="." instance=ExtResource("8_ep8hq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2328, -0.71529, 18.7231)
@@ -389,4 +389,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.3298, -1.5, 15.9192)
 robot = NodePath("../RobotCrab")
 
 [node name="RobotCrab" parent="." instance=ExtResource("9_p5oa4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.58913, -1.51064, 20.4949)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.58913, -1.51064, 20.4949)
