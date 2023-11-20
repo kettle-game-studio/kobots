@@ -15,13 +15,13 @@ var signals: Dictionary = {}
 func open():
 	animator.play("opening", -1, seconds_to_open)
 
-func _on_signal_activated(button: ButtonController):
+func _on_signal_activated(button: Object):
 	if state == State.OPEN: return
 	
 	signals[button] = null
 	check_signal_status()
 
-func _on_signal_disactivated(button: ButtonController):
+func _on_signal_disactivated(button: Object):
 	if state == State.OPEN: return
 	
 	signals.erase(button)

@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://d27stf6dexrbe"]
 
-[ext_resource type="Material" uid="uid://dvuut3uiixvu3" path="res://assets/materials/laser_mat.tres" id="1_44sue"]
+[ext_resource type="Material" path="res://assets/materials/laser_mat.tres" id="1_44sue"]
 [ext_resource type="Script" path="res://assets/scripts/laser.gd" id="1_yl67h"]
-[ext_resource type="Material" uid="uid://dairncnrblduy" path="res://assets/materials/laser_particle_mat.tres" id="3_t4j1f"]
+[ext_resource type="Material" path="res://assets/materials/laser_particle_mat.tres" id="3_t4j1f"]
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_h8i5i"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_7f5ss"]
 top_radius = 0.01
 bottom_radius = 0.01
 height = 100.0
@@ -30,12 +30,12 @@ scale_curve = SubResource("CurveTexture_wif1l")
 size = Vector2(0.02, 0.02)
 
 [node name="Laser" type="RayCast3D"]
-target_position = Vector3(0, 0, -100)
+target_position = Vector3(0, 0, -1000)
 script = ExtResource("1_yl67h")
 
 [node name="BeamMesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -50)
-mesh = SubResource("CylinderMesh_h8i5i")
+mesh = SubResource("CylinderMesh_7f5ss")
 surface_material_override/0 = ExtResource("1_44sue")
 
 [node name="EndParticles" type="GPUParticles3D" parent="."]
