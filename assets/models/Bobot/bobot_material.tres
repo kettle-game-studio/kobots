@@ -1,0 +1,16 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://csbmyptn8h8ym"]
+
+[ext_resource type="Shader" path="res://assets/scripts/robots/robot.gdshader" id="1_6je8y"]
+[ext_resource type="Texture2D" uid="uid://csvl3iq6iiw6s" path="res://assets/models/Bobot/BobodAdd.png" id="2_ltvyd"]
+[ext_resource type="Texture2D" uid="uid://ckwixqw5d1nmh" path="res://assets/models/Bobot/BobotColor.png" id="3_nucyd"]
+[ext_resource type="Texture2D" uid="uid://cr704pc1wkh7e" path="res://assets/models/Bobot/BobotEmission.png" id="4_c7kx1"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_6je8y")
+shader_parameter/color = Color(0.72549, 0.458824, 0.27451, 1)
+shader_parameter/enable = true
+shader_parameter/emission_k = 1.0
+shader_parameter/base_texture = ExtResource("3_nucyd")
+shader_parameter/add_texture = ExtResource("2_ltvyd")
+shader_parameter/emission_texture = ExtResource("4_c7kx1")

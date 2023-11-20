@@ -4,21 +4,21 @@
 [ext_resource type="Script" path="res://assets/scripts/player_controller.gd" id="2_yqcsn"]
 [ext_resource type="Script" path="res://assets/scripts/teleportator.gd" id="3_x68lt"]
 [ext_resource type="PackedScene" uid="uid://r48ixce8feto" path="res://assets/models/Crab/Crab.glb" id="4_mv3x2"]
-[ext_resource type="Script" path="res://assets/scripts/crab/crab.gd" id="5_m0tm0"]
-[ext_resource type="Shader" path="res://assets/scripts/crab/crab.gdshader" id="6_bmf35"]
+[ext_resource type="Script" path="res://assets/scripts/robots/crab.gd" id="5_m0tm0"]
+[ext_resource type="Shader" path="res://assets/scripts/robots/robot.gdshader" id="6_kxrk7"]
 [ext_resource type="Texture2D" uid="uid://cjssju6ani202" path="res://assets/models/Crab/CrabAdd.png" id="7_253mr"]
 [ext_resource type="Texture2D" uid="uid://c35hoo862hd2o" path="res://assets/models/Crab/CrabColor.png" id="8_ywxhj"]
 [ext_resource type="Texture2D" uid="uid://cd4o1l2dmvreh" path="res://assets/models/Crab/CrabLight.png" id="9_c5eh3"]
-[ext_resource type="Shader" path="res://assets/scripts/crab/crab_glass.gdshader" id="10_qhqyg"]
+[ext_resource type="Shader" path="res://assets/scripts/robots/robot_glass.gdshader" id="10_qhqyg"]
 [ext_resource type="PackedScene" uid="uid://d27stf6dexrbe" path="res://assets/prefabs/laser.tscn" id="11_i80x6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6g3en"]
 radius = 0.383986
 height = 1.5
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_67sq7"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o1vjg"]
 render_priority = 0
-shader = ExtResource("6_bmf35")
+shader = ExtResource("6_kxrk7")
 shader_parameter/color = Color(0.870588, 0.00784314, 0.384314, 1)
 shader_parameter/enable = true
 shader_parameter/emission_k = 0.5
@@ -26,7 +26,7 @@ shader_parameter/base_texture = ExtResource("8_ywxhj")
 shader_parameter/add_texture = ExtResource("7_253mr")
 shader_parameter/emission_texture = ExtResource("9_c5eh3")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_8wbef"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i524q"]
 render_priority = 0
 shader = ExtResource("10_qhqyg")
 shader_parameter/color = Color(0.870588, 0.00784314, 0.384314, 1)
@@ -34,9 +34,9 @@ shader_parameter/enable = true
 shader_parameter/add_texture = ExtResource("7_253mr")
 shader_parameter/emission_texture = ExtResource("9_c5eh3")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_71ln8"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_175il"]
 render_priority = 0
-shader = ExtResource("6_bmf35")
+shader = ExtResource("6_kxrk7")
 shader_parameter/color = Color(0.870588, 0.00784314, 0.384314, 1)
 shader_parameter/enable = true
 shader_parameter/emission_k = 0.5
@@ -44,7 +44,7 @@ shader_parameter/base_texture = ExtResource("8_ywxhj")
 shader_parameter/add_texture = ExtResource("7_253mr")
 shader_parameter/emission_texture = ExtResource("9_c5eh3")
 
-[node name="RobotCrab" type="CharacterBody3D" node_paths=PackedStringArray("subViewport", "player_controller")]
+[node name="RobotCrabot" type="CharacterBody3D" node_paths=PackedStringArray("subViewport", "player_controller")]
 axis_lock_angular_x = true
 axis_lock_angular_z = true
 script = ExtResource("1_6eotk")
@@ -119,13 +119,13 @@ bones/32/position = Vector3(-0.311581, 0.0940332, 1.55142)
 bones/33/position = Vector3(-0.898251, 0.0940332, 1.30274)
 
 [node name="Crab2" parent="Crab/Armature/Skeleton3D" index="0"]
-surface_material_override/0 = SubResource("ShaderMaterial_67sq7")
+surface_material_override/0 = SubResource("ShaderMaterial_o1vjg")
 
 [node name="CrabGlassHat" parent="Crab/Armature/Skeleton3D" index="1"]
-surface_material_override/0 = SubResource("ShaderMaterial_8wbef")
+surface_material_override/0 = SubResource("ShaderMaterial_i524q")
 
 [node name="CrabLightHat" parent="Crab/Armature/Skeleton3D" index="2"]
-surface_material_override/0 = SubResource("ShaderMaterial_71ln8")
+surface_material_override/0 = SubResource("ShaderMaterial_175il")
 
 [node name="AnimationPlayer" parent="Crab" index="1"]
 speed_scale = 0.5

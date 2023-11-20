@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://cnw1lcex48tal"]
 
-[ext_resource type="Shader" path="res://assets/scripts/crab/crab.gdshader" id="1_eihis"]
+[ext_resource type="Shader" path="res://assets/scripts/crab/robot_color.gdshader" id="1_eihis"]
 [ext_resource type="Texture2D" uid="uid://cjssju6ani202" path="res://assets/models/Crab/CrabAdd.png" id="2_cyg8n"]
 [ext_resource type="Texture2D" uid="uid://c35hoo862hd2o" path="res://assets/models/Crab/CrabColor.png" id="3_qkvbb"]
 [ext_resource type="Texture2D" uid="uid://cd4o1l2dmvreh" path="res://assets/models/Crab/CrabLight.png" id="4_7utrb"]
