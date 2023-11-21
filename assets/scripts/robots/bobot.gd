@@ -20,7 +20,7 @@ func _ready():
 
 func _process(delta):
 	if animation_player == null or body == null or controller == null:
-		push_warning("wrong bobot parameters!!")
+		update_configuration_warnings()
 		return
 	if Engine.is_editor_hint():
 		_update_parameters()
@@ -46,4 +46,9 @@ func _process(delta):
 			else:
 				animation_player.current_animation = "idle"
 
+func _get_configuration_warnings():
+	var warnings = []
+	if animation_player == null or body == null or controller == null:
+		warnings.append("wrong bobot parameters!!")
+	return warnings
 

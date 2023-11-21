@@ -1,0 +1,16 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://wwe4se08mx78"]
+
+[ext_resource type="Shader" path="res://assets/scripts/robots/robot.gdshader" id="1_tirfp"]
+[ext_resource type="Texture2D" uid="uid://dxlnr6f8vs1n2" path="res://assets/models/Beebot/BeebotAdd.png" id="2_bjudr"]
+[ext_resource type="Texture2D" uid="uid://bjti6lf8kaw68" path="res://assets/models/Beebot/BeebotColor.png" id="3_hwply"]
+[ext_resource type="Texture2D" uid="uid://bywqiidic8kp2" path="res://assets/models/Beebot/BeebotLight.png" id="4_bokut"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_tirfp")
+shader_parameter/color = Color(0.403922, 0.54902, 0.388235, 1)
+shader_parameter/enable = true
+shader_parameter/emission_k = 1.0
+shader_parameter/base_texture = ExtResource("3_hwply")
+shader_parameter/add_texture = ExtResource("2_bjudr")
+shader_parameter/emission_texture = ExtResource("4_bokut")
