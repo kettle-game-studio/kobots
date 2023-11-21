@@ -14,6 +14,8 @@ class_name PlayerController
 @export var flight: bool = false
 @export var flight_speed: float = 5
 
+@export var can_push: bool = false
+
 enum State { ENABLED, DISABLED, CONTROLLED_BY_OTHER }
 @export var state: State = State.DISABLED
 
@@ -31,7 +33,7 @@ var enabled: bool :
 func _physics_process(delta: float):
 	walk(delta)
 	
-	if !enabled: return
+	if !enabled || !can_push: return
 	
 	for index in player.get_slide_collision_count():
 		var collision = player.get_slide_collision(index)

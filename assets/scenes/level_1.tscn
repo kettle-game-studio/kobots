@@ -1,7 +1,7 @@
 [gd_scene load_steps=56 format=3 uid="uid://2duj7yddhaxr"]
 
 [ext_resource type="PackedScene" uid="uid://cv03cxb8jcsy8" path="res://assets/prefabs/terminal.tscn" id="1_upji4"]
-[ext_resource type="PackedScene" uid="uid://dmtm7k1fhpmkj" path="res://assets/prefabs/robot_default.tscn" id="2_ur8q7"]
+[ext_resource type="PackedScene" uid="uid://dmtm7k1fhpmkj" path="res://assets/prefabs/robot_bobot.tscn" id="2_ur8q7"]
 [ext_resource type="PackedScene" uid="uid://pc3k2vyryge5" path="res://assets/prefabs/button.tscn" id="3_5761q"]
 [ext_resource type="PackedScene" uid="uid://b06ku0w7nydkk" path="res://assets/prefabs/power_line.tscn" id="4_4u7fy"]
 [ext_resource type="PackedScene" uid="uid://dcjw51pfs7v86" path="res://assets/prefabs/door.tscn" id="5_xim5q"]
@@ -163,7 +163,7 @@ robot = NodePath("../DefaultRobot")
 transform = Transform3D(-0.999119, 0, -0.0419628, 0, 1, 0, 0.0419628, 0, -0.999119, 36.1319, 0.0352349, 4.10995)
 
 [node name="Terminal2" parent="Gameplay" node_paths=PackedStringArray("robot") instance=ExtResource("1_upji4")]
-transform = Transform3D(0.0783721, 0, 0.996924, 0, 1, 0, -0.996924, 0, 0.0783721, 15.2246, -0.0318289, 30.7722)
+transform = Transform3D(0.0783721, 0, 0.996924, 0, 1, 0, -0.996924, 0, 0.0783721, 15.225, 0.5, 30.772)
 robot = NodePath("../DefaultRobot2")
 
 [node name="DefaultRobot2" parent="Gameplay" instance=ExtResource("2_ur8q7")]
@@ -331,6 +331,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9608, 0.0495741, 20.7879)
 
 [node name="Door" parent="Gameplay/ControlRoom" instance=ExtResource("5_xim5q")]
 transform = Transform3D(-4.37114e-08, 0, -0.999999, 0, 1, 0, 0.999999, 0, -4.37114e-08, 0.121644, 13.3394, 4.83503)
+required_signals = 2
 
 [node name="Button" parent="Gameplay/ControlRoom" instance=ExtResource("3_5761q")]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 14.1085, 0.076628, 10.3727)

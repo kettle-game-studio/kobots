@@ -9,7 +9,7 @@ size = Vector3(2, 2, 0.1)
 albedo_color = Color(0.299547, 0.299547, 0.299547, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b58hp"]
-size = Vector3(2, 2, 0.1)
+size = Vector3(2, 1.88218, 0.1)
 
 [sub_resource type="Animation" id="Animation_u3218"]
 
@@ -69,6 +69,7 @@ material = SubResource("StandardMaterial3D_r784x")
 [node name="StaticBody3D" type="StaticBody3D" parent="Door"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Door/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0472704, 0)
 shape = SubResource("BoxShape3D_b58hp")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

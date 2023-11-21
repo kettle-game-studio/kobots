@@ -82,7 +82,7 @@ func start_dragging():
 	dragged_box = collider
 	state = State.DRAGGING
 	player_controller.disable(true)
-	box_mount_point.global_transform = dragged_box.global_transform
+	#box_mount_point.global_transform = dragged_box.global_transform
 	box_collision.global_transform = dragged_box.global_transform
 	box_collision.global_position += Vector3.UP * 0.5
 	box_collision.disabled = false

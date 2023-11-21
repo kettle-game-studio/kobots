@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://assets/scripts/player_controller.gd" id="2_3u1ph"]
 [ext_resource type="Script" path="res://assets/scripts/drag_controller.gd" id="3_d0ex6"]
 [ext_resource type="Script" path="res://assets/scripts/teleportator.gd" id="4_s4mjk"]
-[ext_resource type="Theme" path="res://assets/game_theme.tres" id="5_54xkm"]
+[ext_resource type="Theme" uid="uid://p08pj8vk2hog" path="res://assets/game_theme.tres" id="5_54xkm"]
 [ext_resource type="Texture2D" uid="uid://d3ghq1iovcg86" path="res://assets/writings/crabot-scheme.png" id="6_5b04s"]
 [ext_resource type="PackedScene" uid="uid://b04swcotby04j" path="res://assets/models/Bobot/Bobot.glb" id="7_wg8p4"]
 [ext_resource type="Script" path="res://assets/scripts/robots/bobot.gd" id="8_qciog"]
@@ -14,10 +14,12 @@
 [ext_resource type="Texture2D" uid="uid://cr704pc1wkh7e" path="res://assets/models/Bobot/BobotEmission.png" id="12_k7245"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6g3en"]
+radius = 0.295404
+height = 2.37268
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sxjss"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_igwwp"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yw18a"]
 render_priority = 0
 shader = ExtResource("9_56i17")
 shader_parameter/color = Color(0.776471, 0.443137, 0, 1)
@@ -28,14 +30,14 @@ shader_parameter/add_texture = ExtResource("10_w5po0")
 shader_parameter/emission_texture = ExtResource("12_k7245")
 
 [node name="BobotRobot" type="CharacterBody3D" node_paths=PackedStringArray("subViewport", "player_controller")]
-transform = Transform3D(-0.0517956, 0, 0.998658, 0, 1, 0, -0.998658, 0, -0.0517956, 0, 0, 0)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 script = ExtResource("1_y52tj")
 subViewport = NodePath("SubViewport")
 player_controller = NodePath("Controller")
 can_push_buttons = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.928614, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.13272, 0)
 shape = SubResource("CapsuleShape3D_6g3en")
 
 [node name="Eye" type="Node3D" parent="."]
@@ -52,6 +54,7 @@ camera = NodePath("../Eye")
 raycast = NodePath("../Eye/RayCast3D")
 robot_controller = NodePath("..")
 ui = NodePath("../SubViewport/CanvasLayer")
+can_push = true
 
 [node name="Drag" type="Node" parent="." node_paths=PackedStringArray("player", "player_controller", "ray_cast", "camera", "box_mount_point", "box_collision")]
 script = ExtResource("3_d0ex6")
@@ -61,6 +64,8 @@ ray_cast = NodePath("../Eye/RayCast3D")
 camera = NodePath("../Eye")
 box_mount_point = NodePath("../BoxMountPoint")
 box_collision = NodePath("../DraggedBoxCollision")
+drag_speed = 3.0
+camera_speed = 0.002
 
 [node name="SubViewport" type="SubViewport" parent="."]
 disable_3d = true
@@ -68,7 +73,7 @@ handle_input_locally = false
 size = Vector2i(1024, 640)
 
 [node name="Camera3D" type="Camera3D" parent="SubViewport" node_paths=PackedStringArray("target")]
-transform = Transform3D(-0.0517956, 0, 0.998658, 0, 1, 0, -0.998658, 0, -0.0517956, -0.15461, 2.04042, 1.41561e-07)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.154403, 2.04042, -0.00800798)
 script = ExtResource("4_s4mjk")
 target = NodePath("../../Eye")
 
@@ -107,10 +112,10 @@ scale = Vector2(0.472656, 0.472656)
 texture = ExtResource("6_5b04s")
 
 [node name="BoxMountPoint" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.10543e-15, 0.613265, -0.82326)
 
 [node name="DraggedBoxCollision" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11438, -0.828008)
 shape = SubResource("BoxShape3D_sxjss")
 
 [node name="Bobot" parent="." node_paths=PackedStringArray("meshes", "animation_player", "body", "controller") instance=ExtResource("7_wg8p4")]
@@ -144,6 +149,6 @@ bones/17/rotation = Quaternion(0.751345, 0.645836, 0.0836764, -0.10665)
 bones/18/position = Vector3(-0.0774941, 0.106455, 0.51487)
 
 [node name="Bobot2" parent="Bobot/Armature/Skeleton3D" index="0"]
-surface_material_override/0 = SubResource("ShaderMaterial_igwwp")
+surface_material_override/0 = SubResource("ShaderMaterial_yw18a")
 
 [editable path="Bobot"]
