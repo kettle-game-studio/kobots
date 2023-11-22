@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bk8qy2f8kis83"]
+
+[ext_resource type="Material" uid="uid://bgfchny2j5xgd" path="res://assets/materials/glass_opque_mat.tres" id="1_u3c5e"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xwr8l"]
+size = Vector3(2, 3, 0.1)
+
+[node name="OpaqueWindow" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+size = Vector3(2, 3, 0.1)
+material = ExtResource("1_u3c5e")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("BoxShape3D_xwr8l")

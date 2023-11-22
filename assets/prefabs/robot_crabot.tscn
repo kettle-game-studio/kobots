@@ -19,7 +19,7 @@
 radius = 0.383986
 height = 1.5
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0wwgj"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jdipm"]
 render_priority = 0
 shader = ExtResource("6_kxrk7")
 shader_parameter/color = Color(0.870588, 0.00784314, 0.384314, 1)
@@ -31,7 +31,7 @@ shader_parameter/base_texture = ExtResource("8_ywxhj")
 shader_parameter/add_texture = ExtResource("7_253mr")
 shader_parameter/emission_texture = ExtResource("9_c5eh3")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ron8e"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iuh4l"]
 render_priority = 0
 shader = ExtResource("10_qhqyg")
 shader_parameter/color = Color(0.870588, 0.00784314, 0.384314, 1)
@@ -39,7 +39,7 @@ shader_parameter/enable = false
 shader_parameter/add_texture = ExtResource("7_253mr")
 shader_parameter/emission_texture = ExtResource("9_c5eh3")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_66jsk"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m8uj1"]
 render_priority = 0
 shader = ExtResource("6_kxrk7")
 shader_parameter/color = Color(0.870588, 0.00784314, 0.384314, 1)
@@ -156,13 +156,13 @@ bones/32/position = Vector3(-0.311581, 0.0940332, 1.55142)
 bones/33/position = Vector3(-0.898251, 0.0940332, 1.30274)
 
 [node name="Crab2" parent="Crab/Armature/Skeleton3D" index="0"]
-surface_material_override/0 = SubResource("ShaderMaterial_0wwgj")
+surface_material_override/0 = SubResource("ShaderMaterial_jdipm")
 
 [node name="CrabGlassHat" parent="Crab/Armature/Skeleton3D" index="1"]
-surface_material_override/0 = SubResource("ShaderMaterial_ron8e")
+surface_material_override/0 = SubResource("ShaderMaterial_iuh4l")
 
 [node name="CrabLightHat" parent="Crab/Armature/Skeleton3D" index="2"]
-surface_material_override/0 = SubResource("ShaderMaterial_66jsk")
+surface_material_override/0 = SubResource("ShaderMaterial_m8uj1")
 
 [node name="AnimationPlayer" parent="Crab" index="1"]
 speed_scale = 0.5
