@@ -1,9 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://cyd5hd61f5m0h"]
+[gd_scene load_steps=13 format=3 uid="uid://cyd5hd61f5m0h"]
 
 [ext_resource type="Script" path="res://assets/scripts/robot_controller.gd" id="1_1u46q"]
 [ext_resource type="Script" path="res://assets/scripts/player_controller.gd" id="2_5y5nn"]
 [ext_resource type="Script" path="res://assets/scripts/teleportator.gd" id="3_y8cbv"]
+[ext_resource type="Theme" uid="uid://p08pj8vk2hog" path="res://assets/game_theme.tres" id="4_0cyhc"]
 [ext_resource type="Script" path="res://assets/scripts/carry.gd" id="4_68sth"]
+[ext_resource type="Texture2D" uid="uid://c1cx8najukloc" path="res://assets/writings/zhobot-scheme.png" id="5_s3t2d"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_te3dc"]
 bottom_radius = 0.4
@@ -41,12 +43,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95204, -0.051233)
 target_position = Vector3(0, 0, -1)
 collision_mask = 7
 
-[node name="Controller" type="Node" parent="." node_paths=PackedStringArray("player", "camera", "raycast", "robot_controller")]
+[node name="Controller" type="Node" parent="." node_paths=PackedStringArray("player", "camera", "raycast", "robot_controller", "ui")]
 script = ExtResource("2_5y5nn")
 player = NodePath("..")
 camera = NodePath("../Eye")
 raycast = NodePath("../Eye/RayCast3D")
 robot_controller = NodePath("..")
+ui = NodePath("../SubViewport/CanvasLayer")
 camera_speed = 0.002
 walk_speed = 3.0
 
@@ -59,6 +62,32 @@ size = Vector2i(1024, 640)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95204, -0.051233)
 script = ExtResource("3_y8cbv")
 target = NodePath("../../Eye")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="SubViewport"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SubViewport/CanvasLayer"]
+offset_left = 200.0
+offset_top = 100.0
+offset_right = 677.0
+offset_bottom = 548.0
+theme = ExtResource("4_0cyhc")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[font_size=40]KOBOT.Mk-04[/font_size]
+
+[font_size=100]ZHOBOT[/font_size]
+
+Designed as a transport for heavy machinery and boxes
+
+[font_size=40]
+[Mouse] Look around
+[WASD] Walk
+[/font_size]"
+
+[node name="Scheme" type="Sprite2D" parent="SubViewport/CanvasLayer"]
+position = Vector2(786, 297)
+scale = Vector2(0.472656, 0.472656)
+texture = ExtResource("5_s3t2d")
 
 [node name="Body" type="CSGMesh3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.00551435, 0.596364, 0.433056)

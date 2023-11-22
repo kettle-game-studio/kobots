@@ -1,9 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://djpkb7s0oa4fu"]
+[gd_scene load_steps=14 format=3 uid="uid://iplo7wkqbgtd"]
 
 [ext_resource type="Script" path="res://assets/scripts/robot_controller.gd" id="1_dgrjw"]
 [ext_resource type="Script" path="res://assets/scripts/player_controller.gd" id="2_qh0xa"]
+[ext_resource type="Theme" uid="uid://p08pj8vk2hog" path="res://assets/game_theme.tres" id="4_3o2eg"]
 [ext_resource type="PackedScene" uid="uid://bof6jd62j86iu" path="res://assets/models/Beebot/Beebot.glb" id="4_mo5ui"]
 [ext_resource type="Script" path="res://assets/scripts/teleportator.gd" id="4_rs2ja"]
+[ext_resource type="Texture2D" uid="uid://ch1qaaujd5y8j" path="res://assets/writings/beebot-scheme.png" id="5_fuoct"]
 [ext_resource type="Script" path="res://assets/scripts/robots/beebot.gd" id="5_yv0o1"]
 [ext_resource type="Shader" path="res://assets/scripts/robots/robot.gdshader" id="6_7pdn8"]
 [ext_resource type="Texture2D" uid="uid://dxlnr6f8vs1n2" path="res://assets/models/Beebot/BeebotAdd.png" id="7_5ywly"]
@@ -14,7 +16,7 @@
 height = 0.5
 radius = 0.658462
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_d3b0x"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_383n1"]
 render_priority = 0
 shader = ExtResource("6_7pdn8")
 shader_parameter/color = Color(0.427451, 0.462745, 0.552941, 1)
@@ -43,12 +45,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.42438, -0.570246)
 target_position = Vector3(0, 0, -1)
 collision_mask = 7
 
-[node name="Controller" type="Node" parent="." node_paths=PackedStringArray("player", "camera", "raycast", "robot_controller")]
+[node name="Controller" type="Node" parent="." node_paths=PackedStringArray("player", "camera", "raycast", "robot_controller", "ui")]
 script = ExtResource("2_qh0xa")
 player = NodePath("..")
 camera = NodePath("../Eye")
 raycast = NodePath("../Eye/RayCast3D")
 robot_controller = NodePath("..")
+ui = NodePath("../SubViewport/CanvasLayer")
 flight = true
 
 [node name="SubViewport" type="SubViewport" parent="."]
@@ -60,6 +63,34 @@ size = Vector2i(1024, 640)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.42438, -0.570246)
 script = ExtResource("4_rs2ja")
 target = NodePath("../../Eye")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="SubViewport"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SubViewport/CanvasLayer"]
+offset_left = 200.0
+offset_top = 100.0
+offset_right = 651.0
+offset_bottom = 548.0
+theme = ExtResource("4_3o2eg")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[font_size=40]KOBOT.Mk-03[/font_size]
+
+[font_size=100]BEEBOT[/font_size]
+
+Designed for scouting and tight places
+
+[font_size=40]
+[Mouse] Look around
+[WASD] Walk
+[Space] Fly up
+[Shift] Fly down
+[/font_size]"
+
+[node name="Scheme" type="Sprite2D" parent="SubViewport/CanvasLayer"]
+position = Vector2(786, 297)
+scale = Vector2(0.472656, 0.472656)
+texture = ExtResource("5_fuoct")
 
 [node name="Beebot" parent="." node_paths=PackedStringArray("meshes", "animation_player", "body", "controller") instance=ExtResource("4_mo5ui")]
 transform = Transform3D(-1.98887e-08, 0, 0.455, 0, 0.455, 0, -0.455, 0, -1.98887e-08, 0, 0.413445, -0.155705)
@@ -78,7 +109,7 @@ bones/3/position = Vector3(-1.14124, 0.937381, -1.68716)
 bones/4/position = Vector3(-1.14124, 0.937381, 1.68716)
 
 [node name="Beebot2" parent="Beebot/Armature/Skeleton3D" index="0"]
-surface_material_override/0 = SubResource("ShaderMaterial_d3b0x")
+surface_material_override/0 = SubResource("ShaderMaterial_383n1")
 
 [node name="AnimationPlayer" parent="Beebot" index="1"]
 speed_scale = 2.0
