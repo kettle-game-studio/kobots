@@ -1,5 +1,6 @@
 @tool
 extends Node3D
+class_name Crab
 
 @export var color: Color
 @export var enable_laser: bool
@@ -22,6 +23,12 @@ func _update_parameters():
 
 func _ready():
 	_update_parameters()
+
+func set_enable_laser(value: bool):
+	enable_laser = value
+	for mesh in light_meshes:
+		var material = mesh.get_surface_override_material(0) as ShaderMaterial
+		material.set_shader_parameter("enable", enable_laser)
 
 func _process(delta):
 	if animation_player == null or body == null or controller == null:
