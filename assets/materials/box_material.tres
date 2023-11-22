@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://bph82nx4barjx"]
+
+[ext_resource type="Texture2D" uid="uid://cqmyl3gsxt4ce" path="res://assets/models/Box/BoxTExtured_Cube_DefaultMaterial_BaseColor.png" id="1_s0ipl"]
+[ext_resource type="Texture2D" uid="uid://bdccse6jro5lo" path="res://assets/models/Box/BoxTExtured_Cube_DefaultMaterial_Roughness.png" id="2_qrin0"]
+
+[resource]
+albedo_texture = ExtResource("1_s0ipl")
+metallic = 0.82
+metallic_specular = 0.3
+roughness_texture = ExtResource("2_qrin0")
+roughness_texture_channel = 1

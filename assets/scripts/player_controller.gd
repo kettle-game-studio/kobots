@@ -81,6 +81,7 @@ func _input(event: InputEvent):
 		main_ui.clear_text()
 
 func rotate_camera(vector: Vector2):
+	var window_size = DisplayServer.window_get_size()
 	self.is_rotationg = true
 	self.rotating_timer = 0.02
 	var velocity = vector.y * camera_speed
