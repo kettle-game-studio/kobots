@@ -84,10 +84,9 @@ func rotate_camera(vector: Vector2):
 	var window_size = DisplayServer.window_get_size()
 	self.is_rotationg = true
 	self.rotating_timer = 0.02
-	var cam_speed = camera_speed / (window_size.x / 1920.0)
-	var velocity = vector.y * cam_speed
+	var velocity = vector.y * camera_speed
 	camera.rotation.x = clamp(camera.rotation.x - velocity, -PI/2, PI/2)
-	player.rotate_y(-vector.x * cam_speed)
+	player.rotate_y(-vector.x * camera_speed)
 
 func walk(delta: float):
 	if !enabled:
