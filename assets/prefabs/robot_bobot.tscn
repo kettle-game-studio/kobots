@@ -1,12 +1,13 @@
-[gd_scene load_steps=16 format=3 uid="uid://dmtm7k1fhpmkj"]
+[gd_scene load_steps=17 format=3 uid="uid://dmtm7k1fhpmkj"]
 
 [ext_resource type="Script" path="res://assets/scripts/robot_controller.gd" id="1_y52tj"]
 [ext_resource type="Script" path="res://assets/scripts/player_controller.gd" id="2_3u1ph"]
 [ext_resource type="Script" path="res://assets/scripts/drag_controller.gd" id="3_d0ex6"]
 [ext_resource type="Script" path="res://assets/scripts/teleportator.gd" id="4_s4mjk"]
 [ext_resource type="Theme" uid="uid://p08pj8vk2hog" path="res://assets/game_theme.tres" id="5_54xkm"]
-[ext_resource type="Texture2D" uid="uid://d3ghq1iovcg86" path="res://assets/writings/crabot-scheme.png" id="6_5b04s"]
+[ext_resource type="Texture2D" uid="uid://bbnrx08blqfgv" path="res://assets/writings/bobot-scheme.png" id="6_iqyiu"]
 [ext_resource type="PackedScene" uid="uid://b04swcotby04j" path="res://assets/models/Bobot/Bobot.glb" id="7_wg8p4"]
+[ext_resource type="PackedScene" uid="uid://cejfi1b5yw6up" path="res://assets/prefabs/ui_canvas.tscn" id="7_xx5d7"]
 [ext_resource type="Script" path="res://assets/scripts/robots/bobot.gd" id="8_qciog"]
 [ext_resource type="Shader" path="res://assets/scripts/robots/robot.gdshader" id="9_56i17"]
 [ext_resource type="Texture2D" uid="uid://csvl3iq6iiw6s" path="res://assets/models/Bobot/BobodAdd.png" id="10_w5po0"]
@@ -19,7 +20,7 @@ height = 2.37268
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sxjss"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_jmnxm"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cwtkl"]
 render_priority = 0
 shader = ExtResource("9_56i17")
 shader_parameter/color = Color(0.776471, 0.443137, 0, 1)
@@ -31,11 +32,12 @@ shader_parameter/base_texture = ExtResource("11_xl1q3")
 shader_parameter/add_texture = ExtResource("10_w5po0")
 shader_parameter/emission_texture = ExtResource("12_k7245")
 
-[node name="BobotRobot" type="CharacterBody3D" node_paths=PackedStringArray("subViewport", "player_controller")]
+[node name="BobotRobot" type="CharacterBody3D" node_paths=PackedStringArray("subViewport", "player_controller", "canvas_layer")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 script = ExtResource("1_y52tj")
 subViewport = NodePath("SubViewport")
 player_controller = NodePath("Controller")
+canvas_layer = NodePath("SubViewport/ShemeCanvas")
 can_push_buttons = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -49,16 +51,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00800798, 2.04042, -0.15440
 target_position = Vector3(0, 0, -2)
 collision_mask = 7
 
-[node name="Controller" type="Node" parent="." node_paths=PackedStringArray("player", "camera", "raycast", "robot_controller", "ui")]
+[node name="Controller" type="Node" parent="." node_paths=PackedStringArray("player", "camera", "raycast", "robot_controller", "scheme_ui", "main_ui")]
 script = ExtResource("2_3u1ph")
 player = NodePath("..")
 camera = NodePath("../Eye")
 raycast = NodePath("../Eye/RayCast3D")
 robot_controller = NodePath("..")
-ui = NodePath("../SubViewport/CanvasLayer")
+scheme_ui = NodePath("../SubViewport/ShemeCanvas")
+main_ui = NodePath("../SubViewport/UICanvas")
 can_push = true
 
-[node name="Drag" type="Node" parent="." node_paths=PackedStringArray("player", "player_controller", "ray_cast", "camera", "box_mount_point", "box_collision")]
+[node name="Drag" type="Node" parent="." node_paths=PackedStringArray("player", "player_controller", "ray_cast", "camera", "box_mount_point", "box_collision", "main_ui")]
 script = ExtResource("3_d0ex6")
 player = NodePath("..")
 player_controller = NodePath("../Controller")
@@ -68,50 +71,48 @@ box_mount_point = NodePath("../BoxMountPoint")
 box_collision = NodePath("../DraggedBoxCollision")
 drag_speed = 3.0
 camera_speed = 0.002
+main_ui = NodePath("../SubViewport/UICanvas")
 
 [node name="SubViewport" type="SubViewport" parent="."]
 disable_3d = true
 handle_input_locally = false
-size = Vector2i(1024, 640)
+size = Vector2i(2005, 1128)
 
 [node name="Camera3D" type="Camera3D" parent="SubViewport" node_paths=PackedStringArray("target")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.154403, 2.04042, -0.00800798)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.154403, 2.04042, -0.00800797)
 script = ExtResource("4_s4mjk")
 target = NodePath("../../Eye")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="SubViewport"]
+[node name="ShemeCanvas" type="CanvasLayer" parent="SubViewport"]
+scale = Vector2(1.88, 1.88)
+transform = Transform2D(1.88, 0, 0, 1.88, 0, 0)
 
-[node name="MarginContainer" type="MarginContainer" parent="SubViewport/CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 200
-theme_override_constants/margin_top = 100
-theme_override_constants/margin_right = 200
-theme_override_constants/margin_bottom = 100
-
-[node name="RichTextLabel" type="RichTextLabel" parent="SubViewport/CanvasLayer/MarginContainer"]
-layout_mode = 2
+[node name="RichTextLabel" type="RichTextLabel" parent="SubViewport/ShemeCanvas"]
+offset_left = 200.0
+offset_top = 100.0
+offset_right = 706.0
+offset_bottom = 548.0
 theme = ExtResource("5_54xkm")
 theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
-text = "[font_size=40]KOBOT.Mk-02[/font_size]
+text = "[font_size=40]KOBOT.Mk-01[/font_size]
 
-[font_size=100]CRABOT[/font_size]
+[font_size=100]BOBOT[/font_size]
 
-Designed to redirect powerful laser rays
+Designed for construction works, heavy lifting and button pressing
 
 [font_size=40]
 [Mouse] Look around
-[WASD] Walk 
+[WASD] Walk
+[F] Take/Drop boxes
 [/font_size]"
 
-[node name="Crabot-scheme" type="Sprite2D" parent="SubViewport/CanvasLayer/MarginContainer"]
+[node name="Scheme" type="Sprite2D" parent="SubViewport/ShemeCanvas"]
 position = Vector2(786, 297)
 scale = Vector2(0.472656, 0.472656)
-texture = ExtResource("6_5b04s")
+texture = ExtResource("6_iqyiu")
+
+[node name="UICanvas" parent="SubViewport" instance=ExtResource("7_xx5d7")]
 
 [node name="BoxMountPoint" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.10543e-15, 0.613265, -0.82326)
@@ -151,6 +152,6 @@ bones/17/rotation = Quaternion(0.751345, 0.645836, 0.0836764, -0.10665)
 bones/18/position = Vector3(-0.0774941, 0.106455, 0.51487)
 
 [node name="Bobot2" parent="Bobot/Armature/Skeleton3D" index="0"]
-surface_material_override/0 = SubResource("ShaderMaterial_jmnxm")
+surface_material_override/0 = SubResource("ShaderMaterial_cwtkl")
 
 [editable path="Bobot"]

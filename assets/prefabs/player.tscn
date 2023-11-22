@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bh30fgjh4prch"]
+[gd_scene load_steps=4 format=3 uid="uid://bh30fgjh4prch"]
 
 [ext_resource type="Script" path="res://assets/scripts/player_controller.gd" id="1_ktkwb"]
+[ext_resource type="PackedScene" uid="uid://cejfi1b5yw6up" path="res://assets/prefabs/ui_canvas.tscn" id="2_tulfi"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vfrs6"]
 
@@ -18,9 +19,28 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.47635, 0)
 [node name="RayCast3D" type="RayCast3D" parent="Eye"]
 target_position = Vector3(0, 0, -1)
 
-[node name="Controller" type="Node" parent="." node_paths=PackedStringArray("player", "camera", "raycast")]
+[node name="Controller" type="Node" parent="." node_paths=PackedStringArray("player", "camera", "raycast", "scheme_ui", "main_ui")]
 script = ExtResource("1_ktkwb")
 player = NodePath("..")
 camera = NodePath("../Eye")
 raycast = NodePath("../Eye/RayCast3D")
+scheme_ui = NodePath("../MainUI")
+main_ui = NodePath("../UICanvas")
 state = 0
+
+[node name="UICanvas" parent="." instance=ExtResource("2_tulfi")]
+
+[node name="MainUI" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainUI"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 58.0
+offset_top = -87.0
+offset_right = 258.0
+offset_bottom = -34.0
+grow_vertical = 0
+theme_override_font_sizes/normal_font_size = 30
+text = "[Q] To Quit"

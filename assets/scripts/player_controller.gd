@@ -5,7 +5,8 @@ class_name PlayerController
 @export var camera: Node3D
 @export var raycast: RayCast3D
 @export var robot_controller: RobotController
-@export var ui: CanvasLayer
+@export var scheme_ui: CanvasLayer
+@export var main_ui: UICanvas
 
 @export var camera_speed: float = 0.01
 @export var walk_speed: float = 5
@@ -24,11 +25,9 @@ var other: Object = null
 var is_rotationg = false
 var rotating_timer = 0
 
-
 var enabled: bool :
 	get:
 		return state == State.ENABLED
-
 
 func _physics_process(delta: float):
 	walk(delta)
@@ -46,13 +45,13 @@ func disactivate():
 	if robot_controller != null:
 		robot_controller._disactivate()
 
-func _get_control():
-	if !raycast.is_colliding():
-		return
-	var collider = raycast.get_collider()
-	if collider is Terminal:
-		if collider.enable(self):
-			disable(true)
+func _get_control(terminal: Terminal):
+	if terminal.enable(self):
+		if main_ui:
+			main_ui.disable()
+		if !robot_controller && scheme_ui:
+			scheme_ui.visible = true
+		disable(true)
 
 func _input(event: InputEvent):
 	if !enabled: return
@@ -69,15 +68,26 @@ func _input(event: InputEvent):
 	if Input.is_action_just_pressed("QuitRobot"):
 		disactivate()
 	
-	if Input.is_action_just_pressed("EnterRobot"):
-		_get_control()
+	if !raycast.is_colliding():
+		main_ui.clear_text()
+		return
+
+	var collider = raycast.get_collider()
+	if collider is Terminal:
+		main_ui.set_text("[E] To Activate")
+		if Input.is_action_just_pressed("EnterRobot"):
+			_get_control(collider)
+	else:
+		main_ui.clear_text()
 
 func rotate_camera(vector: Vector2):
+	var window_size = DisplayServer.window_get_size()
 	self.is_rotationg = true
 	self.rotating_timer = 0.02
-	var velocity = vector.y * camera_speed
+	var cam_speed = camera_speed / (window_size.x / 1920.0)
+	var velocity = vector.y * cam_speed
 	camera.rotation.x = clamp(camera.rotation.x - velocity, -PI/2, PI/2)
-	player.rotate_y(-vector.x * camera_speed)
+	player.rotate_y(-vector.x * cam_speed)
 
 func walk(delta: float):
 	if !enabled:
@@ -120,12 +130,16 @@ func disable(controlled_by_other: bool = false):
 		state = State.CONTROLLED_BY_OTHER
 	else:
 		state = State.DISABLED
-		if ui:
-			ui.visible = true
+		if scheme_ui:
+			scheme_ui.visible = true
+		if main_ui:
+			main_ui.disable()
 
 func enable_instantly():
-	if ui:
-		ui.visible = false
+	if scheme_ui:
+		scheme_ui.visible = false
+	if main_ui:
+		main_ui.enable()
 	state = State.ENABLED
 	
 func enable_next_frame():

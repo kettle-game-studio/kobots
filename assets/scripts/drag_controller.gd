@@ -11,6 +11,8 @@ enum State { NOT_DRAGGING, DRAGGING }
 @export var drag_speed: float = 1
 @export var camera_speed: float = 0.001
 
+@export var main_ui: UICanvas 
+
 var state: State = State.NOT_DRAGGING
 var dragged_box: Box = null
 
@@ -19,11 +21,10 @@ func _ready():
 
 func _process(delta: float):
 	walk(delta)
+	
+	on_drag_box()
 
 func _input(event: InputEvent):
-	if Input.is_action_just_pressed("DragBox"):
-		on_drag_box()
-		
 	if state != State.DRAGGING: return
 	
 	if Input.is_action_just_pressed("Escape"):
@@ -68,28 +69,36 @@ func on_drag_box():
 	match state:
 		State.DRAGGING:
 			stop_dragging()
+			main_ui.set_text("[F] Drop")
 			
 		State.NOT_DRAGGING:
-			start_dragging()
+			if !ray_cast.is_colliding():
+				main_ui.clear_text()
+				return
+			var collider = ray_cast.get_collider()
+			if !(collider is Box):
+				return
+			if start_dragging(collider):
+				main_ui.set_text("[F] Drop")
+			else:
+				main_ui.set_text("[F] Take")
 
-func start_dragging():
-	if !ray_cast.is_colliding():
-		return
-	var collider = ray_cast.get_collider()
-	if !(collider is Box):
-		return
-		
-	dragged_box = collider
+func start_dragging(box: Box) -> bool:
+	if !Input.is_action_just_pressed("DragBox"):
+		return false
+	dragged_box = box
 	state = State.DRAGGING
 	player_controller.disable(true)
-	#box_mount_point.global_transform = dragged_box.global_transform
 	box_collision.global_transform = dragged_box.global_transform
 	box_collision.global_position += Vector3.UP * 0.5
 	box_collision.disabled = false
 	dragged_box.disable_collision()
 	print("start dragging ", dragged_box.box_name)
+	return true
 
 func stop_dragging():
+	if !Input.is_action_just_pressed("DragBox"):
+		return
 	print("stop dragging ", dragged_box.box_name)
 	player_controller.enable_instantly()
 	dragged_box.enable_collision()
