@@ -5,8 +5,8 @@
 [ext_resource type="Material" uid="uid://dairncnrblduy" path="res://assets/materials/laser_particle_mat.tres" id="3_t4j1f"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_7f5ss"]
-top_radius = 0.01
-bottom_radius = 0.01
+top_radius = 0.03
+bottom_radius = 0.03
 height = 100.0
 
 [sub_resource type="Curve" id="Curve_xjkxg"]

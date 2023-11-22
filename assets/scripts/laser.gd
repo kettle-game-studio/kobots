@@ -1,13 +1,18 @@
 extends RayCast3D
 class_name Laser
 
-@onready var beam_mesh = $BeamMesh
+@onready var beam_mesh: MeshInstance3D = $BeamMesh
 @onready var particles = $EndParticles
 var laser_target: Object = null
+var laser_material: BaseMaterial3D
+var color: Color = Color(1, 1, 1)
 
 
 func _ready():
+	var material = beam_mesh.get_surface_override_material(0) as BaseMaterial3D
+	laser_material = material.duplicate(true)
 	beam_mesh.mesh = beam_mesh.mesh.duplicate()
+	beam_mesh.set_surface_override_material(0, laser_material)
 
 func _process(delta):
 	if !self.visible:
@@ -31,7 +36,7 @@ func _process(delta):
 	if collider != laser_target:
 		unmount_target()
 		laser_target = collider
-		collider.enable_laser()
+		collider.enable_laser(color)
 
 func fire_at_cast_point(cast_point: float):
 	beam_mesh.mesh.height = abs(cast_point)
@@ -49,4 +54,9 @@ func disable():
 	
 func enable():
 	self.visible = true;
-	
+
+func set_color(color: Color):
+	laser_material.emission = color
+	laser_material.albedo_color = color
+	self.color = color
+	pass
