@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cf24rsq3p2ei1" path="res://assets/prefabs/tiles/floor_tile_1.tscn" id="6_vt2sq"]
 [ext_resource type="PackedScene" uid="uid://cbnmfkaxsw4ki" path="res://assets/prefabs/box.tscn" id="6_y7ee0"]
 [ext_resource type="PackedScene" uid="uid://bdguoqhpmcppa" path="res://assets/prefabs/tiles/wall_tile_1.tscn" id="8_exega"]
-[ext_resource type="PackedScene" uid="uid://djpkb7s0oa4fu" path="res://assets/prefabs/robot_flying.tscn" id="9_34grp"]
+[ext_resource type="PackedScene" uid="uid://iplo7wkqbgtd" path="res://assets/prefabs/robot_flying.tscn" id="9_34grp"]
 [ext_resource type="Texture2D" uid="uid://bwkuek3tum0cn" path="res://assets/writings/labyrinth.png" id="11_c3iwu"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_l1iiy"]
@@ -108,10 +108,10 @@ transform = Transform3D(0.0538348, 0, -0.99855, 0, 1, 0, 0.99855, 0, 0.0538348, 
 transform = Transform3D(0.695612, 0, 0.718418, 0, 1, 0, -0.718418, 0, 0.695612, 26.1921, 0.0499997, 14.404)
 
 [node name="Button" parent="Gameplay/Room3" instance=ExtResource("3_gdhk3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.5069, 0.0500002, 2.29223)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.6103, 0.0500002, 2.29223)
 
 [node name="Button2" parent="Gameplay/Room3" instance=ExtResource("3_gdhk3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.6378, 0.0500002, 8.31002)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.6106, 0.0500002, 8.31002)
 
 [node name="Door" parent="Gameplay/Room3" instance=ExtResource("5_5ng7b")]
 transform = Transform3D(0.67907, 0, 0.734074, 0, 1, 0, -0.734074, 0, 0.67907, 19.6524, 0.0223937, 9.0499)
