@@ -1,7 +1,7 @@
 [gd_scene load_steps=25 format=3 uid="uid://da5xv5g3mndxw"]
 
 [ext_resource type="PackedScene" uid="uid://cv03cxb8jcsy8" path="res://assets/prefabs/terminal.tscn" id="1_m1hvl"]
-[ext_resource type="PackedScene" uid="uid://dmtm7k1fhpmkj" path="res://assets/prefabs/robot_default.tscn" id="2_g4ply"]
+[ext_resource type="PackedScene" uid="uid://dmtm7k1fhpmkj" path="res://assets/prefabs/robot_bobot.tscn" id="2_g4ply"]
 [ext_resource type="PackedScene" uid="uid://pc3k2vyryge5" path="res://assets/prefabs/button.tscn" id="3_gdhk3"]
 [ext_resource type="PackedScene" uid="uid://b06ku0w7nydkk" path="res://assets/prefabs/power_line.tscn" id="4_fjrlg"]
 [ext_resource type="PackedScene" uid="uid://cyd5hd61f5m0h" path="res://assets/prefabs/robot_big.tscn" id="4_xifp1"]
