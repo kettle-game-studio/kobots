@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://btdlwsao6rb7a"]
+
+[ext_resource type="Shader" path="res://assets/scripts/robots/robot_glass.gdshader" id="1_23si0"]
+[ext_resource type="Texture2D" uid="uid://bl5d3coil4c8y" path="res://assets/models/Laser/LaserAdd.png" id="2_kjalr"]
+[ext_resource type="Texture2D" uid="uid://cch88k4y3qx48" path="res://assets/models/Laser/LaserLight.png" id="3_nwbo6"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_23si0")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/enable = false
+shader_parameter/add_texture = ExtResource("2_kjalr")
+shader_parameter/emission_texture = ExtResource("3_nwbo6")
