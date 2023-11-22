@@ -1,18 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://d1161nw1kfdh0"]
+[gd_scene load_steps=5 format=3 uid="uid://d1161nw1kfdh0"]
 
 [ext_resource type="Script" path="res://assets/scripts/laser_absorber.gd" id="1_f7qx0"]
-[ext_resource type="Material" uid="uid://2ybpoagjbl17" path="res://assets/materials/laser_emitter.tres" id="1_t8oc4"]
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_xvbn0"]
-height = 0.3
-radial_segments = 16
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_3v78j"]
-top_radius = 0.3
-bottom_radius = 0.3
-height = 0.225
-radial_segments = 16
-rings = 1
+[ext_resource type="PackedScene" uid="uid://dafa2b2hgwufl" path="res://assets/models/Laser/laser_receiver.tscn" id="3_x5i7e"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ggtyv"]
 size = Vector3(0.1, 0.7, 0.1)
@@ -23,17 +12,6 @@ size = Vector3(0.30359, 1.67587, 1)
 [node name="LaserAbsorber" type="StaticBody3D"]
 script = ExtResource("1_f7qx0")
 
-[node name="Mesh" type="CSGMesh3D" parent="."]
-transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 1.16047, 0)
-mesh = SubResource("CylinderMesh_xvbn0")
-material = ExtResource("1_t8oc4")
-
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Mesh"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.23349e-09, 0.051096, 0)
-operation = 2
-mesh = SubResource("CylinderMesh_3v78j")
-material = ExtResource("1_t8oc4")
-
 [node name="CSGMesh3D" type="CSGMesh3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.353844, 0)
 mesh = SubResource("BoxMesh_ggtyv")
@@ -41,3 +19,6 @@ mesh = SubResource("BoxMesh_ggtyv")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.835903, 0)
 shape = SubResource("BoxShape3D_r7qfi")
+
+[node name="LaserReceiver" parent="." instance=ExtResource("3_x5i7e")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.07, 1.149, 0)

@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://d27stf6dexrbe"]
 
-[ext_resource type="Material" path="res://assets/materials/laser_mat.tres" id="1_44sue"]
+[ext_resource type="Material" uid="uid://dvuut3uiixvu3" path="res://assets/materials/laser_mat.tres" id="1_44sue"]
 [ext_resource type="Script" path="res://assets/scripts/laser.gd" id="1_yl67h"]
-[ext_resource type="Material" path="res://assets/materials/laser_particle_mat.tres" id="3_t4j1f"]
+[ext_resource type="Material" uid="uid://dairncnrblduy" path="res://assets/materials/laser_particle_mat.tres" id="3_t4j1f"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_7f5ss"]
 top_radius = 0.01

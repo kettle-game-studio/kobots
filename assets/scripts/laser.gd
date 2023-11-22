@@ -2,8 +2,9 @@ extends RayCast3D
 class_name Laser
 
 @onready var beam_mesh = $BeamMesh
-@onready var particles = $EndParticles 
+@onready var particles = $EndParticles
 var laser_target: Object = null
+
 
 func _ready():
 	beam_mesh.mesh = beam_mesh.mesh.duplicate()
