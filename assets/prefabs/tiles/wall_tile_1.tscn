@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bdguoqhpmcppa"]
+[gd_scene load_steps=4 format=3 uid="uid://bdguoqhpmcppa"]
 
-[ext_resource type="PackedScene" uid="uid://cjqio5ysfkfam" path="res://assets/models/Walls/Straight Wall Base.glb" id="1_5nqai"]
+[ext_resource type="PackedScene" uid="uid://vfsrkr8q2qbh" path="res://assets/models/Walls/Straight wall/straight_wall_base_.tscn" id="1_77nqd"]
+[ext_resource type="Material" uid="uid://cxvgm8qca7m2e" path="res://assets/materials/wall_material.tres" id="2_vwlnf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o1h7f"]
 size = Vector3(0.3, 3, 2)
@@ -13,5 +14,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("BoxShape3D_o1h7f")
 
-[node name="Straight Wall Base" parent="." instance=ExtResource("1_5nqai")]
-transform = Transform3D(-2.87839e-08, 0, -1, 0, 1, 0, 0.658498, 0, -4.37114e-08, 0, 0, 0)
+[node name="Straight Wall Base " parent="." instance=ExtResource("1_77nqd")]
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 0, 1.5, 0)
+surface_material_override/0 = ExtResource("2_vwlnf")

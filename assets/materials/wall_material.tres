@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://cxvgm8qca7m2e"]
+
+[ext_resource type="Texture2D" uid="uid://d4dcte3f5jo5e" path="res://assets/models/Walls/Straight wall/Wall Striaght_Base material_BaseColor.png" id="1_641p2"]
+[ext_resource type="Texture2D" uid="uid://ced1rmfv4lw3g" path="res://assets/models/Walls/Straight wall/Wall Striaght_Base material_Roughness.png" id="2_j7tls"]
+
+[resource]
+albedo_texture = ExtResource("1_641p2")
+metallic = 0.5
+metallic_specular = 0.0
+roughness_texture = ExtResource("2_j7tls")
+roughness_texture_channel = 1
