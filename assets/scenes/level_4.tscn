@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cv03cxb8jcsy8" path="res://assets/prefabs/terminal.tscn" id="11_yr2dp"]
 [ext_resource type="PackedScene" uid="uid://cyd5hd61f5m0h" path="res://assets/prefabs/robot_big.tscn" id="12_6wpo7"]
 [ext_resource type="PackedScene" uid="uid://dmtm7k1fhpmkj" path="res://assets/prefabs/robot_bobot.tscn" id="13_ajk82"]
-[ext_resource type="PackedScene" uid="uid://djpkb7s0oa4fu" path="res://assets/prefabs/robot_flying.tscn" id="14_s88ej"]
+[ext_resource type="PackedScene" uid="uid://iplo7wkqbgtd" path="res://assets/prefabs/robot_flying.tscn" id="14_s88ej"]
 [ext_resource type="PackedScene" uid="uid://x4iemqwg43y3" path="res://assets/models/Tiles/tile_001.tscn" id="15_t5a8e"]
 [ext_resource type="PackedScene" uid="uid://coovk5fcqufvd" path="res://assets/models/Tiles/tile_002.tscn" id="16_hgweq"]
 [ext_resource type="PackedScene" uid="uid://gtn02560h2u7" path="res://assets/models/Tiles/tile_003.tscn" id="17_6mo60"]
@@ -61,7 +61,6 @@ size = Vector3(50, 6, 2)
 size = Vector3(50, 1, 50)
 
 [node name="Level4" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="OldLevel" type="Node3D" parent="."]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 0, 0)
@@ -943,7 +942,6 @@ mesh = SubResource("CylinderMesh_ostqh")
 [node name="NewLevel" type="Node3D" parent="."]
 
 [node name="Geometry" type="Node3D" parent="NewLevel"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="BaseBorder" type="StaticBody3D" parent="NewLevel/Geometry"]
 visible = false
