@@ -1853,8 +1853,8 @@ transform = Transform3D(-0.541708, 0, -0.840567, 0, 1, 0, 0.840567, 0, -0.541708
 [node name="WallTile28" parent="NewLevel/Geometry/CircleWall" instance=ExtResource("10_rhjq1")]
 transform = Transform3D(0.877146, 0, -0.480223, 0, 1, 0, 0.480223, 0, 0.877146, -24.3126, 0, -13.3108)
 
-[node name="WallTile29" parent="NewLevel/Geometry/CircleWall" instance=ExtResource("10_rhjq1")]
-transform = Transform3D(0.989776, 0, -0.142629, 0, 1, 0, 0.142629, 0, 0.989776, -27.4345, 0, -3.95337)
+[node name="TransparentWindow" parent="NewLevel/Geometry/CircleWall" instance=ExtResource("12_40cle")]
+transform = Transform3D(-0.142629, 0, -0.989777, 0, 1, 0, 0.989777, 0, -0.142629, -27.4345, 0, -3.95337)
 
 [node name="WallTile30" parent="NewLevel/Geometry/CircleWall" instance=ExtResource("10_rhjq1")]
 transform = Transform3D(0.701792, 0, -0.712381, 0, 1, 0, 0.712381, 0, 0.701792, -28.2726, 0, -2.32475)
@@ -1879,7 +1879,7 @@ transform = Transform3D(-0.707106, 0, 0.707106, 0, 1, 0, -0.707106, 0, -0.707106
 [node name="Room1" type="Node3D" parent="NewLevel/Gameplay"]
 
 [node name="LaserEmitter" parent="NewLevel/Gameplay/Room1" instance=ExtResource("5_r40o2")]
-transform = Transform3D(-0.39577, 0, 0.91835, 0, 1, 0, -0.91835, 0, -0.39577, -15.6182, 0, 6.83544)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15.6182, 0, 7.58084)
 
 [node name="RobotCrabot" parent="NewLevel/Gameplay/Room1" instance=ExtResource("9_p5oa4")]
 transform = Transform3D(-0.436425, 0, -0.899741, 0, 1, 0, 0.899741, 0, -0.436425, -21.239, 0, 9.28319)
