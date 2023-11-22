@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bibke4m7obh01"]
+[gd_scene load_steps=19 format=3 uid="uid://bibke4m7obh01"]
 
 [ext_resource type="Script" path="res://assets/scripts/robot_laser.gd" id="1_6eotk"]
 [ext_resource type="Script" path="res://assets/scripts/player_controller.gd" id="2_yqcsn"]
@@ -7,6 +7,7 @@
 [ext_resource type="Theme" uid="uid://p08pj8vk2hog" path="res://assets/game_theme.tres" id="4_uh44g"]
 [ext_resource type="Script" path="res://assets/scripts/robots/crab.gd" id="5_m0tm0"]
 [ext_resource type="Texture2D" uid="uid://d3ghq1iovcg86" path="res://assets/writings/crabot-scheme.png" id="5_nh5dc"]
+[ext_resource type="PackedScene" uid="uid://cejfi1b5yw6up" path="res://assets/prefabs/ui_canvas.tscn" id="6_3jmk8"]
 [ext_resource type="Shader" path="res://assets/scripts/robots/robot.gdshader" id="6_kxrk7"]
 [ext_resource type="Texture2D" uid="uid://cjssju6ani202" path="res://assets/models/Crab/CrabAdd.png" id="7_253mr"]
 [ext_resource type="Texture2D" uid="uid://c35hoo862hd2o" path="res://assets/models/Crab/CrabColor.png" id="8_ywxhj"]
@@ -18,7 +19,7 @@
 radius = 0.383986
 height = 1.5
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_xixu1"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dk517"]
 render_priority = 0
 shader = ExtResource("6_kxrk7")
 shader_parameter/color = Color(0.870588, 0.00784314, 0.384314, 1)
@@ -30,7 +31,7 @@ shader_parameter/base_texture = ExtResource("8_ywxhj")
 shader_parameter/add_texture = ExtResource("7_253mr")
 shader_parameter/emission_texture = ExtResource("9_c5eh3")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_xiq2q"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4kg1o"]
 render_priority = 0
 shader = ExtResource("10_qhqyg")
 shader_parameter/color = Color(0.870588, 0.00784314, 0.384314, 1)
@@ -38,7 +39,7 @@ shader_parameter/enable = true
 shader_parameter/add_texture = ExtResource("7_253mr")
 shader_parameter/emission_texture = ExtResource("9_c5eh3")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_mgb16"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_431t6"]
 render_priority = 0
 shader = ExtResource("6_kxrk7")
 shader_parameter/color = Color(0.870588, 0.00784314, 0.384314, 1)
@@ -50,12 +51,13 @@ shader_parameter/base_texture = ExtResource("8_ywxhj")
 shader_parameter/add_texture = ExtResource("7_253mr")
 shader_parameter/emission_texture = ExtResource("9_c5eh3")
 
-[node name="RobotCrabot" type="CharacterBody3D" node_paths=PackedStringArray("subViewport", "player_controller")]
+[node name="RobotCrabot" type="CharacterBody3D" node_paths=PackedStringArray("subViewport", "player_controller", "canvas_layer")]
 axis_lock_angular_x = true
 axis_lock_angular_z = true
 script = ExtResource("1_6eotk")
 subViewport = NodePath("SubViewport")
 player_controller = NodePath("Controller")
+canvas_layer = NodePath("SubViewport/SchemeCanvas")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
@@ -68,13 +70,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.587399, -0.35355)
 target_position = Vector3(0, 0, -1)
 collision_mask = 7
 
-[node name="Controller" type="Node" parent="." node_paths=PackedStringArray("player", "camera", "raycast", "robot_controller", "ui")]
+[node name="Controller" type="Node" parent="." node_paths=PackedStringArray("player", "camera", "raycast", "robot_controller", "scheme_ui", "main_ui")]
 script = ExtResource("2_yqcsn")
 player = NodePath("..")
 camera = NodePath("../Eye")
 raycast = NodePath("../Eye/RayCast3D")
 robot_controller = NodePath("..")
-ui = NodePath("../SubViewport/CanvasLayer")
+scheme_ui = NodePath("../SubViewport/SchemeCanvas")
+main_ui = NodePath("../SubViewport/UICanvas")
 
 [node name="SubViewport" type="SubViewport" parent="."]
 disable_3d = true
@@ -87,9 +90,9 @@ near = 0.113
 script = ExtResource("3_x68lt")
 target = NodePath("../../Eye")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="SubViewport"]
+[node name="SchemeCanvas" type="CanvasLayer" parent="SubViewport"]
 
-[node name="RichTextLabel" type="RichTextLabel" parent="SubViewport/CanvasLayer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="SubViewport/SchemeCanvas"]
 offset_left = 200.0
 offset_top = 100.0
 offset_right = 660.0
@@ -108,10 +111,12 @@ Designed to redirect powerful laser rays
 [WASD] Walk
 [/font_size]"
 
-[node name="Scheme" type="Sprite2D" parent="SubViewport/CanvasLayer"]
+[node name="Scheme" type="Sprite2D" parent="SubViewport/SchemeCanvas"]
 position = Vector2(786, 297)
 scale = Vector2(0.472656, 0.472656)
 texture = ExtResource("5_nh5dc")
+
+[node name="UICanvas" parent="SubViewport" instance=ExtResource("6_3jmk8")]
 
 [node name="Crab" parent="." node_paths=PackedStringArray("meshes", "light_meshes", "animation_player", "body", "controller") instance=ExtResource("4_mv3x2")]
 transform = Transform3D(-1.46433e-08, 0, 0.335, 0, 0.335, 0, -0.335, 0, -1.46433e-08, 0, 0, 0)
@@ -152,13 +157,13 @@ bones/32/position = Vector3(-0.311581, 0.0940332, 1.55142)
 bones/33/position = Vector3(-0.898251, 0.0940332, 1.30274)
 
 [node name="Crab2" parent="Crab/Armature/Skeleton3D" index="0"]
-surface_material_override/0 = SubResource("ShaderMaterial_xixu1")
+surface_material_override/0 = SubResource("ShaderMaterial_dk517")
 
 [node name="CrabGlassHat" parent="Crab/Armature/Skeleton3D" index="1"]
-surface_material_override/0 = SubResource("ShaderMaterial_xiq2q")
+surface_material_override/0 = SubResource("ShaderMaterial_4kg1o")
 
 [node name="CrabLightHat" parent="Crab/Armature/Skeleton3D" index="2"]
-surface_material_override/0 = SubResource("ShaderMaterial_mgb16")
+surface_material_override/0 = SubResource("ShaderMaterial_431t6")
 
 [node name="AnimationPlayer" parent="Crab" index="1"]
 speed_scale = 0.5
