@@ -6,7 +6,7 @@ enum State {UNPRESSED, PRESSING, UNPRESSING, PRESSED, ALWAYS_PRESSED}
 signal pressed(ButtonController)
 signal unpressed(ButtonController)
 
-@export var button: CSGMesh3D
+@export var button: MeshInstance3D
 @export var area: Area3D
 @export var press_seconds: float = 0.5
 
@@ -16,9 +16,15 @@ signal unpressed(ButtonController)
 var state: State = State.UNPRESSED
 var pressiness = 0
 
+var material: Material : 
+	get:
+		return button.get_surface_override_material(0)
+	set(value):
+		button.set_surface_override_material(0, value)
+
 func _ready():
-	button.material = button.material.duplicate()
-	button.material.albedo_color = unpressed_albedo
+	material = material.duplicate()
+	material.albedo_color = unpressed_albedo
 
 func _process(_delta: float):
 	match state:
@@ -26,14 +32,14 @@ func _process(_delta: float):
 			pressiness += _delta * 1 / press_seconds
 			if pressiness >= 1:
 				pressiness = 1
-				button.material.albedo_color = pressed_albedo
+				material.albedo_color = pressed_albedo
 				state = State.PRESSED
 				pressed.emit(self)
 		State.UNPRESSING:
 			pressiness -= _delta * 1 / press_seconds
 			if pressiness <= 0:
 				pressiness = 0
-				button.material.albedo_color = unpressed_albedo
+				material.albedo_color = unpressed_albedo
 				state = State.UNPRESSED
 				unpressed.emit(self)
 
