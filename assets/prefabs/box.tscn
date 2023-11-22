@@ -1,15 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cbnmfkaxsw4ki"]
+[gd_scene load_steps=5 format=3 uid="uid://cbnmfkaxsw4ki"]
 
 [ext_resource type="Script" path="res://assets/scripts/box.gd" id="1_666gi"]
+[ext_resource type="PackedScene" uid="uid://b6ks373c466i7" path="res://assets/models/Box/box.tscn" id="2_h6adt"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8ygcw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x7sem"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_73rl7"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3dwla"]
-albedo_color = Color(0.721569, 0.423529, 0.0117647, 1)
 
 [node name="Box" type="RigidBody3D"]
 axis_lock_angular_x = true
@@ -22,7 +18,5 @@ script = ExtResource("1_666gi")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_x7sem")
 
-[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-mesh = SubResource("BoxMesh_73rl7")
-material = SubResource("StandardMaterial3D_3dwla")
+[node name="Box" parent="." instance=ExtResource("2_h6adt")]
+transform = Transform3D(0.95, 0, 0, 0, -4.15258e-08, -0.95, 0, 0.95, -4.15258e-08, 0, 0.506349, 0)
