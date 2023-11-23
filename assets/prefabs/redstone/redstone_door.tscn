@@ -50,7 +50,7 @@ _data = {
 "opening": SubResource("Animation_pais8")
 }
 
-[node name="test_door" type="Node3D" node_paths=PackedStringArray("mesh")]
+[node name="RedstoneDoor" type="Node3D" node_paths=PackedStringArray("mesh")]
 script = ExtResource("1_sksdw")
 mesh = NodePath("Door/DoorMesh")
 

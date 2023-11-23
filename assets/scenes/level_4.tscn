@@ -1,9 +1,8 @@
-[gd_scene load_steps=49 format=3 uid="uid://bbu45o3pef4kc"]
+[gd_scene load_steps=54 format=3 uid="uid://bbu45o3pef4kc"]
 
 [ext_resource type="PackedScene" uid="uid://dguc6wibu6e40" path="res://assets/prefabs/laser_emitter.tscn" id="1_v4vyf"]
 [ext_resource type="PackedScene" uid="uid://pc3k2vyryge5" path="res://assets/prefabs/button.tscn" id="5_jxc0d"]
 [ext_resource type="PackedScene" uid="uid://dcjw51pfs7v86" path="res://assets/prefabs/door.tscn" id="6_trpuh"]
-[ext_resource type="PackedScene" uid="uid://cbnmfkaxsw4ki" path="res://assets/prefabs/box.tscn" id="8_if3gp"]
 [ext_resource type="PackedScene" uid="uid://b06ku0w7nydkk" path="res://assets/prefabs/power_line.tscn" id="8_roq5e"]
 [ext_resource type="PackedScene" uid="uid://d1161nw1kfdh0" path="res://assets/prefabs/laser_absorber.tscn" id="9_xkn5s"]
 [ext_resource type="PackedScene" uid="uid://bibke4m7obh01" path="res://assets/prefabs/robot_crabot.tscn" id="10_kjfhd"]
@@ -16,12 +15,18 @@
 [ext_resource type="PackedScene" uid="uid://b4f1kyjbidpwb" path="res://assets/prefabs/wall_tiles/glass.tscn" id="14_h87sy"]
 [ext_resource type="PackedScene" uid="uid://iplo7wkqbgtd" path="res://assets/prefabs/robot_flying.tscn" id="14_s88ej"]
 [ext_resource type="PackedScene" uid="uid://x4iemqwg43y3" path="res://assets/models/Tiles/tile_001.tscn" id="15_t5a8e"]
+[ext_resource type="PackedScene" uid="uid://d4gr0i368k4c8" path="res://assets/prefabs/redstone/redstone_door.tscn" id="16_ek41n"]
 [ext_resource type="PackedScene" uid="uid://coovk5fcqufvd" path="res://assets/models/Tiles/tile_002.tscn" id="16_hgweq"]
+[ext_resource type="PackedScene" uid="uid://cymi34sde2qul" path="res://assets/prefabs/redstone/redstone_line.tscn" id="17_5os3s"]
 [ext_resource type="PackedScene" uid="uid://gtn02560h2u7" path="res://assets/models/Tiles/tile_003.tscn" id="17_6mo60"]
+[ext_resource type="PackedScene" uid="uid://btof0prkex6ou" path="res://assets/prefabs/redstone/redstone_part.tscn" id="18_5qdg0"]
 [ext_resource type="PackedScene" uid="uid://bdk7hqci7w3id" path="res://assets/models/Tiles/tile_004.tscn" id="18_v37xe"]
 [ext_resource type="PackedScene" uid="uid://dylxy5ljwi5bj" path="res://assets/models/Tiles/pandus.tscn" id="19_d8r32"]
+[ext_resource type="PackedScene" uid="uid://clw7qsx86c4pt" path="res://assets/prefabs/redstone/redstone_fork.tscn" id="19_f8l0i"]
+[ext_resource type="PackedScene" uid="uid://bh6p10tdhgn51" path="res://assets/prefabs/redstone/redstone_liser_receiver.tscn" id="20_x5ufu"]
 [ext_resource type="PackedScene" uid="uid://ddqcbeaw3a5sr" path="res://assets/prefabs/wall_tiles/wall_001.tscn" id="20_yrytf"]
 [ext_resource type="PackedScene" uid="uid://qmrygx7aegf3" path="res://assets/prefabs/wall_tiles/wall_002.tscn" id="21_qvjw8"]
+[ext_resource type="PackedScene" uid="uid://dr2ynp3fxd4cu" path="res://assets/prefabs/redstone/redstone_hat.tscn" id="22_58lqa"]
 [ext_resource type="PackedScene" uid="uid://cy73u23py3a3o" path="res://assets/prefabs/wall_tiles/wall_003.tscn" id="22_165uj"]
 [ext_resource type="PackedScene" uid="uid://cvef1tukyw7f0" path="res://assets/prefabs/wall_tiles/column.tscn" id="23_6a30m"]
 [ext_resource type="PackedScene" uid="uid://ylmrlk8aoenp" path="res://assets/prefabs/wall_tiles/wall_u.tscn" id="24_rljwc"]
@@ -1791,43 +1796,235 @@ transform = Transform3D(0.99824, 0, -0.0593064, 0, 1, 0, 0.0593064, 0, 0.99824, 
 
 [node name="Room1" type="Node3D" parent="Gameplay"]
 
+[node name="RedstoneDoor" parent="Gameplay/Room1" instance=ExtResource("16_ek41n")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 26, 0, -12)
+color = Color(0.121569, 0.831373, 1, 1)
+
+[node name="RedstoneLine" parent="Gameplay/Room1/RedstoneDoor" instance=ExtResource("17_5os3s")]
+
+[node name="RedstonePart" parent="Gameplay/Room1/RedstoneDoor/RedstoneLine" instance=ExtResource("18_5qdg0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
+
+[node name="RedstonePart2" parent="Gameplay/Room1/RedstoneDoor/RedstoneLine" instance=ExtResource("18_5qdg0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 0)
+
+[node name="RedstonePart3" parent="Gameplay/Room1/RedstoneDoor/RedstoneLine" instance=ExtResource("18_5qdg0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 0)
+
+[node name="RedstonePart4" parent="Gameplay/Room1/RedstoneDoor/RedstoneLine" instance=ExtResource("18_5qdg0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, 0)
+
+[node name="RedstonePart5" parent="Gameplay/Room1/RedstoneDoor/RedstoneLine" instance=ExtResource("18_5qdg0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, 0)
+
+[node name="RedstonePart6" parent="Gameplay/Room1/RedstoneDoor/RedstoneLine" instance=ExtResource("18_5qdg0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0, 0)
+
+[node name="RedstonePart7" parent="Gameplay/Room1/RedstoneDoor/RedstoneLine" instance=ExtResource("18_5qdg0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0, 0)
+
+[node name="RedstonePart8" parent="Gameplay/Room1/RedstoneDoor/RedstoneLine" instance=ExtResource("18_5qdg0")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7, 0, 0.5)
+
+[node name="RedstonePart9" parent="Gameplay/Room1/RedstoneDoor/RedstoneLine" instance=ExtResource("18_5qdg0")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7, 0, 1.5)
+
+[node name="RedstonePart10" parent="Gameplay/Room1/RedstoneDoor/RedstoneLine" instance=ExtResource("18_5qdg0")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7, 0, 2.5)
+
+[node name="RedstonePart11" parent="Gameplay/Room1/RedstoneDoor/RedstoneLine" instance=ExtResource("18_5qdg0")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7, 0, 3.5)
+
+[node name="RedstonePart12" parent="Gameplay/Room1/RedstoneDoor/RedstoneLine" instance=ExtResource("18_5qdg0")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7, 0, 4.5)
+
+[node name="RedstonePart13" parent="Gameplay/Room1/RedstoneDoor/RedstoneLine" instance=ExtResource("18_5qdg0")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7, 0, 5.5)
+
+[node name="RedstonePart14" parent="Gameplay/Room1/RedstoneDoor/RedstoneLine" instance=ExtResource("18_5qdg0")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7, 0, 6.5)
+
+[node name="RedstonePart15" parent="Gameplay/Room1/RedstoneDoor/RedstoneLine" instance=ExtResource("18_5qdg0")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7, 0, 7.5)
+
+[node name="RedstonePart16" parent="Gameplay/Room1/RedstoneDoor/RedstoneLine" instance=ExtResource("18_5qdg0")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7, 0, 8.5)
+
+[node name="RedstonePart17" parent="Gameplay/Room1/RedstoneDoor/RedstoneLine" instance=ExtResource("18_5qdg0")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7, 0, 9.5)
+
+[node name="RedstonePart18" parent="Gameplay/Room1/RedstoneDoor/RedstoneLine" instance=ExtResource("18_5qdg0")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7, 0, 10.5)
+
+[node name="RedstonePart19" parent="Gameplay/Room1/RedstoneDoor/RedstoneLine" instance=ExtResource("18_5qdg0")]
+transform = Transform3D(-1.84587e-08, -0.422286, -0.906463, 1, -4.37114e-08, 0, -3.96227e-08, -0.906463, 0.422286, 7.00582, 0.5, 10.2264)
+
+[node name="RedstoneFork" parent="Gameplay/Room1/RedstoneDoor/RedstoneLine" instance=ExtResource("19_f8l0i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
+
+[node name="RedstoneLiserReceiver" parent="Gameplay/Room1/RedstoneDoor" instance=ExtResource("20_x5ufu")]
+transform = Transform3D(-0.446042, 0, 0.895012, 0, 1, 0, -0.895012, 0, -0.446042, 7, 0, 10.2901)
+
 [node name="LaserEmitter" parent="Gameplay/Room1" instance=ExtResource("1_v4vyf")]
-transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 24.8432, 0.05, -21.9271)
-
-[node name="Box" parent="Gameplay/Room1" instance=ExtResource("8_if3gp")]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 40.3724, 0.05, 0.425961)
-
-[node name="Door" parent="Gameplay/Room1" instance=ExtResource("6_trpuh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0, -12)
-
-[node name="LaserAbsorber" parent="Gameplay/Room1" instance=ExtResource("9_xkn5s")]
-transform = Transform3D(-0.872026, 0, -0.489459, 0, 1, 0, 0.489459, 0, -0.872026, 36.0401, 0.0500009, -19.2972)
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 23.0369, 0, -22.8831)
 
 [node name="Room2" type="Node3D" parent="Gameplay"]
 
-[node name="LaserAbsorber1" parent="Gameplay/Room2" instance=ExtResource("9_xkn5s")]
-transform = Transform3D(0, 0, 0.999999, 0, 1, 0, -0.999999, 0, 0, 36.9926, 0.0499995, 11.8568)
+[node name="RedstoneDoor" parent="Gameplay/Room2" instance=ExtResource("16_ek41n")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 36, 0, -12)
+color = Color(0.968627, 0, 0.67451, 1)
 
-[node name="LaserAbsorber2" parent="Gameplay/Room2" instance=ExtResource("9_xkn5s")]
-transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 31.8668, 0.05, -11.8358)
+[node name="RedstoneLiserReceiver" parent="Gameplay/Room2/RedstoneDoor" instance=ExtResource("20_x5ufu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 
-[node name="Door2" parent="Gameplay/Room2" instance=ExtResource("6_trpuh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.0413, 0, -11.9923)
+[node name="RedstoneLine" parent="Gameplay/Room2/RedstoneDoor" instance=ExtResource("17_5os3s")]
 
-[node name="Door" parent="Gameplay/Room2" instance=ExtResource("6_trpuh")]
-transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 31, 0, 9)
+[node name="RedstonePart" parent="Gameplay/Room2/RedstoneDoor/RedstoneLine" instance=ExtResource("18_5qdg0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -2)
 
-[node name="Room3" type="Node3D" parent="Gameplay"]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 33.8641, 0.5, 11.6875)
+[node name="RedstonePart5" parent="Gameplay/Room2/RedstoneDoor/RedstoneLine" instance=ExtResource("18_5qdg0")]
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, -1, -4.37114e-08, 4.37114e-08, 4.37114e-08, -4.37114e-08, 1, 0.0782309, 0.5, -2)
 
-[node name="LaserEmitter" parent="Gameplay/Room3" instance=ExtResource("1_v4vyf")]
-transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, 12.4632, -0.465317, -9.61294)
+[node name="RedstonePart4" parent="Gameplay/Room2/RedstoneDoor/RedstoneLine" instance=ExtResource("18_5qdg0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
 
-[node name="LaserAbsorber" parent="Gameplay/Room3" instance=ExtResource("9_xkn5s")]
-transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 10.7441, -0.45, -0.341032)
+[node name="RedstonePart2" parent="Gameplay/Room2/RedstoneDoor/RedstoneLine" instance=ExtResource("18_5qdg0")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, -1.5)
 
-[node name="Door" parent="Gameplay/Room3" instance=ExtResource("6_trpuh")]
-transform = Transform3D(-0.547782, 0, -0.83662, 0, 1, 0, 0.83662, 0, -0.547782, 6.01942, -0.5, -6.60301)
+[node name="RedstonePart3" parent="Gameplay/Room2/RedstoneDoor/RedstoneLine" instance=ExtResource("18_5qdg0")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, -0.5)
+
+[node name="RedstoneFork" parent="Gameplay/Room2/RedstoneDoor/RedstoneLine" instance=ExtResource("19_f8l0i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -2)
+
+[node name="RedstoneFork2" parent="Gameplay/Room2/RedstoneDoor/RedstoneLine" instance=ExtResource("19_f8l0i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+
+[node name="RedstoneDoor2" parent="Gameplay/Room2" instance=ExtResource("16_ek41n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 0, 9)
+color = Color(0.764706, 0, 0.160784, 1)
+
+[node name="RedstoneLiserReceiver" parent="Gameplay/Room2/RedstoneDoor2" instance=ExtResource("20_x5ufu")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6, 0, 3)
+
+[node name="RedstoneLine" parent="Gameplay/Room2/RedstoneDoor2" instance=ExtResource("17_5os3s")]
+
+[node name="RedstonePart" parent="Gameplay/Room2/RedstoneDoor2/RedstoneLine" instance=ExtResource("18_5qdg0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
+
+[node name="RedstonePart4" parent="Gameplay/Room2/RedstoneDoor2/RedstoneLine" instance=ExtResource("18_5qdg0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 2)
+
+[node name="RedstonePart5" parent="Gameplay/Room2/RedstoneDoor2/RedstoneLine" instance=ExtResource("18_5qdg0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 2)
+
+[node name="RedstonePart6" parent="Gameplay/Room2/RedstoneDoor2/RedstoneLine" instance=ExtResource("18_5qdg0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, 2)
+
+[node name="RedstonePart13" parent="Gameplay/Room2/RedstoneDoor2/RedstoneLine" instance=ExtResource("18_5qdg0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, 2)
+
+[node name="RedstonePart14" parent="Gameplay/Room2/RedstoneDoor2/RedstoneLine" instance=ExtResource("18_5qdg0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0, 2)
+
+[node name="RedstonePart7" parent="Gameplay/Room2/RedstoneDoor2/RedstoneLine" instance=ExtResource("18_5qdg0")]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 3.9, 2.5, 2)
+
+[node name="RedstonePart8" parent="Gameplay/Room2/RedstoneDoor2/RedstoneLine" instance=ExtResource("18_5qdg0")]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 3.9, 1.5, 2)
+
+[node name="RedstonePart9" parent="Gameplay/Room2/RedstoneDoor2/RedstoneLine" instance=ExtResource("18_5qdg0")]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 3.9, 0.5, 2)
+
+[node name="RedstonePart10" parent="Gameplay/Room2/RedstoneDoor2/RedstoneLine" instance=ExtResource("18_5qdg0")]
+transform = Transform3D(4.37114e-08, 1, -8.9407e-08, 1, -4.37114e-08, 0, -2.66454e-15, -8.9407e-08, -1, 4.1, 2.5, 2)
+
+[node name="RedstonePart11" parent="Gameplay/Room2/RedstoneDoor2/RedstoneLine" instance=ExtResource("18_5qdg0")]
+transform = Transform3D(4.37114e-08, 1, -8.9407e-08, 1, -4.37114e-08, 0, -2.66454e-15, -8.9407e-08, -1, 4.1, 1.5, 2)
+
+[node name="RedstonePart12" parent="Gameplay/Room2/RedstoneDoor2/RedstoneLine" instance=ExtResource("18_5qdg0")]
+transform = Transform3D(4.37114e-08, 1, -8.9407e-08, 1, -4.37114e-08, 0, -2.66454e-15, -8.9407e-08, -1, 4.1, 0.5, 2)
+
+[node name="RedstonePart2" parent="Gameplay/Room2/RedstoneDoor2/RedstoneLine" instance=ExtResource("18_5qdg0")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 0.5)
+
+[node name="RedstonePart3" parent="Gameplay/Room2/RedstoneDoor2/RedstoneLine" instance=ExtResource("18_5qdg0")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 1.5)
+
+[node name="RedstonePart15" parent="Gameplay/Room2/RedstoneDoor2/RedstoneLine" instance=ExtResource("18_5qdg0")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6, 0, 2.5)
+
+[node name="RedstonePart16" parent="Gameplay/Room2/RedstoneDoor2/RedstoneLine" instance=ExtResource("18_5qdg0")]
+transform = Transform3D(-4.37114e-08, 0, 1, -1, -4.37114e-08, -4.37114e-08, 4.37114e-08, -1, 1.91069e-15, 6, 0.5, 2.91903)
+
+[node name="RedstoneFork" parent="Gameplay/Room2/RedstoneDoor2/RedstoneLine" instance=ExtResource("19_f8l0i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+
+[node name="RedstoneFork2" parent="Gameplay/Room2/RedstoneDoor2/RedstoneLine" instance=ExtResource("19_f8l0i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2)
+
+[node name="RedstoneFork3" parent="Gameplay/Room2/RedstoneDoor2/RedstoneLine" instance=ExtResource("19_f8l0i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 2)
+
+[node name="RedstoneHat" parent="Gameplay/Room2/RedstoneDoor2/RedstoneLine" instance=ExtResource("22_58lqa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 3, 2)
+
+[node name="Root3" type="Node3D" parent="Gameplay"]
+
+[node name="LaserEmitter" parent="Gameplay/Root3" instance=ExtResource("1_v4vyf")]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 21.4009, 0.034683, 21.3004)
+
+[node name="RedstoneDoor" parent="Gameplay/Root3" instance=ExtResource("16_ek41n")]
+transform = Transform3D(0.835807, 0, -0.549023, 0, 1, 0, 0.549023, 0, 0.835807, 27.8451, 0, 18.2905)
+color = Color(0.717647, 0.494118, 1, 1)
+
+[node name="RedstoneLiserReceiver" parent="Gameplay/Root3/RedstoneDoor" instance=ExtResource("20_x5ufu")]
+transform = Transform3D(0.549023, 0, -0.835807, 0, 1, 0, 0.835807, 0, 0.549023, -9.15678, 0, -1.40668)
+
+[node name="RedstoneLine" parent="Gameplay/Root3/RedstoneDoor" instance=ExtResource("17_5os3s")]
+transform = Transform3D(0.835807, 0, 0.549023, 0, 1, 0, -0.549023, 0, 0.835807, -9.15678, 0, -1.40668)
+
+[node name="RedstonePart" parent="Gameplay/Root3/RedstoneDoor/RedstoneLine" instance=ExtResource("18_5qdg0")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0.5)
+
+[node name="RedstonePart2" parent="Gameplay/Root3/RedstoneDoor/RedstoneLine" instance=ExtResource("18_5qdg0")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 1.5)
+
+[node name="RedstonePart3" parent="Gameplay/Root3/RedstoneDoor/RedstoneLine" instance=ExtResource("18_5qdg0")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 2.5)
+
+[node name="RedstonePart4" parent="Gameplay/Root3/RedstoneDoor/RedstoneLine" instance=ExtResource("18_5qdg0")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 3.5)
+
+[node name="RedstonePart5" parent="Gameplay/Root3/RedstoneDoor/RedstoneLine" instance=ExtResource("18_5qdg0")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 4.5)
+
+[node name="RedstonePart6" parent="Gameplay/Root3/RedstoneDoor/RedstoneLine" instance=ExtResource("18_5qdg0")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 5.5)
+
+[node name="RedstonePart7" parent="Gameplay/Root3/RedstoneDoor/RedstoneLine" instance=ExtResource("18_5qdg0")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.5, 0, 6)
+
+[node name="RedstonePart8" parent="Gameplay/Root3/RedstoneDoor/RedstoneLine" instance=ExtResource("18_5qdg0")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1.5, 0, 6)
+
+[node name="RedstonePart9" parent="Gameplay/Root3/RedstoneDoor/RedstoneLine" instance=ExtResource("18_5qdg0")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2.5, 0, 6)
+
+[node name="RedstonePart10" parent="Gameplay/Root3/RedstoneDoor/RedstoneLine" instance=ExtResource("18_5qdg0")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 3.5, 0, 6)
+
+[node name="RedstonePart11" parent="Gameplay/Root3/RedstoneDoor/RedstoneLine" instance=ExtResource("18_5qdg0")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 4.5, 0, 6)
+
+[node name="RedstonePart12" parent="Gameplay/Root3/RedstoneDoor/RedstoneLine" instance=ExtResource("18_5qdg0")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 5.5, 0, 6)
+
+[node name="RedstonePart13" parent="Gameplay/Root3/RedstoneDoor/RedstoneLine" instance=ExtResource("18_5qdg0")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 6.5, 0, 6)
+
+[node name="RedstoneFork" parent="Gameplay/Root3/RedstoneDoor/RedstoneLine" instance=ExtResource("19_f8l0i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
 
 [node name="ControlRoom" type="Node3D" parent="Gameplay"]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 0, 0)
@@ -1909,14 +2106,6 @@ robot = NodePath("../RobotCrabot2")
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, -36.6288, 0)
 mesh = SubResource("CylinderMesh_ostqh")
 
-[connection signal="pressed" from="Gameplay/Room1/LaserAbsorber" to="Gameplay/Room1/Door" method="_on_signal_activated"]
-[connection signal="unpressed" from="Gameplay/Room1/LaserAbsorber" to="Gameplay/Room1/Door" method="_on_signal_disactivated"]
-[connection signal="pressed" from="Gameplay/Room2/LaserAbsorber1" to="Gameplay/Room2/Door" method="_on_signal_activated"]
-[connection signal="unpressed" from="Gameplay/Room2/LaserAbsorber1" to="Gameplay/Room2/Door" method="_on_signal_disactivated"]
-[connection signal="pressed" from="Gameplay/Room2/LaserAbsorber2" to="Gameplay/Room2/Door2" method="_on_signal_activated"]
-[connection signal="unpressed" from="Gameplay/Room2/LaserAbsorber2" to="Gameplay/Room2/Door2" method="_on_signal_disactivated"]
-[connection signal="pressed" from="Gameplay/Room3/LaserAbsorber" to="Gameplay/Room3/Door" method="_on_signal_activated"]
-[connection signal="unpressed" from="Gameplay/Room3/LaserAbsorber" to="Gameplay/Room3/Door" method="_on_signal_disactivated"]
 [connection signal="pressed" from="Gameplay/ControlRoom/LaserAbsorber" to="Gameplay/ControlRoom/Door" method="_on_signal_activated"]
 [connection signal="unpressed" from="Gameplay/ControlRoom/LaserAbsorber" to="Gameplay/ControlRoom/Door" method="_on_signal_disactivated"]
 [connection signal="pressed" from="Gameplay/ControlRoom/Button" to="Gameplay/ControlRoom/Door" method="_on_signal_activated"]
