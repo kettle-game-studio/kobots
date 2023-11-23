@@ -1,0 +1,77 @@
+[gd_scene load_steps=9 format=3 uid="uid://qtxt8sygj1p0"]
+
+[ext_resource type="Script" path="res://assets/scripts/redstone/redstone_door.gd" id="1_v65ye"]
+[ext_resource type="PackedScene" uid="uid://ddqcbeaw3a5sr" path="res://assets/prefabs/wall_tiles/wall_001.tscn" id="2_py5xx"]
+[ext_resource type="PackedScene" uid="uid://qmrygx7aegf3" path="res://assets/prefabs/wall_tiles/wall_002.tscn" id="3_dc0pw"]
+[ext_resource type="PackedScene" uid="uid://cy73u23py3a3o" path="res://assets/prefabs/wall_tiles/wall_003.tscn" id="4_yrg72"]
+[ext_resource type="PackedScene" uid="uid://nar6gbrbyei7" path="res://assets/models/WallTiles/redstone_fork.tscn" id="5_lc480"]
+
+[sub_resource type="Animation" id="Animation_u3218"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Door:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_pais8"]
+resource_name = "opening"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Door")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array()
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Door:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 1, 0), Vector3(0, -1.9, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h4vty"]
+_data = {
+"RESET": SubResource("Animation_u3218"),
+"opening": SubResource("Animation_pais8")
+}
+
+[node name="RedstoneDoor" type="Node3D" node_paths=PackedStringArray("mesh")]
+script = ExtResource("1_v65ye")
+mesh = NodePath("RedstoneFork")
+seconds_to_open = 10.0
+
+[node name="Door" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1, 0)
+
+[node name="Wall_002" parent="Door" instance=ExtResource("3_dc0pw")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, -1, 4.37114e-08)
+
+[node name="Wall_003" parent="Door" instance=ExtResource("4_yrg72")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, -1, -1.31134e-07)
+
+[node name="Wall_004" parent="Door" instance=ExtResource("2_py5xx")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3, -1, 1.31134e-07)
+
+[node name="Wall_001" parent="Door" instance=ExtResource("2_py5xx")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1, -1, -4.37114e-08)
+
+[node name="RedstoneFork" parent="." instance=ExtResource("5_lc480")]
+visible = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_h4vty")
+}
