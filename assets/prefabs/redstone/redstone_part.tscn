@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://btof0prkex6ou"]
+
+[ext_resource type="Script" path="res://assets/scripts/redstone/redstone_part.gd" id="1_320y0"]
+[ext_resource type="PackedScene" uid="uid://dm0567silvlq0" path="res://assets/models/WallTiles/redstone_part.tscn" id="2_34pu4"]
+
+[node name="RedstonePart" type="Node3D" node_paths=PackedStringArray("mesh")]
+script = ExtResource("1_320y0")
+mesh = NodePath("RedstonePart")
+
+[node name="RedstonePart" parent="." instance=ExtResource("2_34pu4")]

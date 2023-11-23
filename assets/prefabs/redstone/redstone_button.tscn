@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://tg5rgf8w2p0b"]
+
+[ext_resource type="Script" path="res://assets/scripts/redstone/activators/redstone_button.gd" id="1_j6p1s"]
+[ext_resource type="PackedScene" uid="uid://1dus33lhklmx" path="res://assets/models/button/button_base.tscn" id="2_s4wtm"]
+[ext_resource type="Material" uid="uid://dffigafn5jpoc" path="res://assets/materials/button_material_base.tres" id="3_hbb1r"]
+[ext_resource type="PackedScene" uid="uid://dywb5yg10fggl" path="res://assets/models/button/button.tscn" id="4_prjh2"]
+[ext_resource type="Material" uid="uid://ds8lwt5lm5j5x" path="res://assets/materials/button_material_internal.tres" id="5_rh6me"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_pvram"]
+height = 0.345569
+radius = 0.724753
+
+[node name="Button" type="Node3D" node_paths=PackedStringArray("button", "area")]
+script = ExtResource("1_j6p1s")
+button = NodePath("Button base/Button2")
+area = NodePath("Area3D")
+pressed_albedo = Color(0.862745, 0, 0, 1)
+unpressed_albedo = Color(0.286275, 0, 0, 1)
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.050797, 0)
+shape = SubResource("CylinderShape3D_pvram")
+
+[node name="Button base" parent="." instance=ExtResource("2_s4wtm")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+material_override = ExtResource("3_hbb1r")
+
+[node name="Button2" parent="Button base" instance=ExtResource("4_prjh2")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0.0385721, 0)
+surface_material_override/0 = ExtResource("5_rh6me")
