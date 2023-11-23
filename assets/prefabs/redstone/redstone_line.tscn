@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cymi34sde2qul"]
+
+[ext_resource type="Script" path="res://assets/scripts/redstone/redstone_line.gd" id="1_bua7o"]
+
+[node name="RedstoneLine" type="Node3D"]
+script = ExtResource("1_bua7o")

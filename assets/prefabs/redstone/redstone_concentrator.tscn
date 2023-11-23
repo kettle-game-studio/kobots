@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://ba3cd3asj6d8p"]
+
+[ext_resource type="Script" path="res://assets/scripts/redstone/activators/redstone_concentrator.gd" id="1_twkmg"]
+[ext_resource type="PackedScene" uid="uid://cqxowo2isxs2a" path="res://assets/models/WallTiles/redstone_concentrator.tscn" id="2_otoqk"]
+
+[node name="RedstoneConcentrator" type="Node3D" node_paths=PackedStringArray("mesh")]
+script = ExtResource("1_twkmg")
+mesh = NodePath("RedstoneConcentrator")
+
+[node name="RedstoneConcentrator" parent="." instance=ExtResource("2_otoqk")]
