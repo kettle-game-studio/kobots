@@ -12,6 +12,7 @@ axis_lock_angular_x = true
 axis_lock_angular_z = true
 mass = 20.0
 physics_material_override = SubResource("PhysicsMaterial_8ygcw")
+can_sleep = false
 script = ExtResource("1_666gi")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

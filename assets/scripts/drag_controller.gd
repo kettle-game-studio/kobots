@@ -22,7 +22,7 @@ func _ready():
 func _process(delta: float):
 	walk(delta)
 	
-	on_drag_box()
+	try_drag_box()
 
 func _input(event: InputEvent):
 	if state != State.DRAGGING:
@@ -66,7 +66,7 @@ func walk(delta: float):
 	player.move_and_slide()
 	dragged_box.global_transform = box_mount_point.global_transform
 
-func on_drag_box():
+func try_drag_box():
 	match state:
 		State.DRAGGING:
 			stop_dragging()
@@ -76,9 +76,11 @@ func on_drag_box():
 			if !ray_cast.is_colliding():
 				main_ui.clear_text()
 				return
+
 			var collider = ray_cast.get_collider()
 			if !(collider is Box):
 				return
+
 			if start_dragging(collider):
 				main_ui.set_text("[F] Drop")
 			else:
@@ -87,13 +89,17 @@ func on_drag_box():
 func start_dragging(box: Box) -> bool:
 	if !Input.is_action_just_pressed("DragBox"):
 		return false
+		
 	dragged_box = box
 	state = State.DRAGGING
+	
 	player_controller.disable(true)
+	
 	box_collision.global_transform = dragged_box.global_transform
 	box_collision.global_position += Vector3.UP * 0.5
 	box_collision.disabled = false
 	dragged_box.disable_collision()
+	
 	print("start dragging ", dragged_box.box_name)
 	return true
 

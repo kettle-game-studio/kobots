@@ -5,6 +5,9 @@ class_name Box
 
 @onready var shape = $CollisionShape3D
 
+func _ready():
+	enable_collision()
+
 func disable_collision():
 	shape.disabled = true
 	freeze = true
