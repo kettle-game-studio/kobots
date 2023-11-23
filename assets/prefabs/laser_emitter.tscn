@@ -11,7 +11,7 @@
 [sub_resource type="BoxMesh" id="BoxMesh_84d67"]
 size = Vector3(0.1, 0.7, 0.1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_vrdsp"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_25nki"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("3_uh0o2")
@@ -22,7 +22,7 @@ shader_parameter/specular = 1.0
 shader_parameter/roughness = 0.3
 shader_parameter/emission_blink = true
 shader_parameter/emission_amplitude = 0.4
-shader_parameter/emission_period = 5.0
+shader_parameter/emission_period = 7.0
 shader_parameter/base_texture = ExtResource("5_pbspe")
 shader_parameter/add_texture = ExtResource("4_6p2g8")
 shader_parameter/emission_texture = ExtResource("6_nt53m")
@@ -43,7 +43,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.14905, -0.1141)
 [node name="LaserTansmitter" parent="." instance=ExtResource("4_oaw0l")]
 transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 0, 1.14853, 0.0711498)
 
+[node name="Skeleton3D" parent="LaserTansmitter/Armature" index="0"]
+bones/1/rotation = Quaternion(-0.523831, -0.474843, -0.474974, 0.523951)
+bones/2/rotation = Quaternion(0.611597, 0.355046, -0.354893, 0.611508)
+
 [node name="LaserTansmitter" parent="LaserTansmitter/Armature/Skeleton3D" index="0"]
-surface_material_override/0 = SubResource("ShaderMaterial_vrdsp")
+surface_material_override/0 = SubResource("ShaderMaterial_25nki")
 
 [editable path="LaserTansmitter"]
