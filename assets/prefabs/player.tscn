@@ -26,6 +26,8 @@ camera = NodePath("../Eye")
 raycast = NodePath("../Eye/RayCast3D")
 scheme_ui = NodePath("../MainUI")
 main_ui = NodePath("../UICanvas")
+walk_speed = 3.0
+run_multiplyer = 2.5
 state = 0
 
 [node name="UICanvas" parent="." instance=ExtResource("2_tulfi")]

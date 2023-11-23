@@ -20,7 +20,7 @@ height = 2.37268
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sxjss"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_cwtkl"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_th512"]
 render_priority = 0
 shader = ExtResource("9_56i17")
 shader_parameter/color = Color(0.776471, 0.443137, 0, 1)
@@ -28,6 +28,9 @@ shader_parameter/enable = true
 shader_parameter/emission_k = 1.0
 shader_parameter/specular = 1.0
 shader_parameter/roughness = 0.3
+shader_parameter/emission_blink = false
+shader_parameter/emission_amplitude = 0.1
+shader_parameter/emission_period = 1.0
 shader_parameter/base_texture = ExtResource("11_xl1q3")
 shader_parameter/add_texture = ExtResource("10_w5po0")
 shader_parameter/emission_texture = ExtResource("12_k7245")
@@ -59,7 +62,10 @@ raycast = NodePath("../Eye/RayCast3D")
 robot_controller = NodePath("..")
 scheme_ui = NodePath("../SubViewport/ShemeCanvas")
 main_ui = NodePath("../SubViewport/UICanvas")
+walk_speed = 3.0
 can_push = true
+can_run = true
+run_multiplyer = 2.5
 
 [node name="Drag" type="Node" parent="." node_paths=PackedStringArray("player", "player_controller", "ray_cast", "camera", "box_mount_point", "box_collision", "main_ui")]
 script = ExtResource("3_d0ex6")
@@ -83,15 +89,17 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.154
 script = ExtResource("4_s4mjk")
 target = NodePath("../../Eye")
 
+[node name="UICanvas" parent="SubViewport" instance=ExtResource("7_xx5d7")]
+
 [node name="ShemeCanvas" type="CanvasLayer" parent="SubViewport"]
 scale = Vector2(1.88, 1.88)
 transform = Transform2D(1.88, 0, 0, 1.88, 0, 0)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="SubViewport/ShemeCanvas"]
 offset_left = 200.0
-offset_top = 100.0
+offset_top = 80.8511
 offset_right = 706.0
-offset_bottom = 548.0
+offset_bottom = 698.851
 theme = ExtResource("5_54xkm")
 theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
@@ -104,6 +112,7 @@ Designed for construction works, heavy lifting and button pressing
 [font_size=40]
 [Mouse] Look around
 [WASD] Walk
+[Shift] Run
 [F] Take/Drop boxes
 [/font_size]"
 
@@ -111,8 +120,6 @@ Designed for construction works, heavy lifting and button pressing
 position = Vector2(786, 297)
 scale = Vector2(0.472656, 0.472656)
 texture = ExtResource("6_iqyiu")
-
-[node name="UICanvas" parent="SubViewport" instance=ExtResource("7_xx5d7")]
 
 [node name="BoxMountPoint" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.10543e-15, 0.613265, -0.82326)
@@ -152,6 +159,6 @@ bones/17/rotation = Quaternion(0.751345, 0.645836, 0.0836764, -0.10665)
 bones/18/position = Vector3(-0.0774941, 0.106455, 0.51487)
 
 [node name="Bobot2" parent="Bobot/Armature/Skeleton3D" index="0"]
-surface_material_override/0 = SubResource("ShaderMaterial_cwtkl")
+surface_material_override/0 = SubResource("ShaderMaterial_th512")
 
 [editable path="Bobot"]

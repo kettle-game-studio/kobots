@@ -17,6 +17,9 @@ class_name PlayerController
 
 @export var can_push: bool = false
 
+@export var can_run: bool = false
+@export var run_multiplyer: float = 2
+
 enum State { ENABLED, DISABLED, CONTROLLED_BY_OTHER }
 @export var state: State = State.DISABLED
 
@@ -111,7 +114,9 @@ func walk(delta: float):
 	var right = Input.get_axis("Left", "Right") * aim.x
 	
 	var direction: Vector3 = (forward + right).normalized()
-	# var 
+	
+	if can_run && Input.is_action_pressed("Descend"):
+		direction *= run_multiplyer
 	
 	player.velocity = direction * walk_speed
 	player.velocity.y = y_velocity

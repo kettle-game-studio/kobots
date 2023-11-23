@@ -10,6 +10,7 @@ Designed for construction works, heavy lifting and button pressing
 [font_size=40]
 [Mouse] Look around
 [WASD] Walk
+[Shift] Run
 [F] Take/Drop boxes
 [/font_size]
 ```
@@ -26,6 +27,7 @@ Designed to redirect powerful laser rays
 [font_size=40]
 [Mouse] Look around
 [WASD] Walk
+[Shift] Run
 [/font_size]
 ```
 
