@@ -20,7 +20,7 @@ height = 2.37268
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sxjss"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_w7ndn"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aht3d"]
 render_priority = 0
 shader = ExtResource("9_56i17")
 shader_parameter/color = Color(0.776471, 0.443137, 0, 1)
@@ -161,6 +161,6 @@ bones/17/rotation = Quaternion(0.751345, 0.645836, 0.0836764, -0.10665)
 bones/18/position = Vector3(-0.0774941, 0.106455, 0.51487)
 
 [node name="Bobot2" parent="Bobot/Armature/Skeleton3D" index="0"]
-surface_material_override/0 = SubResource("ShaderMaterial_w7ndn")
+surface_material_override/0 = SubResource("ShaderMaterial_aht3d")
 
 [editable path="Bobot"]

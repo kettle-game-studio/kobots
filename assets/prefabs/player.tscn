@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bh30fgjh4prch"]
+[gd_scene load_steps=5 format=3 uid="uid://bh30fgjh4prch"]
 
 [ext_resource type="Script" path="res://assets/scripts/player_controller.gd" id="1_ktkwb"]
 [ext_resource type="PackedScene" uid="uid://cejfi1b5yw6up" path="res://assets/prefabs/ui_canvas.tscn" id="2_tulfi"]
+[ext_resource type="Theme" uid="uid://p08pj8vk2hog" path="res://assets/game_theme.tres" id="3_lfdsd"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vfrs6"]
 
@@ -42,8 +43,9 @@ anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 58.0
 offset_top = -87.0
-offset_right = 258.0
-offset_bottom = -34.0
+offset_right = 1022.0
+offset_bottom = -24.0
 grow_vertical = 0
-theme_override_font_sizes/normal_font_size = 30
+theme = ExtResource("3_lfdsd")
+theme_override_font_sizes/normal_font_size = 60
 text = "[Q] To Quit"
