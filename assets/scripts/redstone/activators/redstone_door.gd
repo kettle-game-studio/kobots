@@ -1,4 +1,4 @@
-extends RedstoneLine
+extends RedstoneAbstractActivator
 
 @export var mesh: MeshInstance3D
 @export var color: Color
@@ -7,7 +7,6 @@ extends RedstoneLine
 var activators: Array[RedstoneAbstractActivator] = []
 var receiver_children: Array[RedstoneBase] = []
 var material: ShaderMaterial
-var is_activated = false
 @onready var animator = $AnimationPlayer
 
 func _ready():
@@ -22,17 +21,20 @@ func _ready():
 
 
 func _process(_delta):
-	if is_activated:
+	if is_activates:
 		return
 	for i in activators:
 		if not i.is_activates:
 			return
-	is_activated = true
+	is_activates = true
 	for i in activators:
 		i.freeze_activation()
 	material.set_shader_parameter("emission_k", 1.0)
 	animator.play("opening", -1, seconds_to_open)
 
 
-func set_redstone_material(_m: Material):
-	push_warning("door.set_redstone_material")
+func set_redstone_material(m: Material):
+	material = m
+	super.set_redstone_material(m)
+	mesh.set_surface_override_material(0, m)
+	
