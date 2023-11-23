@@ -23,6 +23,9 @@ class_name PlayerController
 enum State { ENABLED, DISABLED, CONTROLLED_BY_OTHER }
 @export var state: State = State.DISABLED
 
+@export var clamp_angle_up: float = 180
+@export var clamp_angle_down: float = 180
+
 var other: Object = null
 
 var is_rotationg = false
@@ -88,7 +91,7 @@ func rotate_camera(vector: Vector2):
 	self.is_rotationg = true
 	self.rotating_timer = 0.02
 	var velocity = vector.y * camera_speed
-	camera.rotation.x = clamp(camera.rotation.x - velocity, -PI/2, PI/2)
+	camera.rotation.x = clamp(camera.rotation.x - velocity, -clamp_angle_down / 180 * PI / 2, clamp_angle_up / 180 * PI / 2)
 	player.rotate_y(-vector.x * camera_speed)
 
 func walk(delta: float):

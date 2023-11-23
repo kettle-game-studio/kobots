@@ -44,6 +44,8 @@ scheme_ui = NodePath("../SubViewport/SchemeCanvas")
 main_ui = NodePath("../SubViewport/UICanvas")
 camera_speed = 0.0015
 walk_speed = 3.0
+clamp_angle_up = 110.0
+clamp_angle_down = 110.0
 
 [node name="SubViewport" type="SubViewport" parent="."]
 disable_3d = true

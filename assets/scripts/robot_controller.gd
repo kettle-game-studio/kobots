@@ -34,7 +34,6 @@ func _process(delta):
 		update_configuration_warnings()
 		return
 
-	# 16 / 9
 	var sz = DisplayServer.window_get_size()
 	sz.y = max(sz.y, 600)
 	if sz.x * 9 < sz.y * 16:
