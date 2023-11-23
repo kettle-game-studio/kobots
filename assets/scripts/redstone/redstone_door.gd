@@ -31,7 +31,7 @@ func _process(_delta):
 	for i in activators:
 		i.freeze_activation()
 	material.set_shader_parameter("emission_k", 1.0)
-	animator.play("opening", -1, seconds_to_open)
+	animator.play("opening", -1, 1 / seconds_to_open)
 
 
 func set_redstone_material(_m: Material):

@@ -1,10 +1,6 @@
-[gd_scene load_steps=54 format=3 uid="uid://bbu45o3pef4kc"]
+[gd_scene load_steps=46 format=3 uid="uid://bbu45o3pef4kc"]
 
 [ext_resource type="PackedScene" uid="uid://dguc6wibu6e40" path="res://assets/prefabs/laser_emitter.tscn" id="1_v4vyf"]
-[ext_resource type="PackedScene" uid="uid://pc3k2vyryge5" path="res://assets/prefabs/button.tscn" id="5_jxc0d"]
-[ext_resource type="PackedScene" uid="uid://dcjw51pfs7v86" path="res://assets/prefabs/door.tscn" id="6_trpuh"]
-[ext_resource type="PackedScene" uid="uid://b06ku0w7nydkk" path="res://assets/prefabs/power_line.tscn" id="8_roq5e"]
-[ext_resource type="PackedScene" uid="uid://d1161nw1kfdh0" path="res://assets/prefabs/laser_absorber.tscn" id="9_xkn5s"]
 [ext_resource type="PackedScene" uid="uid://bibke4m7obh01" path="res://assets/prefabs/robot_crabot.tscn" id="10_kjfhd"]
 [ext_resource type="PackedScene" uid="uid://cv03cxb8jcsy8" path="res://assets/prefabs/terminal.tscn" id="11_yr2dp"]
 [ext_resource type="PackedScene" uid="uid://cyd5hd61f5m0h" path="res://assets/prefabs/robot_big.tscn" id="12_6wpo7"]
@@ -29,6 +25,8 @@
 [ext_resource type="PackedScene" uid="uid://dr2ynp3fxd4cu" path="res://assets/prefabs/redstone/redstone_hat.tscn" id="22_58lqa"]
 [ext_resource type="PackedScene" uid="uid://cy73u23py3a3o" path="res://assets/prefabs/wall_tiles/wall_003.tscn" id="22_165uj"]
 [ext_resource type="PackedScene" uid="uid://cvef1tukyw7f0" path="res://assets/prefabs/wall_tiles/column.tscn" id="23_6a30m"]
+[ext_resource type="PackedScene" uid="uid://qtxt8sygj1p0" path="res://assets/prefabs/redstone/redstone_door_center.tscn" id="24_jkrc7"]
+[ext_resource type="PackedScene" uid="uid://tg5rgf8w2p0b" path="res://assets/prefabs/redstone/redstone_button.tscn" id="24_nq3ec"]
 [ext_resource type="PackedScene" uid="uid://ylmrlk8aoenp" path="res://assets/prefabs/wall_tiles/wall_u.tscn" id="24_rljwc"]
 [ext_resource type="PackedScene" uid="uid://bj10htm6tt643" path="res://assets/prefabs/wall_tiles/wall_u_l.tscn" id="25_rjqlg"]
 
@@ -76,23 +74,6 @@ size = Vector3(29, 3, 6)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b7sl6"]
 size = Vector3(8, 3, 44)
-
-[sub_resource type="QuadMesh" id="QuadMesh_l1iiy"]
-size = Vector2(0.1, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kbvu8"]
-
-[sub_resource type="QuadMesh" id="QuadMesh_3xc1g"]
-size = Vector2(0.1, 3)
-
-[sub_resource type="QuadMesh" id="QuadMesh_augpf"]
-size = Vector2(0.1, 20)
-
-[sub_resource type="QuadMesh" id="QuadMesh_y3flv"]
-size = Vector2(0.1, 1.7)
-
-[sub_resource type="QuadMesh" id="QuadMesh_rbb1c"]
-size = Vector2(0.1, 6.6)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_ostqh"]
 top_radius = 10.0
@@ -2029,43 +2010,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
 [node name="ControlRoom" type="Node3D" parent="Gameplay"]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 0, 0)
 
-[node name="Door" parent="Gameplay/ControlRoom" instance=ExtResource("6_trpuh")]
-transform = Transform3D(-4.37114e-08, 0, -0.999999, 0, 1, 0, 0.999999, 0, -4.37114e-08, 0.121644, 13.3394, 4.83503)
-required_signals = 2
+[node name="RedstoneDoor" parent="Gameplay/ControlRoom" instance=ExtResource("24_jkrc7")]
+transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0.121644, 13.3394, 5.83503)
 
-[node name="LaserAbsorber" parent="Gameplay/ControlRoom" instance=ExtResource("9_xkn5s")]
-transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 9.2606, 0.05, 12.8407)
+[node name="RedstoneLiserReceiver" parent="Gameplay/ControlRoom/RedstoneDoor" instance=ExtResource("20_x5ufu")]
+transform = Transform3D(0.707108, 0, -0.707108, 0, 1, 0, 0.707108, 0, 0.707108, 9.13897, -13.2894, 7.00568)
 
-[node name="Button" parent="Gameplay/ControlRoom" instance=ExtResource("5_jxc0d")]
-transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 14.1085, 0.076628, 10.3727)
-
-[node name="PowerLine" parent="Gameplay/ControlRoom" instance=ExtResource("8_roq5e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.0987, 0.076628, 11.8457)
-
-[node name="Line1" type="CSGMesh3D" parent="Gameplay/ControlRoom/PowerLine"]
-transform = Transform3D(0.707107, -0.707107, -3.09086e-08, 0, -4.37114e-08, 1, -0.707107, -0.707107, -3.09086e-08, -15.1064, -0.0623998, -2.53599)
-mesh = SubResource("QuadMesh_l1iiy")
-material = SubResource("StandardMaterial3D_kbvu8")
-
-[node name="Line2" type="CSGMesh3D" parent="Gameplay/ControlRoom/PowerLine"]
-transform = Transform3D(0.707107, 0.000592291, 0.707107, 0, 1, -0.000837684, -0.707107, 0.000592291, 0.707107, -15.2885, 1.39853, -2.7285)
-mesh = SubResource("QuadMesh_3xc1g")
-material = SubResource("StandardMaterial3D_kbvu8")
-
-[node name="Line3" type="CSGMesh3D" parent="Gameplay/ControlRoom/PowerLine"]
-transform = Transform3D(0.441146, 0.000592291, 0.897435, 0.000270256, 0.999999, -0.000792887, -0.897435, 0.000592291, 0.441145, -19.4333, 3.25056, -6.86313)
-mesh = SubResource("QuadMesh_augpf")
-material = SubResource("StandardMaterial3D_kbvu8")
-
-[node name="Line4" type="CSGMesh3D" parent="Gameplay/ControlRoom/PowerLine"]
-transform = Transform3D(0.707107, -0.707107, -3.09086e-08, 0, -4.37114e-08, 1, -0.707107, -0.707107, -3.09086e-08, -20.086, 13.2978, -7.4798)
-mesh = SubResource("QuadMesh_y3flv")
-material = SubResource("StandardMaterial3D_kbvu8")
-
-[node name="Line5" type="CSGMesh3D" parent="Gameplay/ControlRoom/PowerLine"]
-transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, -23.9659, 13.2978, -8.07364)
-mesh = SubResource("QuadMesh_rbb1c")
-material = SubResource("StandardMaterial3D_kbvu8")
+[node name="Button" parent="Gameplay/ControlRoom/RedstoneDoor" instance=ExtResource("24_nq3ec")]
+transform = Transform3D(0.707108, 0, 0.707108, 0, 1, 0, -0.707108, 0, 0.707108, 13.9869, -13.2628, 4.53767)
 
 [node name="RobotCrabot" parent="Gameplay" instance=ExtResource("10_kjfhd")]
 transform = Transform3D(-0.703928, 0, 0.710271, 0, 1, 0, -0.710271, 0, -0.703928, 30.6209, 0.00246418, -22.812)
@@ -2105,10 +2057,3 @@ robot = NodePath("../RobotCrabot2")
 [node name="CenterRoom" type="CSGMesh3D" parent="."]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, -36.6288, 0)
 mesh = SubResource("CylinderMesh_ostqh")
-
-[connection signal="pressed" from="Gameplay/ControlRoom/LaserAbsorber" to="Gameplay/ControlRoom/Door" method="_on_signal_activated"]
-[connection signal="unpressed" from="Gameplay/ControlRoom/LaserAbsorber" to="Gameplay/ControlRoom/Door" method="_on_signal_disactivated"]
-[connection signal="pressed" from="Gameplay/ControlRoom/Button" to="Gameplay/ControlRoom/Door" method="_on_signal_activated"]
-[connection signal="pressed" from="Gameplay/ControlRoom/Button" to="Gameplay/ControlRoom/PowerLine" method="on_powered"]
-[connection signal="unpressed" from="Gameplay/ControlRoom/Button" to="Gameplay/ControlRoom/Door" method="_on_signal_disactivated"]
-[connection signal="unpressed" from="Gameplay/ControlRoom/Button" to="Gameplay/ControlRoom/PowerLine" method="on_unpowered"]

@@ -522,7 +522,6 @@ shape = SubResource("BoxShape3D_kdqf6")
 [node name="Gameplay" type="Node3D" parent="NewLevel"]
 
 [node name="Room2" type="Node3D" parent="NewLevel/Gameplay"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Box" parent="NewLevel/Gameplay/Room2" instance=ExtResource("6_88pkb")]
 transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 32.644, 0.542296, 29.9178)
