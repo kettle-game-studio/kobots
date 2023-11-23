@@ -8,7 +8,7 @@ class_name PlayerController
 @export var scheme_ui: CanvasLayer
 @export var main_ui: UICanvas
 
-@export var camera_speed: float = 0.01
+@export var camera_speed: float = 0.003
 @export var walk_speed: float = 5
 @export var push_force: float = 2
 
