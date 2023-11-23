@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://qtxt8sygj1p0"]
 
-[ext_resource type="Script" path="res://assets/scripts/redstone/redstone_door.gd" id="1_v65ye"]
+[ext_resource type="Script" path="res://assets/scripts/redstone/activators/redstone_door.gd" id="1_v65ye"]
 [ext_resource type="PackedScene" uid="uid://ddqcbeaw3a5sr" path="res://assets/prefabs/wall_tiles/wall_001.tscn" id="2_py5xx"]
 [ext_resource type="PackedScene" uid="uid://qmrygx7aegf3" path="res://assets/prefabs/wall_tiles/wall_002.tscn" id="3_dc0pw"]
 [ext_resource type="PackedScene" uid="uid://cy73u23py3a3o" path="res://assets/prefabs/wall_tiles/wall_003.tscn" id="4_yrg72"]
