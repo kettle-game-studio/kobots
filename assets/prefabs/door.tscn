@@ -1,15 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://dcjw51pfs7v86"]
+[gd_scene load_steps=9 format=3 uid="uid://dcjw51pfs7v86"]
 
 [ext_resource type="Script" path="res://assets/scripts/door.gd" id="1_wf7de"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_u34oe"]
-size = Vector3(2, 2, 0.1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r784x"]
-albedo_color = Color(0.299547, 0.299547, 0.299547, 1)
+[ext_resource type="PackedScene" uid="uid://b4j04a3gp2ots" path="res://assets/prefabs/wall_tiles/door.tscn" id="2_bh25n"]
+[ext_resource type="PackedScene" uid="uid://bvi4xj14x2jg" path="res://assets/prefabs/wall_tiles/door_d.tscn" id="3_mprw7"]
+[ext_resource type="PackedScene" uid="uid://dtffv40x63apo" path="res://assets/prefabs/wall_tiles/door_l.tscn" id="4_uilxe"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b58hp"]
-size = Vector3(2, 1.88218, 0.1)
+size = Vector3(2, 2.8, 0.1)
 
 [sub_resource type="Animation" id="Animation_u3218"]
 
@@ -34,7 +31,7 @@ tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, -0.9, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, -1.99, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 1)
 }
 tracks/2/type = "bezier"
@@ -62,17 +59,25 @@ seconds_to_open = 2.0
 [node name="Door" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
-[node name="CSGMesh3D" type="CSGMesh3D" parent="Door"]
-mesh = SubResource("BoxMesh_u34oe")
-material = SubResource("StandardMaterial3D_r784x")
-
 [node name="StaticBody3D" type="StaticBody3D" parent="Door"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Door/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0472704, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
 shape = SubResource("BoxShape3D_b58hp")
+
+[node name="DoorMesh" parent="Door" instance=ExtResource("2_bh25n")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -0.956801, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_h4vty")
 }
+
+[node name="Door_D" parent="." instance=ExtResource("3_mprw7")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="Door_L" parent="." instance=ExtResource("4_uilxe")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="Door_R" parent="." instance=ExtResource("4_uilxe")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)

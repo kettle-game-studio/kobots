@@ -8,6 +8,6 @@
 render_priority = 0
 shader = ExtResource("1_bddsm")
 shader_parameter/emission_k = 0.9
-shader_parameter/color = Color(0, 0.835294, 0.635294, 1)
+shader_parameter/color = Color(0, 0.854902, 0.368627, 1)
 shader_parameter/base_texture = ExtResource("2_rgywa")
 shader_parameter/emission_texture = ExtResource("3_6k4jj")

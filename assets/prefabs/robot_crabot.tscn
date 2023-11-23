@@ -16,10 +16,10 @@
 [ext_resource type="PackedScene" uid="uid://d27stf6dexrbe" path="res://assets/prefabs/laser.tscn" id="11_i80x6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6g3en"]
-radius = 0.383986
-height = 1.5
+radius = 0.532742
+height = 1.4
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_jdipm"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lksvs"]
 render_priority = 0
 shader = ExtResource("6_kxrk7")
 shader_parameter/color = Color(0.870588, 0.00784314, 0.384314, 1)
@@ -27,11 +27,14 @@ shader_parameter/enable = true
 shader_parameter/emission_k = 0.5
 shader_parameter/specular = 1.0
 shader_parameter/roughness = 0.3
+shader_parameter/emission_blink = false
+shader_parameter/emission_amplitude = 0.1
+shader_parameter/emission_period = 1.0
 shader_parameter/base_texture = ExtResource("8_ywxhj")
 shader_parameter/add_texture = ExtResource("7_253mr")
 shader_parameter/emission_texture = ExtResource("9_c5eh3")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_iuh4l"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pfx0t"]
 render_priority = 0
 shader = ExtResource("10_qhqyg")
 shader_parameter/color = Color(0.870588, 0.00784314, 0.384314, 1)
@@ -39,7 +42,7 @@ shader_parameter/enable = false
 shader_parameter/add_texture = ExtResource("7_253mr")
 shader_parameter/emission_texture = ExtResource("9_c5eh3")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_m8uj1"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s0270"]
 render_priority = 0
 shader = ExtResource("6_kxrk7")
 shader_parameter/color = Color(0.870588, 0.00784314, 0.384314, 1)
@@ -47,6 +50,9 @@ shader_parameter/enable = false
 shader_parameter/emission_k = 0.5
 shader_parameter/specular = 1.0
 shader_parameter/roughness = 0.3
+shader_parameter/emission_blink = false
+shader_parameter/emission_amplitude = 0.1
+shader_parameter/emission_period = 1.0
 shader_parameter/base_texture = ExtResource("8_ywxhj")
 shader_parameter/add_texture = ExtResource("7_253mr")
 shader_parameter/emission_texture = ExtResource("9_c5eh3")
@@ -60,7 +66,7 @@ player_controller = NodePath("Controller")
 canvas_layer = NodePath("SubViewport/SchemeCanvas")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.703609, 0)
 shape = SubResource("CapsuleShape3D_6g3en")
 
 [node name="Eye" type="Node3D" parent="."]
@@ -156,13 +162,13 @@ bones/32/position = Vector3(-0.311581, 0.0940332, 1.55142)
 bones/33/position = Vector3(-0.898251, 0.0940332, 1.30274)
 
 [node name="Crab2" parent="Crab/Armature/Skeleton3D" index="0"]
-surface_material_override/0 = SubResource("ShaderMaterial_jdipm")
+surface_material_override/0 = SubResource("ShaderMaterial_lksvs")
 
 [node name="CrabGlassHat" parent="Crab/Armature/Skeleton3D" index="1"]
-surface_material_override/0 = SubResource("ShaderMaterial_iuh4l")
+surface_material_override/0 = SubResource("ShaderMaterial_pfx0t")
 
 [node name="CrabLightHat" parent="Crab/Armature/Skeleton3D" index="2"]
-surface_material_override/0 = SubResource("ShaderMaterial_m8uj1")
+surface_material_override/0 = SubResource("ShaderMaterial_s0270")
 
 [node name="AnimationPlayer" parent="Crab" index="1"]
 speed_scale = 0.5

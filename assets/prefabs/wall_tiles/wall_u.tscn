@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://ylmrlk8aoenp"]
+[gd_scene load_steps=7 format=3 uid="uid://ylmrlk8aoenp"]
 
 [ext_resource type="Texture2D" uid="uid://dwx306x6hfkj" path="res://assets/models/WallTiles/WallTiles_WallTileColor.png" id="1_dvvln"]
 [ext_resource type="Texture2D" uid="uid://cw7aa1mgkmuc0" path="res://assets/models/WallTiles/WallTiles_WallTileLight.png" id="2_cqk43"]
@@ -42,7 +42,16 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_afk1t")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_orm3r"]
+size = Vector3(0.2, 1.5, 2)
+
 [node name="Wall_U" type="MeshInstance3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 3)
 mesh = SubResource("ArrayMesh_qpvsg")
 skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+shape = SubResource("BoxShape3D_orm3r")

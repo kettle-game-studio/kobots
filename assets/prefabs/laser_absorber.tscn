@@ -10,8 +10,8 @@
 [sub_resource type="BoxMesh" id="BoxMesh_ggtyv"]
 size = Vector3(0.1, 0.7, 0.1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_r7qfi"]
-size = Vector3(0.30359, 1.67587, 1)
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_6xad3"]
+height = 0.563971
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_br17n"]
 resource_local_to_scene = true
@@ -38,8 +38,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.353844, 0)
 mesh = SubResource("BoxMesh_ggtyv")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.835903, 0)
-shape = SubResource("BoxShape3D_r7qfi")
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0.448146, 1.15365, 0)
+shape = SubResource("CylinderShape3D_6xad3")
 
 [node name="LaserReceiver" parent="." instance=ExtResource("3_x5i7e")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.07, 1.149, 0)
