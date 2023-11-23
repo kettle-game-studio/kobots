@@ -8,6 +8,7 @@ class_name RobotController
 @export var can_push_buttons: bool = false
 
 var parent: PlayerController
+var depth: int
 
 func _ready():
 	_disactivate()
@@ -25,6 +26,8 @@ func activate(parent: PlayerController) -> bool:
 		return false
 		
 	self.parent = parent
+	self.depth = parent.get_depth() + 1
+	print("self.depth ", self.depth)
 	player_controller.enable_next_frame()
 	subViewport.disable_3d = false
 	return true

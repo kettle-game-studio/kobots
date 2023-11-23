@@ -152,3 +152,8 @@ func enable_instantly():
 func enable_next_frame():
 	await get_tree().process_frame
 	enable_instantly()
+
+func get_depth():
+	if !robot_controller:
+		return 0
+	return robot_controller.depth
