@@ -22,7 +22,7 @@ var disable_story: bool = false
 
 @onready var levels = [level_1, level_2, level_3, level_4]
 
-var timer_start
+var timer_start = 0
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
