@@ -29,8 +29,6 @@ func start_the_game():
 	disable_story = true
 
 func _process(delta):
-	print("fog_aerial_perspective ", cam.environment.fog_aerial_perspective)
-	print("cam.bg_mode ", cam.environment.background_mode)
 	fps_text.text = "[right]%d fps[/right]" % Performance.get_monitor(Performance.TIME_FPS)
 	
 	if disable_story:

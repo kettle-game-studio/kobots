@@ -7,13 +7,16 @@ extends Node3D
 @export var body: CharacterBody3D
 @export var controller: PlayerController
 
-
-func _update_parameters():
+func set_color(cl: Color = color):
+	color = cl
 	for mesh in meshes:
 		var material = mesh.get_surface_override_material(0) as ShaderMaterial
 		material = material.duplicate()
 		material.set_shader_parameter("color", color)
 		mesh.set_surface_override_material(0, material)
+
+func _update_parameters():
+	set_color()
 
 func _ready():
 	_update_parameters()

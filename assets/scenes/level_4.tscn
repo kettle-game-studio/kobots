@@ -24,7 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://ddqcbeaw3a5sr" path="res://assets/prefabs/wall_tiles/wall_001.tscn" id="20_yrytf"]
 [ext_resource type="PackedScene" uid="uid://qmrygx7aegf3" path="res://assets/prefabs/wall_tiles/wall_002.tscn" id="21_qvjw8"]
 [ext_resource type="PackedScene" uid="uid://dr2ynp3fxd4cu" path="res://assets/prefabs/redstone/redstone_hat.tscn" id="22_58lqa"]
-[ext_resource type="PackedScene" path="res://assets/prefabs/wall_tiles/wall_003.tscn" id="22_165uj"]
+[ext_resource type="PackedScene" uid="uid://cy73u23py3a3o" path="res://assets/prefabs/wall_tiles/wall_003.tscn" id="22_165uj"]
 [ext_resource type="PackedScene" uid="uid://cvef1tukyw7f0" path="res://assets/prefabs/wall_tiles/column.tscn" id="23_6a30m"]
 [ext_resource type="PackedScene" uid="uid://qtxt8sygj1p0" path="res://assets/prefabs/redstone/redstone_door_center.tscn" id="24_jkrc7"]
 [ext_resource type="PackedScene" uid="uid://tg5rgf8w2p0b" path="res://assets/prefabs/redstone/redstone_button.tscn" id="24_nq3ec"]
@@ -1856,7 +1856,7 @@ transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107
 
 [node name="RedstoneDoor" parent="Gameplay/Room2" instance=ExtResource("16_ek41n")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 36, 0, -12)
-color = Color(0.968627, 0, 0.67451, 1)
+color = Color(0, 1, 0, 1)
 
 [node name="RedstoneLiserReceiver" parent="Gameplay/Room2/RedstoneDoor" instance=ExtResource("20_x5ufu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
@@ -1886,7 +1886,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 
 [node name="RedstoneDoor2" parent="Gameplay/Room2" instance=ExtResource("16_ek41n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 0, 9)
-color = Color(0.764706, 0, 0.160784, 1)
+color = Color(0, 0, 1, 1)
 
 [node name="RedstoneLiserReceiver" parent="Gameplay/Room2/RedstoneDoor2" instance=ExtResource("20_x5ufu")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6, 0, 3)
@@ -2028,6 +2028,7 @@ transform = Transform3D(-0.703928, 0, 0.710271, 0, 1, 0, -0.710271, 0, -0.703928
 [node name="CrabotTerminal" parent="Gameplay" node_paths=PackedStringArray("robot") instance=ExtResource("11_yr2dp")]
 transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 30.2848, 0.5, -2.9168)
 robot = NodePath("../RobotCrabot")
+color = Color(1, 0, 1, 1)
 
 [node name="BigRobot" parent="Gameplay" instance=ExtResource("12_6wpo7")]
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 25.6297, -2.96101, 0.346057)
@@ -2035,6 +2036,7 @@ transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 25.6297, -2.96101, 0.346057)
 [node name="BigRobotTerminal" parent="Gameplay" node_paths=PackedStringArray("robot") instance=ExtResource("11_yr2dp")]
 transform = Transform3D(0.0980171, 0, -0.995184, 0, 1, 0, 0.995184, 0, 0.0980171, 8.67627, 13.3756, -0.643878)
 robot = NodePath("../BigRobot")
+color = Color(0, 0, 1, 1)
 
 [node name="BobotRobot" parent="Gameplay" instance=ExtResource("13_ajk82")]
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 25.8407, 0, 0.477439)
@@ -2042,10 +2044,12 @@ transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 25.8407, 0, 0.477439)
 [node name="BobotTerminal" parent="Gameplay" node_paths=PackedStringArray("robot") instance=ExtResource("11_yr2dp")]
 transform = Transform3D(-0.220714, 0, -0.975339, 0, 1, 0, 0.975339, 0, -0.220714, 8.43412, 13.3756, 2.10431)
 robot = NodePath("../BobotRobot")
+color = Color(0.886275, 0.403922, 0, 1)
 
 [node name="BeebotTerminal" parent="Gameplay" node_paths=PackedStringArray("robot") instance=ExtResource("11_yr2dp")]
 transform = Transform3D(4.37114e-08, 0, -1, 0, 1, 0, 1, 0, 4.37114e-08, 33.8641, 0.5, 8.68749)
 robot = NodePath("../FlyingRobot")
+color = Color(1, 1, 0, 1)
 
 [node name="FlyingRobot" parent="Gameplay" instance=ExtResource("14_s88ej")]
 transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 17.1659, 0.0499998, 2.95408)
@@ -2056,6 +2060,7 @@ transform = Transform3D(0.906904, 0, -0.421337, 0, 1, 0, 0.421337, 0, 0.906904, 
 [node name="CrabotTerminal2" parent="Gameplay" node_paths=PackedStringArray("robot") instance=ExtResource("11_yr2dp")]
 transform = Transform3D(0.537447, 0, 0.843298, 0, 1, 0, -0.843298, 0, 0.537447, 27.3304, -0.83, 21.8051)
 robot = NodePath("../RobotCrabot2")
+color = Color(0, 1, 0, 1)
 
 [node name="CenterRoom" type="CSGMesh3D" parent="."]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, -36.6288, 0)

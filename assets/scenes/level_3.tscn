@@ -63,6 +63,7 @@ idx = 3
 [node name="Terminal" parent="Gameplay" node_paths=PackedStringArray("robot") instance=ExtResource("1_m1hvl")]
 transform = Transform3D(-0.662698, 0, -0.748886, 0, 1, 0, 0.748886, 0, -0.662698, 7.09039, 13.3394, 6.09772)
 robot = NodePath("../DefaultRobot")
+color = Color(0.886275, 0.403922, 0, 1)
 
 [node name="DefaultRobot" parent="Gameplay" instance=ExtResource("2_g4ply")]
 transform = Transform3D(-0.721494, 0, -0.69242, 0, 1, 0, 0.69242, 0, -0.721494, 10.8216, 0.0352378, 13.4917)
@@ -70,6 +71,7 @@ transform = Transform3D(-0.721494, 0, -0.69242, 0, 1, 0, 0.69242, 0, -0.721494, 
 [node name="Terminal2" parent="Gameplay" node_paths=PackedStringArray("robot") instance=ExtResource("1_m1hvl")]
 transform = Transform3D(-0.887566, 0, -0.46068, 0, 1, 0, 0.46068, 0, -0.887566, 4.80709, 13.3394, 7.74319)
 robot = NodePath("../FlyingRobot")
+color = Color(1, 1, 0, 1)
 
 [node name="FlyingRobot" parent="Gameplay" instance=ExtResource("9_34grp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.067, 0.0851021, 16.4202)
@@ -77,6 +79,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.067, 0.0851021, 16.4202)
 [node name="Terminal3" parent="Gameplay" node_paths=PackedStringArray("robot") instance=ExtResource("1_m1hvl")]
 transform = Transform3D(-0.999455, 0, -0.0329981, 0, 1, 0, 0.0329981, 0, -0.999455, 9.66564, 0.05, 38.6896)
 robot = NodePath("../BigRobot")
+color = Color(0, 0, 1, 1)
 
 [node name="BigRobot" parent="Gameplay" instance=ExtResource("4_xifp1")]
 transform = Transform3D(0.984202, -0.00012058, -0.177051, 0.000121418, 1, -6.09705e-06, 0.177051, -1.55078e-05, 0.984202, 3.38879, -3.02071, 37.1509)

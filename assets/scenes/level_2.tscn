@@ -1530,6 +1530,7 @@ transform = Transform3D(0.975643, 0, -0.21937, 0, 1, 0, 0.21937, 0, 0.975643, -1
 [node name="Terminal" parent="NewLevel/Gameplay/CenterRoom" node_paths=PackedStringArray("robot") instance=ExtResource("8_x5pvj")]
 transform = Transform3D(-0.136978, 0, 0.990574, 0, 1, 0, -0.990574, 0, -0.136978, -8.74543, 13.4407, 1.47212)
 robot = NodePath("../../Room1/RobotCrabot")
+color = Color(0.890196, 0, 0.411765, 1)
 
 [node name="Door" parent="NewLevel/Gameplay/CenterRoom" instance=ExtResource("3_4rn2m")]
 transform = Transform3D(-0.707106, 0, 0.707106, 0, 1, 0, -0.707106, 0, -0.707106, -3.5049, 13.3394, -3.33287)
@@ -1553,6 +1554,7 @@ transform = Transform3D(0.378019, 0, -0.925798, 0, 1, 0, 0.925798, 0, 0.378019, 
 [node name="Terminal" parent="NewLevel/Gameplay/Room2" node_paths=PackedStringArray("robot") instance=ExtResource("8_x5pvj")]
 transform = Transform3D(0.978956, 0, 0.204069, 0, 1, 0, -0.204069, 0, 0.978956, -29.2564, -0.83, 5.2239)
 robot = NodePath("../../Room3/RobotCrabot2")
+color = Color(0, 0.984314, 0, 1)
 
 [node name="LaserAbsorber" parent="NewLevel/Gameplay/Room2" instance=ExtResource("4_yulfa")]
 transform = Transform3D(-0.801369, 0, -0.598171, 0, 1, 0, 0.598171, 0, -0.801369, -23.9471, 0, 15.0693)
@@ -1580,6 +1582,7 @@ transform = Transform3D(-0.0737257, 0, -0.99728, 0, 1, 0, 0.99728, 0, -0.0737257
 [node name="Terminal" parent="NewLevel/Gameplay/Room3" node_paths=PackedStringArray("robot") instance=ExtResource("8_x5pvj")]
 transform = Transform3D(-0.985337, 0, -0.170622, 0, 1, 0, 0.170622, 0, -0.985337, -24.5354, -0.83, 3.68302)
 robot = NodePath("../../Room4/RobotCrabot3")
+color = Color(1, 1, 0, 1)
 
 [node name="Room4" type="Node3D" parent="NewLevel/Gameplay"]
 
