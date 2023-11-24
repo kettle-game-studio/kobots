@@ -1582,7 +1582,7 @@ transform = Transform3D(-0.0737257, 0, -0.99728, 0, 1, 0, 0.99728, 0, -0.0737257
 [node name="Terminal" parent="NewLevel/Gameplay/Room3" node_paths=PackedStringArray("robot") instance=ExtResource("8_x5pvj")]
 transform = Transform3D(-0.985337, 0, -0.170622, 0, 1, 0, 0.170622, 0, -0.985337, -24.5354, -0.83, 3.68302)
 robot = NodePath("../../Room4/RobotCrabot3")
-color = Color(1, 1, 0, 1)
+color = Color(0, 0, 1, 1)
 
 [node name="Room4" type="Node3D" parent="NewLevel/Gameplay"]
 
