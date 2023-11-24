@@ -1,5 +1,6 @@
-[gd_scene load_steps=25 format=3 uid="uid://da5xv5g3mndxw"]
+[gd_scene load_steps=26 format=3 uid="uid://da5xv5g3mndxw"]
 
+[ext_resource type="Script" path="res://assets/scripts/level.gd" id="1_ht5af"]
 [ext_resource type="PackedScene" uid="uid://cv03cxb8jcsy8" path="res://assets/prefabs/terminal.tscn" id="1_m1hvl"]
 [ext_resource type="PackedScene" uid="uid://dmtm7k1fhpmkj" path="res://assets/prefabs/robot_bobot.tscn" id="2_g4ply"]
 [ext_resource type="PackedScene" uid="uid://pc3k2vyryge5" path="res://assets/prefabs/button.tscn" id="3_gdhk3"]
@@ -54,6 +55,8 @@ albedo_texture = ExtResource("11_c3iwu")
 size = Vector3(41.5291, 1, 42.7687)
 
 [node name="Level3" type="Node3D"]
+script = ExtResource("1_ht5af")
+idx = 3
 
 [node name="Gameplay" type="Node3D" parent="."]
 
@@ -949,6 +952,10 @@ material = SubResource("StandardMaterial3D_yywp1")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.1401, 3.45226, 21.9826)
 shape = SubResource("BoxShape3D_hwx6n")
 
+[connection signal="enter" from="Gameplay/Terminal" to="." method="on_enter"]
+[connection signal="exit" from="Gameplay/Terminal" to="." method="on_exit"]
+[connection signal="enter" from="Gameplay/Terminal2" to="." method="on_enter"]
+[connection signal="exit" from="Gameplay/Terminal2" to="." method="on_exit"]
 [connection signal="pressed" from="Gameplay/Room1/Button" to="Gameplay/Room1/Door" method="_on_signal_activated"]
 [connection signal="unpressed" from="Gameplay/Room1/Button" to="Gameplay/Room1/Door" method="_on_signal_disactivated"]
 [connection signal="pressed" from="Gameplay/Room2/Button" to="Gameplay/Room2/Door" method="_on_signal_activated"]

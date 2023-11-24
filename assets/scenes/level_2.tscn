@@ -1,6 +1,7 @@
-[gd_scene load_steps=61 format=3 uid="uid://55hndo303vxn"]
+[gd_scene load_steps=62 format=3 uid="uid://55hndo303vxn"]
 
 [ext_resource type="Material" uid="uid://cl70hdbacc760" path="res://assets/materials/glass_mat.tres" id="1_3ywb6"]
+[ext_resource type="Script" path="res://assets/scripts/level.gd" id="1_bh8cb"]
 [ext_resource type="PackedScene" uid="uid://dcjw51pfs7v86" path="res://assets/prefabs/door.tscn" id="3_4rn2m"]
 [ext_resource type="PackedScene" uid="uid://d1161nw1kfdh0" path="res://assets/prefabs/laser_absorber.tscn" id="4_yulfa"]
 [ext_resource type="PackedScene" uid="uid://dguc6wibu6e40" path="res://assets/prefabs/laser_emitter.tscn" id="5_r40o2"]
@@ -162,6 +163,8 @@ radius = 10.0227
 size = Vector3(45, 1, 45)
 
 [node name="Level2" type="Node3D"]
+script = ExtResource("1_bh8cb")
+idx = 2
 
 [node name="OldLevel" type="Node3D" parent="."]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -162, 0, 0)
@@ -1979,6 +1982,8 @@ transform = Transform3D(-0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866025, -16, 0, 
 
 [connection signal="pressed" from="OldLevel/PuzzleStuff/LaserAbsorber" to="OldLevel/PuzzleStuff/Door" method="_on_signal_activated"]
 [connection signal="unpressed" from="OldLevel/PuzzleStuff/LaserAbsorber" to="OldLevel/PuzzleStuff/Door" method="_on_signal_disactivated"]
+[connection signal="enter" from="NewLevel/Gameplay/CenterRoom/Terminal" to="." method="on_enter"]
+[connection signal="exit" from="NewLevel/Gameplay/CenterRoom/Terminal" to="." method="on_exit"]
 [connection signal="pressed" from="NewLevel/Gameplay/Room1/LaserAbsorber" to="NewLevel/Gameplay/Room1/Door" method="_on_signal_activated"]
 [connection signal="unpressed" from="NewLevel/Gameplay/Room1/LaserAbsorber" to="NewLevel/Gameplay/Room1/Door" method="_on_signal_disactivated"]
 [connection signal="pressed" from="NewLevel/Gameplay/Room2/LaserAbsorber" to="NewLevel/Gameplay/Room2/Door" method="_on_signal_activated"]

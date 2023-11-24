@@ -1,5 +1,6 @@
-[gd_scene load_steps=46 format=3 uid="uid://bbu45o3pef4kc"]
+[gd_scene load_steps=47 format=3 uid="uid://bbu45o3pef4kc"]
 
+[ext_resource type="Script" path="res://assets/scripts/level.gd" id="1_mllil"]
 [ext_resource type="PackedScene" uid="uid://dguc6wibu6e40" path="res://assets/prefabs/laser_emitter.tscn" id="1_v4vyf"]
 [ext_resource type="PackedScene" uid="uid://bibke4m7obh01" path="res://assets/prefabs/robot_crabot.tscn" id="10_kjfhd"]
 [ext_resource type="PackedScene" uid="uid://cv03cxb8jcsy8" path="res://assets/prefabs/terminal.tscn" id="11_yr2dp"]
@@ -23,7 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://ddqcbeaw3a5sr" path="res://assets/prefabs/wall_tiles/wall_001.tscn" id="20_yrytf"]
 [ext_resource type="PackedScene" uid="uid://qmrygx7aegf3" path="res://assets/prefabs/wall_tiles/wall_002.tscn" id="21_qvjw8"]
 [ext_resource type="PackedScene" uid="uid://dr2ynp3fxd4cu" path="res://assets/prefabs/redstone/redstone_hat.tscn" id="22_58lqa"]
-[ext_resource type="PackedScene" uid="uid://cy73u23py3a3o" path="res://assets/prefabs/wall_tiles/wall_003.tscn" id="22_165uj"]
+[ext_resource type="PackedScene" path="res://assets/prefabs/wall_tiles/wall_003.tscn" id="22_165uj"]
 [ext_resource type="PackedScene" uid="uid://cvef1tukyw7f0" path="res://assets/prefabs/wall_tiles/column.tscn" id="23_6a30m"]
 [ext_resource type="PackedScene" uid="uid://qtxt8sygj1p0" path="res://assets/prefabs/redstone/redstone_door_center.tscn" id="24_jkrc7"]
 [ext_resource type="PackedScene" uid="uid://tg5rgf8w2p0b" path="res://assets/prefabs/redstone/redstone_button.tscn" id="24_nq3ec"]
@@ -81,6 +82,8 @@ bottom_radius = 10.0
 height = 100.0
 
 [node name="Level4" type="Node3D"]
+script = ExtResource("1_mllil")
+idx = 4
 
 [node name="Geometry" type="Node3D" parent="."]
 
@@ -2057,3 +2060,8 @@ robot = NodePath("../RobotCrabot2")
 [node name="CenterRoom" type="CSGMesh3D" parent="."]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, -36.6288, 0)
 mesh = SubResource("CylinderMesh_ostqh")
+
+[connection signal="enter" from="Gameplay/BigRobotTerminal" to="." method="on_enter"]
+[connection signal="exit" from="Gameplay/BigRobotTerminal" to="." method="on_exit"]
+[connection signal="enter" from="Gameplay/BobotTerminal" to="." method="on_enter"]
+[connection signal="exit" from="Gameplay/BobotTerminal" to="." method="on_exit"]

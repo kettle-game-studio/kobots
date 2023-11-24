@@ -1,5 +1,6 @@
-[gd_scene load_steps=34 format=3 uid="uid://ce3ogijj3rluu"]
+[gd_scene load_steps=35 format=3 uid="uid://ce3ogijj3rluu"]
 
+[ext_resource type="Script" path="res://assets/scripts/level.gd" id="1_c48id"]
 [ext_resource type="PackedScene" uid="uid://cv03cxb8jcsy8" path="res://assets/prefabs/terminal.tscn" id="1_upji4"]
 [ext_resource type="PackedScene" uid="uid://dmtm7k1fhpmkj" path="res://assets/prefabs/robot_bobot.tscn" id="2_ur8q7"]
 [ext_resource type="PackedScene" uid="uid://pc3k2vyryge5" path="res://assets/prefabs/button.tscn" id="3_5761q"]
@@ -62,6 +63,8 @@ size = Vector2(0.1, 20)
 size = Vector2(0.1, 3)
 
 [node name="Level1" type="Node3D"]
+script = ExtResource("1_c48id")
+idx = 1
 
 [node name="OldLevel" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
@@ -2549,6 +2552,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 31)
 [node name="Wall_D4" parent="Node3D/WallTiles" instance=ExtResource("18_nr3a4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 33)
 
+[connection signal="enter" from="Node3D/Gameplay/Terminal" to="." method="on_enter"]
+[connection signal="exit" from="Node3D/Gameplay/Terminal" to="." method="on_exit"]
 [connection signal="pressed" from="Node3D/Gameplay/ControlRoom/Button" to="Node3D/Gameplay/ControlRoom/Door" method="_on_signal_activated"]
 [connection signal="pressed" from="Node3D/Gameplay/ControlRoom/Button" to="Node3D/Gameplay/ControlRoom/PowerLine" method="on_powered"]
 [connection signal="unpressed" from="Node3D/Gameplay/ControlRoom/Button" to="Node3D/Gameplay/ControlRoom/Door" method="_on_signal_disactivated"]

@@ -5,6 +5,9 @@ class_name Terminal
 @export var robot: RobotController
 @export var monitor: MeshInstance3D
 
+signal enter()
+signal exit()
+
 func _update_texture():
 	if monitor == null or robot == null:
 		return
@@ -24,4 +27,10 @@ func _process(delta):
 	_update_texture()
 
 func enable(player: PlayerController) -> bool:
-	return robot.activate(player)
+	if robot.activate(player, self):
+		enter.emit()
+		return true
+	return false
+
+func on_disable():
+	exit.emit()
