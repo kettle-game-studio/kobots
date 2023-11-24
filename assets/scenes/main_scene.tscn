@@ -231,6 +231,20 @@ tracks/7/keys = {
 "method": &"disable_for_animation"
 }]
 }
+tracks/8/type = "method"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath(".")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(12),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"level_finish"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_uanav"]
 resource_name = "level_start"
@@ -451,16 +465,17 @@ visible = false
 [node name="Kobot_Textured" parent="Player" index="5"]
 transform = Transform3D(-0.2, 0, 5.07036e-07, 0, 0.2, 0, -5.07036e-07, 0, -0.2, 0, 0.132791, 0)
 
-[node name="Story" type="Node" parent="." node_paths=PackedStringArray("cut_scenes", "fps_text", "level_1", "level_2", "level_3", "level_4", "start_button", "cam")]
+[node name="Story" type="Node" parent="." node_paths=PackedStringArray("cut_scenes", "fps_text", "level_1", "level_2", "level_3", "level_4", "root", "start_button", "speedrun_data", "cam")]
 script = ExtResource("6_o1858")
 cut_scenes = NodePath("AnimationPlayer")
-animation_speed = 5.0
 fps_text = NodePath("FpsCanvas/Fps")
 level_1 = NodePath("../Level1")
 level_2 = NodePath("../Level2")
 level_3 = NodePath("../Level3")
 level_4 = NodePath("../Level4")
+root = NodePath("..")
 start_button = NodePath("FpsCanvas/Button")
+speedrun_data = NodePath("FpsCanvas/Button/SpeedrunData")
 cam = NodePath("../Player/Eye/Camera3D")
 
 [node name="FpsCanvas" type="CanvasLayer" parent="Story"]
@@ -495,6 +510,23 @@ theme = ExtResource("7_fmcxw")
 theme_override_constants/outline_size = 0
 theme_override_font_sizes/font_size = 100
 text = "[START]"
+
+[node name="SpeedrunData" type="RichTextLabel" parent="Story/FpsCanvas/Button"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -564.5
+offset_top = 126.0
+offset_right = 572.5
+offset_bottom = 265.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("7_fmcxw")
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Story"]
 libraries = {

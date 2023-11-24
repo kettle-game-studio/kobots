@@ -3,12 +3,11 @@
 [ext_resource type="Sky" uid="uid://gleh3d5y1uch" path="res://assets/materials/sky.tres" id="1_qqmsk"]
 
 [resource]
-background_mode = 2
-background_color = Color(0.490196, 0.301961, 0.317647, 1)
+background_mode = 1
+background_color = Color(0.27451, 0.368627, 0.501961, 1)
 sky = ExtResource("1_qqmsk")
 ambient_light_source = 3
 fog_enabled = true
 fog_light_color = Color(0.27451, 0.368627, 0.501961, 1)
 fog_density = 0.0
-fog_aerial_perspective = 1.0
 fog_sky_affect = 0.0
