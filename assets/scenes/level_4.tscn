@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://bbu45o3pef4kc"]
+[gd_scene load_steps=48 format=3 uid="uid://bbu45o3pef4kc"]
 
 [ext_resource type="Script" path="res://assets/scripts/level.gd" id="1_mllil"]
 [ext_resource type="PackedScene" uid="uid://dguc6wibu6e40" path="res://assets/prefabs/laser_emitter.tscn" id="1_v4vyf"]
@@ -30,6 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://tg5rgf8w2p0b" path="res://assets/prefabs/redstone/redstone_button.tscn" id="24_nq3ec"]
 [ext_resource type="PackedScene" uid="uid://ylmrlk8aoenp" path="res://assets/prefabs/wall_tiles/wall_u.tscn" id="24_rljwc"]
 [ext_resource type="PackedScene" uid="uid://bj10htm6tt643" path="res://assets/prefabs/wall_tiles/wall_u_l.tscn" id="25_rjqlg"]
+[ext_resource type="PackedScene" uid="uid://cbnmfkaxsw4ki" path="res://assets/prefabs/box.tscn" id="31_3ppbq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_twxm2"]
 size = Vector3(50, 1, 50)
@@ -2065,6 +2066,9 @@ color = Color(0, 1, 0, 1)
 [node name="CenterRoom" type="CSGMesh3D" parent="."]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, -36.6288, 0)
 mesh = SubResource("CylinderMesh_ostqh")
+
+[node name="Box" parent="." instance=ExtResource("31_3ppbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.9566, 0, 2.02416)
 
 [connection signal="enter" from="Gameplay/BigRobotTerminal" to="." method="on_enter"]
 [connection signal="exit" from="Gameplay/BigRobotTerminal" to="." method="on_exit"]
