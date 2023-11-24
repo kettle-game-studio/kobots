@@ -59,6 +59,9 @@ func enable_for_animation():
 	disable_story = false
 
 func level_finish():
+	for i in 4:
+		set_state_all_children(levels[i], false)
+			
 	kill_old_level()
 	var parent = root.get_parent()
 	
@@ -77,7 +80,7 @@ func level_finish():
 func kill_old_level():
 	await get_tree().process_frame
 	root.queue_free()
-	
+
 func beautify_time(time: int) -> String:
 	var seconds = beautify_number((time / 1000) % 60)
 	var minutes = beautify_number((time / 1000 / 60) % 60)
@@ -100,12 +103,10 @@ func set_state_all_children(node: Node, state: bool):
 func _on_level_enter(idx):
 	for i in 4:
 		if idx != i + 1:
-			levels[i].visible = false
 			set_state_all_children(levels[i], false)
 
 func _on_level_exit(idx):
 	for i in 4:
 		if idx != i + 1:
-			levels[i].visible = true
 			set_state_all_children(levels[i], true)
 
