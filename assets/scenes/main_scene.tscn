@@ -448,10 +448,13 @@ transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107
 [node name="Eye" parent="Player" index="1"]
 transform = Transform3D(0.999995, 0, -2.98024e-08, 0, 0.999998, 0, 2.98024e-08, 0, 0.999995, 0, 1.9, -0.263)
 
+[node name="UICanvas" parent="Player" index="3"]
+visible = false
+
 [node name="Kobot_Textured" parent="Player" index="5"]
 transform = Transform3D(-0.25, 0, 6.33795e-07, 0, 0.25, 0, -6.33795e-07, 0, -0.25, 0, 0.132791, 0)
 
-[node name="Story" type="Node" parent="." node_paths=PackedStringArray("cut_scenes", "fps_text", "level_1", "level_2", "level_3", "level_4")]
+[node name="Story" type="Node" parent="." node_paths=PackedStringArray("cut_scenes", "fps_text", "level_1", "level_2", "level_3", "level_4", "start_button")]
 script = ExtResource("6_o1858")
 cut_scenes = NodePath("AnimationPlayer")
 fps_text = NodePath("FpsCanvas/Fps")
@@ -459,6 +462,7 @@ level_1 = NodePath("../Level1")
 level_2 = NodePath("../Level2")
 level_3 = NodePath("../Level3")
 level_4 = NodePath("../Level4")
+start_button = NodePath("FpsCanvas/Button")
 
 [node name="FpsCanvas" type="CanvasLayer" parent="Story"]
 
@@ -475,6 +479,23 @@ theme = ExtResource("7_fmcxw")
 theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
 text = "[right]fps[/right]"
+
+[node name="Button" type="Button" parent="Story/FpsCanvas"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -182.5
+offset_top = -70.0
+offset_right = 182.5
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("7_fmcxw")
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 100
+text = "[START]"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Story"]
 libraries = {
@@ -506,6 +527,7 @@ surface_material_override/0 = ExtResource("10_8rk17")
 [connection signal="exit" from="Level3" to="Story" method="_on_level_exit"]
 [connection signal="enter" from="Level4" to="Story" method="_on_level_enter"]
 [connection signal="exit" from="Level4" to="Story" method="_on_level_exit"]
+[connection signal="pressed" from="Story/FpsCanvas/Button" to="Story" method="start_the_game"]
 
 [editable path="Player"]
 [editable path="Kobot_Textured"]

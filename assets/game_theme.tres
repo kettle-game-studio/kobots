@@ -3,4 +3,5 @@
 [ext_resource type="FontFile" uid="uid://bykrqdo4ny417" path="res://assets/fonts/gost.ttf" id="1_5t30t"]
 
 [resource]
+Button/fonts/font = ExtResource("1_5t30t")
 RichTextLabel/fonts/normal_font = ExtResource("1_5t30t")

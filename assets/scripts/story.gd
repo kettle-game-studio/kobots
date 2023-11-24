@@ -12,7 +12,19 @@ var disable_story: bool = false
 @export var level_3: Node3D
 @export var level_4: Node3D
 
+@export var start_button: Button
+
 @onready var levels = [level_1, level_2, level_3, level_4]
+
+func _ready():
+	cut_scenes.play("level_start", -1, 0)
+
+func start_the_game():
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	start_button.visible = false
+	start_button.disabled = true
+	cut_scenes.play("level_start", -1, animation_speed)
+	disable_story = true
 
 func _process(delta):
 	fps_text.text = "[right]%d fps[/right]" % Performance.get_monitor(Performance.TIME_FPS)
@@ -35,10 +47,6 @@ func _input(event: InputEvent):
 
 func enable_for_animation():
 	disable_story = false
-
-func _ready():
-	cut_scenes.play("level_start", -1, animation_speed)
-	disable_story = true
 
 func set_state_all_children(node: Node, state: bool):
 	for child in node.get_children(true):
