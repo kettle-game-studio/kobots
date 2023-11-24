@@ -29,7 +29,7 @@ length = 0.001
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../Player/Kobot_Textured:rotation:x")
+tracks/0/path = NodePath("../Player/Eye:position:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -40,29 +40,29 @@ tracks/0/keys = {
 tracks/1/type = "bezier"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../Player/Kobot_Textured:rotation:y")
+tracks/1/path = NodePath("../Player/Eye:position:y")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(3.14159, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(1.9, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 tracks/2/type = "bezier"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../Player/Kobot_Textured:rotation:z")
+tracks/2/path = NodePath("../Player/Eye:position:z")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(-0.263, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 tracks/3/type = "bezier"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../Player/Eye:position:x")
+tracks/3/path = NodePath("../Player/Eye:rotation:x")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -73,65 +73,32 @@ tracks/3/keys = {
 tracks/4/type = "bezier"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("../Player/Eye:position:y")
+tracks/4/path = NodePath("../Player/Eye:rotation:y")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1.9, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(-2.98025e-08, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 tracks/5/type = "bezier"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("../Player/Eye:position:z")
+tracks/5/path = NodePath("../Player/Eye:rotation:z")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(-0.263, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 tracks/6/type = "bezier"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("../Player/Eye:rotation:x")
+tracks/6/path = NodePath("../WorldEnvironment:environment:fog_density")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/7/type = "bezier"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("../Player/Eye:rotation:y")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(-2.98025e-08, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/8/type = "bezier"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("../Player/Eye:rotation:z")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/9/type = "bezier"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("../WorldEnvironment:environment:fog_density")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
 "handle_modes": PackedInt32Array(0),
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
@@ -249,123 +216,91 @@ tracks/8/keys = {
 [sub_resource type="Animation" id="Animation_uanav"]
 resource_name = "level_start"
 length = 5.9
+step = 0.0416667
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../Player/Kobot_Textured:rotation:x")
+tracks/0/path = NodePath("../Player/Eye:position:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(-1.5708, -0.25, 0, 0.25, 0, -1.5708, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1, 4.5, 4.9)
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0.00887656, -0.25, 0, 0.25, 0, 0.00887656, -0.25, 0, 0.25, 0, 0.739345, -0.25, 0, 0.25, 0, 1.16067, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1, 2, 4, 5.5, 5.9, 5.91667)
 }
 tracks/1/type = "bezier"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../Player/Kobot_Textured:rotation:y")
+tracks/1/path = NodePath("../Player/Eye:position:y")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(-3.14159, -0.25, 0, 0.25, 0, -3.14159, -0.25, 0, 0.25, 0, -3.14159, -0.25, 0, 0.25, 0, -3.14159, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1, 5.5, 5.9)
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0.423053, -0.25, 0, 0.25, 0, 0.423053, -0.25, 0, 0.25, 0, 1.25716, -0.25, 0, 0.25, 0, 1.71818, -0.25, 0, 0.25, 0, 1.476, -0.25, 0, 0.25, 0, 1.476, -0.25, 0, 0.25, 0, 1.476, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1, 2, 4, 5.5, 5.9, 5.91667)
 }
 tracks/2/type = "bezier"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../Player/Kobot_Textured:rotation:z")
+tracks/2/path = NodePath("../Player/Eye:position:z")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1, 5.5, 5.9)
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(1.38531, -0.25, 0, 0.25, 0, 1.38531, -0.25, 0, 0.25, 0, 0.258166, -0.25, 0, 0.25, 0, -1.16051, -0.25, 0, 0.25, 0, 2.056, -0.25, 0, 0.25, 0, -0.263, -0.25, 0, 0.25, 0, -0.263, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1, 2, 4, 5.5, 5.9, 5.91667)
 }
 tracks/3/type = "bezier"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../Player/Eye:position:x")
+tracks/3/path = NodePath("../Player/Eye:rotation:x")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0),
-"points": PackedFloat32Array(0.0488477, -0.25, 0, 0.25, 0, 0.0488477, -0.25, 0, 0.25, 0, 0.404781, -0.25, 0, 0.25, 0, 1.16067, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(-1.5708, -0.25, 0, 0.25, 0, -1.5708, -0.25, 0, 0.25, 0, -1.06993, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 1, 2, 4, 5.5, 5.9)
 }
 tracks/4/type = "bezier"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("../Player/Eye:position:y")
+tracks/4/path = NodePath("../Player/Eye:rotation:y")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0),
-"points": PackedFloat32Array(0.423053, -0.25, 0, 0.25, 0, 0.423053, -0.25, 0, 0.25, 0, 1.25716, -0.25, 0, 0.25, 0, 1.71818, -0.25, 0, 0.25, 0, 1.6, -0.25, 0, 0.25, 0, 1.6, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(3.14159, -0.25, 0, 0.25, 0, 3.14159, -0.25, 0, 0.25, 0, 2.98911, -0.25, 0, 0.25, 0, 2.66337, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 2.98025e-08, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 1, 2, 4, 5.5, 5.9)
 }
 tracks/5/type = "bezier"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("../Player/Eye:position:z")
+tracks/5/path = NodePath("../Player/Eye:rotation:z")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0),
-"points": PackedFloat32Array(1.4801, -0.25, 0, 0.25, 0, 1.4801, -0.25, 0, 0.25, 0, 0.937463, -0.25, 0, 0.25, 0, -1.16051, -0.25, 0, 0.25, 0, 2.056, -0.25, 0, 0.25, 0, -0.263, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 1, 2, 4, 5.5, 5.9)
 }
 tracks/6/type = "bezier"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("../Player/Eye:rotation:x")
+tracks/6/path = NodePath("../WorldEnvironment:environment:fog_density")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0),
-"points": PackedFloat32Array(-1.5708, -0.25, 0, 0.25, 0, -1.5708, -0.25, 0, 0.25, 0, -1.06993, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1, 2, 4, 5.5, 5.9)
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(60, -0.25, 0, 0.25, 0, 10, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0.01, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1, 2, 5.9)
 }
-tracks/7/type = "bezier"
+tracks/7/type = "method"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("../Player/Eye:rotation:y")
+tracks/7/path = NodePath("../Player/Controller")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0),
-"points": PackedFloat32Array(3.14159, -0.25, 0, 0.25, 0, 3.14159, -0.25, 0, 0.25, 0, 2.98911, -0.25, 0, 0.25, 0, 2.66337, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 2.98025e-08, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1, 2, 4, 5.5, 5.9)
-}
-tracks/8/type = "bezier"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("../Player/Eye:rotation:z")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1, 2, 4, 5.5, 5.9)
-}
-tracks/9/type = "bezier"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("../WorldEnvironment:environment:fog_density")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(100, -0.25, 0, 0.25, 0, 10, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0.01, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1, 2, 5.9)
-}
-tracks/10/type = "method"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("../Player/Controller")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
 "times": PackedFloat32Array(5.9),
 "transitions": PackedFloat32Array(1),
 "values": [{
@@ -373,19 +308,29 @@ tracks/10/keys = {
 "method": &"enable"
 }]
 }
-tracks/11/type = "method"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath(".")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
+tracks/8/type = "method"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath(".")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
 "times": PackedFloat32Array(5.9),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
 "method": &"enable_for_animation"
 }]
+}
+tracks/9/type = "animation"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../Player/KobotAnimaterd/AnimationPlayer")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"clips": PackedStringArray("wake", "idle"),
+"times": PackedFloat32Array(1, 5.125)
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7lyda"]
@@ -451,7 +396,7 @@ mesh = SubResource("CylinderMesh_gq0wv")
 shape = SubResource("CylinderShape3D_80rhe")
 
 [node name="Player" parent="." instance=ExtResource("1_jwnee")]
-transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 4.36208, 13.31, 4.36208)
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 4.36208, 13.4493, 4.36208)
 
 [node name="Eye" parent="Player" index="1"]
 transform = Transform3D(0.999995, 0, -2.98024e-08, 0, 0.999998, 0, 2.98024e-08, 0, 0.999995, 0, 1.9, -0.263)
@@ -462,8 +407,29 @@ environment = ExtResource("1_igkwj")
 [node name="UICanvas" parent="Player" index="3"]
 visible = false
 
-[node name="Kobot_Textured" parent="Player" index="5"]
-transform = Transform3D(-0.2, 0, 5.07036e-07, 0, 0.2, 0, -5.07036e-07, 0, -0.2, 0, 0.132791, 0)
+[node name="Skeleton3D" parent="Player/KobotAnimaterd/Armature" index="0"]
+bones/0/position = Vector3(0.0826961, 0.932531, -3.00866)
+bones/0/rotation = Quaternion(-0.691813, 0.0346472, -0.0399517, 0.720138)
+bones/1/rotation = Quaternion(-1.77533e-09, 1.21108e-07, -2.3283e-10, 1)
+bones/2/rotation = Quaternion(0.139721, 0.262879, -0.947861, 0.113716)
+bones/3/rotation = Quaternion(0.246916, 0.000120715, 0.0636108, 0.966947)
+bones/4/position = Vector3(1.66249, 1.99349, -3.77496)
+bones/5/position = Vector3(0.79918, -1.13318, 4.02582)
+bones/6/rotation = Quaternion(0.149881, -0.42072, 0.890495, 0.0868837)
+bones/7/rotation = Quaternion(0.380369, 0.0633028, -0.0866874, 0.918584)
+bones/8/position = Vector3(-1.66249, 1.99349, -3.77496)
+bones/10/rotation = Quaternion(0.933876, -0.0517521, -0.316213, 0.158767)
+bones/11/rotation = Quaternion(0.322555, -8.12507e-09, -0.234719, 0.916987)
+bones/12/rotation = Quaternion(0.94507, -0.0515213, -0.294074, 0.133074)
+bones/13/rotation = Quaternion(0.326405, -5.29333e-08, -0.23752, 0.914901)
+bones/14/position = Vector3(1.60945, 0.213927, -3.6093)
+bones/14/rotation = Quaternion(0.100321, 0.673066, 0.730994, -0.050642)
+bones/15/position = Vector3(0.763345, 0.483089, -0.0816651)
+bones/15/rotation = Quaternion(0.13919, -0.308043, -0.109996, 0.934685)
+bones/16/position = Vector3(-1.56886, 0.172465, -3.90534)
+bones/16/rotation = Quaternion(0.0320246, 0.722754, 0.689392, 0.0366096)
+bones/17/position = Vector3(-0.77146, 0.470764, -0.123093)
+bones/17/rotation = Quaternion(0.13919, -0.308043, -0.109996, 0.934685)
 
 [node name="Story" type="Node" parent="." node_paths=PackedStringArray("cut_scenes", "fps_text", "level_1", "level_2", "level_3", "level_4", "root", "start_button", "speedrun_data", "cam")]
 script = ExtResource("6_o1858")
@@ -559,4 +525,5 @@ surface_material_override/0 = ExtResource("10_8rk17")
 [connection signal="pressed" from="Story/FpsCanvas/Button" to="Story" method="start_the_game"]
 
 [editable path="Player"]
+[editable path="Player/KobotAnimaterd"]
 [editable path="Kobot_Textured"]

@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://ctocq6jlyi6sh"]
+
+[ext_resource type="Texture2D" uid="uid://dscpjgbcw4xai" path="res://assets/models/Kobot/Kobot_Textured_Rubber_BaseColor.png" id="1_qsllo"]
+[ext_resource type="Texture2D" uid="uid://c55gukyeygcpn" path="res://assets/models/Kobot/Kobot_Textured_Rubber_Metallic-Rubber_Roughness.png" id="2_ukqho"]
+
+[resource]
+albedo_texture = ExtResource("1_qsllo")
+metallic = 1.0
+metallic_texture = ExtResource("2_ukqho")
+roughness_texture = ExtResource("2_ukqho")
+roughness_texture_channel = 1

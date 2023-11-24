@@ -1,13 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://bh30fgjh4prch"]
+[gd_scene load_steps=10 format=3 uid="uid://bh30fgjh4prch"]
 
+[ext_resource type="Script" path="res://assets/scripts/robots/kobot.gd" id="1_hrf68"]
 [ext_resource type="Script" path="res://assets/scripts/player_controller.gd" id="1_ktkwb"]
 [ext_resource type="PackedScene" uid="uid://cejfi1b5yw6up" path="res://assets/prefabs/ui_canvas.tscn" id="2_tulfi"]
 [ext_resource type="Theme" uid="uid://p08pj8vk2hog" path="res://assets/game_theme.tres" id="3_lfdsd"]
-[ext_resource type="PackedScene" uid="uid://dq7wxdscecunm" path="res://assets/models/Kobot/Kobot_Textured.glb" id="4_h13hw"]
+[ext_resource type="PackedScene" uid="uid://j1lw5sbi6ngu" path="res://assets/models/Kobot/KobotAnimaterd.glb" id="4_njgmx"]
+[ext_resource type="Material" uid="uid://cbidxjop1llxv" path="res://assets/materials/kobot_head_material.tres" id="5_xraqv"]
+[ext_resource type="Material" uid="uid://b38y0frosthf1" path="res://assets/materials/kobot_body_material.tres" id="6_tj0ny"]
+[ext_resource type="Material" uid="uid://ctocq6jlyi6sh" path="res://assets/materials/kobot_rubber_material.tres" id="7_uqhkt"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vfrs6"]
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("animation_player", "body", "controller")]
+script = ExtResource("1_hrf68")
+animation_player = NodePath("KobotAnimaterd/AnimationPlayer")
+body = NodePath(".")
+controller = NodePath("Controller")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.928614, 0)
@@ -52,5 +60,16 @@ theme = ExtResource("3_lfdsd")
 theme_override_font_sizes/normal_font_size = 60
 text = "[Q] To Quit"
 
-[node name="Kobot_Textured" parent="." instance=ExtResource("4_h13hw")]
-transform = Transform3D(-0.2, 0, 3.01992e-08, 0, 0.2, 0, -3.01992e-08, 0, -0.2, 0, 0, 0)
+[node name="KobotAnimaterd" parent="." instance=ExtResource("4_njgmx")]
+transform = Transform3D(-0.2, 0, 3.01992e-08, 0, 0.2, 0, -3.01992e-08, 0, -0.2, 0, -0.0668193, 0)
+
+[node name="Chin" parent="KobotAnimaterd/Armature/Skeleton3D" index="0"]
+surface_material_override/0 = ExtResource("5_xraqv")
+surface_material_override/1 = ExtResource("6_tj0ny")
+surface_material_override/2 = ExtResource("7_uqhkt")
+
+[node name="Torso plate" parent="KobotAnimaterd/Armature/Skeleton3D" index="1"]
+surface_material_override/0 = ExtResource("6_tj0ny")
+surface_material_override/1 = ExtResource("7_uqhkt")
+
+[editable path="KobotAnimaterd"]
