@@ -19,14 +19,18 @@ func set_state_all_children(node: Node, state: bool):
 	for child in node.get_children(true):
 		child.set_process(state)
 		child.set_physics_process(state)
+		child.set_process_input(state)
 		set_state_all_children(child, state)
 
 func _on_level_enter(idx):
 	for i in 4:
-		set_state_all_children(levels[i], i + 1 == idx)
+		if idx != i + 1:
+			levels[i].visible = false
+			set_state_all_children(levels[i], false)
 
 func _on_level_exit(idx):
 	for i in 4:
 		if idx != i + 1:
+			levels[i].visible = true
 			set_state_all_children(levels[i], true)
 
