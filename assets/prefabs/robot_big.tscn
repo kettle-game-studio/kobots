@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://assets/scripts/carry.gd" id="4_68sth"]
 [ext_resource type="Texture2D" uid="uid://c1cx8najukloc" path="res://assets/writings/zhobot-scheme.png" id="5_s3t2d"]
 [ext_resource type="PackedScene" uid="uid://cejfi1b5yw6up" path="res://assets/prefabs/ui_canvas.tscn" id="6_mbicx"]
-[ext_resource type="PackedScene" uid="uid://c3cpv3fooubqj" path="res://assets/models/BigRobot/Platformobot textured.glb" id="8_5bijs"]
+[ext_resource type="PackedScene" uid="uid://c7tqh78xcuubx" path="res://assets/models/BigRobot/platformobot.tscn" id="8_wuh6a"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6g3en"]
 radius = 0.467309
@@ -108,5 +108,4 @@ script = ExtResource("4_68sth")
 mount_point = NodePath("../PlatformMountPoint")
 platfrom_body = NodePath("../PlatformMountPoint/AnimatableBody3D")
 
-[node name="Platformobot textured" parent="." instance=ExtResource("8_5bijs")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+[node name="Platformobot" parent="." instance=ExtResource("8_wuh6a")]

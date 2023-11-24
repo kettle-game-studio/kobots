@@ -34,5 +34,6 @@ shadow_mesh = SubResource("ArrayMesh_2p4vp")
 
 [node name="Button2" type="MeshInstance3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0385721, 0)
+layers = 2
 mesh = SubResource("ArrayMesh_562r3")
 skeleton = NodePath("")

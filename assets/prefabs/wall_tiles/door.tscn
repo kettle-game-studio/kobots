@@ -44,6 +44,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_sfdk2")
 
 [node name="Door" type="MeshInstance3D"]
+layers = 2
 mesh = SubResource("ArrayMesh_dbwkl")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("3_wda2a")

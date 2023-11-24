@@ -1,12 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://bb22o6htxbt80"]
+[gd_scene load_steps=14 format=3 uid="uid://bb22o6htxbt80"]
 
 [ext_resource type="PackedScene" uid="uid://bh30fgjh4prch" path="res://assets/prefabs/player.tscn" id="1_jwnee"]
-[ext_resource type="PackedScene" uid="uid://2duj7yddhaxr" path="res://assets/scenes/level_1.tscn" id="2_h57yw"]
+[ext_resource type="PackedScene" uid="uid://ce3ogijj3rluu" path="res://assets/scenes/level_1.tscn" id="2_h57yw"]
 [ext_resource type="PackedScene" uid="uid://55hndo303vxn" path="res://assets/scenes/level_2.tscn" id="3_d48np"]
 [ext_resource type="PackedScene" uid="uid://da5xv5g3mndxw" path="res://assets/scenes/level_3.tscn" id="3_l3r4m"]
 [ext_resource type="PackedScene" uid="uid://bbu45o3pef4kc" path="res://assets/scenes/level_4.tscn" id="5_308yb"]
 [ext_resource type="Script" path="res://assets/scripts/story.gd" id="6_o1858"]
 [ext_resource type="Theme" uid="uid://p08pj8vk2hog" path="res://assets/game_theme.tres" id="7_fmcxw"]
+[ext_resource type="ArrayOccluder3D" uid="uid://b26tl3gsax363" path="res://assets/occlusion/main_scene.occ" id="8_ym6mh"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_m8b15"]
 size = Vector3(20, 10, 30)
@@ -112,3 +113,7 @@ theme = ExtResource("7_fmcxw")
 theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
 text = "[right]fps[/right]"
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="."]
+occluder = ExtResource("8_ym6mh")
+bake_mask = 4294967293

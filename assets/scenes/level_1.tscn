@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://2duj7yddhaxr"]
+[gd_scene load_steps=34 format=3 uid="uid://ce3ogijj3rluu"]
 
 [ext_resource type="PackedScene" uid="uid://cv03cxb8jcsy8" path="res://assets/prefabs/terminal.tscn" id="1_upji4"]
 [ext_resource type="PackedScene" uid="uid://dmtm7k1fhpmkj" path="res://assets/prefabs/robot_bobot.tscn" id="2_ur8q7"]
@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://clw7qsx86c4pt" path="res://assets/prefabs/redstone/redstone_fork.tscn" id="12_kjm1q"]
 [ext_resource type="PackedScene" uid="uid://bdk7hqci7w3id" path="res://assets/models/Tiles/tile_004.tscn" id="13_hfi3y"]
 [ext_resource type="PackedScene" uid="uid://qmrygx7aegf3" path="res://assets/prefabs/wall_tiles/wall_002.tscn" id="14_78bhu"]
-[ext_resource type="PackedScene" uid="uid://cy73u23py3a3o" path="res://assets/prefabs/wall_tiles/wall_003.tscn" id="15_1ayu4"]
+[ext_resource type="PackedScene" path="res://assets/prefabs/wall_tiles/wall_003.tscn" id="15_1ayu4"]
 [ext_resource type="PackedScene" uid="uid://ddqcbeaw3a5sr" path="res://assets/prefabs/wall_tiles/wall_001.tscn" id="16_dgdr7"]
 [ext_resource type="PackedScene" uid="uid://cvef1tukyw7f0" path="res://assets/prefabs/wall_tiles/column.tscn" id="17_gsvm6"]
 [ext_resource type="PackedScene" uid="uid://dk8pcu5qqxp32" path="res://assets/prefabs/wall_tiles/wall_d.tscn" id="18_nr3a4"]
@@ -101,7 +101,6 @@ transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 
 shape = SubResource("BoxShape3D_pgv31")
 
 [node name="Gameplay" type="Node3D" parent="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Room1" type="Node3D" parent="Node3D/Gameplay"]
 
@@ -302,7 +301,6 @@ transform = Transform3D(-1, 0, 4.37114e-08, 0, 1, 0, -4.37114e-08, 0, -1, 1.5000
 transform = Transform3D(-1, 0, 4.37114e-08, 0, 1, 0, -4.37114e-08, 0, -1, 2.50002, 0, 0)
 
 [node name="Room3" type="Node3D" parent="Node3D/Gameplay"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Box" parent="Node3D/Gameplay/Room3" instance=ExtResource("6_88pkb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.23572, 0.144616, 30.5138)

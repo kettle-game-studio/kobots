@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://assets/scripts/redstone/activators/redstone_door.gd" id="1_v65ye"]
 [ext_resource type="PackedScene" uid="uid://ddqcbeaw3a5sr" path="res://assets/prefabs/wall_tiles/wall_001.tscn" id="2_py5xx"]
 [ext_resource type="PackedScene" uid="uid://qmrygx7aegf3" path="res://assets/prefabs/wall_tiles/wall_002.tscn" id="3_dc0pw"]
-[ext_resource type="PackedScene" uid="uid://cy73u23py3a3o" path="res://assets/prefabs/wall_tiles/wall_003.tscn" id="4_yrg72"]
+[ext_resource type="PackedScene" path="res://assets/prefabs/wall_tiles/wall_003.tscn" id="4_yrg72"]
 [ext_resource type="PackedScene" uid="uid://nar6gbrbyei7" path="res://assets/models/WallTiles/redstone_fork.tscn" id="5_lc480"]
 
 [sub_resource type="Animation" id="Animation_u3218"]
@@ -58,15 +58,19 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1, 
 
 [node name="Wall_002" parent="Door" instance=ExtResource("3_dc0pw")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, -1, 4.37114e-08)
+layers = 2
 
 [node name="Wall_003" parent="Door" instance=ExtResource("4_yrg72")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, -1, -1.31134e-07)
+layers = 2
 
 [node name="Wall_004" parent="Door" instance=ExtResource("2_py5xx")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3, -1, 1.31134e-07)
+layers = 2
 
 [node name="Wall_001" parent="Door" instance=ExtResource("2_py5xx")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1, -1, -4.37114e-08)
+layers = 2
 
 [node name="RedstoneFork" parent="." instance=ExtResource("5_lc480")]
 visible = false
