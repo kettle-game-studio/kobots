@@ -16,7 +16,6 @@ uniform vec3 color2 : source_color;
 void fragment() {
 	vec3 wrld_vertex = instance_pos;
 
-	float noise = fractal_noise((wrld_vertex - vec3(speed * TIME)) * scale, 10
-	);
+	float noise = fractal_noise(wrld_vertex * scale, 5);
 	ALBEDO = mix(color, color2, noise * noise);
 }

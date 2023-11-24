@@ -5,7 +5,7 @@
 [resource]
 render_priority = 0
 shader = ExtResource("1_y8tij")
-shader_parameter/scale = 100.0
-shader_parameter/speed = 0.0
-shader_parameter/color = Color(0.254902, 0.384314, 0.356863, 1)
+shader_parameter/scale = 1000.0
+shader_parameter/speed = 0.01
+shader_parameter/color = Color(0.286275, 0.27451, 0.278431, 1)
 shader_parameter/color2 = Color(0.556711, 0.530288, 0.528614, 1)

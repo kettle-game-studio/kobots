@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bb22o6htxbt80"]
+[gd_scene load_steps=18 format=3 uid="uid://bb22o6htxbt80"]
 
 [ext_resource type="Environment" uid="uid://dplq6caflelre" path="res://assets/materials/environment.tres" id="1_igkwj"]
 [ext_resource type="PackedScene" uid="uid://bh30fgjh4prch" path="res://assets/prefabs/player.tscn" id="1_jwnee"]
@@ -11,9 +11,6 @@
 [ext_resource type="ArrayOccluder3D" uid="uid://b26tl3gsax363" path="res://assets/occlusion/main_scene.occ" id="8_ym6mh"]
 [ext_resource type="PackedScene" uid="uid://dq7wxdscecunm" path="res://assets/models/Kobot/Kobot_Textured.glb" id="9_ehvty"]
 [ext_resource type="Material" uid="uid://cjtprjfix40p3" path="res://assets/materials/giant_robot_material.tres" id="10_8rk17"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_m8b15"]
-size = Vector3(20, 10, 30)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_gq0wv"]
 top_radius = 10.0
@@ -224,9 +221,9 @@ tracks/0/path = NodePath("../Player/Eye:position:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0),
-"points": PackedFloat32Array(0.00887656, -0.25, 0, 0.25, 0, 0.00887656, -0.25, 0, 0.25, 0, 0.739345, -0.25, 0, 0.25, 0, 1.16067, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1, 2, 4, 5.5, 5.9, 5.91667)
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0.00887656, -0.25, 0, 0.25, 0, 0.00887656, -0.25, 0, 0.25, 0, 0.739345, -0.25, 0, 0.25, 0, 1.16067, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1, 2, 4, 5.5, 5.875, 5.89167, 5.9, 5.91667)
 }
 tracks/1/type = "bezier"
 tracks/1/imported = false
@@ -235,9 +232,9 @@ tracks/1/path = NodePath("../Player/Eye:position:y")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0),
-"points": PackedFloat32Array(0.423053, -0.25, 0, 0.25, 0, 0.423053, -0.25, 0, 0.25, 0, 1.25716, -0.25, 0, 0.25, 0, 1.71818, -0.25, 0, 0.25, 0, 1.476, -0.25, 0, 0.25, 0, 1.476, -0.25, 0, 0.25, 0, 1.476, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1, 2, 4, 5.5, 5.9, 5.91667)
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0.423053, -0.25, 0, 0.25, 0, 0.423053, -0.25, 0, 0.25, 0, 1.25716, -0.25, 0, 0.25, 0, 1.71818, -0.25, 0, 0.25, 0, 1.476, -0.25, 0, 0.25, 0, 1.476, -0.25, 0, 0.25, 0, 1.476, -0.25, 0, 0.25, 0, 1.476, -0.25, 0, 0.25, 0, 1.476, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1, 2, 4, 5.5, 5.875, 5.89167, 5.9, 5.91667)
 }
 tracks/2/type = "bezier"
 tracks/2/imported = false
@@ -246,9 +243,9 @@ tracks/2/path = NodePath("../Player/Eye:position:z")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0),
-"points": PackedFloat32Array(1.38531, -0.25, 0, 0.25, 0, 1.38531, -0.25, 0, 0.25, 0, 0.258166, -0.25, 0, 0.25, 0, -1.16051, -0.25, 0, 0.25, 0, 2.056, -0.25, 0, 0.25, 0, -0.263, -0.25, 0, 0.25, 0, -0.263, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1, 2, 4, 5.5, 5.9, 5.91667)
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(1.38531, -0.25, 0, 0.25, 0, 1.38531, -0.25, 0, 0.25, 0, 0.258166, -0.25, 0, 0.25, 0, -1.16051, -0.25, 0, 0.25, 0, 2.056, -0.25, 0, 0.25, 0, 0.119338, -0.25, 0, 0.25, 0, -0.263, -0.25, 0, 0.25, 0, -0.263, -0.25, 0, 0.25, 0, -0.263, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1, 2, 4, 5.5, 5.875, 5.89167, 5.9, 5.91667)
 }
 tracks/3/type = "bezier"
 tracks/3/imported = false
@@ -257,9 +254,9 @@ tracks/3/path = NodePath("../Player/Eye:rotation:x")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0),
-"points": PackedFloat32Array(-1.5708, -0.25, 0, 0.25, 0, -1.5708, -0.25, 0, 0.25, 0, -1.06993, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1, 2, 4, 5.5, 5.9)
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(-1.5708, -0.25, 0, 0.25, 0, -1.5708, -0.25, 0, 0.25, 0, -1.06993, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1, 2, 4, 5.5, 5.875, 5.9)
 }
 tracks/4/type = "bezier"
 tracks/4/imported = false
@@ -268,9 +265,9 @@ tracks/4/path = NodePath("../Player/Eye:rotation:y")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0),
-"points": PackedFloat32Array(3.14159, -0.25, 0, 0.25, 0, 3.14159, -0.25, 0, 0.25, 0, 2.98911, -0.25, 0, 0.25, 0, 2.66337, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 2.98025e-08, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1, 2, 4, 5.5, 5.9)
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(3.14159, -0.25, 0, 0.25, 0, 3.14159, -0.25, 0, 0.25, 0, 2.98911, -0.25, 0, 0.25, 0, 2.66337, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 2.98025e-08, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1, 2, 4, 5.5, 5.875, 5.9)
 }
 tracks/5/type = "bezier"
 tracks/5/imported = false
@@ -279,9 +276,9 @@ tracks/5/path = NodePath("../Player/Eye:rotation:z")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1, 2, 4, 5.5, 5.9)
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1, 2, 4, 5.5, 5.875, 5.9)
 }
 tracks/6/type = "bezier"
 tracks/6/imported = false
@@ -291,7 +288,7 @@ tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(60, -0.25, 0, 0.25, 0, 10, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0.01, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(70, -0.25, 0, 0.25, 0, 10, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0.01, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 1, 2, 5.9)
 }
 tracks/7/type = "method"
@@ -329,8 +326,8 @@ tracks/9/path = NodePath("../Player/KobotAnimaterd/AnimationPlayer")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"clips": PackedStringArray("wake", "idle"),
-"times": PackedFloat32Array(1, 5.125)
+"clips": PackedStringArray("wake"),
+"times": PackedFloat32Array(1.75)
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7lyda"]
@@ -341,32 +338,6 @@ _data = {
 }
 
 [node name="MainScene" type="Node3D"]
-
-[node name="Backgound" type="Node3D" parent="."]
-
-[node name="Backgound1" type="CSGMesh3D" parent="Backgound"]
-transform = Transform3D(0.42635, -0.0678019, -0.902013, 0.157055, 0.98759, 3.72529e-09, 0.890819, -0.141666, 0.431708, 39.6426, -13.4723, 55.6869)
-mesh = SubResource("BoxMesh_m8b15")
-
-[node name="Backgound2" type="CSGMesh3D" parent="Backgound"]
-transform = Transform3D(-0.0756922, -0.0591536, -0.995375, 0, 0.998239, -0.0593238, 0.997131, -0.00449035, -0.0755589, 7.00271, -18.9486, 68.8676)
-mesh = SubResource("BoxMesh_m8b15")
-
-[node name="Backgound3" type="CSGMesh3D" parent="Backgound"]
-transform = Transform3D(-0.557069, -0.153495, -0.816158, -0.26564, 0.964072, 0, 0.786835, 0.216804, -0.577829, 29.2917, -22.5829, 85.2775)
-mesh = SubResource("BoxMesh_m8b15")
-
-[node name="Backgound4" type="CSGMesh3D" parent="Backgound"]
-transform = Transform3D(0.972995, -0.0953318, -0.210219, 0.143428, 0.96327, 0.227023, 0.180855, -0.251044, 0.95093, 76.3654, -17.7798, 6.24615)
-mesh = SubResource("BoxMesh_m8b15")
-
-[node name="Backgound5" type="CSGMesh3D" parent="Backgound"]
-transform = Transform3D(0.741008, 0.0188783, -0.671231, 0.104873, 0.984085, 0.143452, 0.663256, -0.176693, 0.727235, 66.5101, -15.1159, 40.3762)
-mesh = SubResource("BoxMesh_m8b15")
-
-[node name="Backgound6" type="CSGMesh3D" parent="Backgound"]
-transform = Transform3D(0.265309, 0.133955, -0.954813, -0.0720229, 0.990288, 0.118919, 0.96147, 0.0372182, 0.27238, 92.8695, -21.8465, 34.1177)
-mesh = SubResource("BoxMesh_m8b15")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.00472981, 0.999989, 0, -0.999989, 0.00472981, 0, 0, 0)
@@ -408,24 +379,24 @@ environment = ExtResource("1_igkwj")
 visible = false
 
 [node name="Skeleton3D" parent="Player/KobotAnimaterd/Armature" index="0"]
-bones/0/position = Vector3(0.0826961, 0.932531, -3.00866)
-bones/0/rotation = Quaternion(-0.691813, 0.0346472, -0.0399517, 0.720138)
-bones/1/rotation = Quaternion(-1.77533e-09, 1.21108e-07, -2.3283e-10, 1)
-bones/2/rotation = Quaternion(0.139721, 0.262879, -0.947861, 0.113716)
-bones/3/rotation = Quaternion(0.246916, 0.000120715, 0.0636108, 0.966947)
+bones/0/position = Vector3(0.0824877, 0.932552, -3.00862)
+bones/0/rotation = Quaternion(-0.691686, 0.0345934, -0.0400325, 0.720258)
+bones/1/rotation = Quaternion(-1.92772e-09, 1.20995e-07, 7.60881e-05, 1)
+bones/2/rotation = Quaternion(0.139735, 0.262822, -0.947875, 0.113715)
+bones/3/rotation = Quaternion(0.246631, 0.000120724, 0.0635372, 0.967024)
 bones/4/position = Vector3(1.66249, 1.99349, -3.77496)
 bones/5/position = Vector3(0.79918, -1.13318, 4.02582)
 bones/6/rotation = Quaternion(0.149881, -0.42072, 0.890495, 0.0868837)
 bones/7/rotation = Quaternion(0.380369, 0.0633028, -0.0866874, 0.918584)
 bones/8/position = Vector3(-1.66249, 1.99349, -3.77496)
 bones/10/rotation = Quaternion(0.933876, -0.0517521, -0.316213, 0.158767)
-bones/11/rotation = Quaternion(0.322555, -8.12507e-09, -0.234719, 0.916987)
+bones/11/rotation = Quaternion(0.322621, -6.65789e-09, -0.234767, 0.916952)
 bones/12/rotation = Quaternion(0.94507, -0.0515213, -0.294074, 0.133074)
 bones/13/rotation = Quaternion(0.326405, -5.29333e-08, -0.23752, 0.914901)
 bones/14/position = Vector3(1.60945, 0.213927, -3.6093)
-bones/14/rotation = Quaternion(0.100321, 0.673066, 0.730994, -0.050642)
+bones/14/rotation = Quaternion(0.100378, 0.672901, 0.731129, -0.0507876)
 bones/15/position = Vector3(0.763345, 0.483089, -0.0816651)
-bones/15/rotation = Quaternion(0.13919, -0.308043, -0.109996, 0.934685)
+bones/15/rotation = Quaternion(0.139335, -0.308026, -0.110044, 0.934664)
 bones/16/position = Vector3(-1.56886, 0.172465, -3.90534)
 bones/16/rotation = Quaternion(0.0320246, 0.722754, 0.689392, 0.0366096)
 bones/17/position = Vector3(-0.77146, 0.470764, -0.123093)
