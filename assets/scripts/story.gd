@@ -14,6 +14,8 @@ var disable_story: bool = false
 
 @export var start_button: Button
 
+@export var cam: Camera3D
+
 @onready var levels = [level_1, level_2, level_3, level_4]
 
 func _ready():
@@ -27,6 +29,8 @@ func start_the_game():
 	disable_story = true
 
 func _process(delta):
+	print("fog_aerial_perspective ", cam.environment.fog_aerial_perspective)
+	print("cam.bg_mode ", cam.environment.background_mode)
 	fps_text.text = "[right]%d fps[/right]" % Performance.get_monitor(Performance.TIME_FPS)
 	
 	if disable_story:

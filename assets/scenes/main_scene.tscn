@@ -1,5 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://bb22o6htxbt80"]
 
+[ext_resource type="Environment" uid="uid://dplq6caflelre" path="res://assets/materials/environment.tres" id="1_igkwj"]
 [ext_resource type="PackedScene" uid="uid://bh30fgjh4prch" path="res://assets/prefabs/player.tscn" id="1_jwnee"]
 [ext_resource type="PackedScene" uid="uid://ce3ogijj3rluu" path="res://assets/scenes/level_1.tscn" id="2_h57yw"]
 [ext_resource type="PackedScene" uid="uid://55hndo303vxn" path="res://assets/scenes/level_2.tscn" id="3_d48np"]
@@ -13,13 +14,6 @@
 
 [sub_resource type="BoxMesh" id="BoxMesh_m8b15"]
 size = Vector3(20, 10, 30)
-
-[sub_resource type="Environment" id="Environment_x1m7w"]
-background_mode = 1
-background_color = Color(0.27451, 0.368627, 0.501961, 1)
-fog_enabled = true
-fog_light_color = Color(0.27451, 0.368627, 0.501961, 1)
-fog_density = 0.0
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_gq0wv"]
 top_radius = 10.0
@@ -419,7 +413,7 @@ mesh = SubResource("BoxMesh_m8b15")
 transform = Transform3D(1, 0, 0, 0, 0.00472981, 0.999989, 0, -0.999989, 0.00472981, 0, 0, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_x1m7w")
+environment = ExtResource("1_igkwj")
 
 [node name="Level1" parent="." instance=ExtResource("2_h57yw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.707107, 0, 0.707107)
@@ -448,13 +442,16 @@ transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107
 [node name="Eye" parent="Player" index="1"]
 transform = Transform3D(0.999995, 0, -2.98024e-08, 0, 0.999998, 0, 2.98024e-08, 0, 0.999995, 0, 1.9, -0.263)
 
+[node name="Camera3D" parent="Player/Eye" index="0"]
+environment = ExtResource("1_igkwj")
+
 [node name="UICanvas" parent="Player" index="3"]
 visible = false
 
 [node name="Kobot_Textured" parent="Player" index="5"]
 transform = Transform3D(-0.25, 0, 6.33795e-07, 0, 0.25, 0, -6.33795e-07, 0, -0.25, 0, 0.132791, 0)
 
-[node name="Story" type="Node" parent="." node_paths=PackedStringArray("cut_scenes", "fps_text", "level_1", "level_2", "level_3", "level_4", "start_button")]
+[node name="Story" type="Node" parent="." node_paths=PackedStringArray("cut_scenes", "fps_text", "level_1", "level_2", "level_3", "level_4", "start_button", "cam")]
 script = ExtResource("6_o1858")
 cut_scenes = NodePath("AnimationPlayer")
 fps_text = NodePath("FpsCanvas/Fps")
@@ -463,6 +460,7 @@ level_2 = NodePath("../Level2")
 level_3 = NodePath("../Level3")
 level_4 = NodePath("../Level4")
 start_button = NodePath("FpsCanvas/Button")
+cam = NodePath("../Player/Eye/Camera3D")
 
 [node name="FpsCanvas" type="CanvasLayer" parent="Story"]
 
@@ -501,8 +499,6 @@ text = "[START]"
 libraries = {
 "": SubResource("AnimationLibrary_7lyda")
 }
-
-[node name="Camera3D" type="Camera3D" parent="Story"]
 
 [node name="OccluderInstance3D" type="OccluderInstance3D" parent="."]
 visible = false

@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bsg6ffpeno7d5"]
+
+[ext_resource type="Shader" path="res://assets/materials/sky.gdshader" id="1_kscrj"]
+
+[resource]
+shader = ExtResource("1_kscrj")
+shader_parameter/scale = 4.0
+shader_parameter/skyColor1 = Color(0.47451, 0.545098, 0.729412, 1)
+shader_parameter/skyColor2 = Color(0.219608, 0.239216, 0.376471, 1)
