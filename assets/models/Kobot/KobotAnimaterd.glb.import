@@ -1,0 +1,59 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://j1lw5sbi6ngu"
+path="res://.godot/imported/KobotAnimaterd.glb-37f1143db8831db4581b5a7eb85ed10c.scn"
+
+[deps]
+
+source_file="res://assets/models/Kobot/KobotAnimaterd.glb"
+dest_files=["res://.godot/imported/KobotAnimaterd.glb-37f1143db8831db4581b5a7eb85ed10c.scn"]
+
+[params]
+
+nodes/root_type="Node3D"
+nodes/root_name="Scene Root"
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+skins/use_named_skins=true
+animation/import=true
+animation/fps=24.0
+animation/trimming=false
+animation/remove_immutable_tracks=true
+import_script/path=""
+_subresources={
+"animations": {
+"ArmatureAction": {
+"slice_1/end_frame": 50,
+"slice_1/loop_mode": 1,
+"slice_1/name": "idle",
+"slice_1/save_to_file/enabled": null,
+"slice_1/save_to_file/keep_custom_tracks": null,
+"slice_1/save_to_file/path": null,
+"slice_1/start_frame": null,
+"slice_2/end_frame": 340,
+"slice_2/loop_mode": 1,
+"slice_2/name": "walk",
+"slice_2/save_to_file/enabled": null,
+"slice_2/save_to_file/keep_custom_tracks": null,
+"slice_2/save_to_file/path": null,
+"slice_2/start_frame": 300,
+"slice_3/end_frame": 200,
+"slice_3/loop_mode": null,
+"slice_3/name": "wake",
+"slice_3/save_to_file/enabled": null,
+"slice_3/save_to_file/keep_custom_tracks": null,
+"slice_3/save_to_file/path": null,
+"slice_3/start_frame": 100,
+"slices/amount": 3
+}
+}
+}
+gltf/embedded_image_handling=1
