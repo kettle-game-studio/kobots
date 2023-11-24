@@ -43,8 +43,8 @@ func _input(event: InputEvent):
 
 func rotate_camera(vector: Vector2):
 	var window_size = DisplayServer.window_get_size()
-	self.is_rotationg = true
-	self.rotating_timer = 0.02
+	player_controller.is_rotationg = true
+	player_controller.rotating_timer = 0.02
 	var velocity = vector.y * camera_speed
 	camera.rotation.x = clamp(camera.rotation.x - velocity, -player_controller.clamp_angle_down / 180 * PI / 2, player_controller.clamp_angle_up / 180 * PI / 2)
 	player.rotate_y(-vector.x * camera_speed)
