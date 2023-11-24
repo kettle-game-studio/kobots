@@ -1,6 +1,11 @@
 extends Node
 
+@export var cut_scenes: AnimationPlayer
+@export var animation_speed: float = 1
+
 @export var fps_text: RichTextLabel
+
+var disable_story: bool = false
 
 @export var level_1: Node3D
 @export var level_2: Node3D
@@ -11,9 +16,29 @@ extends Node
 
 func _process(delta):
 	fps_text.text = "[right]%d fps[/right]" % Performance.get_monitor(Performance.TIME_FPS)
+	
+	if disable_story:
+		return
+	
+	if Input.is_action_just_pressed("Debug"):
+		disable_story = true
+		cut_scenes.play("level_end", -1, animation_speed)
+
+func _input(event: InputEvent):
+	if !disable_story: return
+
+	if event is InputEventMouseButton:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+	if Input.is_action_just_pressed("Escape"):
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+func enable_for_animation():
+	disable_story = false
 
 func _ready():
-	pass
+	cut_scenes.play("level_start", -1, animation_speed)
+	disable_story = true
 
 func set_state_all_children(node: Node, state: bool):
 	for child in node.get_children(true):

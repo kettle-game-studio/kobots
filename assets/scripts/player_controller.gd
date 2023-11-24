@@ -27,13 +27,16 @@ enum State { ENABLED, DISABLED, CONTROLLED_BY_OTHER }
 @export var clamp_angle_down: float = 180
 
 var other: Object = null
-
 var is_rotationg = false
 var rotating_timer = 0
 
 var enabled: bool :
 	get:
 		return state == State.ENABLED
+
+func _ready():
+	if main_ui:
+		main_ui.visible = false
 
 func _physics_process(delta: float):
 	walk(delta)
@@ -157,3 +160,11 @@ func get_depth():
 	if !robot_controller:
 		return 0
 	return robot_controller.depth
+
+func enable():
+	main_ui.visible = true
+	state = State.ENABLED
+
+func disable_for_animation():
+	main_ui.visible = false
+	state = State.DISABLED

@@ -13,7 +13,7 @@ var state: State = State.CLOSED
 var signals: Dictionary = {}
 
 func open():
-	animator.play("opening", -1, seconds_to_open)
+	animator.play("opening", -1, 1 / seconds_to_open)
 
 func _on_signal_activated(button: Object):
 	if state == State.OPEN: return
