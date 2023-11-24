@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://c0a0whvj18vd"]
+
+[ext_resource type="Shader" path="res://assets/scripts/robots/robot.gdshader" id="1_7cc1y"]
+[ext_resource type="Texture2D" uid="uid://culmugojdlhn6" path="res://assets/models/perlin.jpg" id="2_17gp0"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_7cc1y")
+shader_parameter/color = Color(0.807843, 0.0823529, 0.101961, 1)
+shader_parameter/enable = false
+shader_parameter/emission_k = 1.0
+shader_parameter/specular = 1.0
+shader_parameter/roughness = 0.3
+shader_parameter/emission_blink = false
+shader_parameter/emission_amplitude = 0.1
+shader_parameter/emission_period = 1.0
+shader_parameter/base_texture = ExtResource("2_17gp0")
+shader_parameter/add_texture = ExtResource("2_17gp0")

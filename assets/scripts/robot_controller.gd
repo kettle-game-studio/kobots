@@ -7,6 +7,8 @@ class_name RobotController
 @export var canvas_layer: CanvasLayer
 @export var can_push_buttons: bool = false
 
+@export var set_colorable: Node
+
 var parent: PlayerController
 var terminal: Terminal
 var depth: int
@@ -52,6 +54,9 @@ func _process(delta):
 	canvas_layer.scale = Vector2(canvas_scale, canvas_scale)
 	subViewport.size = sz
 
+func set_color(cl: Color):
+	if set_colorable && set_colorable.has_method("set_color"):
+		set_colorable.set_color(cl)
 
 func _get_configuration_warnings():
 	var warnings = []

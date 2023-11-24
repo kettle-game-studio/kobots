@@ -1,18 +1,50 @@
-[gd_scene load_steps=7 format=3 uid="uid://cv03cxb8jcsy8"]
+[gd_scene load_steps=11 format=3 uid="uid://cv03cxb8jcsy8"]
 
 [ext_resource type="Script" path="res://assets/scripts/terminal/terminal.gd" id="1_dieug"]
 [ext_resource type="Material" uid="uid://b68bqg0w8xtvc" path="res://assets/materials/terminal.tres" id="2_k2ssm"]
+[ext_resource type="Shader" path="res://assets/scripts/robots/robot.gdshader" id="3_o01tv"]
 [ext_resource type="PackedScene" uid="uid://d16fffwqdd5v7" path="res://assets/models/terminal/terminalbase.tscn" id="3_wkpw7"]
+[ext_resource type="Texture2D" uid="uid://culmugojdlhn6" path="res://assets/models/perlin.jpg" id="4_vvmgq"]
 [ext_resource type="PackedScene" uid="uid://o2fg6w6pl3ob" path="res://assets/models/terminal/terminal_leg.tscn" id="4_xpa1l"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8ayh5"]
 size = Vector3(1, 1.22594, 0.389785)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c7fnx"]
+render_priority = 0
+shader = ExtResource("3_o01tv")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/enable = false
+shader_parameter/emission_k = 1.0
+shader_parameter/specular = 1.0
+shader_parameter/roughness = 0.3
+shader_parameter/emission_blink = false
+shader_parameter/emission_amplitude = 0.1
+shader_parameter/emission_period = 1.0
+shader_parameter/base_texture = ExtResource("4_vvmgq")
+shader_parameter/add_texture = ExtResource("4_vvmgq")
+
 [sub_resource type="QuadMesh" id="QuadMesh_gvps2"]
 
-[node name="Terminal" type="StaticBody3D" node_paths=PackedStringArray("monitor")]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sur1w"]
+render_priority = 0
+shader = ExtResource("3_o01tv")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/enable = false
+shader_parameter/emission_k = 1.0
+shader_parameter/specular = 1.0
+shader_parameter/roughness = 0.3
+shader_parameter/emission_blink = false
+shader_parameter/emission_amplitude = 0.1
+shader_parameter/emission_period = 1.0
+shader_parameter/base_texture = ExtResource("4_vvmgq")
+shader_parameter/add_texture = ExtResource("4_vvmgq")
+
+[node name="Terminal" type="StaticBody3D" node_paths=PackedStringArray("monitor", "meshes")]
 script = ExtResource("1_dieug")
 monitor = NodePath("Terminalbase/Screen")
+color = Color(1, 1, 1, 1)
+meshes = [NodePath("Terminalbase"), NodePath("Terminal leg")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.926841, 0)
@@ -24,6 +56,7 @@ size = Vector3(0.919599, 0.808309, 0.547482)
 
 [node name="Terminalbase" parent="." instance=ExtResource("3_wkpw7")]
 transform = Transform3D(-2.22644e-08, 1.19245e-10, -0.889, 0.0980245, 0.490297, -7.5529e-09, 0.490297, -0.0980245, -3.88594e-08, 0, 1.365, 0)
+surface_material_override/0 = SubResource("ShaderMaterial_c7fnx")
 
 [node name="Screen" type="MeshInstance3D" parent="Terminalbase"]
 transform = Transform3D(-8.7432e-08, -0.0217712, 1.99988, 8.48154e-10, 1.99988, 0.0217712, -2, 1.79985e-09, -8.74176e-08, 0.133705, -0.00402665, -4.48712e-09)
@@ -33,3 +66,4 @@ surface_material_override/0 = ExtResource("2_k2ssm")
 
 [node name="Terminal leg" parent="." instance=ExtResource("4_xpa1l")]
 transform = Transform3D(-1.18416e-08, 6.67876e-09, -0.3, 0.0732115, 0.29093, 3.58704e-09, 0.29093, -0.0732115, -1.31134e-08, 1.49897e-08, 1.2725, -0.304589)
+surface_material_override/0 = SubResource("ShaderMaterial_sur1w")

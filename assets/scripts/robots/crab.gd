@@ -10,9 +10,9 @@ class_name Crab
 @export var body: CharacterBody3D
 @export var controller: PlayerController
 
-
-func _update_parameters():
-	for mesh in light_meshes + meshes:
+func set_color(cl: Color = color):
+	color = cl
+	for mesh in meshes + light_meshes:
 		var material = mesh.get_surface_override_material(0) as ShaderMaterial
 		material = material.duplicate()
 		material.set_shader_parameter("color", color)
@@ -20,6 +20,9 @@ func _update_parameters():
 	for mesh in light_meshes:
 		var material = mesh.get_surface_override_material(0) as ShaderMaterial
 		material.set_shader_parameter("enable", enable_laser)
+
+func _update_parameters():
+	set_color()
 
 func _ready():
 	_update_parameters()

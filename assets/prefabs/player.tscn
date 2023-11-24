@@ -53,4 +53,4 @@ theme_override_font_sizes/normal_font_size = 60
 text = "[Q] To Quit"
 
 [node name="Kobot_Textured" parent="." instance=ExtResource("4_h13hw")]
-transform = Transform3D(-0.25, 0, 2.18557e-08, 0, 0.25, 0, -2.18557e-08, 0, -0.25, 0, 0, 0)
+transform = Transform3D(-0.2, 0, 3.01992e-08, 0, 0.2, 0, -3.01992e-08, 0, -0.2, 0, 0, 0)
