@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqtuges5cbqp7"]
+
+[ext_resource type="PackedScene" uid="uid://coovk5fcqufvd" path="res://assets/models/Tiles/tile_002.tscn" id="1_yxsvh"]
+[ext_resource type="PackedScene" uid="uid://gtn02560h2u7" path="res://assets/models/Tiles/tile_003.tscn" id="2_f4dqs"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lhkcp"]
+size = Vector3(2, 0.04, 2)
+
+[node name="DoubleTile" type="Node3D"]
+
+[node name="Tile_002" parent="." instance=ExtResource("1_yxsvh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.02, 0)
+
+[node name="Tile_003" parent="." instance=ExtResource("2_f4dqs")]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, -0.021, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_lhkcp")

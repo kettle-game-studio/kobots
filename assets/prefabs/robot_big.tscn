@@ -15,7 +15,7 @@ height = 1.2068
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ra7bl"]
 height = 0.1
-radius = 2.0
+radius = 1.7
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_q6sxt"]
 height = 0.525034
@@ -50,7 +50,7 @@ clamp_angle_down = 110.0
 [node name="SubViewport" type="SubViewport" parent="."]
 disable_3d = true
 handle_input_locally = false
-size = Vector2i(2005, 1128)
+size = Vector2i(3840, 2160)
 
 [node name="Camera3D" type="Camera3D" parent="SubViewport" node_paths=PackedStringArray("target")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.17023, -0.952583)
@@ -58,8 +58,8 @@ script = ExtResource("3_y8cbv")
 target = NodePath("../../Eye")
 
 [node name="SchemeCanvas" type="CanvasLayer" parent="SubViewport"]
-scale = Vector2(1.88, 1.88)
-transform = Transform2D(1.88, 0, 0, 1.88, 0, 0)
+scale = Vector2(3.6, 3.6)
+transform = Transform2D(3.6, 0, 0, 3.6, 0, 0)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="SubViewport/SchemeCanvas"]
 offset_left = 200.0
