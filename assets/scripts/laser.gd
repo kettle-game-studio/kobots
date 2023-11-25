@@ -44,7 +44,7 @@ func fire_at_cast_point(cast_point: float):
 	particles.position.z = cast_point
 
 func unmount_target():
-	if laser_target:
+	if laser_target and laser_target != null:
 		laser_target.disable_laser()
 		laser_target = null
 
