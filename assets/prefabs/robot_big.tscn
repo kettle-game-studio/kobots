@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cyd5hd61f5m0h"]
+[gd_scene load_steps=14 format=3 uid="uid://cyd5hd61f5m0h"]
 
 [ext_resource type="Script" path="res://assets/scripts/robot_controller.gd" id="1_1u46q"]
 [ext_resource type="Script" path="res://assets/scripts/player_controller.gd" id="2_5y5nn"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://c1cx8najukloc" path="res://assets/writings/zhobot-scheme.png" id="5_s3t2d"]
 [ext_resource type="PackedScene" uid="uid://cejfi1b5yw6up" path="res://assets/prefabs/ui_canvas.tscn" id="6_mbicx"]
 [ext_resource type="PackedScene" uid="uid://c7tqh78xcuubx" path="res://assets/models/BigRobot/platformobot.tscn" id="8_wuh6a"]
+[ext_resource type="AudioStream" uid="uid://e84o7kgdsii5" path="res://assets/sounds/zhobot/walk.mp3" id="9_841gv"]
+[ext_resource type="Script" path="res://assets/scripts/simple_audio.gd" id="9_gqw1o"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6g3en"]
 radius = 0.467309
@@ -34,7 +36,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.17023, -0.952583)
 target_position = Vector3(0, 0, -1)
 collision_mask = 7
 
-[node name="Controller" type="Node" parent="." node_paths=PackedStringArray("player", "camera", "raycast", "robot_controller", "scheme_ui", "main_ui")]
+[node name="AudioListener3D" type="AudioListener3D" parent="Eye"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0742986, -0.0636225)
+
+[node name="Controller" type="Node" parent="." node_paths=PackedStringArray("player", "camera", "raycast", "robot_controller", "scheme_ui", "main_ui", "audio_listener")]
 script = ExtResource("2_5y5nn")
 player = NodePath("..")
 camera = NodePath("../Eye")
@@ -42,6 +47,7 @@ raycast = NodePath("../Eye/RayCast3D")
 robot_controller = NodePath("..")
 scheme_ui = NodePath("../SubViewport/SchemeCanvas")
 main_ui = NodePath("../SubViewport/UICanvas")
+audio_listener = NodePath("../Eye/AudioListener3D")
 camera_speed = 0.0015
 walk_speed = 3.0
 clamp_angle_up = 110.0
@@ -50,7 +56,7 @@ clamp_angle_down = 110.0
 [node name="SubViewport" type="SubViewport" parent="."]
 disable_3d = true
 handle_input_locally = false
-size = Vector2i(2005, 1128)
+size = Vector2i(3840, 2160)
 
 [node name="Camera3D" type="Camera3D" parent="SubViewport" node_paths=PackedStringArray("target")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.17023, -0.952583)
@@ -58,8 +64,8 @@ script = ExtResource("3_y8cbv")
 target = NodePath("../../Eye")
 
 [node name="SchemeCanvas" type="CanvasLayer" parent="SubViewport"]
-scale = Vector2(1.88, 1.88)
-transform = Transform2D(1.88, 0, 0, 1.88, 0, 0)
+scale = Vector2(3.6, 3.6)
+transform = Transform2D(3.6, 0, 0, 3.6, 0, 0)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="SubViewport/SchemeCanvas"]
 offset_left = 200.0
@@ -109,3 +115,16 @@ mount_point = NodePath("../PlatformMountPoint")
 platfrom_body = NodePath("../PlatformMountPoint/AnimatableBody3D")
 
 [node name="Platformobot" parent="." instance=ExtResource("8_wuh6a")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="Audio" type="Node3D" parent="." node_paths=PackedStringArray("body", "controller", "walk")]
+script = ExtResource("9_gqw1o")
+body = NodePath("..")
+controller = NodePath("../Controller")
+walk = NodePath("AudioStreamPlayer3D")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Audio"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.385822, 0)
+stream = ExtResource("9_841gv")
+volume_db = -20.241
+max_distance = 15.0

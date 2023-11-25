@@ -24,18 +24,21 @@ shape = SubResource("CapsuleShape3D_vfrs6")
 [node name="Eye" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.47635, -0.262609)
 
+[node name="AudioListener3D" type="AudioListener3D" parent="Eye"]
+
 [node name="Camera3D" type="Camera3D" parent="Eye"]
 
 [node name="RayCast3D" type="RayCast3D" parent="Eye"]
 target_position = Vector3(0, 0, -1)
 
-[node name="Controller" type="Node" parent="." node_paths=PackedStringArray("player", "camera", "raycast", "scheme_ui", "main_ui")]
+[node name="Controller" type="Node" parent="." node_paths=PackedStringArray("player", "camera", "raycast", "scheme_ui", "main_ui", "audio_listener")]
 script = ExtResource("1_ktkwb")
 player = NodePath("..")
 camera = NodePath("../Eye")
 raycast = NodePath("../Eye/RayCast3D")
 scheme_ui = NodePath("../MainUI")
 main_ui = NodePath("../UICanvas")
+audio_listener = NodePath("../Eye/AudioListener3D")
 walk_speed = 3.0
 can_run = true
 run_multiplyer = 2.5

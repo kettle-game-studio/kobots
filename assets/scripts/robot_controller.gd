@@ -8,7 +8,7 @@ class_name RobotController
 @export var can_push_buttons: bool = false
 
 @export var set_colorable: Node
-
+ 
 var parent: PlayerController
 var terminal: Terminal
 var depth: int
@@ -34,7 +34,6 @@ func activate(parent: PlayerController, terminal: Terminal) -> bool:
 	self.terminal = terminal
 	self.parent = parent
 	self.depth = parent.get_depth() + 1
-	print("self.depth ", self.depth)
 	player_controller.enable_next_frame()
 	subViewport.disable_3d = false
 	return true

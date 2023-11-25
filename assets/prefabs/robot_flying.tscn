@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://iplo7wkqbgtd"]
+[gd_scene load_steps=18 format=3 uid="uid://iplo7wkqbgtd"]
 
 [ext_resource type="Script" path="res://assets/scripts/robot_controller.gd" id="1_dgrjw"]
 [ext_resource type="Script" path="res://assets/scripts/player_controller.gd" id="2_qh0xa"]
@@ -12,12 +12,15 @@
 [ext_resource type="Texture2D" uid="uid://dxlnr6f8vs1n2" path="res://assets/models/Beebot/BeebotAdd.png" id="7_5ywly"]
 [ext_resource type="Texture2D" uid="uid://bjti6lf8kaw68" path="res://assets/models/Beebot/BeebotColor.png" id="8_e0oc2"]
 [ext_resource type="Texture2D" uid="uid://bywqiidic8kp2" path="res://assets/models/Beebot/BeebotLight.png" id="9_wie0j"]
+[ext_resource type="AudioStream" uid="uid://c85umtojqn347" path="res://assets/sounds/beebot/idle.mp3" id="13_5mynn"]
+[ext_resource type="Script" path="res://assets/scripts/simple_audio.gd" id="13_8kudi"]
+[ext_resource type="AudioStream" uid="uid://bawpbpxiuivt4" path="res://assets/sounds/beebot/walk.mp3" id="13_ert7k"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_w2lxh"]
 height = 0.5
 radius = 0.658462
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_qnrb5"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_10c8v"]
 render_priority = 0
 shader = ExtResource("6_7pdn8")
 shader_parameter/color = Color(0.427451, 0.462745, 0.552941, 1)
@@ -47,11 +50,15 @@ shape = SubResource("CylinderShape3D_w2lxh")
 [node name="Eye" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.42438, -0.570246)
 
+[node name="AudioListener3D" type="AudioListener3D" parent="Eye"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.036174, -0.057375)
+current = true
+
 [node name="RayCast3D" type="RayCast3D" parent="Eye"]
 target_position = Vector3(0, 0, -1)
 collision_mask = 7
 
-[node name="Controller" type="Node" parent="." node_paths=PackedStringArray("player", "camera", "raycast", "robot_controller", "scheme_ui", "main_ui")]
+[node name="Controller" type="Node" parent="." node_paths=PackedStringArray("player", "camera", "raycast", "robot_controller", "scheme_ui", "main_ui", "audio_listener")]
 script = ExtResource("2_qh0xa")
 player = NodePath("..")
 camera = NodePath("../Eye")
@@ -59,6 +66,7 @@ raycast = NodePath("../Eye/RayCast3D")
 robot_controller = NodePath("..")
 scheme_ui = NodePath("../SubViewport/SchemeCanvas")
 main_ui = NodePath("../SubViewport/UICanvas")
+audio_listener = NodePath("../Eye/AudioListener3D")
 flight = true
 clamp_angle_up = 130.0
 clamp_angle_down = 100.0
@@ -66,7 +74,7 @@ clamp_angle_down = 100.0
 [node name="SubViewport" type="SubViewport" parent="."]
 disable_3d = true
 handle_input_locally = false
-size = Vector2i(2005, 1128)
+size = Vector2i(3840, 2160)
 
 [node name="Camera3D" type="Camera3D" parent="SubViewport" node_paths=PackedStringArray("target")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.42438, -0.570246)
@@ -74,8 +82,8 @@ script = ExtResource("4_rs2ja")
 target = NodePath("../../Eye")
 
 [node name="SchemeCanvas" type="CanvasLayer" parent="SubViewport"]
-scale = Vector2(1.88, 1.88)
-transform = Transform2D(1.88, 0, 0, 1.88, 0, 0)
+scale = Vector2(3.6, 3.6)
+transform = Transform2D(3.6, 0, 0, 3.6, 0, 0)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="SubViewport/SchemeCanvas"]
 offset_left = 200.0
@@ -115,17 +123,36 @@ body = NodePath("..")
 controller = NodePath("../Controller")
 
 [node name="Skeleton3D" parent="Beebot/Armature" index="0"]
-bones/0/position = Vector3(0.585654, 0.0398757, -5.96995e-08)
-bones/1/rotation = Quaternion(-0.162953, 0.602227, -0.289312, 0.725994)
-bones/2/rotation = Quaternion(0.307097, 0.646739, 0.126279, 0.686639)
-bones/3/position = Vector3(-1.14124, 0.937381, -1.68716)
-bones/4/position = Vector3(-1.14124, 0.937381, 1.68716)
+bones/0/position = Vector3(0.583009, 0.0201957, -5.66328e-08)
+bones/1/rotation = Quaternion(-0.147328, 0.600849, -0.290037, 0.730174)
+bones/2/rotation = Quaternion(0.305902, 0.651057, 0.110683, 0.685783)
+bones/3/position = Vector3(-1.21425, 0.981547, -1.68716)
+bones/4/position = Vector3(-1.21425, 0.981547, 1.68716)
 
 [node name="Beebot2" parent="Beebot/Armature/Skeleton3D" index="0"]
 layers = 2
-surface_material_override/0 = SubResource("ShaderMaterial_qnrb5")
+surface_material_override/0 = SubResource("ShaderMaterial_10c8v")
 
 [node name="AnimationPlayer" parent="Beebot" index="1"]
 speed_scale = 2.0
+
+[node name="Node3D" type="Node3D" parent="." node_paths=PackedStringArray("body", "controller", "walk", "idle")]
+script = ExtResource("13_8kudi")
+body = NodePath("..")
+controller = NodePath("../Controller")
+walk = NodePath("WalkAudio")
+idle = NodePath("IdleAudio")
+
+[node name="WalkAudio" type="AudioStreamPlayer3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.548639, -0.398908)
+stream = ExtResource("13_ert7k")
+attenuation_model = 1
+max_distance = 20.0
+
+[node name="IdleAudio" type="AudioStreamPlayer3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.548639, -0.398908)
+stream = ExtResource("13_5mynn")
+attenuation_model = 1
+max_distance = 20.0
 
 [editable path="Beebot"]

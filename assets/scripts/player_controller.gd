@@ -7,6 +7,7 @@ class_name PlayerController
 @export var robot_controller: RobotController
 @export var scheme_ui: CanvasLayer
 @export var main_ui: UICanvas
+@export var audio_listener: AudioListener3D
 
 @export var camera_speed: float = 0.003
 @export var walk_speed: float = 5
@@ -25,6 +26,8 @@ enum State { ENABLED, DISABLED, CONTROLLED_BY_OTHER }
 
 @export var clamp_angle_up: float = 180
 @export var clamp_angle_down: float = 180
+
+@onready var distortion = AudioServer.get_bus_effect(AudioServer.get_bus_index("Master"), 0) as AudioEffectDistortion
 
 var other: Object = null
 var is_rotationg = false
@@ -140,12 +143,14 @@ func disable(controlled_by_other: bool = false):
 		state = State.CONTROLLED_BY_OTHER
 	else:
 		state = State.DISABLED
+		audio_listener.clear_current()
 		if scheme_ui:
 			scheme_ui.visible = true
 		if main_ui:
 			main_ui.disable()
 
 func enable_instantly():
+	enable_audio()
 	if scheme_ui:
 		scheme_ui.visible = false
 	if main_ui:
@@ -162,9 +167,20 @@ func get_depth():
 	return robot_controller.depth
 
 func enable():
+	enable_audio()
 	main_ui.visible = true
 	state = State.ENABLED
 
 func disable_for_animation():
 	main_ui.visible = false
 	state = State.DISABLED
+
+var distortion_drive_by_depths = [0, 0.6, 0.7, 0.8, 0.85, 0.9, 0.93, 0.95, 1.]
+var distortion_post_gain_by_depths = [0, 0, 0, 0, -6, -10, -10,-10, -10]
+
+func enable_audio():
+	var depth = get_depth()
+	print(depth)
+	distortion.drive = distortion_drive_by_depths[depth]
+	distortion.post_gain = distortion_post_gain_by_depths[depth]
+	audio_listener.make_current()
