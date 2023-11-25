@@ -372,7 +372,7 @@ transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107
 [node name="Eye" parent="Player" index="1"]
 transform = Transform3D(0.999995, 0, -2.98024e-08, 0, 0.999998, 0, 2.98024e-08, 0, 0.999995, 0, 1.9, -0.263)
 
-[node name="Camera3D" parent="Player/Eye" index="0"]
+[node name="Camera3D" parent="Player/Eye" index="1"]
 environment = ExtResource("1_igkwj")
 
 [node name="UICanvas" parent="Player" index="3"]
@@ -471,7 +471,6 @@ libraries = {
 }
 
 [node name="OccluderInstance3D" type="OccluderInstance3D" parent="."]
-visible = false
 occluder = ExtResource("8_ym6mh")
 bake_mask = 4294967293
 

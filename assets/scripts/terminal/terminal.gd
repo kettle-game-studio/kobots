@@ -30,7 +30,8 @@ func _update_texture():
 	# monitor.set_instance_shader_parameter("test", 0.5)
 
 func _ready():
-	robot.set_color(color)
+	if robot.has_method("set_color"):
+		robot.set_color(color)
 	set_color()
 	_update_texture()
 

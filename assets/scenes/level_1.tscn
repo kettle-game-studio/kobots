@@ -630,7 +630,7 @@ robot = NodePath("../DefaultRobot")
 transform = Transform3D(-0.999119, 0, -0.0419628, 0, 1, 0, 0.0419628, 0, -0.999119, 36, 0, 2)
 
 [node name="Terminal2" parent="Gameplay" node_paths=PackedStringArray("robot") instance=ExtResource("1_upji4")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16.225, 0, 29.772)
+transform = Transform3D(-8.9407e-08, 0, 1, 0, 1, 0, -1, 0, -8.9407e-08, 16.225, 0.522587, 29.772)
 robot = NodePath("../DefaultRobot2")
 color = Color(0.886275, 0.403922, 0, 1)
 
@@ -2168,6 +2168,9 @@ transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 38, 0, 0
 [node name="Column14" parent="OutBorder/LeftWall" instance=ExtResource("17_gsvm6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41, 0, 0)
 
+[node name="Column15" parent="OutBorder/LeftWall" instance=ExtResource("17_gsvm6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 0, 0)
+
 [node name="RightWall" type="Node3D" parent="OutBorder"]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 0, 0, 0)
 
@@ -2315,7 +2318,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4, 0, 
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.00001, 0, 21)
 
 [node name="Wall_069" parent="WallTiles" instance=ExtResource("14_78bhu")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.8147e-06, 0, 21)
+transform = Transform3D(-4.37114e-08, 0, -0.5, 0, 1, 0, 1, 0, -2.18557e-08, 0.5, 0, 21)
 
 [node name="Wall_066" parent="WallTiles" instance=ExtResource("16_dgdr7")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.00002, 0, 21)
@@ -2354,7 +2357,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41, 0, 28)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41, 0, 26)
 
 [node name="Wall_041" parent="WallTiles" instance=ExtResource("16_dgdr7")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 31, 0, 1.14441e-05)
+transform = Transform3D(-1, 0, -7.54979e-08, 0, 1, 0, 1.50996e-07, 0, -0.5, 31, 0, 0.5)
 
 [node name="Wall_042" parent="WallTiles" instance=ExtResource("16_dgdr7")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 41, 0, 2.00001)
@@ -2369,7 +2372,7 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 41, 0,
 transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 41, 0, 6.00001)
 
 [node name="Wall_051" parent="WallTiles" instance=ExtResource("15_1ayu4")]
-transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 41, 0, 1.14441e-05)
+transform = Transform3D(1, 0, 8.7423e-08, 0, 1, 0, -1.74846e-07, 0, 0.5, 41, 0, 0.5)
 
 [node name="Wall_046" parent="WallTiles" instance=ExtResource("16_dgdr7")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 31, 0, 10)
@@ -2402,7 +2405,7 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 31, 0,
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 31, 0, 18)
 
 [node name="Wall_082" parent="WallTiles" instance=ExtResource("16_dgdr7")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 21, 0, 1.14441e-05)
+transform = Transform3D(-1, 0, -7.54979e-08, 0, 1, 0, 1.50996e-07, 0, -0.5, 21, 0, 0.5)
 
 [node name="Wall_083" parent="WallTiles" instance=ExtResource("16_dgdr7")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 21, 0, 10)

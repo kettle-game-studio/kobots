@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://da5xv5g3mndxw"]
+[gd_scene load_steps=59 format=3 uid="uid://da5xv5g3mndxw"]
 
 [ext_resource type="Script" path="res://assets/scripts/level.gd" id="1_ht5af"]
 [ext_resource type="PackedScene" uid="uid://cv03cxb8jcsy8" path="res://assets/prefabs/terminal.tscn" id="1_m1hvl"]
@@ -59,7 +59,10 @@ size = Vector3(34, 3, 18)
 size = Vector3(14, 3, 6)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kqiav"]
-size = Vector3(24, 3, 24)
+size = Vector3(22, 3, 24)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a31ii"]
+size = Vector3(2, 3, 12)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fm7dp"]
 size = Vector3(15, 3, 12)
@@ -353,6 +356,9 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 
 
 [node name="Column5" parent="Level-0/Walls" instance=ExtResource("16_5qqdc")]
 transform = Transform3D(4.47035e-08, 0, -1, 0, 1, 0, 1, 0, 4.47035e-08, 22, 0, -41)
+
+[node name="Column17" parent="Level-0/Walls" instance=ExtResource("16_5qqdc")]
+transform = Transform3D(4.47035e-08, 0, -1, 0, 1, 0, 1, 0, 4.47035e-08, 0, 0, -41)
 
 [node name="Wall_043" parent="Level-0/Walls" instance=ExtResource("15_frqi0")]
 transform = Transform3D(4.47035e-08, 0, -1, 0, 1, 0, 1, 0, 4.47035e-08, 2, 0, -41)
@@ -1832,6 +1838,12 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 35, -3
 [node name="Column23" parent="Level-45/Walls" instance=ExtResource("16_5qqdc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31, -3, -14)
 
+[node name="Wall_124" parent="Level-45/Walls" instance=ExtResource("13_wpnog")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 0, -13)
+
+[node name="Column44" parent="Level-45/Walls" instance=ExtResource("16_5qqdc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 0, -14)
+
 [node name="Column27" parent="Level-45/Walls" instance=ExtResource("16_5qqdc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37, -3, -12)
 
@@ -1840,6 +1852,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37, -3, -18)
 
 [node name="Column24" parent="Level-45/Walls" instance=ExtResource("16_5qqdc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31, -3, -16)
+
+[node name="Wall_135" parent="Level-45/Walls" instance=ExtResource("13_wpnog")]
+transform = Transform3D(1, 0, 1.78814e-07, 0, 1, 0, -1.78814e-07, 0, 1, 31, 0, -17)
+
+[node name="Column45" parent="Level-45/Walls" instance=ExtResource("16_5qqdc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 0, -16)
 
 [node name="Column9" parent="Level-45/Walls" instance=ExtResource("16_5qqdc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, -6)
@@ -3534,8 +3552,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, -1.5, -9)
 shape = SubResource("BoxShape3D_v57fd")
 
 [node name="Collider16" type="CollisionShape3D" parent="Level-45/Colliders"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47, -1.5, -12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, -1.5, -12)
 shape = SubResource("BoxShape3D_kqiav")
+
+[node name="Collider24" type="CollisionShape3D" parent="Level-45/Colliders"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, -1.5, -6)
+shape = SubResource("BoxShape3D_a31ii")
 
 [node name="Collider18" type="CollisionShape3D" parent="Level-45/Colliders"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, -1.5, -24)
