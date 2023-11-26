@@ -1,4 +1,5 @@
 extends Node
+class_name Story
 
 var total_time = -1
 
@@ -47,8 +48,12 @@ func _process(delta):
 		return
 	
 	if Input.is_action_just_pressed("Debug"):
-		disable_story = true
-		cut_scenes.play("level_end", -1, animation_speed)
+		level_end()
+
+func level_end():
+	disable_story = true
+	cut_scenes.play("level_end", -1, animation_speed)
+	
 
 func _input(event: InputEvent):
 	if !disable_story: return
