@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b035sgktjcx1w"]
+
+[ext_resource type="PackedScene" uid="uid://brcmhfk7osk24" path="res://assets/models/Trash/Kobot hand.glb" id="1_ycktl"]
+
+[node name="kobot_hand" type="Node3D"]
+
+[node name="Kobot hand" parent="." instance=ExtResource("1_ycktl")]
+transform = Transform3D(0.725771, -0.687937, 0, 0.687937, 0.725771, 0, 0, 0, 1, -0.809181, -0.712431, 0)
