@@ -132,7 +132,7 @@ func gravity(delta: float) -> float:
 				return player.velocity.y - (9.8 / 2.0) * delta
 	
 	if flight:
-		if state == State.DISABLED:
+		if state != State.ENABLED:
 			return 0
 		return Input.get_axis("Descend", "Fly") * flight_speed
 	
