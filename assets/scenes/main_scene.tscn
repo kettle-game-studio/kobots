@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://bb22o6htxbt80"]
+[gd_scene load_steps=46 format=3 uid="uid://bb22o6htxbt80"]
 
 [ext_resource type="Environment" uid="uid://dplq6caflelre" path="res://assets/materials/environment.tres" id="1_igkwj"]
 [ext_resource type="PackedScene" uid="uid://bh30fgjh4prch" path="res://assets/prefabs/player.tscn" id="1_jwnee"]
@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://55hndo303vxn" path="res://assets/scenes/level_2.tscn" id="3_d48np"]
 [ext_resource type="PackedScene" uid="uid://da5xv5g3mndxw" path="res://assets/scenes/level_3.tscn" id="3_l3r4m"]
 [ext_resource type="PackedScene" uid="uid://bbu45o3pef4kc" path="res://assets/scenes/level_4.tscn" id="5_308yb"]
-[ext_resource type="PackedScene" path="res://assets/prefabs/tiles/cylinder_quarter_.tscn" id="6_jb7y8"]
+[ext_resource type="PackedScene" uid="uid://6f2ah27qe1q2" path="res://assets/prefabs/tiles/cylinder_quarter_.tscn" id="6_jb7y8"]
 [ext_resource type="Script" path="res://assets/scripts/story.gd" id="6_o1858"]
 [ext_resource type="PackedScene" uid="uid://bdk7hqci7w3id" path="res://assets/models/Tiles/tile_004.tscn" id="7_1veyh"]
 [ext_resource type="Theme" uid="uid://p08pj8vk2hog" path="res://assets/game_theme.tres" id="7_fmcxw"]
@@ -19,18 +19,23 @@
 [ext_resource type="PackedScene" uid="uid://dx26nnkcx5cks" path="res://assets/models/Tiles/tile_lf.tscn" id="10_t2ile"]
 [ext_resource type="PackedScene" uid="uid://go4ri7ama2eh" path="res://assets/models/Tiles/tile_r.tscn" id="11_7q5y5"]
 [ext_resource type="PackedScene" uid="uid://bhicgft2xlygm" path="res://assets/models/Tiles/tile_rf.tscn" id="12_sh7t6"]
-[ext_resource type="PackedScene" path="res://assets/prefabs/redstone/redstone_center_wall_door.tscn" id="13_67ykd"]
+[ext_resource type="PackedScene" uid="uid://brom5qku1fya0" path="res://assets/prefabs/redstone/redstone_center_wall_door.tscn" id="13_67ykd"]
 [ext_resource type="PackedScene" uid="uid://cre7f6euf0lte" path="res://assets/prefabs/transparent_window.tscn" id="13_73prg"]
 [ext_resource type="PackedScene" uid="uid://b4f1kyjbidpwb" path="res://assets/prefabs/wall_tiles/glass.tscn" id="14_7tutk"]
 [ext_resource type="PackedScene" uid="uid://tg5rgf8w2p0b" path="res://assets/prefabs/redstone/redstone_button.tscn" id="16_8yfrf"]
-[ext_resource type="PackedScene" uid="uid://dkko6gus8vrti" path="res://assets/prefabs/redstone/redstone_center_room_door.tscn" id="16_75ol4"]
+[ext_resource type="PackedScene" uid="uid://du57sgffslsxa" path="res://assets/prefabs/redstone/redstone_center_room_door.tscn" id="16_75ol4"]
 [ext_resource type="PackedScene" uid="uid://ba3cd3asj6d8p" path="res://assets/prefabs/redstone/redstone_concentrator.tscn" id="16_ypthq"]
 [ext_resource type="PackedScene" uid="uid://cymi34sde2qul" path="res://assets/prefabs/redstone/redstone_line.tscn" id="17_ajjow"]
 [ext_resource type="PackedScene" uid="uid://btof0prkex6ou" path="res://assets/prefabs/redstone/redstone_part.tscn" id="18_r71xv"]
 [ext_resource type="PackedScene" uid="uid://clw7qsx86c4pt" path="res://assets/prefabs/redstone/redstone_fork.tscn" id="19_24wf1"]
 [ext_resource type="PackedScene" uid="uid://dr2ynp3fxd4cu" path="res://assets/prefabs/redstone/redstone_hat.tscn" id="19_eompp"]
 [ext_resource type="PackedScene" uid="uid://bh6p10tdhgn51" path="res://assets/prefabs/redstone/redstone_liser_receiver.tscn" id="22_jioqh"]
+[ext_resource type="PackedScene" uid="uid://begfkckaxhtx0" path="res://assets/models/terminal3/terminal_support.tscn" id="26_458fb"]
+[ext_resource type="Shader" path="res://assets/scripts/robots/robot.gdshader" id="27_j2fdx"]
+[ext_resource type="Texture2D" uid="uid://ctycibd7ej4y" path="res://assets/models/terminal3/TerminalAdd.png" id="28_kekax"]
+[ext_resource type="Texture2D" uid="uid://rp6pqe0v74dw" path="res://assets/models/terminal3/TerminalColor.png" id="29_lnidx"]
 [ext_resource type="PackedScene" uid="uid://cv03cxb8jcsy8" path="res://assets/prefabs/terminal.tscn" id="30_l5fyd"]
+[ext_resource type="Texture2D" uid="uid://j0db2i3vjjos" path="res://assets/models/terminal3/TerminalLight.png" id="30_ush0m"]
 [ext_resource type="PackedScene" uid="uid://cud5vovq2mwy6" path="res://assets/prefabs/robot_kobot_final.tscn" id="31_ckhdd"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_gq0wv"]
@@ -44,6 +49,21 @@ radius = 10.0227
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_po2ix"]
 albedo_texture = ExtResource("8_penvi")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v618k"]
+render_priority = 0
+shader = ExtResource("27_j2fdx")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/enable = true
+shader_parameter/emission_k = 1.0
+shader_parameter/specular = 1.0
+shader_parameter/roughness = 0.3
+shader_parameter/emission_blink = false
+shader_parameter/emission_amplitude = 0.1
+shader_parameter/emission_period = 1.0
+shader_parameter/base_texture = ExtResource("29_lnidx")
+shader_parameter/add_texture = ExtResource("28_kekax")
+shader_parameter/emission_texture = ExtResource("30_ush0m")
 
 [sub_resource type="Animation" id="Animation_g16sc"]
 length = 0.001
@@ -1530,17 +1550,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2, 0, -1.4)
 [node name="RedstoneFork3" parent="Center/Base/Gameplay/Level4/Wall2/Wall1/RedstoneConcentrator/RedstoneLiserReceiver/RedstoneLine3" instance=ExtResource("19_24wf1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2, 0, 0.800001)
 
-[node name="FinalTerminal" parent="Center/Base/Gameplay" node_paths=PackedStringArray("robot", "story") instance=ExtResource("30_l5fyd")]
+[node name="FinalTerminal" parent="Center/Base/Gameplay" node_paths=PackedStringArray("robot", "meshes") instance=ExtResource("30_l5fyd")]
 transform = Transform3D(-1.06066, 0, 1.06066, 0, 1.5, 0, -1.06066, 0, -1.06066, 0, 1, 0)
 robot = NodePath("../../../../Kobot_Textured/FinalKobot")
-is_final = true
-story = NodePath("../../../../Story")
+meshes = [NodePath("Terminal"), NodePath("TerminalSupport")]
+
+[node name="TerminalSupport" parent="Center/Base/Gameplay/FinalTerminal" instance=ExtResource("26_458fb")]
+transform = Transform3D(0.57, 0, 0, 0, 0.57, 0, 0, 0, 0.57, 0, -0.735416, 0)
+surface_material_override/0 = SubResource("ShaderMaterial_v618k")
 
 [node name="Player" parent="." instance=ExtResource("1_jwnee")]
 transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 4.36208, 13.4493, 4.36208)
-
-[node name="CollisionShape3D" parent="Player" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.928614, 0)
 
 [node name="Eye" parent="Player" index="1"]
 transform = Transform3D(0.999995, 0, -2.98024e-08, 0, 0.999998, 0, 2.98024e-08, 0, 0.999995, 0, 1.9, -0.263)
@@ -1584,8 +1604,8 @@ level_2 = NodePath("../Level2")
 level_3 = NodePath("../Level3")
 level_4 = NodePath("../Level4")
 root = NodePath("..")
-start_button = NodePath("FpsCanvas/Button")
-speedrun_data = NodePath("FpsCanvas/Button/SpeedrunData")
+start_button = NodePath("FpsCanvas/StartText")
+speedrun_data = NodePath("FpsCanvas/SpeedrunData")
 cam = NodePath("../Player/Eye/Camera3D")
 
 [node name="FpsCanvas" type="CanvasLayer" parent="Story"]
@@ -1604,38 +1624,44 @@ theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
 text = "[right]fps[/right]"
 
-[node name="Button" type="Button" parent="Story/FpsCanvas"]
+[node name="StartText" type="RichTextLabel" parent="Story/FpsCanvas"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -182.5
-offset_top = -70.0
-offset_right = 182.5
-offset_bottom = 70.0
+offset_left = -200.0
+offset_top = -167.5
+offset_right = 200.0
+offset_bottom = 167.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("7_fmcxw")
-theme_override_constants/outline_size = 0
-theme_override_font_sizes/font_size = 100
-text = "[START]"
+bbcode_enabled = true
+text = "[center][font_size=50][E] To Activate[/font_size][/center]
 
-[node name="SpeedrunData" type="RichTextLabel" parent="Story/FpsCanvas/Button"]
-layout_mode = 1
+[font_size=70]KOBOT[/font_size]
+
+[font_size=45]
+[Mouse] Look around
+[WASD] Walk
+[Shift] Run
+[/font_size]"
+
+[node name="SpeedrunData" type="RichTextLabel" parent="Story/FpsCanvas"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -564.5
-offset_top = 126.0
-offset_right = 572.5
-offset_bottom = 265.0
+offset_left = -568.5
+offset_top = -287.0
+offset_right = 568.5
+offset_bottom = -148.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("7_fmcxw")
-theme_override_font_sizes/normal_font_size = 50
+theme_override_font_sizes/normal_font_size = 35
 bbcode_enabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Story"]
@@ -1670,7 +1696,6 @@ surface_material_override/0 = ExtResource("10_8rk17")
 [connection signal="exit" from="Level3" to="Story" method="_on_level_exit"]
 [connection signal="enter" from="Level4" to="Story" method="_on_level_enter"]
 [connection signal="exit" from="Level4" to="Story" method="_on_level_exit"]
-[connection signal="pressed" from="Story/FpsCanvas/Button" to="Story" method="start_the_game"]
 
 [editable path="Player"]
 [editable path="Player/KobotAnimaterd"]

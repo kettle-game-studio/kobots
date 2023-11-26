@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://cd4o1l2dmvreh" path="res://assets/models/Crab/CrabLight.png" id="9_c5eh3"]
 [ext_resource type="Shader" path="res://assets/scripts/robots/robot_glass.gdshader" id="10_qhqyg"]
 [ext_resource type="PackedScene" uid="uid://d27stf6dexrbe" path="res://assets/prefabs/laser.tscn" id="11_i80x6"]
-[ext_resource type="AnimationLibrary" uid="uid://culk6fx3eaitq" path="res://assets/models/Crab/animations.res" id="14_auvdr"]
+[ext_resource type="AnimationLibrary" uid="uid://bosveu1nnirml" path="res://assets/models/Crab/animations.res" id="14_auvdr"]
 [ext_resource type="Script" path="res://assets/scripts/simple_audio.gd" id="16_4hxr5"]
 [ext_resource type="AudioStream" uid="uid://b68ajxlufxj7u" path="res://assets/sounds/crabot/walk.mp3" id="16_f125c"]
 

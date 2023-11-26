@@ -50,9 +50,9 @@ _data = {
 "opening": SubResource("Animation_ne0fv")
 }
 
-[node name="Wall1" type="Node3D" node_paths=PackedStringArray("mesh")]
+[node name="Wall1" type="Node3D" node_paths=PackedStringArray("meshes")]
 script = ExtResource("1_sptgh")
-mesh = NodePath("RedstonePart")
+meshes = [NodePath("RedstonePart")]
 color = Color(1, 1, 1, 1)
 seconds_to_open = 10.0
 
