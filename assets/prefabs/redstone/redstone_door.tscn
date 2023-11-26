@@ -52,9 +52,9 @@ _data = {
 "opening": SubResource("Animation_pais8")
 }
 
-[node name="RedstoneDoor" type="Node3D" node_paths=PackedStringArray("mesh")]
+[node name="RedstoneDoor" type="Node3D" node_paths=PackedStringArray("meshes")]
 script = ExtResource("1_sksdw")
-mesh = NodePath("Door/DoorMesh")
+meshes = [NodePath("Door/DoorMesh")]
 
 [node name="Door" type="Node3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1, 0)

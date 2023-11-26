@@ -1,6 +1,6 @@
 extends RedstoneAbstractActivator
 
-@export var mesh: MeshInstance3D
+@export var meshes: Array[MeshInstance3D]
 @export var color: Color
 @export var seconds_to_open: float = 1
 var activators: Array[RedstoneAbstractActivator] = []
@@ -14,9 +14,10 @@ var material: ShaderMaterial
 
 func _ready():
 	super._ready()
-	material = mesh.get_surface_override_material(0).duplicate(true) as ShaderMaterial
+	material = meshes[0].get_surface_override_material(0).duplicate(true) as ShaderMaterial
 	material.set_shader_parameter("color", color)
-	mesh.set_surface_override_material(0, material)
+	for mesh in meshes:
+		mesh.set_surface_override_material(0, material)
 	for i in children:
 		i.set_redstone_material(material)
 		if i is RedstoneAbstractActivator:
@@ -41,5 +42,6 @@ func _process(_delta):
 func set_redstone_material(m: Material):
 	material = m
 	super.set_redstone_material(m)
-	mesh.set_surface_override_material(0, m)
+	for mesh in meshes:
+		mesh.set_surface_override_material(0, m)
 	

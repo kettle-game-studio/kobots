@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://55hndo303vxn" path="res://assets/scenes/level_2.tscn" id="3_d48np"]
 [ext_resource type="PackedScene" uid="uid://da5xv5g3mndxw" path="res://assets/scenes/level_3.tscn" id="3_l3r4m"]
 [ext_resource type="PackedScene" uid="uid://bbu45o3pef4kc" path="res://assets/scenes/level_4.tscn" id="5_308yb"]
-[ext_resource type="PackedScene" path="res://assets/prefabs/tiles/cylinder_quarter_.tscn" id="6_jb7y8"]
+[ext_resource type="PackedScene" uid="uid://6f2ah27qe1q2" path="res://assets/prefabs/tiles/cylinder_quarter_.tscn" id="6_jb7y8"]
 [ext_resource type="Script" path="res://assets/scripts/story.gd" id="6_o1858"]
 [ext_resource type="PackedScene" uid="uid://bdk7hqci7w3id" path="res://assets/models/Tiles/tile_004.tscn" id="7_1veyh"]
 [ext_resource type="Theme" uid="uid://p08pj8vk2hog" path="res://assets/game_theme.tres" id="7_fmcxw"]
@@ -19,11 +19,11 @@
 [ext_resource type="PackedScene" uid="uid://dx26nnkcx5cks" path="res://assets/models/Tiles/tile_lf.tscn" id="10_t2ile"]
 [ext_resource type="PackedScene" uid="uid://go4ri7ama2eh" path="res://assets/models/Tiles/tile_r.tscn" id="11_7q5y5"]
 [ext_resource type="PackedScene" uid="uid://bhicgft2xlygm" path="res://assets/models/Tiles/tile_rf.tscn" id="12_sh7t6"]
-[ext_resource type="PackedScene" path="res://assets/prefabs/redstone/redstone_center_wall_door.tscn" id="13_67ykd"]
+[ext_resource type="PackedScene" uid="uid://brom5qku1fya0" path="res://assets/prefabs/redstone/redstone_center_wall_door.tscn" id="13_67ykd"]
 [ext_resource type="PackedScene" uid="uid://cre7f6euf0lte" path="res://assets/prefabs/transparent_window.tscn" id="13_73prg"]
 [ext_resource type="PackedScene" uid="uid://b4f1kyjbidpwb" path="res://assets/prefabs/wall_tiles/glass.tscn" id="14_7tutk"]
 [ext_resource type="PackedScene" uid="uid://tg5rgf8w2p0b" path="res://assets/prefabs/redstone/redstone_button.tscn" id="16_8yfrf"]
-[ext_resource type="PackedScene" uid="uid://dkko6gus8vrti" path="res://assets/prefabs/redstone/redstone_center_room_door.tscn" id="16_75ol4"]
+[ext_resource type="PackedScene" uid="uid://du57sgffslsxa" path="res://assets/prefabs/redstone/redstone_center_room_door.tscn" id="16_75ol4"]
 [ext_resource type="PackedScene" uid="uid://ba3cd3asj6d8p" path="res://assets/prefabs/redstone/redstone_concentrator.tscn" id="16_ypthq"]
 [ext_resource type="PackedScene" uid="uid://cymi34sde2qul" path="res://assets/prefabs/redstone/redstone_line.tscn" id="17_ajjow"]
 [ext_resource type="PackedScene" uid="uid://btof0prkex6ou" path="res://assets/prefabs/redstone/redstone_part.tscn" id="18_r71xv"]
@@ -1530,17 +1530,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2, 0, -1.4)
 [node name="RedstoneFork3" parent="Center/Base/Gameplay/Level4/Wall2/Wall1/RedstoneConcentrator/RedstoneLiserReceiver/RedstoneLine3" instance=ExtResource("19_24wf1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2, 0, 0.800001)
 
-[node name="FinalTerminal" parent="Center/Base/Gameplay" node_paths=PackedStringArray("robot", "story") instance=ExtResource("30_l5fyd")]
+[node name="FinalTerminal" parent="Center/Base/Gameplay" node_paths=PackedStringArray("robot") instance=ExtResource("30_l5fyd")]
 transform = Transform3D(-1.06066, 0, 1.06066, 0, 1.5, 0, -1.06066, 0, -1.06066, 0, 1, 0)
 robot = NodePath("../../../../Kobot_Textured/FinalKobot")
-is_final = true
-story = NodePath("../../../../Story")
 
 [node name="Player" parent="." instance=ExtResource("1_jwnee")]
 transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 4.36208, 13.4493, 4.36208)
-
-[node name="CollisionShape3D" parent="Player" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.928614, 0)
 
 [node name="Eye" parent="Player" index="1"]
 transform = Transform3D(0.999995, 0, -2.98024e-08, 0, 0.999998, 0, 2.98024e-08, 0, 0.999995, 0, 1.9, -0.263)

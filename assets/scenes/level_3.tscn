@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://da5xv5g3mndxw"]
+[gd_scene load_steps=60 format=3 uid="uid://da5xv5g3mndxw"]
 
 [ext_resource type="Script" path="res://assets/scripts/level.gd" id="1_ht5af"]
 [ext_resource type="PackedScene" uid="uid://cv03cxb8jcsy8" path="res://assets/prefabs/terminal.tscn" id="1_m1hvl"]
@@ -27,14 +27,15 @@
 [ext_resource type="Texture2D" uid="uid://j0db2i3vjjos" path="res://assets/models/terminal3/TerminalLight.png" id="18_4m8eg"]
 [ext_resource type="PackedScene" uid="uid://cymi34sde2qul" path="res://assets/prefabs/redstone/redstone_line.tscn" id="18_47k6c"]
 [ext_resource type="PackedScene" uid="uid://boi804u47wxvk" path="res://assets/models/Tiles/tile_f.tscn" id="18_fbex6"]
-[ext_resource type="PackedScene" path="res://assets/models/Tiles/double_tile.tscn" id="18_n2awu"]
+[ext_resource type="PackedScene" uid="uid://dqtuges5cbqp7" path="res://assets/models/Tiles/double_tile.tscn" id="18_n2awu"]
 [ext_resource type="PackedScene" uid="uid://b4f1kyjbidpwb" path="res://assets/prefabs/wall_tiles/glass.tscn" id="18_swrhl"]
 [ext_resource type="PackedScene" uid="uid://dylxy5ljwi5bj" path="res://assets/models/Tiles/pandus.tscn" id="19_xj66e"]
-[ext_resource type="PackedScene" path="res://assets/models/Tiles/tile_a.tscn" id="27_u8ywb"]
-[ext_resource type="PackedScene" path="res://assets/models/Tiles/tile_b.tscn" id="28_x75hy"]
-[ext_resource type="PackedScene" path="res://assets/models/Tiles/tile_f_a.tscn" id="31_4ja4a"]
+[ext_resource type="PackedScene" uid="uid://dfn10ync38uhp" path="res://assets/prefabs/redstone/redstone_door_large.tscn" id="20_yhusf"]
+[ext_resource type="PackedScene" uid="uid://bx6tv8nju3n74" path="res://assets/models/Tiles/tile_a.tscn" id="27_u8ywb"]
+[ext_resource type="PackedScene" uid="uid://3n2j1rk3psn4" path="res://assets/models/Tiles/tile_b.tscn" id="28_x75hy"]
+[ext_resource type="PackedScene" uid="uid://dnqcp3nk4p3yv" path="res://assets/models/Tiles/tile_f_a.tscn" id="31_4ja4a"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_jsxw7"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qdf3n"]
 render_priority = 0
 shader = ExtResource("15_egmgp")
 shader_parameter/color = Color(1, 1, 1, 1)
@@ -49,7 +50,7 @@ shader_parameter/base_texture = ExtResource("17_pgejr")
 shader_parameter/add_texture = ExtResource("16_0t82f")
 shader_parameter/emission_texture = ExtResource("18_4m8eg")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_edytr"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ixtal"]
 render_priority = 0
 shader = ExtResource("15_egmgp")
 shader_parameter/color = Color(0.886275, 0.403922, 0, 1)
@@ -64,7 +65,7 @@ shader_parameter/base_texture = ExtResource("17_pgejr")
 shader_parameter/add_texture = ExtResource("16_0t82f")
 shader_parameter/emission_texture = ExtResource("18_4m8eg")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_igxb6"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_usgu7"]
 render_priority = 0
 shader = ExtResource("15_egmgp")
 shader_parameter/color = Color(1, 1, 0, 1)
@@ -79,7 +80,7 @@ shader_parameter/base_texture = ExtResource("17_pgejr")
 shader_parameter/add_texture = ExtResource("16_0t82f")
 shader_parameter/emission_texture = ExtResource("18_4m8eg")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_b8nok"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0xsgo"]
 render_priority = 0
 shader = ExtResource("15_egmgp")
 shader_parameter/color = Color(0, 0, 1, 1)
@@ -677,184 +678,184 @@ meshes = [NodePath("Terminal"), NodePath("TerminalSupport")]
 
 [node name="TerminalSupport" parent="Level-45/Gameplay/Room2/Terminal4" instance=ExtResource("14_ep0lj")]
 transform = Transform3D(0.57, 0, 0, 0, 0.57, 0, 0, 0, 0.57, 0, -1.80731, 0)
-surface_material_override/0 = SubResource("ShaderMaterial_jsxw7")
+surface_material_override/0 = SubResource("ShaderMaterial_qdf3n")
 
 [node name="DefaultRobot2" parent="Level-45/Gameplay/Room2" instance=ExtResource("2_g4ply")]
 transform = Transform3D(0.744148, 0, -0.668014, 0, 1, 0, 0.668014, 0, 0.744148, 42.8311, 0.05, -8.78962)
 
-[node name="RedstoneDoor" parent="Level-45/Gameplay/Room2" instance=ExtResource("9_ig83k")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 23, -3, 0)
+[node name="RedstoneDoor2" parent="Level-45/Gameplay/Room2" instance=ExtResource("20_yhusf")]
+transform = Transform3D(-8.9407e-08, 0, -1, 0, 1, 0, 1, 0, -8.9407e-08, 23, -3, 0)
 color = Color(0, 0.67451, 0.807843, 1)
 
-[node name="Button" parent="Level-45/Gameplay/Room2/RedstoneDoor" instance=ExtResource("10_byfny")]
+[node name="Button" parent="Level-45/Gameplay/Room2/RedstoneDoor2" instance=ExtResource("10_byfny")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 3, -22)
 
-[node name="RedstonePart" parent="Level-45/Gameplay/Room2/RedstoneDoor/Button" instance=ExtResource("11_2db22")]
+[node name="RedstonePart" parent="Level-45/Gameplay/Room2/RedstoneDoor2/Button" instance=ExtResource("11_2db22")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, -3, 22)
 
-[node name="RedstonePart2" parent="Level-45/Gameplay/Room2/RedstoneDoor/Button" instance=ExtResource("11_2db22")]
+[node name="RedstonePart2" parent="Level-45/Gameplay/Room2/RedstoneDoor2/Button" instance=ExtResource("11_2db22")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, -3, 22)
 
-[node name="RedstonePart3" parent="Level-45/Gameplay/Room2/RedstoneDoor/Button" instance=ExtResource("11_2db22")]
+[node name="RedstonePart3" parent="Level-45/Gameplay/Room2/RedstoneDoor2/Button" instance=ExtResource("11_2db22")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, -3, 22)
 
-[node name="RedstonePart4" parent="Level-45/Gameplay/Room2/RedstoneDoor/Button" instance=ExtResource("11_2db22")]
+[node name="RedstonePart4" parent="Level-45/Gameplay/Room2/RedstoneDoor2/Button" instance=ExtResource("11_2db22")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, -3, 22)
 
-[node name="RedstonePart5" parent="Level-45/Gameplay/Room2/RedstoneDoor/Button" instance=ExtResource("11_2db22")]
+[node name="RedstonePart5" parent="Level-45/Gameplay/Room2/RedstoneDoor2/Button" instance=ExtResource("11_2db22")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, -3, 22)
 
-[node name="RedstonePart10" parent="Level-45/Gameplay/Room2/RedstoneDoor/Button" instance=ExtResource("11_2db22")]
+[node name="RedstonePart10" parent="Level-45/Gameplay/Room2/RedstoneDoor2/Button" instance=ExtResource("11_2db22")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, -3, 17)
 
-[node name="RedstonePart14" parent="Level-45/Gameplay/Room2/RedstoneDoor/Button" instance=ExtResource("11_2db22")]
+[node name="RedstonePart14" parent="Level-45/Gameplay/Room2/RedstoneDoor2/Button" instance=ExtResource("11_2db22")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, -3, 17)
 
-[node name="RedstonePart17" parent="Level-45/Gameplay/Room2/RedstoneDoor/Button" instance=ExtResource("11_2db22")]
+[node name="RedstonePart17" parent="Level-45/Gameplay/Room2/RedstoneDoor2/Button" instance=ExtResource("11_2db22")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, -3, 15)
 
-[node name="RedstonePart18" parent="Level-45/Gameplay/Room2/RedstoneDoor/Button" instance=ExtResource("11_2db22")]
+[node name="RedstonePart18" parent="Level-45/Gameplay/Room2/RedstoneDoor2/Button" instance=ExtResource("11_2db22")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.49999, -3, 15)
 
-[node name="RedstonePart11" parent="Level-45/Gameplay/Room2/RedstoneDoor/Button" instance=ExtResource("11_2db22")]
+[node name="RedstonePart11" parent="Level-45/Gameplay/Room2/RedstoneDoor2/Button" instance=ExtResource("11_2db22")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, -3, 17)
 
-[node name="RedstonePart12" parent="Level-45/Gameplay/Room2/RedstoneDoor/Button" instance=ExtResource("11_2db22")]
+[node name="RedstonePart12" parent="Level-45/Gameplay/Room2/RedstoneDoor2/Button" instance=ExtResource("11_2db22")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.49999, -3, 17)
 
-[node name="RedstonePart29" parent="Level-45/Gameplay/Room2/RedstoneDoor/Button" instance=ExtResource("11_2db22")]
+[node name="RedstonePart29" parent="Level-45/Gameplay/Room2/RedstoneDoor2/Button" instance=ExtResource("11_2db22")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0, 5)
 
-[node name="RedstonePart30" parent="Level-45/Gameplay/Room2/RedstoneDoor/Button" instance=ExtResource("11_2db22")]
+[node name="RedstonePart30" parent="Level-45/Gameplay/Room2/RedstoneDoor2/Button" instance=ExtResource("11_2db22")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 5)
 
-[node name="RedstonePart31" parent="Level-45/Gameplay/Room2/RedstoneDoor/Button" instance=ExtResource("11_2db22")]
+[node name="RedstonePart31" parent="Level-45/Gameplay/Room2/RedstoneDoor2/Button" instance=ExtResource("11_2db22")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0, 5)
 
-[node name="RedstonePart42" parent="Level-45/Gameplay/Room2/RedstoneDoor/Button" instance=ExtResource("11_2db22")]
+[node name="RedstonePart42" parent="Level-45/Gameplay/Room2/RedstoneDoor2/Button" instance=ExtResource("11_2db22")]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 4.47486, 0, 4.47487)
 
-[node name="RedstonePart43" parent="Level-45/Gameplay/Room2/RedstoneDoor/Button" instance=ExtResource("11_2db22")]
+[node name="RedstonePart43" parent="Level-45/Gameplay/Room2/RedstoneDoor2/Button" instance=ExtResource("11_2db22")]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 3.76775, 0, 3.76776)
 
-[node name="RedstonePart44" parent="Level-45/Gameplay/Room2/RedstoneDoor/Button" instance=ExtResource("11_2db22")]
+[node name="RedstonePart44" parent="Level-45/Gameplay/Room2/RedstoneDoor2/Button" instance=ExtResource("11_2db22")]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 3.06064, 0, 3.06065)
 
-[node name="RedstonePart45" parent="Level-45/Gameplay/Room2/RedstoneDoor/Button" instance=ExtResource("11_2db22")]
+[node name="RedstonePart45" parent="Level-45/Gameplay/Room2/RedstoneDoor2/Button" instance=ExtResource("11_2db22")]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 2.35354, 0, 2.35354)
 
-[node name="RedstonePart46" parent="Level-45/Gameplay/Room2/RedstoneDoor/Button" instance=ExtResource("11_2db22")]
+[node name="RedstonePart46" parent="Level-45/Gameplay/Room2/RedstoneDoor2/Button" instance=ExtResource("11_2db22")]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 1.64643, 0, 1.64645)
 
-[node name="RedstonePart47" parent="Level-45/Gameplay/Room2/RedstoneDoor/Button" instance=ExtResource("11_2db22")]
+[node name="RedstonePart47" parent="Level-45/Gameplay/Room2/RedstoneDoor2/Button" instance=ExtResource("11_2db22")]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 0.939324, 0, 0.939335)
 
-[node name="RedstonePart48" parent="Level-45/Gameplay/Room2/RedstoneDoor/Button" instance=ExtResource("11_2db22")]
+[node name="RedstonePart48" parent="Level-45/Gameplay/Room2/RedstoneDoor2/Button" instance=ExtResource("11_2db22")]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 0.232215, 0, 0.232227)
 
-[node name="RedstonePart6" parent="Level-45/Gameplay/Room2/RedstoneDoor/Button" instance=ExtResource("11_2db22")]
+[node name="RedstonePart6" parent="Level-45/Gameplay/Room2/RedstoneDoor2/Button" instance=ExtResource("11_2db22")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6, -3, 21.5)
 
-[node name="RedstonePart7" parent="Level-45/Gameplay/Room2/RedstoneDoor/Button" instance=ExtResource("11_2db22")]
+[node name="RedstonePart7" parent="Level-45/Gameplay/Room2/RedstoneDoor2/Button" instance=ExtResource("11_2db22")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6, -3, 20.5)
 
-[node name="RedstonePart8" parent="Level-45/Gameplay/Room2/RedstoneDoor/Button" instance=ExtResource("11_2db22")]
+[node name="RedstonePart8" parent="Level-45/Gameplay/Room2/RedstoneDoor2/Button" instance=ExtResource("11_2db22")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6, -3, 19.5)
 
-[node name="RedstonePart9" parent="Level-45/Gameplay/Room2/RedstoneDoor/Button" instance=ExtResource("11_2db22")]
+[node name="RedstonePart9" parent="Level-45/Gameplay/Room2/RedstoneDoor2/Button" instance=ExtResource("11_2db22")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6, -3, 18.5)
 
-[node name="RedstonePart13" parent="Level-45/Gameplay/Room2/RedstoneDoor/Button" instance=ExtResource("11_2db22")]
+[node name="RedstonePart13" parent="Level-45/Gameplay/Room2/RedstoneDoor2/Button" instance=ExtResource("11_2db22")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6, -3, 17.5)
 
-[node name="RedstonePart19" parent="Level-45/Gameplay/Room2/RedstoneDoor/Button" instance=ExtResource("11_2db22")]
+[node name="RedstonePart19" parent="Level-45/Gameplay/Room2/RedstoneDoor2/Button" instance=ExtResource("11_2db22")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8, -3, 14.5)
 
-[node name="RedstonePart20" parent="Level-45/Gameplay/Room2/RedstoneDoor/Button" instance=ExtResource("11_2db22")]
+[node name="RedstonePart20" parent="Level-45/Gameplay/Room2/RedstoneDoor2/Button" instance=ExtResource("11_2db22")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8, -3, 13.5)
 
-[node name="RedstonePart21" parent="Level-45/Gameplay/Room2/RedstoneDoor/Button" instance=ExtResource("11_2db22")]
+[node name="RedstonePart21" parent="Level-45/Gameplay/Room2/RedstoneDoor2/Button" instance=ExtResource("11_2db22")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8, -3, 12.5)
 
-[node name="RedstonePart22" parent="Level-45/Gameplay/Room2/RedstoneDoor/Button" instance=ExtResource("11_2db22")]
+[node name="RedstonePart22" parent="Level-45/Gameplay/Room2/RedstoneDoor2/Button" instance=ExtResource("11_2db22")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8, -3, 11.5)
 
-[node name="RedstonePart23" parent="Level-45/Gameplay/Room2/RedstoneDoor/Button" instance=ExtResource("11_2db22")]
+[node name="RedstonePart23" parent="Level-45/Gameplay/Room2/RedstoneDoor2/Button" instance=ExtResource("11_2db22")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8, -3, 10.5)
 
-[node name="RedstonePart33" parent="Level-45/Gameplay/Room2/RedstoneDoor/Button" instance=ExtResource("11_2db22")]
+[node name="RedstonePart33" parent="Level-45/Gameplay/Room2/RedstoneDoor2/Button" instance=ExtResource("11_2db22")]
 transform = Transform3D(-9.27258e-08, 0.707107, -0.707107, -1, -4.37114e-08, 8.74228e-08, 3.09086e-08, 0.707107, 0.707107, 3.31526, 0.5, 3.31235)
 
-[node name="RedstonePart34" parent="Level-45/Gameplay/Room2/RedstoneDoor/Button" instance=ExtResource("11_2db22")]
+[node name="RedstonePart34" parent="Level-45/Gameplay/Room2/RedstoneDoor2/Button" instance=ExtResource("11_2db22")]
 transform = Transform3D(-9.27258e-08, 0.707107, -0.707107, -1, -4.37114e-08, 8.74228e-08, 3.09086e-08, 0.707107, 0.707107, 3.31526, 1.5, 3.31235)
 
-[node name="RedstonePart35" parent="Level-45/Gameplay/Room2/RedstoneDoor/Button" instance=ExtResource("11_2db22")]
+[node name="RedstonePart35" parent="Level-45/Gameplay/Room2/RedstoneDoor2/Button" instance=ExtResource("11_2db22")]
 transform = Transform3D(-9.27258e-08, 0.707107, -0.707107, -1, -4.37114e-08, 8.74228e-08, 3.09086e-08, 0.707107, 0.707107, 3.31526, 2.5, 3.31235)
 
-[node name="RedstonePart39" parent="Level-45/Gameplay/Room2/RedstoneDoor/Button" instance=ExtResource("11_2db22")]
+[node name="RedstonePart39" parent="Level-45/Gameplay/Room2/RedstoneDoor2/Button" instance=ExtResource("11_2db22")]
 transform = Transform3D(9.27258e-08, -0.707107, 0.707107, -1, -4.37114e-08, 8.74228e-08, -3.09086e-08, -0.707107, -0.707107, 3.16676, 0.5, 3.16385)
 
-[node name="RedstonePart40" parent="Level-45/Gameplay/Room2/RedstoneDoor/Button" instance=ExtResource("11_2db22")]
+[node name="RedstonePart40" parent="Level-45/Gameplay/Room2/RedstoneDoor2/Button" instance=ExtResource("11_2db22")]
 transform = Transform3D(9.27258e-08, -0.707107, 0.707107, -1, -4.37114e-08, 8.74228e-08, -3.09086e-08, -0.707107, -0.707107, 3.16676, 1.5, 3.16385)
 
-[node name="RedstonePart41" parent="Level-45/Gameplay/Room2/RedstoneDoor/Button" instance=ExtResource("11_2db22")]
+[node name="RedstonePart41" parent="Level-45/Gameplay/Room2/RedstoneDoor2/Button" instance=ExtResource("11_2db22")]
 transform = Transform3D(9.27258e-08, -0.707107, 0.707107, -1, -4.37114e-08, 8.74228e-08, -3.09086e-08, -0.707107, -0.707107, 3.16676, 2.5, 3.16385)
 
-[node name="RedstonePart24" parent="Level-45/Gameplay/Room2/RedstoneDoor/Button" instance=ExtResource("11_2db22")]
+[node name="RedstonePart24" parent="Level-45/Gameplay/Room2/RedstoneDoor2/Button" instance=ExtResource("11_2db22")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.00114, -2.38419e-07, 9.49812)
 
-[node name="RedstoneHat" parent="Level-45/Gameplay/Room2/RedstoneDoor/Button" instance=ExtResource("15_idwr4")]
+[node name="RedstoneHat" parent="Level-45/Gameplay/Room2/RedstoneDoor2/Button" instance=ExtResource("15_idwr4")]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 3.24455, 3, 3.24163)
 
-[node name="RedstonePart36" parent="Level-45/Gameplay/Room2/RedstoneDoor/Button" instance=ExtResource("11_2db22")]
+[node name="RedstonePart36" parent="Level-45/Gameplay/Room2/RedstoneDoor2/Button" instance=ExtResource("11_2db22")]
 transform = Transform3D(-8.74228e-08, 4.37114e-08, -1, -1, -4.37114e-08, 8.74228e-08, -4.37114e-08, 1, 4.37114e-08, 8, -2.5, 10.1)
 
-[node name="RedstonePart37" parent="Level-45/Gameplay/Room2/RedstoneDoor/Button" instance=ExtResource("11_2db22")]
+[node name="RedstonePart37" parent="Level-45/Gameplay/Room2/RedstoneDoor2/Button" instance=ExtResource("11_2db22")]
 transform = Transform3D(-8.74228e-08, 4.37114e-08, -1, -1, -4.37114e-08, 8.74228e-08, -4.37114e-08, 1, 4.37114e-08, 8, -1.5, 10.1)
 
-[node name="RedstonePart38" parent="Level-45/Gameplay/Room2/RedstoneDoor/Button" instance=ExtResource("11_2db22")]
+[node name="RedstonePart38" parent="Level-45/Gameplay/Room2/RedstoneDoor2/Button" instance=ExtResource("11_2db22")]
 transform = Transform3D(-8.74228e-08, 4.37114e-08, -1, -1, -4.37114e-08, 8.74228e-08, -4.37114e-08, 1, 4.37114e-08, 8, -0.5, 10.1)
 
-[node name="RedstoneHat2" parent="Level-45/Gameplay/Room2/RedstoneDoor/Button" instance=ExtResource("15_idwr4")]
+[node name="RedstoneHat2" parent="Level-45/Gameplay/Room2/RedstoneDoor2/Button" instance=ExtResource("15_idwr4")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8, 0, 10)
 
-[node name="RedstonePart25" parent="Level-45/Gameplay/Room2/RedstoneDoor/Button" instance=ExtResource("11_2db22")]
+[node name="RedstonePart25" parent="Level-45/Gameplay/Room2/RedstoneDoor2/Button" instance=ExtResource("11_2db22")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.99999, 0, 8.5)
 
-[node name="RedstonePart26" parent="Level-45/Gameplay/Room2/RedstoneDoor/Button" instance=ExtResource("11_2db22")]
+[node name="RedstonePart26" parent="Level-45/Gameplay/Room2/RedstoneDoor2/Button" instance=ExtResource("11_2db22")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8, 0, 7.5)
 
-[node name="RedstonePart27" parent="Level-45/Gameplay/Room2/RedstoneDoor/Button" instance=ExtResource("11_2db22")]
+[node name="RedstonePart27" parent="Level-45/Gameplay/Room2/RedstoneDoor2/Button" instance=ExtResource("11_2db22")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8, 0, 6.49999)
 
-[node name="RedstonePart28" parent="Level-45/Gameplay/Room2/RedstoneDoor/Button" instance=ExtResource("11_2db22")]
+[node name="RedstonePart28" parent="Level-45/Gameplay/Room2/RedstoneDoor2/Button" instance=ExtResource("11_2db22")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.99999, 0, 5.49998)
 
-[node name="RedstoneFork" parent="Level-45/Gameplay/Room2/RedstoneDoor/Button" instance=ExtResource("12_tymrv")]
+[node name="RedstoneFork" parent="Level-45/Gameplay/Room2/RedstoneDoor2/Button" instance=ExtResource("12_tymrv")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8, -3, 15)
 
-[node name="RedstoneFork6" parent="Level-45/Gameplay/Room2/RedstoneDoor/Button" instance=ExtResource("12_tymrv")]
+[node name="RedstoneFork6" parent="Level-45/Gameplay/Room2/RedstoneDoor2/Button" instance=ExtResource("12_tymrv")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8, 0, 5)
 
-[node name="RedstoneFork7" parent="Level-45/Gameplay/Room2/RedstoneDoor/Button" instance=ExtResource("12_tymrv")]
+[node name="RedstoneFork7" parent="Level-45/Gameplay/Room2/RedstoneDoor2/Button" instance=ExtResource("12_tymrv")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5, 0, 5)
 
-[node name="RedstoneFork2" parent="Level-45/Gameplay/Room2/RedstoneDoor/Button" instance=ExtResource("12_tymrv")]
+[node name="RedstoneFork2" parent="Level-45/Gameplay/Room2/RedstoneDoor2/Button" instance=ExtResource("12_tymrv")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 10, -3, 15)
 
-[node name="RedstoneFork3" parent="Level-45/Gameplay/Room2/RedstoneDoor/Button" instance=ExtResource("12_tymrv")]
+[node name="RedstoneFork3" parent="Level-45/Gameplay/Room2/RedstoneDoor2/Button" instance=ExtResource("12_tymrv")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9.99999, -3, 17)
 
-[node name="RedstoneFork4" parent="Level-45/Gameplay/Room2/RedstoneDoor/Button" instance=ExtResource("12_tymrv")]
+[node name="RedstoneFork4" parent="Level-45/Gameplay/Room2/RedstoneDoor2/Button" instance=ExtResource("12_tymrv")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.99999, -3, 17)
 
-[node name="RedstoneFork5" parent="Level-45/Gameplay/Room2/RedstoneDoor/Button" instance=ExtResource("12_tymrv")]
+[node name="RedstoneFork5" parent="Level-45/Gameplay/Room2/RedstoneDoor2/Button" instance=ExtResource("12_tymrv")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.99999, -3, 22)
 
-[node name="RedstonePart15" parent="Level-45/Gameplay/Room2/RedstoneDoor/Button" instance=ExtResource("11_2db22")]
+[node name="RedstonePart15" parent="Level-45/Gameplay/Room2/RedstoneDoor2/Button" instance=ExtResource("11_2db22")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 10, -3, 16.5)
 
-[node name="RedstonePart16" parent="Level-45/Gameplay/Room2/RedstoneDoor/Button" instance=ExtResource("11_2db22")]
+[node name="RedstonePart16" parent="Level-45/Gameplay/Room2/RedstoneDoor2/Button" instance=ExtResource("11_2db22")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 10, -3, 15.5)
 
 [node name="Room3" type="Node3D" parent="Level-45/Gameplay"]
@@ -1086,7 +1087,7 @@ meshes = [NodePath("Terminal"), NodePath("TerminalSupport")]
 
 [node name="TerminalSupport" parent="Level-45/Gameplay/Terminal" instance=ExtResource("14_ep0lj")]
 transform = Transform3D(0.57, 0, 0, 0, 0.57, 0, 0, 0, 0.57, 0, -1.4, 0)
-surface_material_override/0 = SubResource("ShaderMaterial_edytr")
+surface_material_override/0 = SubResource("ShaderMaterial_ixtal")
 
 [node name="DefaultRobot" parent="Level-45/Gameplay" instance=ExtResource("2_g4ply")]
 transform = Transform3D(-0.0205583, 0, -0.999788, 0, 1, 0, 0.999788, 0, -0.0205583, 17.1921, 0.0352378, 1.88805)
@@ -1099,7 +1100,7 @@ meshes = [NodePath("Terminal"), NodePath("TerminalSupport")]
 
 [node name="TerminalSupport" parent="Level-45/Gameplay/Terminal2" instance=ExtResource("14_ep0lj")]
 transform = Transform3D(0.57, 0, 0, 0, 0.57, 0, 0, 0, 0.57, 0, -1.4, 0)
-surface_material_override/0 = SubResource("ShaderMaterial_igxb6")
+surface_material_override/0 = SubResource("ShaderMaterial_usgu7")
 
 [node name="FlyingRobot" parent="Level-45/Gameplay" instance=ExtResource("9_34grp")]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 18.7293, 0.0851021, 4.49239)
@@ -1112,7 +1113,7 @@ meshes = [NodePath("Terminal"), NodePath("TerminalSupport")]
 
 [node name="TerminalSupport" parent="Level-45/Gameplay/Terminal3" instance=ExtResource("14_ep0lj")]
 transform = Transform3D(0.57, 0, -5.96046e-08, 0, 0.57, 0, 5.96046e-08, 0, 0.57, 0, -1.42773, 0)
-surface_material_override/0 = SubResource("ShaderMaterial_b8nok")
+surface_material_override/0 = SubResource("ShaderMaterial_0xsgo")
 
 [node name="BigRobot" parent="Level-45/Gameplay" instance=ExtResource("4_xifp1")]
 transform = Transform3D(0.82113, -9.62286e-05, 0.570742, 0.000121418, 1, -6.09705e-06, -0.570742, 7.42973e-05, 0.82113, 27.2453, -3.05435, 23.6073)

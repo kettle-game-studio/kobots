@@ -1,8 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://b17b8rktp6prg"]
 
-[ext_resource type="PackedScene" uid="uid://dj5wi5orrjpq" path="res://assets/models/Trash/Tube broken 2 .glb" id="1_ei6ok"]
+[ext_resource type="PackedScene" uid="uid://dj5wi5orrjpq" path="res://assets/models/Trash/Tube broken 2 .glb" id="1_xsj1r"]
 
 [node name="ube_broken2" type="Node3D"]
 
-[node name="Tube broken 2 " parent="." instance=ExtResource("1_ei6ok")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.09943, 0.0527726, 0)
+[node name="Tube broken 2 " parent="." instance=ExtResource("1_xsj1r")]

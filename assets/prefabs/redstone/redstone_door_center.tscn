@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://qtxt8sygj1p0"]
+[gd_scene load_steps=11 format=3 uid="uid://dd3fmlwvcdmsc"]
 
 [ext_resource type="Script" path="res://assets/scripts/redstone/activators/redstone_door.gd" id="1_v65ye"]
 [ext_resource type="PackedScene" uid="uid://ddqcbeaw3a5sr" path="res://assets/prefabs/wall_tiles/wall_001.tscn" id="2_py5xx"]
@@ -50,9 +50,8 @@ _data = {
 "opening": SubResource("Animation_pais8")
 }
 
-[node name="RedstoneDoor" type="Node3D" node_paths=PackedStringArray("mesh")]
+[node name="RedstoneDoor" type="Node3D"]
 script = ExtResource("1_v65ye")
-mesh = NodePath("RedstoneFork")
 seconds_to_open = 10.0
 
 [node name="Door" type="Node3D" parent="."]
