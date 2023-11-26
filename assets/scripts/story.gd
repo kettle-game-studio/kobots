@@ -29,13 +29,14 @@ func _ready():
 	cut_scenes.play("level_start", -1, 0)
 
 func start_the_game():
-	if Performance.get_monitor(Performance.TIME_FPS) < 20:
-		await get_tree().create_timer(3).timeout
-	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	start_button.visible = false
 	start_button.disabled = true
 	disable_story = true
+	
+	if Performance.get_monitor(Performance.TIME_FPS) < 20:
+		await get_tree().create_timer(3).timeout
+	
 	timer_start = Time.get_ticks_msec()
 	cut_scenes.play("level_start", -1, animation_speed)
 

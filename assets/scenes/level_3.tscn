@@ -25,12 +25,12 @@
 [ext_resource type="PackedScene" uid="uid://ylmrlk8aoenp" path="res://assets/prefabs/wall_tiles/wall_u.tscn" id="17_vabva"]
 [ext_resource type="PackedScene" uid="uid://cymi34sde2qul" path="res://assets/prefabs/redstone/redstone_line.tscn" id="18_47k6c"]
 [ext_resource type="PackedScene" uid="uid://boi804u47wxvk" path="res://assets/models/Tiles/tile_f.tscn" id="18_fbex6"]
-[ext_resource type="PackedScene" uid="uid://dqtuges5cbqp7" path="res://assets/models/Tiles/double_tile.tscn" id="18_n2awu"]
+[ext_resource type="PackedScene" path="res://assets/models/Tiles/double_tile.tscn" id="18_n2awu"]
 [ext_resource type="PackedScene" uid="uid://b4f1kyjbidpwb" path="res://assets/prefabs/wall_tiles/glass.tscn" id="18_swrhl"]
 [ext_resource type="PackedScene" uid="uid://dylxy5ljwi5bj" path="res://assets/models/Tiles/pandus.tscn" id="19_xj66e"]
-[ext_resource type="PackedScene" uid="uid://bx6tv8nju3n74" path="res://assets/models/Tiles/tile_a.tscn" id="27_u8ywb"]
-[ext_resource type="PackedScene" uid="uid://3n2j1rk3psn4" path="res://assets/models/Tiles/tile_b.tscn" id="28_x75hy"]
-[ext_resource type="PackedScene" uid="uid://dnqcp3nk4p3yv" path="res://assets/models/Tiles/tile_f_a.tscn" id="31_4ja4a"]
+[ext_resource type="PackedScene" path="res://assets/models/Tiles/tile_a.tscn" id="27_u8ywb"]
+[ext_resource type="PackedScene" path="res://assets/models/Tiles/tile_b.tscn" id="28_x75hy"]
+[ext_resource type="PackedScene" path="res://assets/models/Tiles/tile_f_a.tscn" id="31_4ja4a"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_l1iiy"]
 size = Vector2(0.1, 1)

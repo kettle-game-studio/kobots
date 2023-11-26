@@ -27,6 +27,8 @@ enum State { ENABLED, DISABLED, CONTROLLED_BY_OTHER }
 @export var clamp_angle_up: float = 180
 @export var clamp_angle_down: float = 180
 
+@export var standing_detector: ShapeCast3D
+
 @onready var distortion = AudioServer.get_bus_effect(AudioServer.get_bus_index("Master"), 0) as AudioEffectDistortion
 
 var other: Object = null
@@ -102,22 +104,13 @@ func rotate_camera(vector: Vector2):
 
 func walk(delta: float):
 	if !enabled:
-		if !flight:
-			var y_velocity = player.velocity.y - 9.8 * delta
-			player.velocity = y_velocity * Vector3.UP
-		else:
-			player.velocity = Vector3.ZERO
-			
+		player.velocity.y = gravity(delta)
 		player.move_and_slide()
 		return
 
 	var aim = player.get_global_transform().basis
 	
-	var y_velocity = 0
-	if flight:
-		y_velocity = Input.get_axis("Descend", "Fly") * flight_speed
-	else:
-		y_velocity = player.velocity.y - 9.8 * delta
+	var y_velocity = gravity(delta)
 	
 	var forward = Input.get_axis("Down", "Up") * -aim.z
 	var right = Input.get_axis("Left", "Right") * aim.x
@@ -130,6 +123,18 @@ func walk(delta: float):
 	player.velocity = direction * walk_speed
 	player.velocity.y = y_velocity
 	player.move_and_slide()
+
+func gravity(delta: float) -> float:
+	if standing_detector:
+		for i in standing_detector.get_collision_count():
+			var collider = standing_detector.get_collider(i)
+			if collider is RobotController:
+				return player.velocity.y - (9.8 / 2.0) * delta
+	
+	if flight:
+		return Input.get_axis("Descend", "Fly") * flight_speed
+	
+	return player.velocity.y - 9.8 * delta
 
 func _process(delta):
 	if self.rotating_timer <= 0:
