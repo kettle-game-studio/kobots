@@ -1,11 +1,8 @@
-[gd_scene load_steps=44 format=3 uid="uid://ce3ogijj3rluu"]
+[gd_scene load_steps=33 format=3 uid="uid://ce3ogijj3rluu"]
 
 [ext_resource type="Script" path="res://assets/scripts/level.gd" id="1_c48id"]
 [ext_resource type="PackedScene" uid="uid://cv03cxb8jcsy8" path="res://assets/prefabs/terminal.tscn" id="1_upji4"]
 [ext_resource type="PackedScene" uid="uid://dmtm7k1fhpmkj" path="res://assets/prefabs/robot_bobot.tscn" id="2_ur8q7"]
-[ext_resource type="PackedScene" uid="uid://pc3k2vyryge5" path="res://assets/prefabs/button.tscn" id="3_5761q"]
-[ext_resource type="PackedScene" uid="uid://b06ku0w7nydkk" path="res://assets/prefabs/power_line.tscn" id="4_4u7fy"]
-[ext_resource type="PackedScene" uid="uid://dcjw51pfs7v86" path="res://assets/prefabs/door.tscn" id="5_xim5q"]
 [ext_resource type="PackedScene" uid="uid://cbnmfkaxsw4ki" path="res://assets/prefabs/box.tscn" id="6_88pkb"]
 [ext_resource type="PackedScene" uid="uid://cymi34sde2qul" path="res://assets/prefabs/redstone/redstone_line.tscn" id="8_88igf"]
 [ext_resource type="PackedScene" uid="uid://d4gr0i368k4c8" path="res://assets/prefabs/redstone/redstone_door.tscn" id="8_stxqw"]
@@ -46,7 +43,7 @@ size = Vector3(50, 6, 2)
 [sub_resource type="BoxShape3D" id="BoxShape3D_pgv31"]
 size = Vector3(50, 1, 50)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_blakg"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k7ujo"]
 render_priority = 0
 shader = ExtResource("13_64orm")
 shader_parameter/color = Color(1, 1, 1, 1)
@@ -61,7 +58,7 @@ shader_parameter/base_texture = ExtResource("15_p530e")
 shader_parameter/add_texture = ExtResource("14_ctyoo")
 shader_parameter/emission_texture = ExtResource("16_07an1")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_jp4tl"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g3thr"]
 render_priority = 0
 shader = ExtResource("13_64orm")
 shader_parameter/color = Color(0.886275, 0.403922, 0, 1)
@@ -75,29 +72,6 @@ shader_parameter/emission_period = 1.0
 shader_parameter/base_texture = ExtResource("15_p530e")
 shader_parameter/add_texture = ExtResource("14_ctyoo")
 shader_parameter/emission_texture = ExtResource("16_07an1")
-
-[sub_resource type="QuadMesh" id="QuadMesh_l1iiy"]
-size = Vector2(0.1, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kbvu8"]
-
-[sub_resource type="QuadMesh" id="QuadMesh_3xc1g"]
-size = Vector2(0.1, 3)
-
-[sub_resource type="QuadMesh" id="QuadMesh_augpf"]
-size = Vector2(0.1, 20)
-
-[sub_resource type="QuadMesh" id="QuadMesh_y3flv"]
-size = Vector2(0.1, 1.7)
-
-[sub_resource type="QuadMesh" id="QuadMesh_rbb1c"]
-size = Vector2(0.1, 6.6)
-
-[sub_resource type="QuadMesh" id="QuadMesh_n74nw"]
-size = Vector2(0.1, 20)
-
-[sub_resource type="QuadMesh" id="QuadMesh_mlcyx"]
-size = Vector2(0.1, 3)
 
 [node name="Level1" type="Node3D"]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 0, 0)
@@ -658,13 +632,13 @@ transform = Transform3D(3.09086e-08, -0.707107, -0.707107, -1, -4.37114e-08, 0, 
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -9.917, 1.5, 12.083)
 
 [node name="Terminal" parent="Gameplay" node_paths=PackedStringArray("robot", "meshes") instance=ExtResource("1_upji4")]
-transform = Transform3D(-0.463889, 0, -0.524221, 0, 0.7, 0, 0.524221, 0, -0.463889, 5.959, 14.378, 5.097)
+transform = Transform3D(-0.463889, 0, -0.524221, 0, 0.7, 0, 0.524221, 0, -0.463889, 5.34678, 14.378, 4.48478)
 robot = NodePath("../DefaultRobot")
 meshes = [NodePath("Terminal"), NodePath("TerminalSupport")]
 
 [node name="TerminalSupport" parent="Gameplay/Terminal" instance=ExtResource("12_qjm5p")]
 transform = Transform3D(-0.377738, 0, 0.426865, 0, 0.57, 0, -0.426865, 0, -0.377738, 0, -1.4, 0)
-surface_material_override/0 = SubResource("ShaderMaterial_blakg")
+surface_material_override/0 = SubResource("ShaderMaterial_k7ujo")
 
 [node name="DefaultRobot" parent="Gameplay" instance=ExtResource("2_ur8q7")]
 transform = Transform3D(-0.999119, 0, -0.0419628, 0, 1, 0, 0.0419628, 0, -0.999119, 36, 0, 2)
@@ -677,79 +651,10 @@ meshes = [NodePath("Terminal"), NodePath("TerminalSupport")]
 
 [node name="TerminalSupport" parent="Gameplay/Terminal2" instance=ExtResource("12_qjm5p")]
 transform = Transform3D(0.57, 0, 8.9407e-08, 0, 0.57, 0, -8.9407e-08, 0, 0.57, 0, -1.3, 0)
-surface_material_override/0 = SubResource("ShaderMaterial_jp4tl")
+surface_material_override/0 = SubResource("ShaderMaterial_g3thr")
 
 [node name="DefaultRobot2" parent="Gameplay" instance=ExtResource("2_ur8q7")]
 transform = Transform3D(0.0366611, 0, -0.999328, 0, 1, 0, 0.999328, 0, 0.0366611, 10.02, 0, 30.534)
-
-[node name="ControlRoom" type="Node3D" parent="Gameplay"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0592974, 0)
-
-[node name="Door" parent="Gameplay/ControlRoom" instance=ExtResource("5_xim5q")]
-transform = Transform3D(-4.37114e-08, 0, -0.999999, 0, 1, 0, 0.999999, 0, -4.37114e-08, 0.121644, 13.3394, 4.83503)
-required_signals = 2
-
-[node name="Button" parent="Gameplay/ControlRoom" instance=ExtResource("3_5761q")]
-transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 14.1085, 0.076628, 10.3727)
-
-[node name="PowerLine" parent="Gameplay/ControlRoom" instance=ExtResource("4_4u7fy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.0987, 0.076628, 11.8457)
-
-[node name="Line1" type="CSGMesh3D" parent="Gameplay/ControlRoom/PowerLine"]
-transform = Transform3D(0.707107, -0.707107, -3.09086e-08, 0, -4.37114e-08, 1, -0.707107, -0.707107, -3.09086e-08, -15.1064, -0.0623998, -2.53599)
-mesh = SubResource("QuadMesh_l1iiy")
-material = SubResource("StandardMaterial3D_kbvu8")
-
-[node name="Line2" type="CSGMesh3D" parent="Gameplay/ControlRoom/PowerLine"]
-transform = Transform3D(0.707107, 0.000592291, 0.707107, 0, 1, -0.000837684, -0.707107, 0.000592291, 0.707107, -15.2885, 1.39853, -2.7285)
-mesh = SubResource("QuadMesh_3xc1g")
-material = SubResource("StandardMaterial3D_kbvu8")
-
-[node name="Line3" type="CSGMesh3D" parent="Gameplay/ControlRoom/PowerLine"]
-transform = Transform3D(0.441146, 0.000592291, 0.897435, 0.000270256, 0.999999, -0.000792887, -0.897435, 0.000592291, 0.441145, -19.4333, 3.25056, -6.86313)
-mesh = SubResource("QuadMesh_augpf")
-material = SubResource("StandardMaterial3D_kbvu8")
-
-[node name="Line4" type="CSGMesh3D" parent="Gameplay/ControlRoom/PowerLine"]
-transform = Transform3D(0.707107, -0.707107, -3.09086e-08, 0, -4.37114e-08, 1, -0.707107, -0.707107, -3.09086e-08, -20.086, 13.2978, -7.4798)
-mesh = SubResource("QuadMesh_y3flv")
-material = SubResource("StandardMaterial3D_kbvu8")
-
-[node name="Line5" type="CSGMesh3D" parent="Gameplay/ControlRoom/PowerLine"]
-transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, -23.9659, 13.2978, -8.07364)
-mesh = SubResource("QuadMesh_rbb1c")
-material = SubResource("StandardMaterial3D_kbvu8")
-
-[node name="Button2" parent="Gameplay/ControlRoom" instance=ExtResource("3_5761q")]
-transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 11.0909, 0.076628, 13.3903)
-
-[node name="PowerLine2" parent="Gameplay/ControlRoom" instance=ExtResource("4_4u7fy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.0269, 0.076628, 14.8319)
-
-[node name="Line1" type="CSGMesh3D" parent="Gameplay/ControlRoom/PowerLine2"]
-transform = Transform3D(0.707107, -0.707107, -3.09086e-08, 0, -4.37114e-08, 1, -0.707107, -0.707107, -3.09086e-08, -15.0769, -0.0582883, -2.50192)
-mesh = SubResource("QuadMesh_l1iiy")
-material = SubResource("StandardMaterial3D_kbvu8")
-
-[node name="Line2" type="CSGMesh3D" parent="Gameplay/ControlRoom/PowerLine2"]
-transform = Transform3D(0.707107, 0.000592291, 0.707107, 0, 1, -0.000837684, -0.707107, 0.000592291, 0.707107, -15.2858, 1.39852, -2.71651)
-mesh = SubResource("QuadMesh_3xc1g")
-material = SubResource("StandardMaterial3D_kbvu8")
-
-[node name="Line3" type="CSGMesh3D" parent="Gameplay/ControlRoom/PowerLine2"]
-transform = Transform3D(0.825527, 0.000592291, 0.564362, -0.000154686, 1, -0.000823277, -0.564362, 0.000592291, 0.825527, -19.2446, 3.31074, -6.6757)
-mesh = SubResource("QuadMesh_n74nw")
-material = SubResource("StandardMaterial3D_kbvu8")
-
-[node name="Line4" type="CSGMesh3D" parent="Gameplay/ControlRoom/PowerLine2"]
-transform = Transform3D(0.707107, -0.707107, -3.09086e-08, 0, -4.37114e-08, 1, -0.707107, -0.707107, -3.09086e-08, -20.3217, 13.2978, -7.74674)
-mesh = SubResource("QuadMesh_mlcyx")
-material = SubResource("StandardMaterial3D_kbvu8")
-
-[node name="Line5" type="CSGMesh3D" parent="Gameplay/ControlRoom/PowerLine2"]
-transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, -22.8307, 13.2978, -8.75255)
-mesh = SubResource("QuadMesh_mlcyx")
-material = SubResource("StandardMaterial3D_kbvu8")
 
 [node name="Floor" type="Node3D" parent="."]
 transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, 0, 0, 0)
@@ -2577,11 +2482,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 33)
 
 [connection signal="enter" from="Gameplay/Terminal" to="." method="on_enter"]
 [connection signal="exit" from="Gameplay/Terminal" to="." method="on_exit"]
-[connection signal="pressed" from="Gameplay/ControlRoom/Button" to="Gameplay/ControlRoom/Door" method="_on_signal_activated"]
-[connection signal="pressed" from="Gameplay/ControlRoom/Button" to="Gameplay/ControlRoom/PowerLine" method="on_powered"]
-[connection signal="unpressed" from="Gameplay/ControlRoom/Button" to="Gameplay/ControlRoom/Door" method="_on_signal_disactivated"]
-[connection signal="unpressed" from="Gameplay/ControlRoom/Button" to="Gameplay/ControlRoom/PowerLine" method="on_unpowered"]
-[connection signal="pressed" from="Gameplay/ControlRoom/Button2" to="Gameplay/ControlRoom/Door" method="_on_signal_activated"]
-[connection signal="pressed" from="Gameplay/ControlRoom/Button2" to="Gameplay/ControlRoom/PowerLine2" method="on_powered"]
-[connection signal="unpressed" from="Gameplay/ControlRoom/Button2" to="Gameplay/ControlRoom/Door" method="_on_signal_disactivated"]
-[connection signal="unpressed" from="Gameplay/ControlRoom/Button2" to="Gameplay/ControlRoom/PowerLine2" method="on_unpowered"]
