@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cv03cxb8jcsy8"]
+[gd_scene load_steps=14 format=3 uid="uid://cv03cxb8jcsy8"]
 
 [ext_resource type="Script" path="res://assets/scripts/terminal/terminal.gd" id="1_dieug"]
 [ext_resource type="Material" uid="uid://b68bqg0w8xtvc" path="res://assets/materials/terminal.tres" id="2_k2ssm"]
@@ -9,11 +9,20 @@
 [ext_resource type="Texture2D" uid="uid://j0db2i3vjjos" path="res://assets/models/terminal3/TerminalLight.png" id="7_gc7ek"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8ayh5"]
-size = Vector3(1, 1.22594, 0.389785)
+size = Vector3(1.51968, 0.912383, 0.108251)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n5vo0"]
+size = Vector3(1.87108, 1.0054, 0.56867)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1l61o"]
+size = Vector3(1.87108, 0.108039, 0.56867)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yeley"]
+size = Vector3(0.231091, 1, 0.499272)
 
 [sub_resource type="QuadMesh" id="QuadMesh_gvps2"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_qhrmp"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2kc7v"]
 render_priority = 0
 shader = ExtResource("3_o01tv")
 shader_parameter/color = Color(1, 1, 1, 1)
@@ -35,12 +44,30 @@ color = Color(1, 1, 1, 1)
 meshes = [NodePath("Terminal")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.493368, 0.0993892)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00578809, 0.569843, 0.0579663)
 shape = SubResource("BoxShape3D_8ayh5")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.533548, -0.172058)
-size = Vector3(1.56575, 0.972775, 0.547482)
+[node name="Border" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Border"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.555973, -0.27942)
+shape = SubResource("BoxShape3D_n5vo0")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Border"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.112189, 0.220979)
+shape = SubResource("BoxShape3D_1l61o")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="Border"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.09472, 0.220979)
+shape = SubResource("BoxShape3D_1l61o")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Border"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.871132, 0.555973, 0.253852)
+shape = SubResource("BoxShape3D_yeley")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Border"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.871, 0.555973, 0.254)
+shape = SubResource("BoxShape3D_yeley")
 
 [node name="Screen" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.778, -8.7687e-10, 3.31907e-08, 4.35975e-09, 0.991014, 0.133756, 3.5187e-08, -0.133756, 0.991014, 1.01171e-09, 0.630139, 0.372404)
@@ -50,4 +77,4 @@ surface_material_override/0 = ExtResource("2_k2ssm")
 
 [node name="Terminal" parent="." instance=ExtResource("3_1u1sk")]
 transform = Transform3D(-2.53526e-08, 0, -0.745, 0, 0.58, 0, 0.58, 0, -3.2565e-08, 0, 0, 0)
-surface_material_override/0 = SubResource("ShaderMaterial_qhrmp")
+surface_material_override/0 = SubResource("ShaderMaterial_2kc7v")
