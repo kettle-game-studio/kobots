@@ -16,7 +16,7 @@ var disable_story: bool = false
 @export var level_4: Node3D
 @export var root: Node
 
-@export var start_button: Button
+@export var start_button: RichTextLabel
 @export var speedrun_data: RichTextLabel
 
 @export var cam: Camera3D
@@ -32,7 +32,8 @@ func _ready():
 func start_the_game():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	start_button.visible = false
-	start_button.disabled = true
+	speedrun_data.visible = false
+	# start_button.disabled = true
 	disable_story = true
 	
 	if Performance.get_monitor(Performance.TIME_FPS) < 20:
@@ -43,6 +44,10 @@ func start_the_game():
 
 func _process(delta):
 	fps_text.text = "[right]%d fps[/right]" % Performance.get_monitor(Performance.TIME_FPS)
+	
+	if start_button.visible && Input.is_action_just_pressed("EnterRobot"):
+		start_the_game()
+		return
 	
 	if disable_story:
 		return
