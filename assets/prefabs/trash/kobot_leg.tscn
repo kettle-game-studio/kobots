@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dddnoi7d8vgm"]
+
+[ext_resource type="PackedScene" uid="uid://bh6yr42vhlyd8" path="res://assets/models/Trash/Kobot leg.glb" id="1_vdnmq"]
+
+[node name="kobot_leg" type="Node3D"]
+
+[node name="Kobot leg" parent="." instance=ExtResource("1_vdnmq")]
+transform = Transform3D(0.988393, -0.151916, 0, 0.151916, 0.988393, 0, 0, 0, 1, 0.0658791, 0.0239561, 0)
