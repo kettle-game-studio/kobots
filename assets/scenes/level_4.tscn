@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://assets/scripts/level.gd" id="1_mllil"]
 [ext_resource type="PackedScene" uid="uid://dguc6wibu6e40" path="res://assets/prefabs/laser_emitter.tscn" id="1_v4vyf"]
-[ext_resource type="PackedScene" uid="uid://bx6tv8nju3n74" path="res://assets/models/Tiles/tile_a.tscn" id="6_3cvu6"]
-[ext_resource type="PackedScene" uid="uid://b1ga13wjq3vv0" path="res://assets/models/Tiles/tile_c.tscn" id="7_2ul3j"]
-[ext_resource type="PackedScene" uid="uid://3n2j1rk3psn4" path="res://assets/models/Tiles/tile_b.tscn" id="7_nudwh"]
+[ext_resource type="PackedScene" path="res://assets/models/Tiles/tile_a.tscn" id="6_3cvu6"]
+[ext_resource type="PackedScene" path="res://assets/models/Tiles/tile_c.tscn" id="7_2ul3j"]
+[ext_resource type="PackedScene" path="res://assets/models/Tiles/tile_b.tscn" id="7_nudwh"]
 [ext_resource type="PackedScene" uid="uid://clsmympynopjt" path="res://assets/models/Tiles/tile_l.tscn" id="9_0chib"]
 [ext_resource type="PackedScene" uid="uid://bibke4m7obh01" path="res://assets/prefabs/robot_crabot.tscn" id="10_kjfhd"]
 [ext_resource type="PackedScene" uid="uid://dx26nnkcx5cks" path="res://assets/models/Tiles/tile_lf.tscn" id="10_y3u4e"]
