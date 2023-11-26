@@ -1,8 +1,6 @@
-[gd_scene load_steps=44 format=3 uid="uid://55hndo303vxn"]
+[gd_scene load_steps=40 format=3 uid="uid://55hndo303vxn"]
 
 [ext_resource type="Script" path="res://assets/scripts/level.gd" id="1_bh8cb"]
-[ext_resource type="PackedScene" uid="uid://dcjw51pfs7v86" path="res://assets/prefabs/door.tscn" id="3_4rn2m"]
-[ext_resource type="PackedScene" uid="uid://d1161nw1kfdh0" path="res://assets/prefabs/laser_absorber.tscn" id="4_yulfa"]
 [ext_resource type="PackedScene" uid="uid://dguc6wibu6e40" path="res://assets/prefabs/laser_emitter.tscn" id="5_r40o2"]
 [ext_resource type="PackedScene" uid="uid://x4iemqwg43y3" path="res://assets/models/Tiles/tile_001.tscn" id="8_ackl8"]
 [ext_resource type="PackedScene" uid="uid://cv03cxb8jcsy8" path="res://assets/prefabs/terminal.tscn" id="8_x5pvj"]
@@ -36,15 +34,6 @@
 [ext_resource type="Texture2D" uid="uid://rp6pqe0v74dw" path="res://assets/models/terminal3/TerminalColor.png" id="33_n6nnp"]
 [ext_resource type="Texture2D" uid="uid://j0db2i3vjjos" path="res://assets/models/terminal3/TerminalLight.png" id="34_4h2mw"]
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_8rr8h"]
-top_radius = 10.0
-bottom_radius = 10.0
-height = 100.0
-
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_r4m0f"]
-height = 100.004
-radius = 10.0227
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_fvv8j"]
 size = Vector3(50, 1, 50)
 
@@ -60,7 +49,7 @@ size = Vector3(2, 6, 50)
 [sub_resource type="BoxShape3D" id="BoxShape3D_3spjx"]
 size = Vector3(50, 6, 2)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_2psjg"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ru3ut"]
 render_priority = 0
 shader = ExtResource("31_5lodv")
 shader_parameter/color = Color(0.890196, 0, 0.411765, 1)
@@ -80,15 +69,6 @@ script = ExtResource("1_bh8cb")
 idx = 2
 
 [node name="Center" type="Node3D" parent="."]
-
-[node name="CenterRoom" type="CSGMesh3D" parent="Center"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -36.6288, 0)
-mesh = SubResource("CylinderMesh_8rr8h")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Center/CenterRoom"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Center/CenterRoom/StaticBody3D"]
-shape = SubResource("CylinderShape3D_r4m0f")
 
 [node name="Geometry" type="Node3D" parent="."]
 
@@ -1981,24 +1961,18 @@ transform = Transform3D(-0.998214, 0, 0.0597422, 0, 1, 0, -0.0597422, 0, -0.9982
 [node name="LaserEmitter" parent="Gameplay/Room5" instance=ExtResource("5_r40o2")]
 transform = Transform3D(-0.791202, 0, 0.611555, 0, 1, 0, -0.611555, 0, -0.791202, -27.6793, 0, -27.58)
 
-[node name="LaserAbsorber" parent="Gameplay/Room5" instance=ExtResource("4_yulfa")]
-transform = Transform3D(-0.99999, 0, -0.00450317, 0, 1, 0, 0.00450317, 0, -0.99999, -15.0816, 0, 13.9211)
-
 [node name="RobotCrabot2" parent="Gameplay" instance=ExtResource("9_p5oa4")]
 transform = Transform3D(0.42832, 0, -0.903627, 0, 1, 0, 0.903627, 0, 0.42832, -32.3527, 0, -0.974623)
 
 [node name="Terminal" parent="Gameplay" node_paths=PackedStringArray("robot", "meshes") instance=ExtResource("8_x5pvj")]
-transform = Transform3D(-0.0958846, 0, 0.693402, 0, 0.7, 0, -0.693402, 0, -0.0958846, -8.745, 14.3779, 1.472)
+transform = Transform3D(-0.0958846, 0, 0.693402, 0, 0.7, 0, -0.693402, 0, -0.0958846, -7.19361, 14.3779, 1.472)
 robot = NodePath("../RobotCrabot")
 color = Color(0.890196, 0, 0.411765, 1)
 meshes = [NodePath("Terminal"), NodePath("TerminalSupport")]
 
 [node name="TerminalSupport" parent="Gameplay/Terminal" instance=ExtResource("30_tcwou")]
 transform = Transform3D(0.57, 0, 2.98023e-08, 0, 0.57, 0, -2.98023e-08, 0, 0.57, 0, -1.4, 0)
-surface_material_override/0 = SubResource("ShaderMaterial_2psjg")
-
-[node name="Door" parent="Gameplay" instance=ExtResource("3_4rn2m")]
-transform = Transform3D(-0.707106, 0, 0.707106, 0, 1, 0, -0.707106, 0, -0.707106, -3.5049, 13.3394, -3.33287)
+surface_material_override/0 = SubResource("ShaderMaterial_ru3ut")
 
 [node name="Terminal2" parent="Gameplay" node_paths=PackedStringArray("robot") instance=ExtResource("8_x5pvj")]
 transform = Transform3D(0.783165, 0, 0.163255, 0, 0.8, 0, -0.163255, 0, 0.783165, -29.2621, -0.0109391, 5.19638)
@@ -2016,7 +1990,5 @@ transform = Transform3D(-0.436425, 0, -0.899741, 0, 1, 0, 0.899741, 0, -0.436425
 [node name="RobotCrabot3" parent="Gameplay" instance=ExtResource("9_p5oa4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.1802, 0, -12.3835)
 
-[connection signal="pressed" from="Gameplay/Room5/LaserAbsorber" to="Gameplay/Door" method="_on_signal_activated"]
-[connection signal="unpressed" from="Gameplay/Room5/LaserAbsorber" to="Gameplay/Door" method="_on_signal_disactivated"]
 [connection signal="enter" from="Gameplay/Terminal" to="." method="on_enter"]
 [connection signal="exit" from="Gameplay/Terminal" to="." method="on_exit"]

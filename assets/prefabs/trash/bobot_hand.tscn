@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://oraojq1qckfi"]
+
+[ext_resource type="PackedScene" uid="uid://dvefgomoc8cpn" path="res://assets/models/Trash/Bobot hand.glb" id="1_iu5mk"]
+
+[node name="bobot_hand" type="Node3D"]
+
+[node name="Bobot hand" parent="." instance=ExtResource("1_iu5mk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.819329, -0.202801, 0.183413)
