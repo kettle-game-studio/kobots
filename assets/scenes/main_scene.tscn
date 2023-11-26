@@ -471,6 +471,7 @@ libraries = {
 }
 
 [node name="OccluderInstance3D" type="OccluderInstance3D" parent="."]
+visible = false
 occluder = ExtResource("8_ym6mh")
 bake_mask = 4294967293
 

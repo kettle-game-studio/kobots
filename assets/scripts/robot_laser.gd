@@ -13,6 +13,7 @@ func _ready():
 func enable_laser(_color: Color):
 	count += 1
 	laser.enable()
+	laser.set_color(crab.color)
 	crab.set_enable_laser(true)
 
 func disable_laser():
