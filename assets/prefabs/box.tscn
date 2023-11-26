@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cbnmfkaxsw4ki"]
+[gd_scene load_steps=6 format=3 uid="uid://cbnmfkaxsw4ki"]
 
 [ext_resource type="Script" path="res://assets/scripts/box.gd" id="1_666gi"]
 [ext_resource type="PackedScene" uid="uid://b6ks373c466i7" path="res://assets/models/Box/box.tscn" id="2_h6adt"]
+[ext_resource type="AudioStream" uid="uid://bgf0dit3n32y5" path="res://assets/sounds/box/drop_box.mp3" id="3_c3o72"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8ygcw"]
 
@@ -12,6 +13,8 @@ axis_lock_angular_x = true
 axis_lock_angular_z = true
 mass = 20.0
 physics_material_override = SubResource("PhysicsMaterial_8ygcw")
+max_contacts_reported = 1
+contact_monitor = true
 can_sleep = false
 script = ExtResource("1_666gi")
 
@@ -22,3 +25,10 @@ shape = SubResource("BoxShape3D_x7sem")
 [node name="Box" parent="." instance=ExtResource("2_h6adt")]
 transform = Transform3D(0.95, 0, 0, 0, -4.15258e-08, -0.95, 0, 0.95, -4.15258e-08, 0, 0.506349, 0)
 layers = 2
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_c3o72")
+volume_db = -10.603
+max_distance = 10.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
