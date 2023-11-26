@@ -1,10 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://qtxt8sygj1p0"]
+[gd_scene load_steps=11 format=3 uid="uid://qtxt8sygj1p0"]
 
 [ext_resource type="Script" path="res://assets/scripts/redstone/activators/redstone_door.gd" id="1_v65ye"]
 [ext_resource type="PackedScene" uid="uid://ddqcbeaw3a5sr" path="res://assets/prefabs/wall_tiles/wall_001.tscn" id="2_py5xx"]
 [ext_resource type="PackedScene" uid="uid://qmrygx7aegf3" path="res://assets/prefabs/wall_tiles/wall_002.tscn" id="3_dc0pw"]
 [ext_resource type="PackedScene" uid="uid://cy73u23py3a3o" path="res://assets/prefabs/wall_tiles/wall_003.tscn" id="4_yrg72"]
 [ext_resource type="PackedScene" uid="uid://nar6gbrbyei7" path="res://assets/models/WallTiles/redstone_fork.tscn" id="5_lc480"]
+[ext_resource type="AudioStream" uid="uid://bnmxk73hdm3it" path="res://assets/sounds/door/solved_01.mp3" id="6_xbkp3"]
+[ext_resource type="AudioStream" uid="uid://cmt46pvpon27r" path="res://assets/sounds/door/door_open.mp3" id="7_ym427"]
 
 [sub_resource type="Animation" id="Animation_u3218"]
 tracks/0/type = "value"
@@ -79,3 +81,13 @@ visible = false
 libraries = {
 "": SubResource("AnimationLibrary_h4vty")
 }
+
+[node name="SolvedSound" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.27298, 0)
+stream = ExtResource("6_xbkp3")
+max_distance = 40.0
+
+[node name="OpenSound" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.697574, 0)
+stream = ExtResource("7_ym427")
+max_distance = 50.0
