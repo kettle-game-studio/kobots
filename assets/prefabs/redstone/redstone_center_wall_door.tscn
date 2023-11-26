@@ -1,9 +1,26 @@
-[gd_scene load_steps=8 format=3 uid="uid://brom5qku1fya0"]
+[gd_scene load_steps=10 format=3 uid="uid://brom5qku1fya0"]
 
 [ext_resource type="PackedScene" uid="uid://cvef1tukyw7f0" path="res://assets/prefabs/wall_tiles/column.tscn" id="1_e0r0u"]
 [ext_resource type="Script" path="res://assets/scripts/redstone/activators/redstone_door.gd" id="1_sptgh"]
 [ext_resource type="PackedScene" uid="uid://dm0567silvlq0" path="res://assets/models/WallTiles/redstone_part.tscn" id="2_6k4e0"]
 [ext_resource type="PackedScene" uid="uid://qmrygx7aegf3" path="res://assets/prefabs/wall_tiles/wall_002.tscn" id="2_iqgdc"]
+[ext_resource type="AudioStream" uid="uid://bnmxk73hdm3it" path="res://assets/sounds/door/solved_01.mp3" id="5_hhl3i"]
+[ext_resource type="AudioStream" uid="uid://cmt46pvpon27r" path="res://assets/sounds/door/door_open.mp3" id="6_v80eu"]
+
+[sub_resource type="Animation" id="Animation_yhnkk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Walls:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_ne0fv"]
 resource_name = "opening"
@@ -27,21 +44,6 @@ tracks/1/keys = {
 "values": [Vector3(0, 0, 0), Vector3(0, -2.9, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_yhnkk"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Walls:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_44avo"]
 _data = {
 "RESET": SubResource("Animation_yhnkk"),
@@ -49,7 +51,6 @@ _data = {
 }
 
 [node name="Wall1" type="Node3D" node_paths=PackedStringArray("mesh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 script = ExtResource("1_sptgh")
 mesh = NodePath("RedstonePart")
 color = Color(1, 1, 1, 1)
@@ -76,3 +77,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
 libraries = {
 "": SubResource("AnimationLibrary_44avo")
 }
+
+[node name="SolvedSound" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.27298, 0)
+stream = ExtResource("5_hhl3i")
+max_distance = 40.0
+
+[node name="OpenSound" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.697574, 0)
+stream = ExtResource("6_v80eu")
+max_distance = 50.0
