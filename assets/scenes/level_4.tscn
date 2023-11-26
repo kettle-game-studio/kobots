@@ -1,10 +1,10 @@
-[gd_scene load_steps=54 format=3 uid="uid://bbu45o3pef4kc"]
+[gd_scene load_steps=62 format=3 uid="uid://bbu45o3pef4kc"]
 
 [ext_resource type="Script" path="res://assets/scripts/level.gd" id="1_mllil"]
 [ext_resource type="PackedScene" uid="uid://dguc6wibu6e40" path="res://assets/prefabs/laser_emitter.tscn" id="1_v4vyf"]
-[ext_resource type="PackedScene" path="res://assets/models/Tiles/tile_a.tscn" id="6_3cvu6"]
-[ext_resource type="PackedScene" path="res://assets/models/Tiles/tile_c.tscn" id="7_2ul3j"]
-[ext_resource type="PackedScene" path="res://assets/models/Tiles/tile_b.tscn" id="7_nudwh"]
+[ext_resource type="PackedScene" uid="uid://bx6tv8nju3n74" path="res://assets/models/Tiles/tile_a.tscn" id="6_3cvu6"]
+[ext_resource type="PackedScene" uid="uid://b1ga13wjq3vv0" path="res://assets/models/Tiles/tile_c.tscn" id="7_2ul3j"]
+[ext_resource type="PackedScene" uid="uid://3n2j1rk3psn4" path="res://assets/models/Tiles/tile_b.tscn" id="7_nudwh"]
 [ext_resource type="PackedScene" uid="uid://clsmympynopjt" path="res://assets/models/Tiles/tile_l.tscn" id="9_0chib"]
 [ext_resource type="PackedScene" uid="uid://bibke4m7obh01" path="res://assets/prefabs/robot_crabot.tscn" id="10_kjfhd"]
 [ext_resource type="PackedScene" uid="uid://dx26nnkcx5cks" path="res://assets/models/Tiles/tile_lf.tscn" id="10_y3u4e"]
@@ -38,6 +38,11 @@
 [ext_resource type="PackedScene" uid="uid://ylmrlk8aoenp" path="res://assets/prefabs/wall_tiles/wall_u.tscn" id="24_rljwc"]
 [ext_resource type="PackedScene" uid="uid://bj10htm6tt643" path="res://assets/prefabs/wall_tiles/wall_u_l.tscn" id="25_rjqlg"]
 [ext_resource type="PackedScene" uid="uid://cbnmfkaxsw4ki" path="res://assets/prefabs/box.tscn" id="31_3ppbq"]
+[ext_resource type="PackedScene" uid="uid://begfkckaxhtx0" path="res://assets/models/terminal3/terminal_support.tscn" id="36_g1t5f"]
+[ext_resource type="Shader" path="res://assets/scripts/robots/robot.gdshader" id="37_twu0l"]
+[ext_resource type="Texture2D" uid="uid://ctycibd7ej4y" path="res://assets/models/terminal3/TerminalAdd.png" id="38_nmapc"]
+[ext_resource type="Texture2D" uid="uid://rp6pqe0v74dw" path="res://assets/models/terminal3/TerminalColor.png" id="39_e515u"]
+[ext_resource type="Texture2D" uid="uid://j0db2i3vjjos" path="res://assets/models/terminal3/TerminalLight.png" id="40_cr5fw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_twxm2"]
 size = Vector3(50, 1, 50)
@@ -80,6 +85,51 @@ size = Vector3(29, 3, 6)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b7sl6"]
 size = Vector3(8, 3, 44)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4rna8"]
+render_priority = 0
+shader = ExtResource("37_twu0l")
+shader_parameter/color = Color(0, 0, 1, 1)
+shader_parameter/enable = true
+shader_parameter/emission_k = 1.0
+shader_parameter/specular = 1.0
+shader_parameter/roughness = 0.3
+shader_parameter/emission_blink = false
+shader_parameter/emission_amplitude = 0.1
+shader_parameter/emission_period = 1.0
+shader_parameter/base_texture = ExtResource("39_e515u")
+shader_parameter/add_texture = ExtResource("38_nmapc")
+shader_parameter/emission_texture = ExtResource("40_cr5fw")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3b65l"]
+render_priority = 0
+shader = ExtResource("37_twu0l")
+shader_parameter/color = Color(0.886275, 0.403922, 0, 1)
+shader_parameter/enable = true
+shader_parameter/emission_k = 1.0
+shader_parameter/specular = 1.0
+shader_parameter/roughness = 0.3
+shader_parameter/emission_blink = false
+shader_parameter/emission_amplitude = 0.1
+shader_parameter/emission_period = 1.0
+shader_parameter/base_texture = ExtResource("39_e515u")
+shader_parameter/add_texture = ExtResource("38_nmapc")
+shader_parameter/emission_texture = ExtResource("40_cr5fw")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cydor"]
+render_priority = 0
+shader = ExtResource("37_twu0l")
+shader_parameter/color = Color(1, 1, 0, 1)
+shader_parameter/enable = true
+shader_parameter/emission_k = 1.0
+shader_parameter/specular = 1.0
+shader_parameter/roughness = 0.3
+shader_parameter/emission_blink = false
+shader_parameter/emission_amplitude = 0.1
+shader_parameter/emission_period = 1.0
+shader_parameter/base_texture = ExtResource("39_e515u")
+shader_parameter/add_texture = ExtResource("38_nmapc")
+shader_parameter/emission_texture = ExtResource("40_cr5fw")
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_ostqh"]
 top_radius = 10.0
@@ -2010,30 +2060,45 @@ transform = Transform3D(0.707108, 0, 0.707108, 0, 1, 0, -0.707108, 0, 0.707108, 
 transform = Transform3D(-0.703928, 0, 0.710271, 0, 1, 0, -0.710271, 0, -0.703928, 30.6209, 0.00246418, -22.812)
 
 [node name="CrabotTerminal" parent="Gameplay" node_paths=PackedStringArray("robot") instance=ExtResource("11_yr2dp")]
-transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 30.2848, 0.5, -2.9168)
+transform = Transform3D(-3.93403e-08, 0, -0.9, 0, 0.9, 0, 0.9, 0, -3.93403e-08, 30.5201, 1.30522, -2.9168)
 robot = NodePath("../RobotCrabot")
 color = Color(1, 0, 1, 1)
 
 [node name="BigRobot" parent="Gameplay" instance=ExtResource("12_6wpo7")]
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 25.6297, -2.96101, 0.346057)
 
-[node name="BigRobotTerminal" parent="Gameplay" node_paths=PackedStringArray("robot") instance=ExtResource("11_yr2dp")]
-transform = Transform3D(0.0980171, 0, -0.995184, 0, 1, 0, 0.995184, 0, 0.0980171, 8.67627, 13.3756, -0.643878)
+[node name="BigRobotTerminal" parent="Gameplay" node_paths=PackedStringArray("robot", "meshes") instance=ExtResource("11_yr2dp")]
+transform = Transform3D(0.068612, 0, -0.696629, 0, 0.7, 0, 0.696629, 0, 0.068612, 8.676, 14.378, -0.644)
 robot = NodePath("../BigRobot")
 color = Color(0, 0, 1, 1)
+meshes = [NodePath("Terminal"), NodePath("TerminalSupport")]
+
+[node name="TerminalSupport" parent="Gameplay/BigRobotTerminal" instance=ExtResource("36_g1t5f")]
+transform = Transform3D(0.57, 0, 0, 0, 0.57, 0, 0, 0, 0.57, 0, -1.4, 0)
+surface_material_override/0 = SubResource("ShaderMaterial_4rna8")
 
 [node name="BobotRobot" parent="Gameplay" instance=ExtResource("13_ajk82")]
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 25.8407, 0, 0.477439)
 
-[node name="BobotTerminal" parent="Gameplay" node_paths=PackedStringArray("robot") instance=ExtResource("11_yr2dp")]
-transform = Transform3D(-0.220714, 0, -0.975339, 0, 1, 0, 0.975339, 0, -0.220714, 8.43412, 13.3756, 2.10431)
+[node name="BobotTerminal" parent="Gameplay" node_paths=PackedStringArray("robot", "meshes") instance=ExtResource("11_yr2dp")]
+transform = Transform3D(-0.1545, 0, -0.682737, 0, 0.7, 0, 0.682737, 0, -0.1545, 8.434, 14.378, 2.104)
 robot = NodePath("../BobotRobot")
 color = Color(0.886275, 0.403922, 0, 1)
+meshes = [NodePath("Terminal"), NodePath("TerminalSupport")]
 
-[node name="BeebotTerminal" parent="Gameplay" node_paths=PackedStringArray("robot") instance=ExtResource("11_yr2dp")]
-transform = Transform3D(4.37114e-08, 0, -1, 0, 1, 0, 1, 0, 4.37114e-08, 33.8641, 0.5, 8.68749)
+[node name="TerminalSupport" parent="Gameplay/BobotTerminal" instance=ExtResource("36_g1t5f")]
+transform = Transform3D(0.57, 0, -1.49012e-08, 0, 0.57, 0, 1.49012e-08, 0, 0.57, 0, -1.4, 0)
+surface_material_override/0 = SubResource("ShaderMaterial_3b65l")
+
+[node name="BeebotTerminal" parent="Gameplay" node_paths=PackedStringArray("robot", "meshes") instance=ExtResource("11_yr2dp")]
+transform = Transform3D(4.37114e-08, 0, -1, 0, 1, 0, 1, 0, 4.37114e-08, 33.864, 1.3, 8.687)
 robot = NodePath("../FlyingRobot")
 color = Color(1, 1, 0, 1)
+meshes = [NodePath("Terminal"), NodePath("TerminalSupport")]
+
+[node name="TerminalSupport" parent="Gameplay/BeebotTerminal" instance=ExtResource("36_g1t5f")]
+transform = Transform3D(0.57, 0, 0, 0, 0.57, 0, 0, 0, 0.57, 0, -1.3, 0)
+surface_material_override/0 = SubResource("ShaderMaterial_cydor")
 
 [node name="FlyingRobot" parent="Gameplay" instance=ExtResource("14_s88ej")]
 transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 17.1659, 0.0499998, 2.95408)
@@ -2042,7 +2107,7 @@ transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 17.1659, 0.0499998, 2.95408)
 transform = Transform3D(0.906904, 0, -0.421337, 0, 1, 0, 0.421337, 0, 0.906904, 31.0882, 0.05, 24.3664)
 
 [node name="CrabotTerminal2" parent="Gameplay" node_paths=PackedStringArray("robot") instance=ExtResource("11_yr2dp")]
-transform = Transform3D(0.537447, 0, 0.843298, 0, 1, 0, -0.843298, 0, 0.537447, 27.3304, -0.83, 21.8051)
+transform = Transform3D(-0.316436, 0, 0.734757, 0, 0.8, 0, -0.734757, 0, -0.316436, 26.4562, -0.00885111, 23.4853)
 robot = NodePath("../RobotCrabot2")
 color = Color(0, 1, 0, 1)
 

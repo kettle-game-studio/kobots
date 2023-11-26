@@ -1,0 +1,21 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://bkjqan31vvqj6"]
+
+[ext_resource type="Shader" path="res://assets/scripts/robots/robot.gdshader" id="1_1auvj"]
+[ext_resource type="Texture2D" uid="uid://ctycibd7ej4y" path="res://assets/models/terminal3/TerminalAdd.png" id="2_0vdyu"]
+[ext_resource type="Texture2D" uid="uid://rp6pqe0v74dw" path="res://assets/models/terminal3/TerminalColor.png" id="3_qawr4"]
+[ext_resource type="Texture2D" uid="uid://j0db2i3vjjos" path="res://assets/models/terminal3/TerminalLight.png" id="4_j1vhg"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_1auvj")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/enable = true
+shader_parameter/emission_k = 1.0
+shader_parameter/specular = 1.0
+shader_parameter/roughness = 0.3
+shader_parameter/emission_blink = false
+shader_parameter/emission_amplitude = 0.1
+shader_parameter/emission_period = 1.0
+shader_parameter/base_texture = ExtResource("3_qawr4")
+shader_parameter/add_texture = ExtResource("2_0vdyu")
+shader_parameter/emission_texture = ExtResource("4_j1vhg")

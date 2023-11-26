@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://55hndo303vxn"]
+[gd_scene load_steps=44 format=3 uid="uid://55hndo303vxn"]
 
 [ext_resource type="Script" path="res://assets/scripts/level.gd" id="1_bh8cb"]
 [ext_resource type="PackedScene" uid="uid://dcjw51pfs7v86" path="res://assets/prefabs/door.tscn" id="3_4rn2m"]
@@ -12,10 +12,10 @@
 [ext_resource type="PackedScene" uid="uid://bk8qy2f8kis83" path="res://assets/prefabs/opaque_window.tscn" id="9_sxpjj"]
 [ext_resource type="PackedScene" uid="uid://gtn02560h2u7" path="res://assets/models/Tiles/tile_003.tscn" id="10_odqly"]
 [ext_resource type="PackedScene" uid="uid://cre7f6euf0lte" path="res://assets/prefabs/transparent_window.tscn" id="12_40cle"]
-[ext_resource type="PackedScene" path="res://assets/models/Tiles/tile_b.tscn" id="12_a8tmy"]
+[ext_resource type="PackedScene" uid="uid://3n2j1rk3psn4" path="res://assets/models/Tiles/tile_b.tscn" id="12_a8tmy"]
 [ext_resource type="PackedScene" uid="uid://bcp4kagx5khdy" path="res://assets/prefabs/wall_tiles/glass_l.tscn" id="12_p04nm"]
 [ext_resource type="PackedScene" uid="uid://b4f1kyjbidpwb" path="res://assets/prefabs/wall_tiles/glass.tscn" id="13_jcb27"]
-[ext_resource type="PackedScene" path="res://assets/models/Tiles/tile_a.tscn" id="14_6x7rj"]
+[ext_resource type="PackedScene" uid="uid://bx6tv8nju3n74" path="res://assets/models/Tiles/tile_a.tscn" id="14_6x7rj"]
 [ext_resource type="PackedScene" uid="uid://clsmympynopjt" path="res://assets/models/Tiles/tile_l.tscn" id="15_qy8s2"]
 [ext_resource type="PackedScene" uid="uid://dx26nnkcx5cks" path="res://assets/models/Tiles/tile_lf.tscn" id="16_mjyr0"]
 [ext_resource type="PackedScene" uid="uid://go4ri7ama2eh" path="res://assets/models/Tiles/tile_r.tscn" id="17_80ykf"]
@@ -30,6 +30,11 @@
 [ext_resource type="PackedScene" uid="uid://btof0prkex6ou" path="res://assets/prefabs/redstone/redstone_part.tscn" id="23_b3duh"]
 [ext_resource type="PackedScene" uid="uid://clw7qsx86c4pt" path="res://assets/prefabs/redstone/redstone_fork.tscn" id="25_wnlcl"]
 [ext_resource type="PackedScene" uid="uid://dr2ynp3fxd4cu" path="res://assets/prefabs/redstone/redstone_hat.tscn" id="27_sv43u"]
+[ext_resource type="PackedScene" uid="uid://begfkckaxhtx0" path="res://assets/models/terminal3/terminal_support.tscn" id="30_tcwou"]
+[ext_resource type="Shader" path="res://assets/scripts/robots/robot.gdshader" id="31_5lodv"]
+[ext_resource type="Texture2D" uid="uid://ctycibd7ej4y" path="res://assets/models/terminal3/TerminalAdd.png" id="32_x7dts"]
+[ext_resource type="Texture2D" uid="uid://rp6pqe0v74dw" path="res://assets/models/terminal3/TerminalColor.png" id="33_n6nnp"]
+[ext_resource type="Texture2D" uid="uid://j0db2i3vjjos" path="res://assets/models/terminal3/TerminalLight.png" id="34_4h2mw"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_8rr8h"]
 top_radius = 10.0
@@ -54,6 +59,21 @@ size = Vector3(2, 6, 50)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3spjx"]
 size = Vector3(50, 6, 2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2psjg"]
+render_priority = 0
+shader = ExtResource("31_5lodv")
+shader_parameter/color = Color(0.890196, 0, 0.411765, 1)
+shader_parameter/enable = true
+shader_parameter/emission_k = 1.0
+shader_parameter/specular = 1.0
+shader_parameter/roughness = 0.3
+shader_parameter/emission_blink = false
+shader_parameter/emission_amplitude = 0.1
+shader_parameter/emission_period = 1.0
+shader_parameter/base_texture = ExtResource("33_n6nnp")
+shader_parameter/add_texture = ExtResource("32_x7dts")
+shader_parameter/emission_texture = ExtResource("34_4h2mw")
 
 [node name="Level2" type="Node3D"]
 script = ExtResource("1_bh8cb")
@@ -1967,21 +1987,26 @@ transform = Transform3D(-0.99999, 0, -0.00450317, 0, 1, 0, 0.00450317, 0, -0.999
 [node name="RobotCrabot2" parent="Gameplay" instance=ExtResource("9_p5oa4")]
 transform = Transform3D(0.42832, 0, -0.903627, 0, 1, 0, 0.903627, 0, 0.42832, -32.3527, 0, -0.974623)
 
-[node name="Terminal" parent="Gameplay" node_paths=PackedStringArray("robot") instance=ExtResource("8_x5pvj")]
-transform = Transform3D(-0.136978, 0, 0.990574, 0, 1, 0, -0.990574, 0, -0.136978, -8.74543, 13.4407, 1.47212)
+[node name="Terminal" parent="Gameplay" node_paths=PackedStringArray("robot", "meshes") instance=ExtResource("8_x5pvj")]
+transform = Transform3D(-0.0958846, 0, 0.693402, 0, 0.7, 0, -0.693402, 0, -0.0958846, -8.745, 14.3779, 1.472)
 robot = NodePath("../RobotCrabot")
 color = Color(0.890196, 0, 0.411765, 1)
+meshes = [NodePath("Terminal"), NodePath("TerminalSupport")]
+
+[node name="TerminalSupport" parent="Gameplay/Terminal" instance=ExtResource("30_tcwou")]
+transform = Transform3D(0.57, 0, 2.98023e-08, 0, 0.57, 0, -2.98023e-08, 0, 0.57, 0, -1.4, 0)
+surface_material_override/0 = SubResource("ShaderMaterial_2psjg")
 
 [node name="Door" parent="Gameplay" instance=ExtResource("3_4rn2m")]
 transform = Transform3D(-0.707106, 0, 0.707106, 0, 1, 0, -0.707106, 0, -0.707106, -3.5049, 13.3394, -3.33287)
 
 [node name="Terminal2" parent="Gameplay" node_paths=PackedStringArray("robot") instance=ExtResource("8_x5pvj")]
-transform = Transform3D(0.978956, 0, 0.204069, 0, 1, 0, -0.204069, 0, 0.978956, -29.2564, -0.83, 5.2239)
+transform = Transform3D(0.783165, 0, 0.163255, 0, 0.8, 0, -0.163255, 0, 0.783165, -29.2621, -0.0109391, 5.19638)
 robot = NodePath("../RobotCrabot2")
 color = Color(0, 0.984314, 0, 1)
 
 [node name="Terminal3" parent="Gameplay" node_paths=PackedStringArray("robot") instance=ExtResource("8_x5pvj")]
-transform = Transform3D(-0.985337, 0, -0.170622, 0, 1, 0, 0.170622, 0, -0.985337, -24.0903, -0.83, 3.28219)
+transform = Transform3D(-0.7852, 0, -0.153168, 0, 0.8, 0, 0.153168, 0, -0.7852, -23.6325, -0.0213953, 3.01414)
 robot = NodePath("../RobotCrabot3")
 color = Color(0, 0, 1, 1)
 

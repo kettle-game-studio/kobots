@@ -29,8 +29,8 @@ void fragment() {
 		if (emission_blink) {
 			emission_km += sin(TIME * emission_period) * emission_amplitude;
 		}
-		vec3 emission = textureLod(emission_texture, UV, 0.0).rgb;
-		float emission_force = (emission.x + emission.y + emission.z) * 0.333;
+		float emission = textureLod(emission_texture, UV, 0.0).r;
+		float emission_force = emission;
 		EMISSION = emission * color + vec3(emission_km * emission_force);
 	}
 }
