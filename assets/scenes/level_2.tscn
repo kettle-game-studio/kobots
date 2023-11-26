@@ -49,7 +49,7 @@ size = Vector3(2, 6, 50)
 [sub_resource type="BoxShape3D" id="BoxShape3D_3spjx"]
 size = Vector3(50, 6, 2)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_jg7to"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ru3ut"]
 render_priority = 0
 shader = ExtResource("31_5lodv")
 shader_parameter/color = Color(0.890196, 0, 0.411765, 1)
@@ -1972,7 +1972,7 @@ meshes = [NodePath("Terminal"), NodePath("TerminalSupport")]
 
 [node name="TerminalSupport" parent="Gameplay/Terminal" instance=ExtResource("30_tcwou")]
 transform = Transform3D(0.57, 0, 2.98023e-08, 0, 0.57, 0, -2.98023e-08, 0, 0.57, 0, -1.4, 0)
-surface_material_override/0 = SubResource("ShaderMaterial_jg7to")
+surface_material_override/0 = SubResource("ShaderMaterial_ru3ut")
 
 [node name="Terminal2" parent="Gameplay" node_paths=PackedStringArray("robot") instance=ExtResource("8_x5pvj")]
 transform = Transform3D(0.783165, 0, 0.163255, 0, 0.8, 0, -0.163255, 0, 0.783165, -29.2621, -0.0109391, 5.19638)

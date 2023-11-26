@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dguc6wibu6e40"]
+[gd_scene load_steps=9 format=3 uid="uid://dguc6wibu6e40"]
 
 [ext_resource type="Script" path="res://assets/scripts/robots/laser_transmitter.gd" id="1_dxplo"]
 [ext_resource type="PackedScene" uid="uid://d27stf6dexrbe" path="res://assets/prefabs/laser.tscn" id="3_nch36"]
@@ -8,10 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://mm3afisnlkvn" path="res://assets/models/Laser/LaserColor.png" id="5_pbspe"]
 [ext_resource type="Texture2D" uid="uid://cch88k4y3qx48" path="res://assets/models/Laser/LaserLight.png" id="6_nt53m"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_84d67"]
-size = Vector3(0.1, 0.7, 0.1)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_25nki"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_as1gl"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("3_uh0o2")
@@ -33,10 +30,6 @@ laser_mesh = NodePath("LaserTansmitter/Armature/Skeleton3D/LaserTansmitter")
 color = Color(0.776471, 0.658824, 0, 1)
 animation_player = NodePath("LaserTansmitter/AnimationPlayer")
 
-[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.353844, 0)
-mesh = SubResource("BoxMesh_84d67")
-
 [node name="Laser" parent="." instance=ExtResource("3_nch36")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.14905, -0.1141)
 
@@ -44,10 +37,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.14905, -0.1141)
 transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 0, 1.14853, 0.0711498)
 
 [node name="Skeleton3D" parent="LaserTansmitter/Armature" index="0"]
-bones/1/rotation = Quaternion(-0.523831, -0.474843, -0.474974, 0.523951)
-bones/2/rotation = Quaternion(0.611597, 0.355046, -0.354893, 0.611508)
+bones/1/rotation = Quaternion(-0.0999257, -0.699986, -0.700011, 0.100102)
+bones/2/rotation = Quaternion(0.524999, -0.473552, 0.473683, 0.525118)
 
 [node name="LaserTansmitter" parent="LaserTansmitter/Armature/Skeleton3D" index="0"]
-surface_material_override/0 = SubResource("ShaderMaterial_25nki")
+surface_material_override/0 = SubResource("ShaderMaterial_as1gl")
 
 [editable path="LaserTansmitter"]
