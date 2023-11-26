@@ -82,7 +82,7 @@ func _input(event: InputEvent):
 	if Input.is_action_just_pressed("QuitRobot"):
 		disactivate()
 	
-	if !raycast.is_colliding():
+	if main_ui != null && !raycast.is_colliding():
 		main_ui.clear_text()
 		return
 
@@ -91,7 +91,7 @@ func _input(event: InputEvent):
 		main_ui.set_text("[E] To Activate")
 		if Input.is_action_just_pressed("EnterRobot"):
 			_get_control(collider)
-	else:
+	elif main_ui != null:
 		main_ui.clear_text()
 
 func rotate_camera(vector: Vector2):

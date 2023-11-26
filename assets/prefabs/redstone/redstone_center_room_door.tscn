@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://du57sgffslsxa"]
+[gd_scene load_steps=8 format=3 uid="uid://dkko6gus8vrti"]
 
 [ext_resource type="Script" path="res://assets/scripts/redstone/activators/redstone_door.gd" id="1_lkhvh"]
 [ext_resource type="PackedScene" uid="uid://dm0567silvlq0" path="res://assets/models/WallTiles/redstone_part.tscn" id="2_l4l7s"]
@@ -67,9 +67,6 @@ transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 2, 0, 1)
 
 [node name="Wall_007" parent="Walls" instance=ExtResource("3_tuhwc")]
 transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -2, 0, -1)
-
-[node name="Wall_008" parent="Walls" instance=ExtResource("3_tuhwc")]
-transform = Transform3D(-1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, -1, 2, 0, -1)
 
 [node name="Wall_009" parent="Walls" instance=ExtResource("3_tuhwc")]
 transform = Transform3D(-1.58932e-08, 0, -1, 0, 1, 0, 1, 0, -1.58932e-08, 1, 0, 2)

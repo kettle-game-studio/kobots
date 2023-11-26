@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=3 uid="uid://cud5vovq2mwy6"]
+
+[ext_resource type="Script" path="res://assets/scripts/robot_controller.gd" id="1_qb7ue"]
+[ext_resource type="Script" path="res://assets/scripts/player_controller.gd" id="2_v50ia"]
+[ext_resource type="Theme" uid="uid://p08pj8vk2hog" path="res://assets/game_theme.tres" id="4_7ir16"]
+[ext_resource type="Texture2D" uid="uid://c1cx8najukloc" path="res://assets/writings/zhobot-scheme.png" id="5_bu48i"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_wakip"]
+
+[node name="FinalKobot" type="CharacterBody3D" node_paths=PackedStringArray("subViewport", "player_controller", "canvas_layer")]
+script = ExtResource("1_qb7ue")
+subViewport = NodePath("SubViewport")
+player_controller = NodePath("FakePlayer")
+canvas_layer = NodePath("SubViewport/SchemeCanvas")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+disable_3d = true
+handle_input_locally = false
+size = Vector2i(2005, 1128)
+
+[node name="SchemeCanvas" type="CanvasLayer" parent="SubViewport"]
+scale = Vector2(1.88, 1.88)
+transform = Transform2D(1.88, 0, 0, 1.88, 0, 0)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SubViewport/SchemeCanvas"]
+offset_left = 200.0
+offset_top = 100.0
+offset_right = 677.0
+offset_bottom = 548.0
+theme = ExtResource("4_7ir16")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[font_size=40]KOBOT.Mk-00[/font_size]
+
+[font_size=100]KOBOT[/font_size]
+
+???
+
+[??] ???
+
+"
+
+[node name="Scheme" type="Sprite2D" parent="SubViewport/SchemeCanvas"]
+visible = false
+position = Vector2(786, 297)
+scale = Vector2(0.472656, 0.472656)
+texture = ExtResource("5_bu48i")
+
+[node name="FakePlayer" type="Node" parent="." node_paths=PackedStringArray("player", "camera", "raycast", "robot_controller", "scheme_ui", "audio_listener")]
+script = ExtResource("2_v50ia")
+player = NodePath("..")
+camera = NodePath("../CollisionShape3D")
+raycast = NodePath("../RayCast3D")
+robot_controller = NodePath("..")
+scheme_ui = NodePath("../SubViewport/SchemeCanvas")
+audio_listener = NodePath("../AudioListener3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_wakip")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+
+[node name="AudioListener3D" type="AudioListener3D" parent="."]

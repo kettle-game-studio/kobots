@@ -7,6 +7,9 @@ class_name Terminal
 @export var color: Color
 @export var meshes: Array[MeshInstance3D]
 
+@export var is_final: bool = false
+@export var story: Story
+
 signal enter()
 signal exit()
 
@@ -41,6 +44,10 @@ func _process(delta):
 	set_color()
 
 func enable(player: PlayerController) -> bool:
+	if is_final:
+		story.level_end()
+		return false
+
 	if robot.activate(player, self):
 		enter.emit()
 		return true
