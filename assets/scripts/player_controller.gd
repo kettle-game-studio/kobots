@@ -104,7 +104,7 @@ func rotate_camera(vector: Vector2):
 
 func walk(delta: float):
 	if !enabled:
-		player.velocity.y = gravity(delta)
+		player.velocity = gravity(delta) * Vector3.UP
 		player.move_and_slide()
 		return
 
@@ -132,6 +132,8 @@ func gravity(delta: float) -> float:
 				return player.velocity.y - (9.8 / 2.0) * delta
 	
 	if flight:
+		if state == State.DISABLED:
+			return 0
 		return Input.get_axis("Descend", "Fly") * flight_speed
 	
 	return player.velocity.y - 9.8 * delta

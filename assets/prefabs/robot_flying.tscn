@@ -20,7 +20,7 @@
 height = 0.5
 radius = 0.658462
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_h2ij7"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pjn0o"]
 render_priority = 0
 shader = ExtResource("6_7pdn8")
 shader_parameter/color = Color(0.427451, 0.462745, 0.552941, 1)
@@ -136,7 +136,7 @@ bones/4/position = Vector3(-1.21425, 0.981547, 1.68716)
 
 [node name="Beebot2" parent="Beebot/Armature/Skeleton3D" index="0"]
 layers = 2
-surface_material_override/0 = SubResource("ShaderMaterial_h2ij7")
+surface_material_override/0 = SubResource("ShaderMaterial_pjn0o")
 
 [node name="AnimationPlayer" parent="Beebot" index="1"]
 speed_scale = 2.0
