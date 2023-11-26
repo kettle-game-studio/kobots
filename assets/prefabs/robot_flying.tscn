@@ -20,7 +20,7 @@
 height = 0.5
 radius = 0.658462
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_pjn0o"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fr0yw"]
 render_priority = 0
 shader = ExtResource("6_7pdn8")
 shader_parameter/color = Color(0.427451, 0.462745, 0.552941, 1)
@@ -79,7 +79,7 @@ standing_detector = NodePath("../StandingDetector")
 [node name="SubViewport" type="SubViewport" parent="."]
 disable_3d = true
 handle_input_locally = false
-size = Vector2i(2005, 1128)
+size = Vector2i(3840, 2160)
 
 [node name="Camera3D" type="Camera3D" parent="SubViewport" node_paths=PackedStringArray("target")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.42438, -0.570246)
@@ -87,8 +87,8 @@ script = ExtResource("4_rs2ja")
 target = NodePath("../../Eye")
 
 [node name="SchemeCanvas" type="CanvasLayer" parent="SubViewport"]
-scale = Vector2(1.88, 1.88)
-transform = Transform2D(1.88, 0, 0, 1.88, 0, 0)
+scale = Vector2(3.6, 3.6)
+transform = Transform2D(3.6, 0, 0, 3.6, 0, 0)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="SubViewport/SchemeCanvas"]
 offset_left = 200.0
@@ -136,7 +136,7 @@ bones/4/position = Vector3(-1.21425, 0.981547, 1.68716)
 
 [node name="Beebot2" parent="Beebot/Armature/Skeleton3D" index="0"]
 layers = 2
-surface_material_override/0 = SubResource("ShaderMaterial_pjn0o")
+surface_material_override/0 = SubResource("ShaderMaterial_fr0yw")
 
 [node name="AnimationPlayer" parent="Beebot" index="1"]
 speed_scale = 2.0
@@ -151,13 +151,13 @@ idle = NodePath("IdleAudio")
 [node name="WalkAudio" type="AudioStreamPlayer3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.548639, -0.398908)
 stream = ExtResource("13_ert7k")
-attenuation_model = 1
+volume_db = -32.771
 max_distance = 20.0
 
 [node name="IdleAudio" type="AudioStreamPlayer3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.548639, -0.398908)
 stream = ExtResource("13_5mynn")
-attenuation_model = 1
+volume_db = -32.771
 max_distance = 20.0
 
 [node name="StandingDetector" type="ShapeCast3D" parent="."]

@@ -3,11 +3,14 @@ extends RedstoneAbstractActivator
 @export var mesh: MeshInstance3D
 @export var color: Color
 @export var seconds_to_open: float = 1
-
 var activators: Array[RedstoneAbstractActivator] = []
+
 var receiver_children: Array[RedstoneBase] = []
 var material: ShaderMaterial
+
 @onready var animator = $AnimationPlayer
+@onready var solved_sound = $SolvedSound
+@onready var open_sound = $OpenSound
 
 func _ready():
 	super._ready()
@@ -31,6 +34,8 @@ func _process(_delta):
 		i.freeze_activation()
 	material.set_shader_parameter("emission_k", 1.0)
 	animator.play("opening", -1, 1 / seconds_to_open)
+	solved_sound.play(0)
+	open_sound.play(0)
 
 
 func set_redstone_material(m: Material):

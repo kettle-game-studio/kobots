@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://dmtm7k1fhpmkj"]
+[gd_scene load_steps=20 format=3 uid="uid://dmtm7k1fhpmkj"]
 
 [ext_resource type="Script" path="res://assets/scripts/robot_controller.gd" id="1_y52tj"]
 [ext_resource type="Script" path="res://assets/scripts/player_controller.gd" id="2_3u1ph"]
 [ext_resource type="Script" path="res://assets/scripts/drag_controller.gd" id="3_d0ex6"]
+[ext_resource type="Script" path="res://assets/scripts/simple_audio.gd" id="3_p42h3"]
 [ext_resource type="Script" path="res://assets/scripts/teleportator.gd" id="4_s4mjk"]
 [ext_resource type="Theme" uid="uid://p08pj8vk2hog" path="res://assets/game_theme.tres" id="5_54xkm"]
 [ext_resource type="Texture2D" uid="uid://bbnrx08blqfgv" path="res://assets/writings/bobot-scheme.png" id="6_iqyiu"]
@@ -14,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://ckwixqw5d1nmh" path="res://assets/models/Bobot/BobotColor.png" id="11_xl1q3"]
 [ext_resource type="Texture2D" uid="uid://cr704pc1wkh7e" path="res://assets/models/Bobot/BobotEmission.png" id="12_k7245"]
 [ext_resource type="AnimationLibrary" uid="uid://brh6pswhhmqo3" path="res://assets/models/Bobot/animations.res" id="14_cy4nu"]
+[ext_resource type="AudioStream" uid="uid://xfssj0v54y7b" path="res://assets/sounds/bobot/walk.mp3" id="16_u5vej"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6g3en"]
 radius = 0.295404
@@ -21,7 +23,7 @@ height = 2.37268
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sxjss"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_bgpyw"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ynwue"]
 render_priority = 0
 shader = ExtResource("9_56i17")
 shader_parameter/color = Color(0.776471, 0.443137, 0, 1)
@@ -75,6 +77,12 @@ can_run = true
 run_multiplyer = 2.5
 clamp_angle_up = 90.0
 clamp_angle_down = 110.0
+
+[node name="SoundController" type="Node" parent="." node_paths=PackedStringArray("body", "controller", "walk")]
+script = ExtResource("3_p42h3")
+body = NodePath("..")
+controller = NodePath("../Controller")
+walk = NodePath("../Bobot/AudioStreamPlayer3D")
 
 [node name="Drag" type="Node" parent="." node_paths=PackedStringArray("player", "player_controller", "ray_cast", "camera", "box_mount_point", "box_collision", "main_ui")]
 script = ExtResource("3_d0ex6")
@@ -147,29 +155,29 @@ body = NodePath("..")
 controller = NodePath("../Controller")
 
 [node name="Skeleton3D" parent="Bobot/Armature" index="0"]
-bones/0/position = Vector3(0.01016, 2.60346, -2.73016e-09)
-bones/3/position = Vector3(-2.12046, -0.0904295, -1.02892)
-bones/4/position = Vector3(-2.12046, -0.0904297, 1.02892)
-bones/5/rotation = Quaternion(-0.98959, 0.111876, -0.0483917, 0.0765106)
-bones/6/rotation = Quaternion(-0.00871308, 0.00134829, -0.279479, 0.960111)
-bones/7/rotation = Quaternion(0.99017, -0.10563, -0.0469705, 0.078743)
-bones/8/rotation = Quaternion(0.0399215, 0.119366, -0.263768, 0.956339)
-bones/9/rotation = Quaternion(-0.997622, -0.0689159, 3.30845e-08, 1.62164e-08)
+bones/0/position = Vector3(-0.000423332, 2.44823, 1.81252e-08)
+bones/3/position = Vector3(-1.14164, 0.0614631, -1.83744)
+bones/4/position = Vector3(-2.89477, -0.504585, 2.48446)
+bones/5/rotation = Quaternion(-0.912147, -0.00725898, -0.165446, 0.374918)
+bones/6/rotation = Quaternion(-0.0148211, 0.00123527, -0.475399, 0.879645)
+bones/7/rotation = Quaternion(0.944188, 0.0466467, -0.151831, 0.288584)
+bones/8/rotation = Quaternion(0.0698051, 0.109554, -0.461213, 0.877729)
+bones/9/rotation = Quaternion(-0.970484, -0.241164, 3.19371e-08, 4.71065e-08)
 bones/9/scale = Vector3(1.00001, 1, 1)
-bones/10/rotation = Quaternion(-2.73249e-08, 1.35494e-08, 0.16587, 0.986148)
-bones/12/rotation = Quaternion(-0.997622, -0.0689159, -3.0077e-08, 9.79925e-09)
-bones/12/scale = Vector3(1.00001, 1, 1)
-bones/13/rotation = Quaternion(-2.73249e-08, 1.35494e-08, 0.16587, 0.986148)
-bones/15/position = Vector3(0.148567, 2.37811, -0.958611)
-bones/15/rotation = Quaternion(0.982917, 0.183191, 0.00363737, 0.0173594)
-bones/16/position = Vector3(-0.0774941, 0.106455, -0.51487)
-bones/17/position = Vector3(0.148567, 2.37202, 0.976899)
-bones/17/rotation = Quaternion(0.970124, 0.193655, 0.133768, 0.0588424)
-bones/18/position = Vector3(-0.0774941, 0.106455, 0.51487)
+bones/10/rotation = Quaternion(-7.89809e-08, 1.20578e-08, 0.479439, 0.877575)
+bones/12/rotation = Quaternion(-0.815474, -0.578794, -1.0174e-07, 6.86382e-08)
+bones/12/scale = Vector3(1.00002, 0.999998, 1)
+bones/13/rotation = Quaternion(-1.01837e-07, 1.08002e-08, 0.618182, 0.786035)
+bones/15/position = Vector3(1.13838, 3.00079, -1.58381)
+bones/15/rotation = Quaternion(0.666598, 0.497994, -0.411189, 0.372254)
+bones/16/position = Vector3(-0.0596669, 0.249386, -0.51487)
+bones/17/position = Vector3(1.20508, 2.90157, 1.32464)
+bones/17/rotation = Quaternion(0.751345, 0.645836, 0.0836764, -0.10665)
+bones/18/position = Vector3(1.13359, 0.821416, 0.514869)
 
 [node name="Bobot2" parent="Bobot/Armature/Skeleton3D" index="0"]
 layers = 2
-surface_material_override/0 = SubResource("ShaderMaterial_bgpyw")
+surface_material_override/0 = SubResource("ShaderMaterial_ynwue")
 
 [node name="AnimationPlayer" parent="Bobot" index="1"]
 libraries = {
@@ -177,6 +185,8 @@ libraries = {
 }
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Bobot"]
+stream = ExtResource("16_u5vej")
+volume_db = -16.386
 max_distance = 1125.36
 
 [editable path="Bobot"]

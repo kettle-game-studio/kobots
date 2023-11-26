@@ -126,5 +126,5 @@ walk = NodePath("AudioStreamPlayer3D")
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Audio"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.385822, 0)
 stream = ExtResource("9_841gv")
-volume_db = -20.241
+volume_db = -33.735
 max_distance = 15.0
