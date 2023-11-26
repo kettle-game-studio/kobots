@@ -1584,8 +1584,8 @@ level_2 = NodePath("../Level2")
 level_3 = NodePath("../Level3")
 level_4 = NodePath("../Level4")
 root = NodePath("..")
-start_button = NodePath("FpsCanvas/Button")
-speedrun_data = NodePath("FpsCanvas/Button/SpeedrunData")
+start_button = NodePath("FpsCanvas/StartText")
+speedrun_data = NodePath("FpsCanvas/SpeedrunData")
 cam = NodePath("../Player/Eye/Camera3D")
 
 [node name="FpsCanvas" type="CanvasLayer" parent="Story"]
@@ -1604,38 +1604,44 @@ theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
 text = "[right]fps[/right]"
 
-[node name="Button" type="Button" parent="Story/FpsCanvas"]
+[node name="StartText" type="RichTextLabel" parent="Story/FpsCanvas"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -182.5
-offset_top = -70.0
-offset_right = 182.5
-offset_bottom = 70.0
+offset_left = -200.0
+offset_top = -167.5
+offset_right = 200.0
+offset_bottom = 167.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("7_fmcxw")
-theme_override_constants/outline_size = 0
-theme_override_font_sizes/font_size = 100
-text = "[START]"
+bbcode_enabled = true
+text = "[center][font_size=50][E] To Activate[/font_size][/center]
 
-[node name="SpeedrunData" type="RichTextLabel" parent="Story/FpsCanvas/Button"]
-layout_mode = 1
+[font_size=70]KOBOT[/font_size]
+
+[font_size=45]
+[Mouse] Look around
+[WASD] Walk
+[Shift] Run
+[/font_size]"
+
+[node name="SpeedrunData" type="RichTextLabel" parent="Story/FpsCanvas"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -564.5
-offset_top = 126.0
-offset_right = 572.5
-offset_bottom = 265.0
+offset_left = -568.5
+offset_top = -287.0
+offset_right = 568.5
+offset_bottom = -148.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("7_fmcxw")
-theme_override_font_sizes/normal_font_size = 50
+theme_override_font_sizes/normal_font_size = 35
 bbcode_enabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Story"]
@@ -1670,7 +1676,6 @@ surface_material_override/0 = ExtResource("10_8rk17")
 [connection signal="exit" from="Level3" to="Story" method="_on_level_exit"]
 [connection signal="enter" from="Level4" to="Story" method="_on_level_enter"]
 [connection signal="exit" from="Level4" to="Story" method="_on_level_exit"]
-[connection signal="pressed" from="Story/FpsCanvas/Button" to="Story" method="start_the_game"]
 
 [editable path="Player"]
 [editable path="Player/KobotAnimaterd"]

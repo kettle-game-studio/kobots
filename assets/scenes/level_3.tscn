@@ -34,7 +34,7 @@
 [ext_resource type="PackedScene" path="res://assets/models/Tiles/tile_b.tscn" id="28_x75hy"]
 [ext_resource type="PackedScene" path="res://assets/models/Tiles/tile_f_a.tscn" id="31_4ja4a"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_jsxw7"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2tieu"]
 render_priority = 0
 shader = ExtResource("15_egmgp")
 shader_parameter/color = Color(1, 1, 1, 1)
@@ -49,7 +49,7 @@ shader_parameter/base_texture = ExtResource("17_pgejr")
 shader_parameter/add_texture = ExtResource("16_0t82f")
 shader_parameter/emission_texture = ExtResource("18_4m8eg")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_edytr"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cle75"]
 render_priority = 0
 shader = ExtResource("15_egmgp")
 shader_parameter/color = Color(0.886275, 0.403922, 0, 1)
@@ -64,7 +64,7 @@ shader_parameter/base_texture = ExtResource("17_pgejr")
 shader_parameter/add_texture = ExtResource("16_0t82f")
 shader_parameter/emission_texture = ExtResource("18_4m8eg")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_igxb6"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7mqnl"]
 render_priority = 0
 shader = ExtResource("15_egmgp")
 shader_parameter/color = Color(1, 1, 0, 1)
@@ -79,7 +79,7 @@ shader_parameter/base_texture = ExtResource("17_pgejr")
 shader_parameter/add_texture = ExtResource("16_0t82f")
 shader_parameter/emission_texture = ExtResource("18_4m8eg")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_b8nok"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fment"]
 render_priority = 0
 shader = ExtResource("15_egmgp")
 shader_parameter/color = Color(0, 0, 1, 1)
@@ -677,7 +677,7 @@ meshes = [NodePath("Terminal"), NodePath("TerminalSupport")]
 
 [node name="TerminalSupport" parent="Level-45/Gameplay/Room2/Terminal4" instance=ExtResource("14_ep0lj")]
 transform = Transform3D(0.57, 0, 0, 0, 0.57, 0, 0, 0, 0.57, 0, -1.80731, 0)
-surface_material_override/0 = SubResource("ShaderMaterial_jsxw7")
+surface_material_override/0 = SubResource("ShaderMaterial_2tieu")
 
 [node name="DefaultRobot2" parent="Level-45/Gameplay/Room2" instance=ExtResource("2_g4ply")]
 transform = Transform3D(0.744148, 0, -0.668014, 0, 1, 0, 0.668014, 0, 0.744148, 42.8311, 0.05, -8.78962)
@@ -1086,7 +1086,7 @@ meshes = [NodePath("Terminal"), NodePath("TerminalSupport")]
 
 [node name="TerminalSupport" parent="Level-45/Gameplay/Terminal" instance=ExtResource("14_ep0lj")]
 transform = Transform3D(0.57, 0, 0, 0, 0.57, 0, 0, 0, 0.57, 0, -1.4, 0)
-surface_material_override/0 = SubResource("ShaderMaterial_edytr")
+surface_material_override/0 = SubResource("ShaderMaterial_cle75")
 
 [node name="DefaultRobot" parent="Level-45/Gameplay" instance=ExtResource("2_g4ply")]
 transform = Transform3D(-0.0205583, 0, -0.999788, 0, 1, 0, 0.999788, 0, -0.0205583, 17.1921, 0.0352378, 1.88805)
@@ -1099,7 +1099,7 @@ meshes = [NodePath("Terminal"), NodePath("TerminalSupport")]
 
 [node name="TerminalSupport" parent="Level-45/Gameplay/Terminal2" instance=ExtResource("14_ep0lj")]
 transform = Transform3D(0.57, 0, 0, 0, 0.57, 0, 0, 0, 0.57, 0, -1.4, 0)
-surface_material_override/0 = SubResource("ShaderMaterial_igxb6")
+surface_material_override/0 = SubResource("ShaderMaterial_7mqnl")
 
 [node name="FlyingRobot" parent="Level-45/Gameplay" instance=ExtResource("9_34grp")]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 18.7293, 0.0851021, 4.49239)
@@ -1112,7 +1112,7 @@ meshes = [NodePath("Terminal"), NodePath("TerminalSupport")]
 
 [node name="TerminalSupport" parent="Level-45/Gameplay/Terminal3" instance=ExtResource("14_ep0lj")]
 transform = Transform3D(0.57, 0, -5.96046e-08, 0, 0.57, 0, 5.96046e-08, 0, 0.57, 0, -1.42773, 0)
-surface_material_override/0 = SubResource("ShaderMaterial_b8nok")
+surface_material_override/0 = SubResource("ShaderMaterial_fment")
 
 [node name="BigRobot" parent="Level-45/Gameplay" instance=ExtResource("4_xifp1")]
 transform = Transform3D(0.82113, -9.62286e-05, 0.570742, 0.000121418, 1, -6.09705e-06, -0.570742, 7.42973e-05, 0.82113, 27.2453, -3.05435, 23.6073)
