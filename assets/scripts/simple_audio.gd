@@ -6,8 +6,8 @@ extends Node
 @export var idle: AudioStreamPlayer3D
 
 func _process(delta):
-	var w = body.velocity.length() > 0.01
-	var r = controller.is_rotationg
+	var w = body.velocity.length() > 0.0001
+	var r = false #controller.is_rotationg
 	if w or r:
 		play(walk)
 		stop(idle)

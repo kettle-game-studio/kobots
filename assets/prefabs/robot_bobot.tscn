@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dmtm7k1fhpmkj"]
+[gd_scene load_steps=21 format=3 uid="uid://dmtm7k1fhpmkj"]
 
 [ext_resource type="Script" path="res://assets/scripts/robot_controller.gd" id="1_y52tj"]
 [ext_resource type="Script" path="res://assets/scripts/player_controller.gd" id="2_3u1ph"]
@@ -14,8 +14,9 @@
 [ext_resource type="Texture2D" uid="uid://csvl3iq6iiw6s" path="res://assets/models/Bobot/BobodAdd.png" id="10_w5po0"]
 [ext_resource type="Texture2D" uid="uid://ckwixqw5d1nmh" path="res://assets/models/Bobot/BobotColor.png" id="11_xl1q3"]
 [ext_resource type="Texture2D" uid="uid://cr704pc1wkh7e" path="res://assets/models/Bobot/BobotEmission.png" id="12_k7245"]
-[ext_resource type="AnimationLibrary" uid="uid://brh6pswhhmqo3" path="res://assets/models/Bobot/animations.res" id="14_cy4nu"]
+[ext_resource type="AnimationLibrary" uid="uid://c6p8txqxiehok" path="res://assets/models/Bobot/animations.res" id="14_cy4nu"]
 [ext_resource type="AudioStream" uid="uid://xfssj0v54y7b" path="res://assets/sounds/bobot/walk.mp3" id="16_u5vej"]
+[ext_resource type="AudioStream" uid="uid://cljr7qngoowjh" path="res://assets/sounds/box/box_drag.mp3" id="17_b8dmw"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6g3en"]
 radius = 0.295404
@@ -23,7 +24,7 @@ height = 2.37268
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sxjss"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ynwue"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v3uig"]
 render_priority = 0
 shader = ExtResource("9_56i17")
 shader_parameter/color = Color(0.776471, 0.443137, 0, 1)
@@ -78,13 +79,7 @@ run_multiplyer = 2.5
 clamp_angle_up = 90.0
 clamp_angle_down = 110.0
 
-[node name="SoundController" type="Node" parent="." node_paths=PackedStringArray("body", "controller", "walk")]
-script = ExtResource("3_p42h3")
-body = NodePath("..")
-controller = NodePath("../Controller")
-walk = NodePath("../Bobot/AudioStreamPlayer3D")
-
-[node name="Drag" type="Node" parent="." node_paths=PackedStringArray("player", "player_controller", "ray_cast", "camera", "box_mount_point", "box_collision", "main_ui")]
+[node name="Drag" type="Node" parent="." node_paths=PackedStringArray("player", "player_controller", "ray_cast", "camera", "box_mount_point", "box_collision", "main_ui", "drag_sound")]
 script = ExtResource("3_d0ex6")
 player = NodePath("..")
 player_controller = NodePath("../Controller")
@@ -95,11 +90,12 @@ box_collision = NodePath("../DraggedBoxCollision")
 drag_speed = 3.0
 camera_speed = 0.002
 main_ui = NodePath("../SubViewport/UICanvas")
+drag_sound = NodePath("../DragAudioStream")
 
 [node name="SubViewport" type="SubViewport" parent="."]
 disable_3d = true
 handle_input_locally = false
-size = Vector2i(3840, 2160)
+size = Vector2i(2880, 1620)
 
 [node name="Camera3D" type="Camera3D" parent="SubViewport" node_paths=PackedStringArray("target")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.154403, 2.04042, -0.00800797)
@@ -109,8 +105,8 @@ target = NodePath("../../Eye")
 [node name="UICanvas" parent="SubViewport" instance=ExtResource("7_xx5d7")]
 
 [node name="ShemeCanvas" type="CanvasLayer" parent="SubViewport"]
-scale = Vector2(3.6, 3.6)
-transform = Transform2D(3.6, 0, 0, 3.6, 0, 0)
+scale = Vector2(2.7, 2.7)
+transform = Transform2D(2.7, 0, 0, 2.7, 0, 0)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="SubViewport/ShemeCanvas"]
 offset_left = 200.0
@@ -145,6 +141,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.10543e-15, 0.613265, -0.82
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11438, -0.828008)
 shape = SubResource("BoxShape3D_sxjss")
 
+[node name="SoundController" type="Node" parent="." node_paths=PackedStringArray("body", "controller", "walk")]
+script = ExtResource("3_p42h3")
+body = NodePath("..")
+controller = NodePath("../Controller")
+walk = NodePath("../Bobot/AudioStreamPlayer3D")
+
 [node name="Bobot" parent="." node_paths=PackedStringArray("meshes", "animation_player", "body", "controller") instance=ExtResource("7_wg8p4")]
 transform = Transform3D(-1.74846e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.74846e-08, 0, 0, 0)
 script = ExtResource("8_qciog")
@@ -177,7 +179,7 @@ bones/18/position = Vector3(1.13359, 0.821416, 0.514869)
 
 [node name="Bobot2" parent="Bobot/Armature/Skeleton3D" index="0"]
 layers = 2
-surface_material_override/0 = SubResource("ShaderMaterial_ynwue")
+surface_material_override/0 = SubResource("ShaderMaterial_v3uig")
 
 [node name="AnimationPlayer" parent="Bobot" index="1"]
 libraries = {
@@ -188,5 +190,8 @@ libraries = {
 stream = ExtResource("16_u5vej")
 volume_db = -16.386
 max_distance = 1125.36
+
+[node name="DragAudioStream" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("17_b8dmw")
 
 [editable path="Bobot"]

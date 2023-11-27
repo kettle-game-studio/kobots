@@ -11,7 +11,9 @@ enum State { NOT_DRAGGING, DRAGGING }
 @export var drag_speed: float = 1
 @export var camera_speed: float = 0.001
 
-@export var main_ui: UICanvas 
+@export var main_ui: UICanvas
+
+@export var drag_sound: AudioStreamPlayer3D
 
 var state: State = State.NOT_DRAGGING
 var dragged_box: Box = null
@@ -95,7 +97,8 @@ func start_dragging(box: Box) -> bool:
 		
 	dragged_box = box
 	state = State.DRAGGING
-	
+	if drag_sound:
+		drag_sound.play()
 	player_controller.disable(true)
 	
 	#box_collision.global_transform = dragged_box.global_transform

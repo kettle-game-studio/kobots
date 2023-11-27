@@ -13,6 +13,9 @@ signal unpressed(ButtonController)
 @export var pressed_albedo: Color
 @export var unpressed_albedo: Color
 
+@onready var press_audio = $PressAudio
+@onready var unpress_audio = $UnpressAudio
+
 var state: State = State.UNPRESSED
 var pressiness = 0
 var redstone_material: ShaderMaterial
@@ -61,11 +64,13 @@ func on_pressed():
 	match state:
 		State.UNPRESSED:
 			state = State.PRESSING
+			press_audio.play()
 
 func on_unpressed():
 	match state:
 		State.PRESSED:
 			state = State.UNPRESSING
+			unpress_audio.play()			
 
 func freeze_activation():
 	state = State.ALWAYS_PRESSED

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bh30fgjh4prch"]
+[gd_scene load_steps=12 format=3 uid="uid://bh30fgjh4prch"]
 
 [ext_resource type="Script" path="res://assets/scripts/robots/kobot.gd" id="1_hrf68"]
 [ext_resource type="Script" path="res://assets/scripts/player_controller.gd" id="1_ktkwb"]
@@ -8,6 +8,8 @@
 [ext_resource type="Material" uid="uid://cbidxjop1llxv" path="res://assets/materials/kobot_head_material.tres" id="5_xraqv"]
 [ext_resource type="Material" uid="uid://b38y0frosthf1" path="res://assets/materials/kobot_body_material.tres" id="6_tj0ny"]
 [ext_resource type="Material" uid="uid://ctocq6jlyi6sh" path="res://assets/materials/kobot_rubber_material.tres" id="7_uqhkt"]
+[ext_resource type="AudioStream" uid="uid://cl8e2gqy5dmqt" path="res://assets/sounds/kobot/kobot-walk.mp3" id="9_5nckh"]
+[ext_resource type="Script" path="res://assets/scripts/simple_audio.gd" id="9_cq5vm"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vfrs6"]
 
@@ -25,6 +27,7 @@ shape = SubResource("CapsuleShape3D_vfrs6")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.47635, -0.262609)
 
 [node name="AudioListener3D" type="AudioListener3D" parent="Eye"]
+current = true
 
 [node name="Camera3D" type="Camera3D" parent="Eye"]
 
@@ -66,6 +69,28 @@ text = "[Q] To Quit"
 [node name="KobotAnimaterd" parent="." instance=ExtResource("4_njgmx")]
 transform = Transform3D(-0.2, 0, 3.01992e-08, 0, 0.2, 0, -3.01992e-08, 0, -0.2, 0, -0.0668193, 0)
 
+[node name="Skeleton3D" parent="KobotAnimaterd/Armature" index="0"]
+bones/1/rotation = Quaternion(-6.09645e-10, 1.18717e-07, 0.00220644, 0.999997)
+bones/2/rotation = Quaternion(0.514683, 0.159136, -0.825893, 0.166369)
+bones/3/rotation = Quaternion(0.42538, 0.000112166, 0.109586, 0.898356)
+bones/4/position = Vector3(6.1844, 1.40708, -3.5553)
+bones/5/position = Vector3(0.79918, -1.13318, 4.02582)
+bones/6/rotation = Quaternion(0.531105, -0.0972461, 0.823393, 0.174626)
+bones/7/rotation = Quaternion(0.571841, 0.0556841, -0.130325, 0.80803)
+bones/8/position = Vector3(-5.51416, 1.25229, -3.27866)
+bones/10/rotation = Quaternion(-0.932538, 0.0579955, 0.31924, -0.158418)
+bones/11/rotation = Quaternion(0.21655, -8.78848e-09, -0.15758, 0.96347)
+bones/12/rotation = Quaternion(0.950397, 0.020735, -0.295386, -0.0952005)
+bones/13/rotation = Quaternion(0.0358934, 4.125e-08, -0.0261191, 0.999014)
+bones/14/position = Vector3(1.17765, 4.13597, 0.371926)
+bones/14/rotation = Quaternion(-0.42336, 0.59857, 0.621175, 0.276808)
+bones/15/position = Vector3(0.7116, 0.555227, 0.260092)
+bones/15/rotation = Quaternion(0.731973, -0.197493, -0.238136, 0.607045)
+bones/16/position = Vector3(-0.801728, 4.39829, 0.751424)
+bones/16/rotation = Quaternion(0.626101, 0.551585, 0.547966, -0.0590332)
+bones/17/position = Vector3(-0.813354, 0.319966, -0.873902)
+bones/17/rotation = Quaternion(0.731973, -0.197493, -0.238136, 0.607045)
+
 [node name="Chin" parent="KobotAnimaterd/Armature/Skeleton3D" index="0"]
 surface_material_override/0 = ExtResource("5_xraqv")
 surface_material_override/1 = ExtResource("6_tj0ny")
@@ -74,5 +99,17 @@ surface_material_override/2 = ExtResource("7_uqhkt")
 [node name="Torso plate" parent="KobotAnimaterd/Armature/Skeleton3D" index="1"]
 surface_material_override/0 = ExtResource("6_tj0ny")
 surface_material_override/1 = ExtResource("7_uqhkt")
+
+[node name="WalkAudioStream" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("9_5nckh")
+volume_db = -13.628
+max_distance = 15.0
+panning_strength = 0.97
+
+[node name="SoundCotroller" type="Node" parent="." node_paths=PackedStringArray("body", "controller", "walk")]
+script = ExtResource("9_cq5vm")
+body = NodePath("..")
+controller = NodePath("../Controller")
+walk = NodePath("../WalkAudioStream")
 
 [editable path="KobotAnimaterd"]
