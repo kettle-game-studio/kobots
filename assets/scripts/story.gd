@@ -83,14 +83,13 @@ func level_finish():
 	var next_level = next_level_resource.instantiate()
 	parent.add_child(next_level)
 	
-	var next_story = next_level.get_node("Story")
+	var next_story = next_level.get_node("Story") as Story
 	var total_time = Time.get_ticks_msec() - timer_start
-	
 	if total_time < 0:
 		next_story.speedrun_data.text = ""
 	else:
 		next_story.speedrun_data.text = "[center]You have finished the game in %s[/center]" % beautify_time(total_time)
-
+		
 func kill_old_level():
 	await get_tree().process_frame
 	root.queue_free()
