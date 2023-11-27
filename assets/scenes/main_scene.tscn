@@ -40,8 +40,8 @@
 [ext_resource type="Texture2D" uid="uid://j0db2i3vjjos" path="res://assets/models/terminal3/TerminalLight.png" id="30_ush0m"]
 [ext_resource type="PackedScene" uid="uid://cud5vovq2mwy6" path="res://assets/prefabs/robot_kobot_final.tscn" id="31_ckhdd"]
 [ext_resource type="AudioStream" uid="uid://dtorw3gjljohu" path="res://assets/sounds/music/kobots_ambient1.mp3" id="34_imdpc"]
+[ext_resource type="AudioStream" uid="uid://bfvs7w5r8l5sy" path="res://assets/sounds/music/kobots_main.mp3" id="35_om6mk"]
 [ext_resource type="AudioStream" uid="uid://beufhdnp5cok4" path="res://assets/sounds/music/kobots_ambient2.mp3" id="35_tdsfu"]
-[ext_resource type="AudioStream" uid="uid://bb6w6qymxhoi3" path="res://assets/sounds/music/kobots_main (wip).mp3" id="36_lxgv5"]
 [ext_resource type="Script" path="res://assets/scripts/infinite_audio.gd" id="37_f44cs"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_gq0wv"]
@@ -465,7 +465,7 @@ playback_mode = 2
 random_pitch = 1.0
 stream_0/stream = ExtResource("34_imdpc")
 stream_0/weight = 1.0
-stream_1/stream = ExtResource("36_lxgv5")
+stream_1/stream = ExtResource("35_om6mk")
 stream_1/weight = 1.0
 stream_2/stream = ExtResource("35_tdsfu")
 stream_2/weight = 1.0
