@@ -63,36 +63,51 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -1,
 
 [node name="Wall_005" parent="Walls" instance=ExtResource("3_tuhwc")]
 transform = Transform3D(-1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, -1, -2, 0, 1)
+layers = 2
+
+[node name="Wall_008" parent="Walls" instance=ExtResource("3_tuhwc")]
+transform = Transform3D(-1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, -1, 2, 0, -1)
+layers = 2
 
 [node name="Wall_006" parent="Walls" instance=ExtResource("3_tuhwc")]
 transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 2, 0, 1)
+layers = 2
 
 [node name="Wall_007" parent="Walls" instance=ExtResource("3_tuhwc")]
 transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -2, 0, -1)
+layers = 2
 
 [node name="Wall_009" parent="Walls" instance=ExtResource("3_tuhwc")]
 transform = Transform3D(-1.58932e-08, 0, -1, 0, 1, 0, 1, 0, -1.58932e-08, 1, 0, 2)
+layers = 2
 
 [node name="Wall_010" parent="Walls" instance=ExtResource("3_tuhwc")]
 transform = Transform3D(-1.58932e-08, 0, -1, 0, 1, 0, 1, 0, -1.58932e-08, 1, 0, -2)
+layers = 2
 
 [node name="Wall_011" parent="Walls" instance=ExtResource("3_tuhwc")]
 transform = Transform3D(-5.96046e-08, 0, 1, 0, 1, 0, -1, 0, -5.96046e-08, -1, 0, 2)
+layers = 2
 
 [node name="Wall_012" parent="Walls" instance=ExtResource("3_tuhwc")]
 transform = Transform3D(-5.96046e-08, 0, 1, 0, 1, 0, -1, 0, -5.96046e-08, -1, 0, -2)
+layers = 2
 
 [node name="Column2" parent="Walls" instance=ExtResource("4_fdnop")]
 transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, 2, 0, 2)
+layers = 2
 
 [node name="Column3" parent="Walls" instance=ExtResource("4_fdnop")]
 transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, 2, 0, -2)
+layers = 2
 
 [node name="Column4" parent="Walls" instance=ExtResource("4_fdnop")]
 transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, -2, 0, -2)
+layers = 2
 
 [node name="Column5" parent="Walls" instance=ExtResource("4_fdnop")]
 transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, -2, 0, 2)
+layers = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

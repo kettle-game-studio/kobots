@@ -52,8 +52,8 @@ func _process(delta):
 	if disable_story:
 		return
 	
-	if Input.is_action_just_pressed("Debug"):
-		level_end()
+#	if Input.is_action_just_pressed("Debug"):
+#		level_end()
 
 func level_end():
 	disable_story = true

@@ -109,11 +109,13 @@ bones/17/position = Vector3(-0.813354, 0.254573, -0.39849)
 bones/17/rotation = Quaternion(0.731973, -0.197493, -0.238136, 0.607045)
 
 [node name="Chin" parent="KobotAnimaterd/Armature/Skeleton3D" index="0"]
+layers = 2
 surface_material_override/0 = ExtResource("5_xraqv")
 surface_material_override/1 = ExtResource("6_tj0ny")
 surface_material_override/2 = ExtResource("7_uqhkt")
 
 [node name="Torso plate" parent="KobotAnimaterd/Armature/Skeleton3D" index="1"]
+layers = 2
 surface_material_override/0 = ExtResource("6_tj0ny")
 surface_material_override/1 = ExtResource("7_uqhkt")
 
