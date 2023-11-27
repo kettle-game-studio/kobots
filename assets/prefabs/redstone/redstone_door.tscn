@@ -55,6 +55,7 @@ _data = {
 [node name="RedstoneDoor" type="Node3D" node_paths=PackedStringArray("meshes")]
 script = ExtResource("1_sksdw")
 meshes = [NodePath("Door/DoorMesh")]
+seconds_to_open = 2.0
 
 [node name="Door" type="Node3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1, 0)

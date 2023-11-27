@@ -93,9 +93,9 @@ draw_pass_1 = SubResource("QuadMesh_jony3")
 [node name="EmitAudioStream" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("4_8xxob")
 volume_db = -17.351
-max_distance = 30.0
+max_distance = 10.0
 
 [node name="CollisionAudioStream" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("5_aj1t4")
 volume_db = -2.831
-max_distance = 30.0
+max_distance = 10.0

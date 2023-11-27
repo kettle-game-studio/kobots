@@ -43,7 +43,7 @@ size = Vector3(50, 6, 2)
 [sub_resource type="BoxShape3D" id="BoxShape3D_pgv31"]
 size = Vector3(50, 1, 50)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ofute"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_84dqg"]
 render_priority = 0
 shader = ExtResource("13_64orm")
 shader_parameter/color = Color(1, 1, 1, 1)
@@ -58,7 +58,7 @@ shader_parameter/base_texture = ExtResource("15_p530e")
 shader_parameter/add_texture = ExtResource("14_ctyoo")
 shader_parameter/emission_texture = ExtResource("16_07an1")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_b2mwq"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7x0ha"]
 render_priority = 0
 shader = ExtResource("13_64orm")
 shader_parameter/color = Color(0.886275, 0.403922, 0, 1)
@@ -638,10 +638,10 @@ meshes = [NodePath("Terminal"), NodePath("TerminalSupport")]
 
 [node name="TerminalSupport" parent="Gameplay/Terminal" instance=ExtResource("12_qjm5p")]
 transform = Transform3D(-0.377738, 0, 0.426865, 0, 0.57, 0, -0.426865, 0, -0.377738, 0, -1.4, 0)
-surface_material_override/0 = SubResource("ShaderMaterial_ofute")
+surface_material_override/0 = SubResource("ShaderMaterial_84dqg")
 
 [node name="DefaultRobot" parent="Gameplay" instance=ExtResource("2_ur8q7")]
-transform = Transform3D(-0.999119, 0, -0.0419628, 0, 1, 0, 0.0419628, 0, -0.999119, 36, 0, 2)
+transform = Transform3D(-0.999119, 0, -0.0419628, 0, 1, 0, 0.0419628, 0, -0.999119, 35.8115, 0, 4.25823)
 
 [node name="Terminal2" parent="Gameplay" node_paths=PackedStringArray("robot", "meshes") instance=ExtResource("1_upji4")]
 transform = Transform3D(-8.9407e-08, 0, 1, 0, 1, 0, -1, 0, -8.9407e-08, 15.86, 1.3, 29.772)
@@ -651,7 +651,7 @@ meshes = [NodePath("Terminal"), NodePath("TerminalSupport")]
 
 [node name="TerminalSupport" parent="Gameplay/Terminal2" instance=ExtResource("12_qjm5p")]
 transform = Transform3D(0.57, 0, 8.9407e-08, 0, 0.57, 0, -8.9407e-08, 0, 0.57, 0, -1.3, 0)
-surface_material_override/0 = SubResource("ShaderMaterial_b2mwq")
+surface_material_override/0 = SubResource("ShaderMaterial_7x0ha")
 
 [node name="DefaultRobot2" parent="Gameplay" instance=ExtResource("2_ur8q7")]
 transform = Transform3D(0.0366611, 0, -0.999328, 0, 1, 0, 0.999328, 0, 0.0366611, 10.02, 0, 30.534)

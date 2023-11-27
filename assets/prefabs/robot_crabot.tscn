@@ -207,7 +207,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15085, 0)
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("16_f125c")
 volume_db = -2.892
-max_distance = 15.0
+max_distance = 5.0
 
 [node name="SoundController" type="Node" parent="." node_paths=PackedStringArray("body", "controller", "walk")]
 script = ExtResource("16_4hxr5")
