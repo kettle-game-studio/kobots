@@ -105,6 +105,7 @@ stream = ExtResource("9_5nckh")
 volume_db = -13.628
 max_distance = 15.0
 panning_strength = 0.97
+bus = &"Sounds"
 
 [node name="SoundCotroller" type="Node" parent="." node_paths=PackedStringArray("body", "controller", "walk")]
 script = ExtResource("9_cq5vm")

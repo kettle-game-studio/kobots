@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://bb22o6htxbt80"]
+[gd_scene load_steps=51 format=3 uid="uid://bb22o6htxbt80"]
 
 [ext_resource type="Environment" uid="uid://dplq6caflelre" path="res://assets/materials/environment.tres" id="1_igkwj"]
 [ext_resource type="PackedScene" uid="uid://bh30fgjh4prch" path="res://assets/prefabs/player.tscn" id="1_jwnee"]
@@ -37,6 +37,10 @@
 [ext_resource type="PackedScene" uid="uid://cv03cxb8jcsy8" path="res://assets/prefabs/terminal.tscn" id="30_l5fyd"]
 [ext_resource type="Texture2D" uid="uid://j0db2i3vjjos" path="res://assets/models/terminal3/TerminalLight.png" id="30_ush0m"]
 [ext_resource type="PackedScene" uid="uid://cud5vovq2mwy6" path="res://assets/prefabs/robot_kobot_final.tscn" id="31_ckhdd"]
+[ext_resource type="AudioStream" uid="uid://dtorw3gjljohu" path="res://assets/sounds/music/kobots_ambient1.mp3" id="34_imdpc"]
+[ext_resource type="AudioStream" uid="uid://beufhdnp5cok4" path="res://assets/sounds/music/kobots_ambient2.mp3" id="35_tdsfu"]
+[ext_resource type="AudioStream" uid="uid://bb6w6qymxhoi3" path="res://assets/sounds/music/kobots_main (wip).mp3" id="36_lxgv5"]
+[ext_resource type="Script" path="res://assets/scripts/infinite_audio.gd" id="37_f44cs"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_gq0wv"]
 top_radius = 10.0
@@ -50,7 +54,7 @@ radius = 10.0227
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_po2ix"]
 albedo_texture = ExtResource("8_penvi")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_mjm3x"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o6un0"]
 render_priority = 0
 shader = ExtResource("27_j2fdx")
 shader_parameter/color = Color(1, 1, 1, 1)
@@ -380,6 +384,17 @@ _data = {
 "level_end": SubResource("Animation_f8vp6"),
 "level_start": SubResource("Animation_uanav")
 }
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_j06sv"]
+streams_count = 3
+playback_mode = 2
+random_pitch = 1.0
+stream_0/stream = ExtResource("34_imdpc")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("36_lxgv5")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("35_tdsfu")
+stream_2/weight = 1.0
 
 [node name="MainScene" type="Node3D"]
 
@@ -1559,7 +1574,7 @@ story = NodePath("../../../../Story")
 
 [node name="TerminalSupport" parent="Center/Base/Gameplay/FinalTerminal" instance=ExtResource("26_458fb")]
 transform = Transform3D(0.57, 0, 0, 0, 0.57, 0, 0, 0, 0.57, 0, -0.735416, 0)
-surface_material_override/0 = SubResource("ShaderMaterial_mjm3x")
+surface_material_override/0 = SubResource("ShaderMaterial_o6un0")
 
 [node name="Player" parent="." instance=ExtResource("1_jwnee")]
 transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 4.36208, 13.4493, 4.36208)
@@ -1580,7 +1595,6 @@ bones/1/rotation = Quaternion(-1.85153e-09, 1.21052e-07, 3.80453e-05, 1)
 bones/2/rotation = Quaternion(0.139728, 0.262851, -0.947868, 0.113716)
 bones/3/rotation = Quaternion(0.246774, 0.000120719, 0.063574, 0.966986)
 bones/4/position = Vector3(1.66249, 1.99349, -3.77496)
-bones/5/position = Vector3(0.79918, -1.13318, 4.02582)
 bones/6/rotation = Quaternion(0.149881, -0.42072, 0.890495, 0.0868837)
 bones/7/rotation = Quaternion(0.380369, 0.0633028, -0.0866874, 0.918584)
 bones/8/position = Vector3(-1.66249, 1.99349, -3.77496)
@@ -1671,6 +1685,12 @@ libraries = {
 "": SubResource("AnimationLibrary_7lyda")
 }
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Story"]
+stream = SubResource("AudioStreamRandomizer_j06sv")
+autoplay = true
+bus = &"Music"
+script = ExtResource("37_f44cs")
+
 [node name="OccluderInstance3D" type="OccluderInstance3D" parent="."]
 visible = false
 occluder = ExtResource("8_ym6mh")
@@ -1698,6 +1718,7 @@ surface_material_override/0 = ExtResource("10_8rk17")
 [connection signal="exit" from="Level3" to="Story" method="_on_level_exit"]
 [connection signal="enter" from="Level4" to="Story" method="_on_level_enter"]
 [connection signal="exit" from="Level4" to="Story" method="_on_level_exit"]
+[connection signal="finished" from="Story/AudioStreamPlayer" to="Story/AudioStreamPlayer" method="_on_finished"]
 
 [editable path="Player"]
 [editable path="Player/KobotAnimaterd"]

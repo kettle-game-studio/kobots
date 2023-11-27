@@ -29,7 +29,7 @@ enum State { ENABLED, DISABLED, CONTROLLED_BY_OTHER }
 
 @export var standing_detector: ShapeCast3D
 
-@onready var distortion = AudioServer.get_bus_effect(AudioServer.get_bus_index("Master"), 0) as AudioEffectDistortion
+@onready var distortion = AudioServer.get_bus_effect(AudioServer.get_bus_index("Sounds"), 0) as AudioEffectDistortion
 
 var other: Object = null
 var is_rotationg = false
