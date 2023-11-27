@@ -54,7 +54,7 @@ radius = 10.0227
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_po2ix"]
 albedo_texture = ExtResource("8_penvi")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_o6un0"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_56gle"]
 render_priority = 0
 shader = ExtResource("27_j2fdx")
 shader_parameter/color = Color(1, 1, 1, 1)
@@ -147,6 +147,18 @@ tracks/6/keys = {
 "handle_modes": PackedInt32Array(0),
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../Player/CanvasLayer/PostProcessing:material:shader_parameter/k")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
 }
 
 [sub_resource type="Animation" id="Animation_f8vp6"]
@@ -256,6 +268,18 @@ tracks/8/keys = {
 "args": [],
 "method": &"level_finish"
 }]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../Player/CanvasLayer/PostProcessing:material:shader_parameter/k")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(5, 11),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
 }
 
 [sub_resource type="Animation" id="Animation_uanav"]
@@ -376,6 +400,18 @@ tracks/9/loop_wrap = true
 tracks/9/keys = {
 "clips": PackedStringArray("wake"),
 "times": PackedFloat32Array(1.75)
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../Player/CanvasLayer/PostProcessing:material:shader_parameter/k")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 4.0032),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7lyda"]
@@ -1574,7 +1610,7 @@ story = NodePath("../../../../Story")
 
 [node name="TerminalSupport" parent="Center/Base/Gameplay/FinalTerminal" instance=ExtResource("26_458fb")]
 transform = Transform3D(0.57, 0, 0, 0, 0.57, 0, 0, 0, 0.57, 0, -0.735416, 0)
-surface_material_override/0 = SubResource("ShaderMaterial_o6un0")
+surface_material_override/0 = SubResource("ShaderMaterial_56gle")
 
 [node name="Player" parent="." instance=ExtResource("1_jwnee")]
 transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 4.36208, 13.4493, 4.36208)
@@ -1585,31 +1621,32 @@ transform = Transform3D(0.999995, 0, -2.98024e-08, 0, 0.999998, 0, 2.98024e-08, 
 [node name="Camera3D" parent="Player/Eye" index="1"]
 environment = ExtResource("1_igkwj")
 
-[node name="UICanvas" parent="Player" index="3"]
+[node name="UICanvas" parent="Player" index="4"]
 visible = false
 
 [node name="Skeleton3D" parent="Player/KobotAnimaterd/Armature" index="0"]
-bones/0/position = Vector3(0.0825919, 0.932541, -3.00864)
-bones/0/rotation = Quaternion(-0.691749, 0.0346203, -0.0399921, 0.720198)
-bones/1/rotation = Quaternion(-1.85153e-09, 1.21052e-07, 3.80453e-05, 1)
-bones/2/rotation = Quaternion(0.139728, 0.262851, -0.947868, 0.113716)
-bones/3/rotation = Quaternion(0.246774, 0.000120719, 0.063574, 0.966986)
-bones/4/position = Vector3(1.66249, 1.99349, -3.77496)
-bones/6/rotation = Quaternion(0.149881, -0.42072, 0.890495, 0.0868837)
-bones/7/rotation = Quaternion(0.380369, 0.0633028, -0.0866874, 0.918584)
-bones/8/position = Vector3(-1.66249, 1.99349, -3.77496)
-bones/10/rotation = Quaternion(0.933876, -0.0517521, -0.316213, 0.158767)
-bones/11/rotation = Quaternion(0.322588, -7.39145e-09, -0.234743, 0.916969)
-bones/12/rotation = Quaternion(0.94507, -0.0515213, -0.294074, 0.133074)
-bones/13/rotation = Quaternion(0.326405, -5.29333e-08, -0.23752, 0.914901)
-bones/14/position = Vector3(1.60945, 0.213927, -3.6093)
-bones/14/rotation = Quaternion(0.100349, 0.672983, 0.731062, -0.0507148)
-bones/15/position = Vector3(0.763345, 0.483089, -0.0816651)
-bones/15/rotation = Quaternion(0.139262, -0.308034, -0.11002, 0.934675)
-bones/16/position = Vector3(-1.56886, 0.172465, -3.90534)
-bones/16/rotation = Quaternion(0.0320246, 0.722754, 0.689392, 0.0366096)
-bones/17/position = Vector3(-0.77146, 0.470764, -0.123093)
-bones/17/rotation = Quaternion(0.13919, -0.308043, -0.109996, 0.934685)
+bones/0/position = Vector3(-0.0304352, 3.3987, 0.0138211)
+bones/0/rotation = Quaternion(3.49505e-05, -1.84139e-22, 7.00271e-19, 1)
+bones/1/rotation = Quaternion(-4.31302e-10, 1.18722e-07, 0.00365634, 0.999993)
+bones/2/rotation = Quaternion(0.157293, 0.177088, -0.961985, 0.135949)
+bones/3/rotation = Quaternion(0.510823, 0.000106081, 0.131598, 0.849554)
+bones/4/position = Vector3(1.74357, 1.98298, -3.77102)
+bones/5/position = Vector3(2.52405, 0.202829, 5.75813)
+bones/6/rotation = Quaternion(0.281919, -0.192215, 0.926532, 0.158474)
+bones/7/rotation = Quaternion(0.554742, 0.0565376, -0.126428, 0.820415)
+bones/8/position = Vector3(-2.64064, 2.09117, -4.17507)
+bones/10/rotation = Quaternion(0.891816, 0.0106964, -0.451005, 0.0338124)
+bones/11/rotation = Quaternion(0.142973, 1.52875e-08, -0.104039, 0.984243)
+bones/12/rotation = Quaternion(0.954073, -0.0196425, -0.295972, 0.041936)
+bones/13/rotation = Quaternion(0.163093, 4.08393e-08, -0.118681, 0.979446)
+bones/14/position = Vector3(1.4318, 4.21784, 0.445599)
+bones/14/rotation = Quaternion(0.0258029, 0.495207, 0.851724, -0.169316)
+bones/15/position = Vector3(0.7116, 0.241422, -0.404286)
+bones/15/rotation = Quaternion(0.731973, -0.197493, -0.238136, 0.607045)
+bones/16/position = Vector3(-1.39487, 4.28202, 0.525043)
+bones/16/rotation = Quaternion(0.182798, 0.576265, 0.79367, 0.0677443)
+bones/17/position = Vector3(-0.813354, 0.255483, -0.37918)
+bones/17/rotation = Quaternion(0.731972, -0.197491, -0.238139, 0.607046)
 
 [node name="Story" type="Node" parent="." node_paths=PackedStringArray("cut_scenes", "fps_text", "level_1", "level_2", "level_3", "level_4", "root", "start_button", "speedrun_data", "cam")]
 script = ExtResource("6_o1858")
@@ -1688,7 +1725,6 @@ libraries = {
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Story"]
 stream = SubResource("AudioStreamRandomizer_j06sv")
 autoplay = true
-bus = &"Music"
 script = ExtResource("37_f44cs")
 
 [node name="OccluderInstance3D" type="OccluderInstance3D" parent="."]

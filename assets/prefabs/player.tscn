@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://bh30fgjh4prch"]
+[gd_scene load_steps=14 format=3 uid="uid://bh30fgjh4prch"]
 
 [ext_resource type="Script" path="res://assets/scripts/robots/kobot.gd" id="1_hrf68"]
 [ext_resource type="Script" path="res://assets/scripts/player_controller.gd" id="1_ktkwb"]
 [ext_resource type="PackedScene" uid="uid://cejfi1b5yw6up" path="res://assets/prefabs/ui_canvas.tscn" id="2_tulfi"]
 [ext_resource type="Theme" uid="uid://p08pj8vk2hog" path="res://assets/game_theme.tres" id="3_lfdsd"]
+[ext_resource type="Shader" path="res://assets/materials/ui_posteffect_shader.gdshader" id="3_o3cge"]
 [ext_resource type="PackedScene" uid="uid://j1lw5sbi6ngu" path="res://assets/models/Kobot/KobotAnimaterd.glb" id="4_njgmx"]
 [ext_resource type="Material" uid="uid://cbidxjop1llxv" path="res://assets/materials/kobot_head_material.tres" id="5_xraqv"]
 [ext_resource type="Material" uid="uid://b38y0frosthf1" path="res://assets/materials/kobot_body_material.tres" id="6_tj0ny"]
@@ -12,6 +13,10 @@
 [ext_resource type="Script" path="res://assets/scripts/simple_audio.gd" id="9_cq5vm"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vfrs6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ssyxy"]
+shader = ExtResource("3_o3cge")
+shader_parameter/k = 0.316667
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("animation_player", "body", "controller")]
 script = ExtResource("1_hrf68")
@@ -48,6 +53,16 @@ run_multiplyer = 2.5
 clamp_angle_up = 100.0
 clamp_angle_down = 140.0
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PostProcessing" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_ssyxy")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="UICanvas" parent="." instance=ExtResource("2_tulfi")]
 
 [node name="MainUI" type="CanvasLayer" parent="."]
@@ -70,25 +85,26 @@ text = "[Q] To Quit"
 transform = Transform3D(-0.2, 0, 3.01992e-08, 0, 0.2, 0, -3.01992e-08, 0, -0.2, 0, -0.0668193, 0)
 
 [node name="Skeleton3D" parent="KobotAnimaterd/Armature" index="0"]
-bones/1/rotation = Quaternion(-6.09645e-10, 1.18717e-07, 0.00220644, 0.999997)
-bones/2/rotation = Quaternion(0.514683, 0.159136, -0.825893, 0.166369)
-bones/3/rotation = Quaternion(0.42538, 0.000112166, 0.109586, 0.898356)
+bones/0/position = Vector3(-0.0309943, 3.38806, 0.0176954)
+bones/1/rotation = Quaternion(-4.36336e-10, 1.18717e-07, 0.00366025, 0.999993)
+bones/2/rotation = Quaternion(0.459421, 0.229231, -0.823121, 0.242605)
+bones/3/rotation = Quaternion(0.515627, 0.000105687, 0.132836, 0.846453)
 bones/4/position = Vector3(6.1844, 1.40708, -3.5553)
 bones/5/position = Vector3(0.79918, -1.13318, 4.02582)
-bones/6/rotation = Quaternion(0.531105, -0.0972461, 0.823393, 0.174626)
-bones/7/rotation = Quaternion(0.571841, 0.0556841, -0.130325, 0.80803)
+bones/6/rotation = Quaternion(0.477336, -0.215355, 0.817125, 0.240997)
+bones/7/rotation = Quaternion(0.555908, 0.0564807, -0.126693, 0.819589)
 bones/8/position = Vector3(-5.51416, 1.25229, -3.27866)
-bones/10/rotation = Quaternion(-0.932538, 0.0579955, 0.31924, -0.158418)
-bones/11/rotation = Quaternion(0.21655, -8.78848e-09, -0.15758, 0.96347)
-bones/12/rotation = Quaternion(0.950397, 0.020735, -0.295386, -0.0952005)
-bones/13/rotation = Quaternion(0.0358934, 4.125e-08, -0.0261191, 0.999014)
-bones/14/position = Vector3(1.17765, 4.13597, 0.371926)
-bones/14/rotation = Quaternion(-0.42336, 0.59857, 0.621175, 0.276808)
-bones/15/position = Vector3(0.7116, 0.555227, 0.260092)
+bones/10/rotation = Quaternion(0.946877, -0.0106471, -0.319981, 0.0303851)
+bones/11/rotation = Quaternion(0.143601, -3.78547e-09, -0.104496, 0.984103)
+bones/12/rotation = Quaternion(0.954024, -0.0200455, -0.295947, 0.0430245)
+bones/13/rotation = Quaternion(0.170687, 2.47726e-08, -0.124206, 0.977466)
+bones/14/position = Vector3(1.44728, 4.21679, 0.435198)
+bones/14/rotation = Quaternion(0.0338932, 0.491185, 0.852264, -0.176733)
+bones/15/position = Vector3(0.7116, 0.229438, -0.384968)
 bones/15/rotation = Quaternion(0.731973, -0.197493, -0.238136, 0.607045)
-bones/16/position = Vector3(-0.801728, 4.39829, 0.751424)
-bones/16/rotation = Quaternion(0.626101, 0.551585, 0.547966, -0.0590332)
-bones/17/position = Vector3(-0.813354, 0.319966, -0.873902)
+bones/16/position = Vector3(-1.39764, 4.2791, 0.547029)
+bones/16/rotation = Quaternion(0.174571, 0.576299, 0.794537, 0.0781942)
+bones/17/position = Vector3(-0.813354, 0.254573, -0.39849)
 bones/17/rotation = Quaternion(0.731973, -0.197493, -0.238136, 0.607045)
 
 [node name="Chin" parent="KobotAnimaterd/Armature/Skeleton3D" index="0"]
@@ -105,7 +121,6 @@ stream = ExtResource("9_5nckh")
 volume_db = -13.628
 max_distance = 15.0
 panning_strength = 0.97
-bus = &"Sounds"
 
 [node name="SoundCotroller" type="Node" parent="." node_paths=PackedStringArray("body", "controller", "walk")]
 script = ExtResource("9_cq5vm")
