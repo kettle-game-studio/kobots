@@ -109,6 +109,8 @@ func beautify_number(num: int) -> String:
 
 func set_state_all_children(node: Node, state: bool):
 	for child in node.get_children(true):
+		if child is AudioStreamPlayer3D:
+			child.bus = "Master" if state else "Mute"
 		child.set_process(state)
 		child.set_physics_process(state)
 		child.set_process_input(state)

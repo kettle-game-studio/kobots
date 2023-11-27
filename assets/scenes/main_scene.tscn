@@ -50,7 +50,7 @@ radius = 10.0227
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_po2ix"]
 albedo_texture = ExtResource("8_penvi")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_v618k"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mjm3x"]
 render_priority = 0
 shader = ExtResource("27_j2fdx")
 shader_parameter/color = Color(1, 1, 1, 1)
@@ -1550,14 +1550,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2, 0, -1.4)
 [node name="RedstoneFork3" parent="Center/Base/Gameplay/Level4/Wall2/Wall1/RedstoneConcentrator/RedstoneLiserReceiver/RedstoneLine3" instance=ExtResource("19_24wf1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2, 0, 0.800001)
 
-[node name="FinalTerminal" parent="Center/Base/Gameplay" node_paths=PackedStringArray("robot", "meshes") instance=ExtResource("30_l5fyd")]
+[node name="FinalTerminal" parent="Center/Base/Gameplay" node_paths=PackedStringArray("robot", "meshes", "story") instance=ExtResource("30_l5fyd")]
 transform = Transform3D(-1.06066, 0, 1.06066, 0, 1.5, 0, -1.06066, 0, -1.06066, 0, 1, 0)
 robot = NodePath("../../../../Kobot_Textured/FinalKobot")
 meshes = [NodePath("Terminal"), NodePath("TerminalSupport")]
+is_final = true
+story = NodePath("../../../../Story")
 
 [node name="TerminalSupport" parent="Center/Base/Gameplay/FinalTerminal" instance=ExtResource("26_458fb")]
 transform = Transform3D(0.57, 0, 0, 0, 0.57, 0, 0, 0, 0.57, 0, -0.735416, 0)
-surface_material_override/0 = SubResource("ShaderMaterial_v618k")
+surface_material_override/0 = SubResource("ShaderMaterial_mjm3x")
 
 [node name="Player" parent="." instance=ExtResource("1_jwnee")]
 transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 4.36208, 13.4493, 4.36208)
