@@ -1,15 +1,24 @@
-[gd_scene load_steps=11 format=3 uid="uid://d27stf6dexrbe"]
+[gd_scene load_steps=12 format=3 uid="uid://d27stf6dexrbe"]
 
-[ext_resource type="Material" uid="uid://dvuut3uiixvu3" path="res://assets/materials/laser_mat.tres" id="1_44sue"]
 [ext_resource type="Script" path="res://assets/scripts/laser.gd" id="1_yl67h"]
+[ext_resource type="Shader" path="res://assets/scripts/robots/laser_light.gdshader" id="2_ejysg"]
 [ext_resource type="Material" uid="uid://dairncnrblduy" path="res://assets/materials/laser_particle_mat.tres" id="3_t4j1f"]
 [ext_resource type="AudioStream" uid="uid://bulro6baxsh61" path="res://assets/sounds/laser/woomwoomwoom.mp3" id="4_8xxob"]
 [ext_resource type="AudioStream" uid="uid://dww37yebpa237" path="res://assets/sounds/laser/laser_collision.mp3" id="5_aj1t4"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_7f5ss"]
-top_radius = 0.03
-bottom_radius = 0.03
-height = 100.0
+top_radius = 0.06
+bottom_radius = 0.06
+height = 20.0
+cap_top = false
+cap_bottom = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k4471"]
+render_priority = 0
+shader = ExtResource("2_ejysg")
+shader_parameter/radius = 0.06
+shader_parameter/k = 1.0
+shader_parameter/color = Vector3(0.77, 0.65, 0)
 
 [sub_resource type="Curve" id="Curve_xjkxg"]
 _data = [Vector2(0, 0.505263), 0.0, 0.0, 0, 0, Vector2(0.25463, 1), 0.0, 0.0, 0, 0, Vector2(0.976852, 0), 0.0, 0.0, 0, 0]
@@ -31,15 +40,47 @@ scale_curve = SubResource("CurveTexture_wif1l")
 [sub_resource type="QuadMesh" id="QuadMesh_jony3"]
 size = Vector2(0.02, 0.02)
 
-[node name="Laser" type="RayCast3D"]
+[node name="Laser" type="RayCast3D" node_paths=PackedStringArray("beam_meshes")]
 target_position = Vector3(0, 0, -1000)
 script = ExtResource("1_yl67h")
+beam_meshes = [NodePath("BeamRoot/BeamMesh"), NodePath("BeamRoot/BeamMesh2"), NodePath("BeamRoot/BeamMesh3"), NodePath("BeamRoot/BeamMesh4"), NodePath("BeamRoot/BeamMesh5")]
 
-[node name="BeamMesh" type="MeshInstance3D" parent="."]
+[node name="BeamRoot" type="Node3D" parent="."]
+
+[node name="BeamMesh" type="MeshInstance3D" parent="BeamRoot"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -10)
+layers = 2
+mesh = SubResource("CylinderMesh_7f5ss")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_k4471")
+
+[node name="BeamMesh2" type="MeshInstance3D" parent="BeamRoot"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -30)
+layers = 2
+mesh = SubResource("CylinderMesh_7f5ss")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_k4471")
+
+[node name="BeamMesh3" type="MeshInstance3D" parent="BeamRoot"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -50)
 layers = 2
 mesh = SubResource("CylinderMesh_7f5ss")
-surface_material_override/0 = ExtResource("1_44sue")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_k4471")
+
+[node name="BeamMesh4" type="MeshInstance3D" parent="BeamRoot"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -70)
+layers = 2
+mesh = SubResource("CylinderMesh_7f5ss")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_k4471")
+
+[node name="BeamMesh5" type="MeshInstance3D" parent="BeamRoot"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -90)
+layers = 2
+mesh = SubResource("CylinderMesh_7f5ss")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_k4471")
 
 [node name="EndParticles" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -100)
