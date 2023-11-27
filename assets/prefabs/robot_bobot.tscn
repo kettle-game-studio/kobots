@@ -88,7 +88,6 @@ camera = NodePath("../Eye")
 box_mount_point = NodePath("../BoxMountPoint")
 box_collision = NodePath("../DraggedBoxCollision")
 drag_speed = 3.0
-camera_speed = 0.002
 main_ui = NodePath("../SubViewport/UICanvas")
 drag_sound = NodePath("../DragAudioStream")
 

@@ -9,7 +9,7 @@ enum State { NOT_DRAGGING, DRAGGING }
 @export var box_mount_point: Node3D
 @export var box_collision: CollisionShape3D 
 @export var drag_speed: float = 1
-@export var camera_speed: float = 0.001
+@export var camera_speed: float = 0.0005
 
 @export var main_ui: UICanvas
 

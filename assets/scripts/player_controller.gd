@@ -9,7 +9,7 @@ class_name PlayerController
 @export var main_ui: UICanvas
 @export var audio_listener: AudioListener3D
 
-@export var camera_speed: float = 0.003
+@export var camera_speed: float = 0.0007
 @export var walk_speed: float = 5
 @export var push_force: float = 2
 
