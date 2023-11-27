@@ -56,7 +56,7 @@ radius = 10.0227
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_po2ix"]
 albedo_texture = ExtResource("8_penvi")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_o1u8g"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0q46v"]
 render_priority = 0
 shader = ExtResource("27_j2fdx")
 shader_parameter/color = Color(1, 1, 1, 1)
@@ -1115,7 +1115,6 @@ transform = Transform3D(1.42819, 1.4001, -6.12003e-08, -4.42808e-16, -8.74228e-0
 transform = Transform3D(1.29908, -1.52065, 6.64699e-08, -4.42808e-16, -8.74228e-08, -2, 1.52065, 1.29908, -5.67847e-08, 8.73388, -9.46073, -5.71667)
 
 [node name="Gameplay" type="Node3D" parent="Center/Base"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8.10854, 0)
 
 [node name="Level1" type="Node3D" parent="Center/Base/Gameplay"]
 
@@ -1675,7 +1674,7 @@ story = NodePath("../../../../Story")
 
 [node name="TerminalSupport" parent="Center/Base/Gameplay/FinalTerminal" instance=ExtResource("26_458fb")]
 transform = Transform3D(0.57, 0, 0, 0, 0.57, 0, 0, 0, 0.57, 0, -0.735416, 0)
-surface_material_override/0 = SubResource("ShaderMaterial_o1u8g")
+surface_material_override/0 = SubResource("ShaderMaterial_0q46v")
 
 [node name="Player" parent="." instance=ExtResource("1_jwnee")]
 transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 4.36208, 13.4493, 4.36208)
