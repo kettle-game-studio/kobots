@@ -24,7 +24,7 @@ height = 2.37268
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sxjss"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_v3uig"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tx34p"]
 render_priority = 0
 shader = ExtResource("9_56i17")
 shader_parameter/color = Color(0.776471, 0.443137, 0, 1)
@@ -95,7 +95,7 @@ drag_sound = NodePath("../DragAudioStream")
 [node name="SubViewport" type="SubViewport" parent="."]
 disable_3d = true
 handle_input_locally = false
-size = Vector2i(2880, 1620)
+size = Vector2i(3840, 2160)
 
 [node name="Camera3D" type="Camera3D" parent="SubViewport" node_paths=PackedStringArray("target")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.154403, 2.04042, -0.00800797)
@@ -105,8 +105,13 @@ target = NodePath("../../Eye")
 [node name="UICanvas" parent="SubViewport" instance=ExtResource("7_xx5d7")]
 
 [node name="ShemeCanvas" type="CanvasLayer" parent="SubViewport"]
-scale = Vector2(2.7, 2.7)
-transform = Transform2D(2.7, 0, 0, 2.7, 0, 0)
+scale = Vector2(3.6, 3.6)
+transform = Transform2D(3.6, 0, 0, 3.6, 0, 0)
+
+[node name="Scheme" type="Sprite2D" parent="SubViewport/ShemeCanvas"]
+position = Vector2(786, 297)
+scale = Vector2(0.472656, 0.472656)
+texture = ExtResource("6_iqyiu")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="SubViewport/ShemeCanvas"]
 offset_left = 200.0
@@ -123,16 +128,11 @@ text = "[font_size=40]KOBOT.Mk-01[/font_size]
 Designed for construction works, heavy lifting and button pressing
 
 [font_size=40]
-[Mouse] Look around
-[WASD] Walk
-[Shift] Run
-[F] Take/Drop boxes
+[[color=cyan]Mouse[/color]] Look around
+[[color=cyan]WASD[/color]] Walk
+[[color=cyan]Shift[/color]] Run
+[[color=cyan]F[/color]] Take/Drop boxes
 [/font_size]"
-
-[node name="Scheme" type="Sprite2D" parent="SubViewport/ShemeCanvas"]
-position = Vector2(786, 297)
-scale = Vector2(0.472656, 0.472656)
-texture = ExtResource("6_iqyiu")
 
 [node name="BoxMountPoint" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.10543e-15, 0.613265, -0.82326)
@@ -157,29 +157,29 @@ body = NodePath("..")
 controller = NodePath("../Controller")
 
 [node name="Skeleton3D" parent="Bobot/Armature" index="0"]
-bones/0/position = Vector3(-0.000423332, 2.44823, 1.81252e-08)
-bones/3/position = Vector3(-1.14164, 0.0614631, -1.83744)
-bones/4/position = Vector3(-2.89477, -0.504585, 2.48446)
-bones/5/rotation = Quaternion(-0.912147, -0.00725898, -0.165446, 0.374918)
-bones/6/rotation = Quaternion(-0.0148211, 0.00123527, -0.475399, 0.879645)
-bones/7/rotation = Quaternion(0.944188, 0.0466467, -0.151831, 0.288584)
-bones/8/rotation = Quaternion(0.0698051, 0.109554, -0.461213, 0.877729)
-bones/9/rotation = Quaternion(-0.970484, -0.241164, 3.19371e-08, 4.71065e-08)
+bones/0/position = Vector3(0.01016, 2.60346, -2.73016e-09)
+bones/3/position = Vector3(-2.12046, -0.0904295, -1.02892)
+bones/4/position = Vector3(-2.12046, -0.0904297, 1.02892)
+bones/5/rotation = Quaternion(-0.98959, 0.111876, -0.0483917, 0.0765106)
+bones/6/rotation = Quaternion(-0.00871308, 0.00134829, -0.279479, 0.960111)
+bones/7/rotation = Quaternion(0.99017, -0.10563, -0.0469705, 0.078743)
+bones/8/rotation = Quaternion(0.0399215, 0.119366, -0.263768, 0.956339)
+bones/9/rotation = Quaternion(-0.997622, -0.0689159, 3.30845e-08, 1.62164e-08)
 bones/9/scale = Vector3(1.00001, 1, 1)
-bones/10/rotation = Quaternion(-7.89809e-08, 1.20578e-08, 0.479439, 0.877575)
-bones/12/rotation = Quaternion(-0.815474, -0.578794, -1.0174e-07, 6.86382e-08)
-bones/12/scale = Vector3(1.00002, 0.999998, 1)
-bones/13/rotation = Quaternion(-1.01837e-07, 1.08002e-08, 0.618182, 0.786035)
-bones/15/position = Vector3(1.13838, 3.00079, -1.58381)
-bones/15/rotation = Quaternion(0.666598, 0.497994, -0.411189, 0.372254)
-bones/16/position = Vector3(-0.0596669, 0.249386, -0.51487)
-bones/17/position = Vector3(1.20508, 2.90157, 1.32464)
-bones/17/rotation = Quaternion(0.751345, 0.645836, 0.0836764, -0.10665)
-bones/18/position = Vector3(1.13359, 0.821416, 0.514869)
+bones/10/rotation = Quaternion(-2.73249e-08, 1.35494e-08, 0.16587, 0.986148)
+bones/12/rotation = Quaternion(-0.997622, -0.0689159, -3.0077e-08, 9.79925e-09)
+bones/12/scale = Vector3(1.00001, 1, 1)
+bones/13/rotation = Quaternion(-2.73249e-08, 1.35494e-08, 0.16587, 0.986148)
+bones/15/position = Vector3(0.148567, 2.37811, -0.958611)
+bones/15/rotation = Quaternion(0.982917, 0.183191, 0.00363737, 0.0173594)
+bones/16/position = Vector3(-0.0774941, 0.106455, -0.51487)
+bones/17/position = Vector3(0.148567, 2.37202, 0.976899)
+bones/17/rotation = Quaternion(0.970124, 0.193655, 0.133768, 0.0588424)
+bones/18/position = Vector3(-0.0774941, 0.106455, 0.51487)
 
 [node name="Bobot2" parent="Bobot/Armature/Skeleton3D" index="0"]
 layers = 2
-surface_material_override/0 = SubResource("ShaderMaterial_v3uig")
+surface_material_override/0 = SubResource("ShaderMaterial_tx34p")
 
 [node name="AnimationPlayer" parent="Bobot" index="1"]
 libraries = {

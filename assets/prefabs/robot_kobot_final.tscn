@@ -16,11 +16,11 @@ canvas_layer = NodePath("SubViewport/SchemeCanvas")
 [node name="SubViewport" type="SubViewport" parent="."]
 disable_3d = true
 handle_input_locally = false
-size = Vector2i(2005, 1128)
+size = Vector2i(3840, 2160)
 
 [node name="SchemeCanvas" type="CanvasLayer" parent="SubViewport"]
-scale = Vector2(1.88, 1.88)
-transform = Transform2D(1.88, 0, 0, 1.88, 0, 0)
+scale = Vector2(3.6, 3.6)
+transform = Transform2D(3.6, 0, 0, 3.6, 0, 0)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="SubViewport/SchemeCanvas"]
 offset_left = 200.0

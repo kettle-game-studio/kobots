@@ -88,7 +88,7 @@ func _input(event: InputEvent):
 
 	var collider = raycast.get_collider()
 	if collider is Terminal:
-		main_ui.set_text("[E] To Activate")
+		main_ui.set_text("[[color=green]E[/color]] To Activate")
 		if Input.is_action_just_pressed("EnterRobot"):
 			_get_control(collider)
 	elif main_ui != null:

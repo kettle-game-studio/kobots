@@ -54,7 +54,7 @@ radius = 10.0227
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_po2ix"]
 albedo_texture = ExtResource("8_penvi")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_56gle"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2toet"]
 render_priority = 0
 shader = ExtResource("27_j2fdx")
 shader_parameter/color = Color(1, 1, 1, 1)
@@ -1610,7 +1610,7 @@ story = NodePath("../../../../Story")
 
 [node name="TerminalSupport" parent="Center/Base/Gameplay/FinalTerminal" instance=ExtResource("26_458fb")]
 transform = Transform3D(0.57, 0, 0, 0, 0.57, 0, 0, 0, 0.57, 0, -0.735416, 0)
-surface_material_override/0 = SubResource("ShaderMaterial_56gle")
+surface_material_override/0 = SubResource("ShaderMaterial_2toet")
 
 [node name="Player" parent="." instance=ExtResource("1_jwnee")]
 transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 4.36208, 13.4493, 4.36208)
@@ -1651,6 +1651,7 @@ bones/17/rotation = Quaternion(0.731972, -0.197491, -0.238139, 0.607046)
 [node name="Story" type="Node" parent="." node_paths=PackedStringArray("cut_scenes", "fps_text", "level_1", "level_2", "level_3", "level_4", "root", "start_button", "speedrun_data", "cam")]
 script = ExtResource("6_o1858")
 cut_scenes = NodePath("AnimationPlayer")
+animation_speed = 100.0
 fps_text = NodePath("FpsCanvas/Fps")
 level_1 = NodePath("../Level1")
 level_2 = NodePath("../Level2")
@@ -1684,21 +1685,22 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -200.0
-offset_top = -167.5
+offset_top = -184.0
 offset_right = 200.0
-offset_bottom = 167.5
+offset_bottom = 184.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("7_fmcxw")
 bbcode_enabled = true
-text = "[center][font_size=50][E] To Activate[/font_size][/center]
+text = "[center][font_size=70][[color=green]E[/color]] To Activate[/font_size][/center]
+
 
 [font_size=70]KOBOT[/font_size]
 
 [font_size=45]
-[Mouse] Look around
-[WASD] Walk
-[Shift] Run
+[[color=cyan]Mouse[/color]] Look around
+[[color=cyan]WASD[/color]] Walk
+[[color=cyan]Shift[/color]] Run
 [/font_size]"
 
 [node name="SpeedrunData" type="RichTextLabel" parent="Story/FpsCanvas"]

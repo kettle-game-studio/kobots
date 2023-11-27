@@ -82,8 +82,8 @@ text = "[font_size=40]KOBOT.Mk-04[/font_size]
 Designed as a transport for heavy machinery and boxes
 
 [font_size=40]
-[Mouse] Look around
-[WASD] Walk
+[[color=cyan]Mouse[/color]] Look around
+[[color=cyan]WASD[/color]] Walk
 [/font_size]"
 
 [node name="Scheme" type="Sprite2D" parent="SubViewport/SchemeCanvas"]
