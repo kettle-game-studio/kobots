@@ -54,7 +54,7 @@ radius = 10.0227
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_po2ix"]
 albedo_texture = ExtResource("8_penvi")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_2toet"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xial6"]
 render_priority = 0
 shader = ExtResource("27_j2fdx")
 shader_parameter/color = Color(1, 1, 1, 1)
@@ -159,6 +159,18 @@ tracks/7/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [1.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-25.0]
 }
 
 [sub_resource type="Animation" id="Animation_f8vp6"]
@@ -280,6 +292,18 @@ tracks/9/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 1.0]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(4.9, 12),
+"transitions": PackedFloat32Array(1.23115, 1),
+"update": 0,
+"values": [0.0, -34.212]
 }
 
 [sub_resource type="Animation" id="Animation_uanav"]
@@ -412,6 +436,18 @@ tracks/10/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [1.0, 0.0]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-19.659, 0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7lyda"]
@@ -1610,7 +1646,7 @@ story = NodePath("../../../../Story")
 
 [node name="TerminalSupport" parent="Center/Base/Gameplay/FinalTerminal" instance=ExtResource("26_458fb")]
 transform = Transform3D(0.57, 0, 0, 0, 0.57, 0, 0, 0, 0.57, 0, -0.735416, 0)
-surface_material_override/0 = SubResource("ShaderMaterial_2toet")
+surface_material_override/0 = SubResource("ShaderMaterial_xial6")
 
 [node name="Player" parent="." instance=ExtResource("1_jwnee")]
 transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 4.36208, 13.4493, 4.36208)
@@ -1625,28 +1661,28 @@ environment = ExtResource("1_igkwj")
 visible = false
 
 [node name="Skeleton3D" parent="Player/KobotAnimaterd/Armature" index="0"]
-bones/0/position = Vector3(-0.0304352, 3.3987, 0.0138211)
-bones/0/rotation = Quaternion(3.49505e-05, -1.84139e-22, 7.00271e-19, 1)
-bones/1/rotation = Quaternion(-4.31302e-10, 1.18722e-07, 0.00365634, 0.999993)
-bones/2/rotation = Quaternion(0.157293, 0.177088, -0.961985, 0.135949)
-bones/3/rotation = Quaternion(0.510823, 0.000106081, 0.131598, 0.849554)
-bones/4/position = Vector3(1.74357, 1.98298, -3.77102)
-bones/5/position = Vector3(2.52405, 0.202829, 5.75813)
-bones/6/rotation = Quaternion(0.281919, -0.192215, 0.926532, 0.158474)
-bones/7/rotation = Quaternion(0.554742, 0.0565376, -0.126428, 0.820415)
-bones/8/position = Vector3(-2.64064, 2.09117, -4.17507)
-bones/10/rotation = Quaternion(0.891816, 0.0106964, -0.451005, 0.0338124)
-bones/11/rotation = Quaternion(0.142973, 1.52875e-08, -0.104039, 0.984243)
-bones/12/rotation = Quaternion(0.954073, -0.0196425, -0.295972, 0.041936)
-bones/13/rotation = Quaternion(0.163093, 4.08393e-08, -0.118681, 0.979446)
-bones/14/position = Vector3(1.4318, 4.21784, 0.445599)
-bones/14/rotation = Quaternion(0.0258029, 0.495207, 0.851724, -0.169316)
-bones/15/position = Vector3(0.7116, 0.241422, -0.404286)
+bones/0/position = Vector3(-0.0187923, 2.65267, -1.13085)
+bones/0/rotation = Quaternion(0.0115576, -0.0363332, -0.0773727, 0.996273)
+bones/1/rotation = Quaternion(1.44155e-10, 1.19344e-07, 0.00322363, 0.999995)
+bones/2/rotation = Quaternion(0.0877879, 0.288791, -0.934662, 0.187886)
+bones/3/rotation = Quaternion(0.66697, 9.0466e-05, 0.171825, 0.725001)
+bones/4/position = Vector3(1.66249, 1.99349, -3.77496)
+bones/5/position = Vector3(2.55547, 0.22716, 5.78968)
+bones/6/rotation = Quaternion(0.320351, 0.0942777, 0.92558, 0.178292)
+bones/7/rotation = Quaternion(0.517728, 0.0582569, -0.117992, 0.845365)
+bones/8/position = Vector3(-2.58818, 2.10649, -4.19144)
+bones/10/rotation = Quaternion(0.810106, -0.0254929, -0.387377, 0.439337)
+bones/11/rotation = Quaternion(0.552145, 1.96618e-09, -0.401788, 0.730549)
+bones/12/rotation = Quaternion(0.95745, 0.0116794, -0.275139, 0.086322)
+bones/13/rotation = Quaternion(0.417347, -8.90014e-09, -0.303697, 0.856498)
+bones/14/position = Vector3(1.77127, 3.56812, -0.689559)
+bones/14/rotation = Quaternion(0.0783096, 0.516842, 0.836309, -0.165318)
+bones/15/position = Vector3(0.7116, 0.254444, -0.841335)
 bones/15/rotation = Quaternion(0.731973, -0.197493, -0.238136, 0.607045)
-bones/16/position = Vector3(-1.39487, 4.28202, 0.525043)
-bones/16/rotation = Quaternion(0.182798, 0.576265, 0.79367, 0.0677443)
-bones/17/position = Vector3(-0.813354, 0.255483, -0.37918)
-bones/17/rotation = Quaternion(0.731972, -0.197491, -0.238139, 0.607046)
+bones/16/position = Vector3(-0.904825, 4.06343, 0.284664)
+bones/16/rotation = Quaternion(0.0998197, 0.615035, 0.77882, 0.0721567)
+bones/17/position = Vector3(-0.772368, 0.281488, -2.37166)
+bones/17/rotation = Quaternion(0.717682, -0.161103, -0.284372, 0.614907)
 
 [node name="Story" type="Node" parent="." node_paths=PackedStringArray("cut_scenes", "fps_text", "level_1", "level_2", "level_3", "level_4", "root", "start_button", "speedrun_data", "cam")]
 script = ExtResource("6_o1858")
@@ -1726,6 +1762,7 @@ libraries = {
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Story"]
 stream = SubResource("AudioStreamRandomizer_j06sv")
+volume_db = -25.0
 autoplay = true
 script = ExtResource("37_f44cs")
 
