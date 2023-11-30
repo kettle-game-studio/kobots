@@ -56,7 +56,7 @@ radius = 10.0227
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_po2ix"]
 albedo_texture = ExtResource("8_penvi")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0q46v"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4lqgj"]
 render_priority = 0
 shader = ExtResource("27_j2fdx")
 shader_parameter/color = Color(1, 1, 1, 1)
@@ -1674,7 +1674,7 @@ story = NodePath("../../../../Story")
 
 [node name="TerminalSupport" parent="Center/Base/Gameplay/FinalTerminal" instance=ExtResource("26_458fb")]
 transform = Transform3D(0.57, 0, 0, 0, 0.57, 0, 0, 0, 0.57, 0, -0.735416, 0)
-surface_material_override/0 = SubResource("ShaderMaterial_0q46v")
+surface_material_override/0 = SubResource("ShaderMaterial_4lqgj")
 
 [node name="Player" parent="." instance=ExtResource("1_jwnee")]
 transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 4.36208, 13.4493, 4.36208)
