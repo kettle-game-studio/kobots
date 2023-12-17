@@ -3,7 +3,7 @@
 [ext_resource type="Sky" uid="uid://gleh3d5y1uch" path="res://assets/materials/sky.tres" id="1_qqmsk"]
 
 [resource]
-background_mode = 1
+background_mode = 4
 background_color = Color(0.27451, 0.368627, 0.501961, 1)
 sky = ExtResource("1_qqmsk")
 ambient_light_source = 3

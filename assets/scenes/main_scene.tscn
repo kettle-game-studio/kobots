@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://bb22o6htxbt80"]
+[gd_scene load_steps=54 format=3 uid="uid://bb22o6htxbt80"]
 
 [ext_resource type="Environment" uid="uid://dplq6caflelre" path="res://assets/materials/environment.tres" id="1_igkwj"]
 [ext_resource type="PackedScene" uid="uid://bh30fgjh4prch" path="res://assets/prefabs/player.tscn" id="1_jwnee"]
@@ -43,6 +43,9 @@
 [ext_resource type="AudioStream" uid="uid://bfvs7w5r8l5sy" path="res://assets/sounds/music/kobots_main.mp3" id="35_om6mk"]
 [ext_resource type="AudioStream" uid="uid://beufhdnp5cok4" path="res://assets/sounds/music/kobots_ambient2.mp3" id="35_tdsfu"]
 [ext_resource type="Script" path="res://assets/scripts/infinite_audio.gd" id="37_f44cs"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_yxijc"]
+size = Vector3(-1000, 1000, 1000)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_gq0wv"]
 top_radius = 10.0
@@ -477,6 +480,11 @@ transform = Transform3D(0.961151, 0.00130554, 0.27602, -0.276023, 0.00454606, 0.
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("1_igkwj")
+
+[node name="SkyBox" type="MeshInstance3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.04, 0, 0)
+mesh = SubResource("BoxMesh_yxijc")
+skeleton = NodePath("../..")
 
 [node name="Level1" parent="." instance=ExtResource("2_h57yw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.707107, 0, 0.707107)
